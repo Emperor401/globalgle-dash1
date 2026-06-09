@@ -1,4 +1,4 @@
-<!-- src/views/WalletView.vue -->
+﻿<!-- src/views/WalletView.vue -->
 <template>
   <div class="wallet-page">
 
@@ -534,7 +534,7 @@ function showToast(type, msg) {
   border-radius: 10px; padding: 10px 18px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 .w-switch-btn:hover { border-color: rgba(34,197,94,.35); color: var(--t1); }
 
@@ -553,7 +553,7 @@ function showToast(type, msg) {
 }
 .w-stat {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; padding: 22px 24px;
   display: flex; flex-direction: column; gap: 8px;
@@ -584,7 +584,7 @@ function showToast(type, msg) {
 /* ── Auto deposit row ── */
 .w-auto-row {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 16px; padding: 16px 20px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -609,7 +609,7 @@ function showToast(type, msg) {
 /* ── Transactions ── */
 .w-txn-section {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }

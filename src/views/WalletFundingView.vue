@@ -1,4 +1,4 @@
-<!-- src/views/WalletFundingView.vue -->
+﻿<!-- src/views/WalletFundingView.vue -->
 <template>
   <div class="wf-page">
 
@@ -315,15 +315,15 @@ function selectCoin(coin) {
   border-radius: 10px; padding: 9px 16px; font-size: 0.82rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: border-color 0.2s, color 0.2s;
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 .wf-history-btn:hover { border-color: rgba(34,197,94,.35); color: var(--t1); }
 
 /* plan card */
 .wf-plan-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 24px 28px;
@@ -383,8 +383,8 @@ function selectCoin(coin) {
 
 .wf-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 18px;
   padding: 20px;
@@ -425,8 +425,8 @@ function selectCoin(coin) {
 /* how it works */
 .wf-howto {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 24px 28px;

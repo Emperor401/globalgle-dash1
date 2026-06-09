@@ -1,4 +1,4 @@
-<!-- src/views/ComplaintView.vue -->
+﻿<!-- src/views/ComplaintView.vue -->
 <template>
   <div class="cmp">
 
@@ -486,7 +486,7 @@ function closeTicket(id) {
 .cmp-tabs {
   display: flex; gap: 4px;
   background: var(--glass);
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 5px; width: fit-content;
 }
@@ -512,7 +512,7 @@ function closeTicket(id) {
 
 .cmp-row {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 16px;
   overflow: hidden; cursor: pointer; transition: border-color 0.2s;
 }
@@ -606,7 +606,7 @@ function closeTicket(id) {
   padding: 32px; text-align: center;
   font-size: 0.82rem; color: var(--t3);
   background: var(--glass);
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 16px;
 }
 
@@ -616,7 +616,7 @@ function closeTicket(id) {
 }
 .cmp-empty {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px dashed var(--border); border-radius: 22px;
   padding: 64px 80px; display: flex; flex-direction: column;
   align-items: center; gap: 14px; text-align: center;

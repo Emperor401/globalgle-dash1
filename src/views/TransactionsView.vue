@@ -1,4 +1,4 @@
-<!-- src/views/TransactionsView.vue -->
+﻿<!-- src/views/TransactionsView.vue -->
 <template>
   <div class="transactions">
 
@@ -347,7 +347,7 @@ function exportCSV() {
 .kpi-card__trend { font-size:0.7rem; font-weight:700; flex-shrink:0; }
 
 /* Panel */
-.txn-panel { background:var(--glass); backdrop-filter:var(--glass-filter); -webkit-backdrop-filter:var(--glass-filter); border:1px solid var(--border-soft); border-radius:20px; padding:24px; display:flex; flex-direction:column; gap:20px; }
+.txn-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:20px; padding:24px; display:flex; flex-direction:column; gap:20px; }
 
 .panel-header { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 .panel-title { font-size:1rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
@@ -410,7 +410,7 @@ function exportCSV() {
 .more-wrap { position:relative; }
 .row-menu {
   position:absolute; right:0; top:36px; z-index:200;
-  background:var(--glass); backdrop-filter:var(--glass-filter); -webkit-backdrop-filter:var(--glass-filter);
+  background:var(--glass); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
   border:1px solid var(--border); border-radius:12px;
   padding:6px; display:flex; flex-direction:column; gap:2px;
   min-width:168px;
@@ -441,7 +441,7 @@ function exportCSV() {
   padding:10px 20px; border-radius:99px;
   font-family:'Satoshi',sans-serif; font-size:0.82rem; font-weight:600;
   white-space:nowrap;
-  background:var(--glass); backdrop-filter:var(--glass-filter); -webkit-backdrop-filter:var(--glass-filter);
+  background:var(--glass); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
   border:1px solid var(--border);
 }
 .txn-toast--success { color:#22c55e; border-color:rgba(34,197,94,0.35); }

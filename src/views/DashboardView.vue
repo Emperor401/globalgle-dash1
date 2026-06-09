@@ -1,4 +1,4 @@
-<!-- src/views/DashboardView.vue -->
+﻿<!-- src/views/DashboardView.vue -->
 <template>
   <div class="dashboard">
     <CommunityModal />
@@ -458,8 +458,8 @@ function fmtAmount(amount, currency = 'NGN') {
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   color: var(--t1);
   font-family: 'Satoshi', sans-serif;
   font-size: 0.78rem;
@@ -484,8 +484,8 @@ function fmtAmount(amount, currency = 'NGN') {
 /* Card base */
 .b-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 22px;
   padding: 22px;
@@ -831,8 +831,8 @@ function fmtAmount(amount, currency = 'NGN') {
   border-radius: 20px;
   border: 1.5px solid var(--border-soft);
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   transition: border-color 0.22s;
 }
 .promo-card--referral:hover { border-color: rgba(124,92,252,0.35); }

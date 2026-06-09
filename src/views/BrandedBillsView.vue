@@ -1,4 +1,4 @@
-<!-- src/views/BrandedBillsView.vue -->
+﻿<!-- src/views/BrandedBillsView.vue -->
 <template>
   <div class="gen-page">
 
@@ -186,8 +186,8 @@ const cards = [
 
 .gen-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 18px;
   padding: 28px 26px 30px;
@@ -205,7 +205,7 @@ const cards = [
 .gen-card__desc  { font-size: 0.8rem; color: var(--accent); line-height: 1.55; margin: 0; }
 
 /* ── Recent Panel ── */
-.recent-panel { background:var(--glass); backdrop-filter:var(--glass-filter); -webkit-backdrop-filter:var(--glass-filter); border:1px solid var(--border-soft); border-radius:18px; padding:20px 22px; }
+.recent-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:18px; padding:20px 22px; }
 .recent-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:14px; }
 .recent-title { font-size:0.95rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
 .recent-sub { font-size:0.72rem; color:var(--t4); margin:0; }

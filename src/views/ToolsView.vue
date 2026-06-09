@@ -1,4 +1,4 @@
-<!-- src/views/ToolsView.vue -->
+﻿<!-- src/views/ToolsView.vue -->
 <template>
   <div class="tools-page">
 
@@ -116,8 +116,8 @@ const tools = [
 /* ── Card ── */
 .tool-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 24px;

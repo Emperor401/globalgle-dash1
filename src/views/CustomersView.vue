@@ -1,4 +1,4 @@
-<!-- src/views/CustomersView.vue  →  Email Services -->
+﻿<!-- src/views/CustomersView.vue  →  Email Services -->
 <template>
   <div class="email-page">
 
@@ -87,8 +87,8 @@ const services = [
 /* Card */
 .service-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 18px;
   padding: 28px 26px 30px;

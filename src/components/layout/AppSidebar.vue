@@ -1,4 +1,4 @@
-<!-- src/components/layout/AppSidebar.vue -->
+﻿<!-- src/components/layout/AppSidebar.vue -->
 <template>
 
   <!-- Backdrop (mobile only) -->
@@ -270,8 +270,8 @@ const navItems = [
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.025);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-right: 1px solid var(--border-soft);
   position: fixed;
   top: 0;

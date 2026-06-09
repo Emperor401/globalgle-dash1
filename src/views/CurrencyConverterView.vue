@@ -1,4 +1,4 @@
-<!-- src/views/CurrencyConverterView.vue -->
+﻿<!-- src/views/CurrencyConverterView.vue -->
 <template>
   <div class="cc-page">
 
@@ -315,8 +315,8 @@ onMounted(async () => {
 /* converter card */
 .cc-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 28px;
@@ -422,8 +422,8 @@ onMounted(async () => {
 }
 .cc-pair-card {
   background: var(--glass);
-  backdrop-filter: var(--glass-filter);
-  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 16px;
   cursor: pointer; transition: border-color 0.2s, transform 0.2s;
