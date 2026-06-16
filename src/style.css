@@ -147,11 +147,17 @@ html, body {
   min-height: 100vh;
   background: var(--bg);
   font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
   color: var(--t1);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 0.35s ease, color 0.35s ease;
 }
+
+/* ── Global thin weight overrides ── */
+h1, h2, h3, h4, h5, h6 { font-weight: 400; letter-spacing: 0.04em; }
+button, input, textarea, select { font-family: 'Outfit', sans-serif; font-weight: 300; letter-spacing: 0.02em; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
