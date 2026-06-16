@@ -38,19 +38,19 @@ import ToastContainer from '../ui/ToastContainer.vue'
 
 
 .app-layout__main {
-  margin-left: 260px;
+  margin-left: 220px;
   min-height: 100vh;
   position: relative;
   z-index: 1;
 }
 
 .app-layout__content {
-  padding: 96px 28px 32px;
+  padding: 80px 20px 24px;
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .app-layout__main  { margin-left: 220px; }
-  .app-layout__content { padding: 88px 20px 32px; }
+  .app-layout__main  { margin-left: 200px; }
+  .app-layout__content { padding: 76px 16px 24px; }
 }
 @media (max-width: 768px) {
   .app-layout__main  { margin-left: 0; }

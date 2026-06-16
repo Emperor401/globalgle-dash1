@@ -361,7 +361,7 @@ const navItems = [
 <style scoped>
 /* ── Shell ── */
 .sidebar {
-  width: 260px;
+  width: 220px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -389,7 +389,7 @@ const navItems = [
 .sidebar__close-btn { display: none; }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .sidebar { width: 220px; }
+  .sidebar { width: 200px; }
 }
 
 @media (max-width: 768px) {
