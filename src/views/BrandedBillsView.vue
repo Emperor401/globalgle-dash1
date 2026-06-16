@@ -199,7 +199,7 @@ const cards = [
   display: flex; align-items: center; gap: 6px;
   padding: 8px 14px;
   background: var(--glass); border: 1px solid var(--border-soft); border-radius: 9px;
-  color: var(--t3); font-family: 'Satoshi', sans-serif; font-size: 0.78rem; font-weight: 600;
+  color: var(--t3); font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
   cursor: pointer; transition: all 0.2s ease;
 }
 .back-btn:hover { color: var(--t1); border-color: var(--border); }
@@ -278,7 +278,7 @@ const cards = [
 .form-label { font-size: 0.68rem; font-weight: 700; color: var(--t3); text-transform: uppercase; letter-spacing: 0.06em; }
 .form-input {
   background: var(--modal-input); border: 1px solid var(--border-soft); border-radius: 9px;
-  padding: 10px 13px; color: var(--t1); font-family: 'Satoshi', sans-serif; font-size: 0.82rem;
+  padding: 10px 13px; color: var(--t1); font-family: 'Outfit', sans-serif; font-size: 0.82rem;
   outline: none; transition: border-color 0.2s ease; width: 100%;
 }
 .form-input::placeholder { color: var(--t4); }
@@ -286,9 +286,9 @@ const cards = [
 .form-input option { background: #0c0d1f; }
 
 .modal-footer { display: flex; justify-content: flex-end; gap: 10px; padding-top: 6px; border-top: 1px solid var(--border-soft); }
-.btn-cancel   { padding: 9px 20px; background: var(--glass-2); border: 1px solid var(--border-soft); border-radius: 9px; color: var(--t3); font-family: 'Satoshi', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+.btn-cancel   { padding: 9px 20px; background: var(--glass-2); border: 1px solid var(--border-soft); border-radius: 9px; color: var(--t3); font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
 .btn-cancel:hover { color: var(--t1); }
-.btn-generate { display: flex; align-items: center; gap: 7px; padding: 9px 22px; background: var(--accent); border: none; border-radius: 9px; color: #fff; font-family: 'Satoshi', sans-serif; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s ease; }
+.btn-generate { display: flex; align-items: center; gap: 7px; padding: 9px 22px; background: var(--accent); border: none; border-radius: 9px; color: #fff; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s ease; }
 .btn-generate:hover { opacity: 0.88; }
 
 .modal-enter-active { transition: opacity 0.25s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1); }

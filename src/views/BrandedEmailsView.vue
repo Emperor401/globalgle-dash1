@@ -184,7 +184,7 @@ const recentSends = [
 
 /* Header */
 .be-header { display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap; }
-.back-btn { display:flex; align-items:center; gap:6px; padding:8px 14px; background:var(--glass); border:1px solid var(--border-soft); border-radius:9px; color:var(--t3); font-family:'Satoshi',sans-serif; font-size:0.78rem; font-weight:600; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; margin-top:4px; }
+.back-btn { display:flex; align-items:center; gap:6px; padding:8px 14px; background:var(--glass); border:1px solid var(--border-soft); border-radius:9px; color:var(--t3); font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:600; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; margin-top:4px; }
 .back-btn:hover { color:var(--t1); border-color:var(--border); }
 .be-title { font-size:1.4rem; font-weight:800; color:var(--t1); letter-spacing:-0.025em; margin:0 0 4px; }
 .be-sub { font-size:0.8rem; color:var(--t3); margin:0; }
@@ -196,7 +196,7 @@ const recentSends = [
 
 /* Tabs */
 .filter-bar { display:flex; gap:4px; }
-.ftab { font-family:'Satoshi',sans-serif; font-size:0.78rem; font-weight:500; color:var(--t3); background:var(--glass); border:1px solid var(--border-soft); padding:7px 16px; border-radius:9px; cursor:pointer; transition:all 0.2s ease; }
+.ftab { font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:500; color:var(--t3); background:var(--glass); border:1px solid var(--border-soft); padding:7px 16px; border-radius:9px; cursor:pointer; transition:all 0.2s ease; }
 .ftab:hover { color:var(--t1); }
 .ftab--active { color:var(--accent) !important; background:var(--accent-dim) !important; border-color:var(--accent-border) !important; font-weight:700; }
 
@@ -223,9 +223,9 @@ const recentSends = [
 .t-name { font-size:0.9rem; font-weight:700; color:var(--t1); margin:0; }
 .t-desc { font-size:0.74rem; color:var(--t3); line-height:1.5; margin:0; }
 .t-actions { display:flex; gap:8px; }
-.btn-preview { flex:1; padding:8px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:8px; color:var(--t3); font-family:'Satoshi',sans-serif; font-size:0.75rem; font-weight:600; cursor:pointer; transition:all 0.2s ease; }
+.btn-preview { flex:1; padding:8px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:8px; color:var(--t3); font-family:'Outfit',sans-serif; font-size:0.75rem; font-weight:600; cursor:pointer; transition:all 0.2s ease; }
 .btn-preview:hover { color:var(--t1); border-color:var(--border); }
-.btn-send { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:8px; background:var(--accent-dim); border:1px solid var(--accent-border); border-radius:8px; color:var(--accent); font-family:'Satoshi',sans-serif; font-size:0.75rem; font-weight:700; cursor:pointer; transition:all 0.2s ease; }
+.btn-send { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:8px; background:var(--accent-dim); border:1px solid var(--accent-border); border-radius:8px; color:var(--accent); font-family:'Outfit',sans-serif; font-size:0.75rem; font-weight:700; cursor:pointer; transition:all 0.2s ease; }
 .btn-send:hover { background:var(--accent); color:#fff; }
 
 /* Recent Sends */
@@ -304,9 +304,9 @@ const recentSends = [
 .me-cta { margin:0 16px 16px; padding:10px 16px; border-radius:8px; color:#fff; font-size:0.8rem; font-weight:700; text-align:center; cursor:pointer; }
 .me-footer { font-size:0.62rem; color:var(--t4); text-align:center; padding:10px 16px 14px; border-top:1px solid var(--border-soft); }
 .modal-actions { display:flex; gap:10px; padding:0 20px 20px; }
-.modal-btn-cancel { flex:1; padding:10px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:10px; color:var(--t3); font-family:'Satoshi',sans-serif; font-size:0.82rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
+.modal-btn-cancel { flex:1; padding:10px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:10px; color:var(--t3); font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
 .modal-btn-cancel:hover { color:var(--t1); }
-.modal-btn-send { flex:2; display:flex; align-items:center; justify-content:center; gap:7px; padding:10px; border:none; border-radius:10px; color:#fff; font-family:'Satoshi',sans-serif; font-size:0.82rem; font-weight:700; cursor:pointer; opacity:0.92; transition:opacity 0.2s; }
+.modal-btn-send { flex:2; display:flex; align-items:center; justify-content:center; gap:7px; padding:10px; border:none; border-radius:10px; color:#fff; font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:700; cursor:pointer; opacity:0.92; transition:opacity 0.2s; }
 .modal-btn-send:hover { opacity:1; }
 
 .modal-enter-active, .modal-leave-active { transition:all 0.25s ease; }

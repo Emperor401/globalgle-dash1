@@ -146,7 +146,7 @@
 html, body {
   min-height: 100vh;
   background: var(--bg);
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Outfit', sans-serif;
   color: var(--t1);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

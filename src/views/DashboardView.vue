@@ -425,7 +425,7 @@ function fmtAmount(amount, currency = 'NGN') {
   backdrop-filter: blur(20px) saturate(180%);
  
   color: var(--t1);
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
@@ -541,7 +541,7 @@ function fmtAmount(amount, currency = 'NGN') {
   background: var(--accent);
   color: #fff;
   border: none;
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
@@ -601,7 +601,7 @@ function fmtAmount(amount, currency = 'NGN') {
   cursor: pointer;
   transition: transform 0.15s ease, opacity 0.15s ease;
   flex-shrink: 0;
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 .ba-tile:hover { transform: translateY(-2px); opacity: 0.85; }
 .ba-tile:active { transform: translateY(0) scale(0.97); }
@@ -941,7 +941,7 @@ function fmtAmount(amount, currency = 'NGN') {
   cursor: pointer;
   transition: all 0.2s;
   white-space: nowrap;
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 .ref-copy-btn:hover,
 .ref-share-btn:hover { background: rgba(124,92,252,0.20); border-color: #7c5cfc; }

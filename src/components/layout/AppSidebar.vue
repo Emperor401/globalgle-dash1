@@ -729,7 +729,7 @@ const navItems = [
   border: none;
   background: transparent;
   color: var(--t1);
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
@@ -815,7 +815,7 @@ const navItems = [
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   border: none;
   color: #fff;
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;

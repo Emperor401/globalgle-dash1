@@ -386,7 +386,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .search-icon { width: 14px; height: 14px; color: var(--t4); flex-shrink: 0; }
 .navbar__search-input {
   background: transparent; border: none; outline: none;
-  font-family: 'Satoshi', sans-serif; font-size: 0.8rem; color: var(--t1); width: 100%;
+  font-family: 'Outfit', sans-serif; font-size: 0.8rem; color: var(--t1); width: 100%;
 }
 .navbar__search-input::placeholder { color: var(--t4); }
 
