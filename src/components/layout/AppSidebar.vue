@@ -162,36 +162,8 @@
         <button class="upgrade__btn" @click.stop="goUpgrade">Upgrade</button>
       </div>
 
-      <!-- Decorative ribbon -->
-      <div class="upgrade__deco" aria-hidden="true">
-        <svg width="64" height="72" viewBox="0 0 64 72" fill="none">
-          <defs>
-            <linearGradient id="bowL" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#fcd34d"/>
-              <stop offset="100%" stop-color="#f59e0b"/>
-            </linearGradient>
-            <linearGradient id="bowR" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#f59e0b"/>
-              <stop offset="100%" stop-color="#b45309"/>
-            </linearGradient>
-          </defs>
-          <!-- left wing -->
-          <path d="M32 34 C26 26 10 22 7 12 C5 4 15 1 22 8 C27 13 30 24 32 34Z" fill="url(#bowL)"/>
-          <!-- right wing -->
-          <path d="M32 34 C38 26 54 22 57 12 C59 4 49 1 42 8 C37 13 34 24 32 34Z" fill="url(#bowR)"/>
-          <!-- knot -->
-          <ellipse cx="32" cy="34" rx="6" ry="5" fill="#f59e0b"/>
-          <ellipse cx="32" cy="34" rx="3" ry="2.5" fill="#fef3c7" opacity="0.6"/>
-          <!-- left tail -->
-          <path d="M27 37 C22 46 18 57 22 67" stroke="url(#bowL)" stroke-width="5" stroke-linecap="round"/>
-          <!-- right tail -->
-          <path d="M37 37 C42 46 46 57 42 67" stroke="url(#bowR)" stroke-width="5" stroke-linecap="round"/>
-          <!-- sparkle dots -->
-          <circle cx="14" cy="6" r="2" fill="#fcd34d" opacity="0.7"/>
-          <circle cx="52" cy="5" r="1.5" fill="#f59e0b" opacity="0.6"/>
-          <circle cx="58" cy="22" r="1.5" fill="#fef3c7" opacity="0.5"/>
-        </svg>
-      </div>
+      <!-- Decorative image -->
+      <img :src="cartnLogo" class="upgrade__deco-img" aria-hidden="true" />
     </div>
 
     <!-- Profile strip -->
@@ -286,6 +258,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import whiteLogo from '../../assets/white.jpeg'
 import darkLogo  from '../../assets/dark.jpeg'
+import cartnLogo from '../../assets/cartn.png'
 import { useSidebar } from '../../composables/useSidebar.js'
 
 const { sidebarOpen, closeSidebar } = useSidebar()
@@ -363,18 +336,18 @@ const navItems = [
 .sidebar {
   width: 220px;
   height: 100vh;
+  height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.025);
   backdrop-filter: blur(20px) saturate(180%);
- 
   border-right: 1px solid var(--border-soft);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   transition: background 0.35s ease, border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
-  overflow: hidden;
+  overflow-x: hidden; /* horizontal clip only — lets profile dropdown render above sidebar */
 }
 
 /* ── Mobile backdrop ── */
@@ -388,20 +361,71 @@ const navItems = [
 /* ── Mobile close btn (hidden on desktop) ── */
 .sidebar__close-btn { display: none; }
 
-@media (max-width: 1024px) and (min-width: 769px) {
-  .sidebar { width: 200px; }
+/* ── Tablet — iPad Pro 11"/13" M4/M5 portrait & landscape ── */
+@media (min-width: 769px) and (max-width: 1366px) {
+  .sidebar        { width: 210px; }
+  .sidebar__group { padding: 14px 12px 4px; }
+  .nav-item       { padding: 8px 9px; }
+  .nav-item__label { font-size: 0.82rem; }
+}
+
+/* ── Short viewport — tablet landscape (height ≤ 860px) ── */
+@media (max-height: 860px) and (min-width: 769px) {
+  .sidebar__logo  { padding: 14px 18px 12px; }
+  .sidebar__group { padding: 12px 12px 4px; }
+  .nav-item       { padding: 7px 9px; }
+
+  .sidebar__upgrade {
+    min-height: auto;
+    padding: 13px 14px;
+    margin: 0 12px 10px;
+  }
+  .upgrade__body  { padding-right: 78px; }
+  .upgrade__title { font-size: 1rem; }
+  .upgrade__btn   { margin-top: 8px; padding: 5px 14px; font-size: 0.73rem; }
+  .upgrade__deco-img { width: 76px; height: 76px; }
+
+  .sidebar__profile { margin: 0 12px 12px; padding: 9px 10px; }
+}
+
+/* ── Very short viewport — hide upgrade card (height ≤ 700px) ── */
+@media (max-height: 700px) and (min-width: 769px) {
+  .sidebar__upgrade { display: none; }
 }
 
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
     z-index: 100;
-    width: 280px;
+    width: 260px;
     background: var(--bg);
     backdrop-filter: none;
     border-right: 1px solid var(--border-soft);
   }
   .sidebar--open { transform: translateX(0); }
+
+  /* Compact nav on mobile */
+  .sidebar__logo  { padding: 14px 16px 12px; }
+  .sidebar__group { padding: 12px 10px 4px; }
+  .nav-item       { padding: 7px 8px; }
+  .nav-item__label { font-size: 0.8rem; }
+  .nav-item__icon  { width: 26px; height: 26px; border-radius: 7px; }
+
+  /* Compact upgrade card */
+  .sidebar__upgrade {
+    min-height: auto;
+    padding: 12px 13px;
+    margin: 0 10px 12px;
+    border-radius: 14px;
+  }
+  .upgrade__body   { padding-right: 76px; }
+  .upgrade__label  { font-size: 0.68rem; }
+  .upgrade__title  { font-size: 0.95rem; }
+  .upgrade__btn    { margin-top: 7px; padding: 5px 13px; font-size: 0.7rem; }
+  .upgrade__deco-img { width: 72px; height: 72px; }
+
+  /* Compact profile strip */
+  .sidebar__profile { margin: 0 10px 12px; padding: 9px 10px; }
 
   .sidebar__close-btn {
     display: flex; align-items: center; justify-content: center;
@@ -771,35 +795,37 @@ const navItems = [
   align-items: center;
   justify-content: space-between;
   margin: 0 14px 18px;
-  padding: 16px 16px;
-  border-radius: 16px;
-  background: linear-gradient(145deg, #1e1b30 0%, #13111f 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 18px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #1a1506 0%, #2a1f02 60%, #1e1a05 100%);
+  border: 1px solid rgba(245, 158, 11, 0.22);
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible;
   flex-shrink: 0;
+  min-height: 110px;
   transition: border-color 0.25s ease;
 }
 
-.sidebar__upgrade:hover { border-color: rgba(245, 158, 11, 0.35); }
+.sidebar__upgrade:hover { border-color: rgba(245, 158, 11, 0.55); }
 
 .upgrade__body {
   display: flex;
   flex-direction: column;
   gap: 4px;
   z-index: 1;
+  padding-right: 88px;
 }
 
 .upgrade__label {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(253, 211, 77, 0.65);
   margin: 0;
   line-height: 1;
 }
 
 .upgrade__title {
-  font-size: 1.1rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: #fff;
   margin: 0;
@@ -808,15 +834,15 @@ const navItems = [
 }
 
 .upgrade__btn {
-  margin-top: 10px;
+  margin-top: 12px;
   align-self: flex-start;
-  padding: 6px 18px;
+  padding: 7px 20px;
   border-radius: 999px;
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   border: none;
   color: #fff;
   font-family: 'Outfit', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -824,15 +850,16 @@ const navItems = [
 
 .upgrade__btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
-.upgrade__btn {}
-
-.upgrade__deco {
+.upgrade__deco-img {
   position: absolute;
-  right: -4px;
-  bottom: -6px;
-  opacity: 0.92;
+  right: 6px;
+  bottom: 0;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(245,158,11,0.4));
 }
 
 /* ── Light mode surface fixes ── */
@@ -840,4 +867,9 @@ const navItems = [
 [data-theme="light"] .sidebar__close-btn:hover { background: var(--glass-hover); }
 [data-theme="light"] .sidebar__scroll::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); }
 [data-theme="light"] .sidebar__scroll::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.28); }
+
+/* ── Safari / older iPadOS fallback — -webkit-fill-available ── */
+@supports not (height: 100dvh) {
+  .sidebar { height: -webkit-fill-available; }
+}
 </style>

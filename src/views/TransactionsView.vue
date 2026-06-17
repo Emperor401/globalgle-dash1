@@ -338,7 +338,7 @@ function exportCSV() {
 
 /* KPI */
 .kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-.kpi-card { border:1px solid; border-radius:16px; padding:18px 20px; display:flex; align-items:center; gap:14px; transition:opacity 0.2s; }
+.kpi-card { border:1px solid; border-radius:12px; padding:10px 14px; display:flex; align-items:center; gap:12px; transition:opacity 0.2s; }
 .kpi-card:hover { opacity:0.9; }
 .kpi-card__icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .kpi-card__body { flex:1; display:flex; flex-direction:column; gap:2px; }
@@ -347,7 +347,7 @@ function exportCSV() {
 .kpi-card__trend { font-size:0.7rem; font-weight:700; flex-shrink:0; }
 
 /* Panel */
-.txn-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:20px; padding:24px; display:flex; flex-direction:column; gap:20px; }
+.txn-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:14px; padding:14px 16px; display:flex; flex-direction:column; gap:14px; }
 
 .panel-header { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 .panel-title { font-size:1rem; font-weight:700; color:var(--t1); margin:0 0 3px; }

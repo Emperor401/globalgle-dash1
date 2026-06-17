@@ -54,7 +54,10 @@ import ToastContainer from '../ui/ToastContainer.vue'
 }
 @media (max-width: 768px) {
   .app-layout__main  { margin-left: 0; }
-  .app-layout__content { padding: 80px 16px 100px; }
+  .app-layout__content { padding: 68px 12px 88px; }
+}
+@media (max-width: 480px) {
+  .app-layout__content { padding: 64px 10px 84px; }
 }
 
 .page-enter-active,

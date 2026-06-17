@@ -225,6 +225,30 @@ button, input, textarea, select { font-family: 'Outfit', sans-serif; font-weight
 
 @media (max-width: 768px) {
 
+  /* ── Base font scale-down ── */
+  html { font-size: 12.5px; }
+
+  /* ── Global card / box padding reduction (all pages) ── */
+  .tool-card, .service-card, .gen-card, .cc-card, .cc-pair-card,
+  .sms-form-card, .sc-form-card, .sc-recent-card, .sms-history,
+  .sms-preview-stats, .sms-tab-bar, .sc-tab-bar,
+  .w-stat, .w-txn-section, .w-auto-row,
+  .set-card, .help-card, .help-cat, .help-faq, .help-right,
+  .tut-card, .bill-plan-card, .bill-stat, .bill-notes,
+  .wf-card, .wf-howto, .wf-plan-card,
+  .cmp-row, .cmp-cat-card, .cmp-tabs,
+  .be-card, .promo-card {
+    padding: 12px 13px !important;
+    border-radius: 14px !important;
+  }
+
+  /* ── Global modal / overlay reduction ── */
+  .modal-card, .bill-modal, .launch-modal, .tut-modal,
+  .cmp-modal, .ec-modal, .modal-box, .wf-modal {
+    padding: 18px 16px !important;
+  }
+  .tut-modal-body, .cmp-modal-body { padding: 14px 16px !important; }
+
   /* ── Dashboard — handled by scoped styles in DashboardView.vue ── */
 
   /* ── Two-column body layouts ── */
@@ -291,6 +315,16 @@ button, input, textarea, select { font-family: 'Outfit', sans-serif; font-weight
 }
 
 @media (max-width: 480px) {
+  html { font-size: 12px; }
+
+  .tool-card, .service-card, .gen-card, .cc-card, .cc-pair-card,
+  .sms-form-card, .sc-form-card, .sc-recent-card,
+  .w-stat, .set-card, .help-card, .tut-card, .bill-plan-card,
+  .wf-card, .cmp-row, .cmp-cat-card, .promo-card {
+    padding: 10px 11px !important;
+    border-radius: 12px !important;
+  }
+
   .help-cats                { grid-template-columns: 1fr 1fr !important; }
   .w-stats                  { grid-template-columns: 1fr !important; }
   .analytics-stats          { grid-template-columns: 1fr !important; }

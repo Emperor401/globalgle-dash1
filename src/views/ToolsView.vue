@@ -119,11 +119,11 @@ const tools = [
   backdrop-filter: blur(20px) saturate(180%);
  
   border: 1px solid var(--border-soft);
-  border-radius: 20px;
-  padding: 24px;
+  border-radius: 14px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   cursor: pointer;
   transition: border-color 0.22s, transform 0.22s;
   position: relative;

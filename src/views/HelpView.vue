@@ -364,8 +364,8 @@ function showToast(type, msg) {
 .help-faq {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-soft); border-radius: 20px;
-  padding: 22px; display: flex; flex-direction: column; gap: 16px;
+  border: 1px solid var(--border-soft); border-radius: 14px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 12px;
 }
 .help-faq-hdr {
   display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
@@ -444,8 +444,8 @@ function showToast(type, msg) {
 .help-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-soft); border-radius: 20px;
-  padding: 20px; display: flex; flex-direction: column; gap: 12px;
+  border: 1px solid var(--border-soft); border-radius: 14px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
 }
 .help-card--green { border-color: rgba(34,197,94,.2); background: rgba(34,197,94,.04); }
 

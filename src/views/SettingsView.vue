@@ -711,8 +711,8 @@ function copyText(text) {
 .set-id-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-soft); border-radius: 20px;
-  padding: 20px 22px; display: flex; align-items: center; gap: 18px;
+  border: 1px solid var(--border-soft); border-radius: 14px;
+  padding: 12px 14px; display: flex; align-items: center; gap: 14px;
   position: relative;
 }
 .set-id-avatar-wrap { position: relative; }
@@ -805,8 +805,8 @@ function copyText(text) {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
-  border-radius: 20px; padding: 22px;
-  display: flex; flex-direction: column; gap: 14px;
+  border-radius: 14px; padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 10px;
 }
 .set-card--red { border-color: rgba(248,113,113,.2); background: rgba(248,113,113,.03); }
 

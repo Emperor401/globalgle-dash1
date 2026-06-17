@@ -1074,23 +1074,25 @@ function fmtAmount(amount, currency = 'NGN') {
 }
 @media (max-width: 768px) {
 
-  /* Page padding */
-  .dashboard { gap: 14px; }
+  /* Page gap */
+  .dashboard { gap: 8px; }
 
   /* Header stacks */
   .dash-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
   }
-  .dash-header__title { font-size: 1.25rem; }
+  .dash-header__title { font-size: 1.15rem; }
+  .dash-header__sub   { font-size: 0.75rem; }
   .dash-header__right { width: 100%; }
-  .plan-badge { font-size: 0.72rem; }
+  .plan-badge  { font-size: 0.7rem; padding: 5px 11px; }
+  .upgrade-btn { font-size: 0.72rem; padding: 5px 14px; }
 
-  /* Bento: single column */
+  /* Bento: single column, tighter */
   .bento {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 8px;
   }
 
   /* Reset all column spans */
@@ -1102,51 +1104,78 @@ function fmtAmount(amount, currency = 'NGN') {
     grid-column: span 1;
   }
 
-  /* Balance card */
-  .b-card { padding: 18px; border-radius: 18px; }
-  .bal-int  { font-size: 2.2rem; }
-  .bal-sign { font-size: 1.2rem; }
-  .bal-dec  { font-size: 1.2rem; }
+  /* Smaller card base */
+  .b-card { padding: 12px 14px; border-radius: 14px; gap: 8px; }
+
+  /* Balance figures */
+  .bal-greeting { font-size: 0.78rem; }
+  .bal-int  { font-size: 1.85rem; }
+  .bal-sign { font-size: 1.1rem; }
+  .bal-dec  { font-size: 1.1rem; }
   .bal-top-row { align-items: center; }
-  .add-funds-btn { padding: 9px 16px; font-size: 0.8rem; }
+  .add-funds-btn { padding: 7px 14px; font-size: 0.75rem; }
 
-  /* Action buttons — evenly spaced */
-  .bal-actions { gap: 16px; justify-content: space-between; }
-  .ba-tile__icon { width: 34px; height: 34px; border-radius: 10px; }
-  .ba-tile__label { font-size: 0.63rem; }
+  /* Action tiles */
+  .bal-actions { gap: 12px; justify-content: space-between; margin-top: 2px; }
+  .ba-tile__icon { width: 30px; height: 30px; border-radius: 9px; }
+  .ba-tile__label { font-size: 0.62rem; }
 
-  /* Plan stats: 3 cards side-by-side (they're compact enough) */
+  /* Plan stats row */
   .b-plan-row {
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 7px;
   }
-  .ps-card  { padding: 12px 10px; }
-  .ps-value { font-size: 1rem; }
-  .ps-label { font-size: 0.58rem; letter-spacing: 0.04em; }
-  .ps-icon  { width: 24px; height: 24px; }
-  .ps-icon svg { width: 12px; height: 12px; }
+  .ps-card  { padding: 10px 9px; gap: 4px; }
+  .ps-value { font-size: 0.95rem; }
+  .ps-label { font-size: 0.55rem; letter-spacing: 0.04em; }
+  .ps-sub   { font-size: 0.62rem; }
+  .ps-icon  { width: 22px; height: 22px; border-radius: 6px; }
+  .ps-icon svg { width: 11px; height: 11px; }
 
-  /* Payments table — fits mobile width */
+  /* Empty state */
+  .empty-state { padding: 20px 12px; }
+  .empty-icon  { width: 38px; height: 38px; }
+  .empty-title { font-size: 0.8rem; }
+  .empty-sub   { font-size: 0.7rem; }
+
+  /* Section heading */
+  .section-title { font-size: 0.85rem; }
+  .see-all       { font-size: 0.72rem; }
+
+  /* Payments table */
   .b-recent-pay { overflow: hidden; }
   .pay-table    { width: 100%; table-layout: fixed; }
   .pay-table th,
-  .pay-table td { padding: 9px 6px; font-size: 0.75rem; }
-  .pay-table th { font-size: 0.62rem; padding-bottom: 8px; }
-  .pay-method-icon { width: 20px; height: 20px; border-radius: 5px; }
-  .pay-method   { gap: 5px; }
-  .pay-amount   { font-size: 0.78rem; }
+  .pay-table td { padding: 8px 5px; font-size: 0.72rem; }
+  .pay-table th { font-size: 0.6rem; padding-bottom: 7px; }
+  .pay-method-icon { width: 18px; height: 18px; border-radius: 5px; }
+  .pay-method   { gap: 4px; }
+  .pay-amount   { font-size: 0.73rem; }
+  .pay-status   { padding: 2px 7px; font-size: 0.62rem; }
 
-  /* Promo row — stack on mobile */
-  .b-promo-row { grid-template-columns: 1fr; gap: 12px; }
-  .promo-card  { padding: 16px; }
-  .ref-stats,
-  .advert-metrics { gap: 0; }
+  /* Promo row */
+  .b-promo-row { grid-template-columns: 1fr; gap: 8px; }
+  .promo-card  { padding: 12px; border-radius: 14px; gap: 8px; }
+  .promo-icon  { width: 34px; height: 34px; border-radius: 10px; }
+  .promo-card__title { font-size: 0.85rem; }
+  .promo-card__sub   { font-size: 0.68rem; }
+  .advert-cta-btn { padding: 9px 0; font-size: 0.76rem; }
+  .ref-code-box { padding: 10px 12px; }
+  .ref-copy-btn,
+  .ref-share-btn { padding: 8px 10px; font-size: 0.73rem; }
+}
+
+@media (max-width: 480px) {
+  .bal-int  { font-size: 1.6rem; }
+  .bal-sign,
+  .bal-dec  { font-size: 0.95rem; }
+  .b-plan-row { gap: 6px; }
+  .ps-value { font-size: 0.88rem; }
 }
 
 @media (max-width: 400px) {
-  /* Very small screens: plan cards stack */
   .b-plan-row { grid-template-columns: 1fr; }
-  .ba-tile__icon { width: 30px; height: 30px; }
+  .ba-tile__icon { width: 28px; height: 28px; }
 }
 
 /* ── Light mode surface fixes ── */

@@ -318,11 +318,11 @@ onMounted(async () => {
   backdrop-filter: blur(20px) saturate(180%);
  
   border: 1px solid var(--border-soft);
-  border-radius: 20px;
-  padding: 28px;
+  border-radius: 14px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .cc-label {

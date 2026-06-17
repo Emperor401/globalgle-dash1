@@ -566,8 +566,8 @@ function showToast(type, msg) {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
-  border-radius: 20px; padding: 22px 24px;
-  display: flex; flex-direction: column; gap: 8px;
+  border-radius: 14px; padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 6px;
 }
 .w-stat--balance { border-color: rgba(245,158,11,.2); }
 
