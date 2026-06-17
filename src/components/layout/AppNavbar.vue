@@ -351,7 +351,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
    ══════════════════════════════ */
 .navbar {
   position: fixed;
-  top: 0; left: 260px; right: 0;
+  top: 0; left: 220px; right: 0;
   height: 70px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 24px;
@@ -617,7 +617,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
    RESPONSIVE: show/hide
    ══════════════════════════════ */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .navbar { padding: 0 20px; }
+  .navbar { padding: 0 20px; left: 200px; }
 }
 @media (max-width: 768px) {
   .desktop-nav       { display: none; }
