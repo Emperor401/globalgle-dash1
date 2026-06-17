@@ -45,7 +45,7 @@ import ToastContainer from '../ui/ToastContainer.vue'
 }
 
 .app-layout__content {
-  padding: 80px 28px 24px;
+  padding: 72px 22px 20px;
   max-width: 1280px;
   margin: 0 auto;
 }
