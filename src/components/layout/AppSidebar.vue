@@ -852,11 +852,12 @@ const navItems = [
 
 .upgrade__deco-img {
   position: absolute;
-  right: 6px;
+  right: 4px;
+  top: 0;
   bottom: 0;
-  width: 90px;
-  height: 90px;
+  width: 88px;
   object-fit: contain;
+  object-position: right bottom;
   pointer-events: none;
   z-index: 2;
   filter: drop-shadow(0 4px 12px rgba(245,158,11,0.4));
