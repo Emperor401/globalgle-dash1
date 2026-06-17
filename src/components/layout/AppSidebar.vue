@@ -852,10 +852,10 @@ const navItems = [
 
 .upgrade__deco-img {
   position: absolute;
-  right: 4px;
-  bottom: 0;
-  width: 88px;
-  height: 90px;
+  right: 0%;
+  bottom: 8px;
+  width: 108px;
+  height: 110px;
   object-fit: contain;
   pointer-events: none;
   z-index: 2;
