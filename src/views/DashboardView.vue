@@ -1120,17 +1120,18 @@ function fmtAmount(amount, currency = 'NGN') {
   .ba-tile__icon { width: 30px; height: 30px; border-radius: 9px; }
   .ba-tile__label { font-size: 0.62rem; }
 
-  /* Plan stats row */
+  /* Plan stats row — forced 3-column row on mobile */
   .b-plan-row {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
   }
-  .ps-card  { padding: 10px 9px; gap: 4px; }
-  .ps-value { font-size: 0.95rem; }
-  .ps-label { font-size: 0.55rem; letter-spacing: 0.04em; }
-  .ps-sub   { font-size: 0.62rem; }
-  .ps-icon  { width: 22px; height: 22px; border-radius: 6px; }
-  .ps-icon svg { width: 11px; height: 11px; }
+  .ps-card  { padding: 9px 8px !important; gap: 3px !important; border-radius: 12px !important; }
+  .ps-value { font-size: 0.88rem !important; }
+  .ps-label { font-size: 0.5rem !important; letter-spacing: 0.04em; }
+  .ps-sub   { font-size: 0.58rem !important; }
+  .ps-icon  { width: 20px !important; height: 20px !important; border-radius: 6px !important; }
+  .ps-icon svg { width: 10px !important; height: 10px !important; }
 
   /* Empty state */
   .empty-state { padding: 20px 12px; }
@@ -1174,7 +1175,7 @@ function fmtAmount(amount, currency = 'NGN') {
 }
 
 @media (max-width: 400px) {
-  .b-plan-row { grid-template-columns: 1fr; }
+  .b-plan-row { grid-template-columns: repeat(3, 1fr) !important; }
   .ba-tile__icon { width: 28px; height: 28px; }
 }
 
