@@ -22,7 +22,7 @@
     <div class="bill-stats">
       <div class="bill-stat">
         <div class="bill-stat__top">
-          <span class="bill-stat__label">CURRENT PLAN</span>
+          <span class="bill-stat__label">Current Plan</span>
           <div class="bill-stat-icon bill-stat-icon--green">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
               stroke-width="2" stroke-linecap="round">
@@ -36,7 +36,7 @@
 
       <div class="bill-stat">
         <div class="bill-stat__top">
-          <span class="bill-stat__label">RENEWS / EXPIRES</span>
+          <span class="bill-stat__label">Renews / Expires</span>
           <div class="bill-stat-icon bill-stat-icon--blue">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa"
               stroke-width="2" stroke-linecap="round">
@@ -52,7 +52,7 @@
 
       <div class="bill-stat">
         <div class="bill-stat__top">
-          <span class="bill-stat__label">DAYS REMAINING</span>
+          <span class="bill-stat__label">Days Remaining</span>
           <div class="bill-stat-icon" :class="daysLeft <= 3 ? 'bill-stat-icon--red' : 'bill-stat-icon--amber'">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
               :stroke="daysLeft <= 3 ? '#f87171' : '#f59e0b'"
@@ -70,7 +70,7 @@
 
       <div class="bill-stat">
         <div class="bill-stat__top">
-          <span class="bill-stat__label">AUTO-RENEW</span>
+          <span class="bill-stat__label">Auto-Renew</span>
           <div class="bill-stat-icon bill-stat-icon--purple">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa"
               stroke-width="2" stroke-linecap="round">
@@ -531,8 +531,8 @@ function showToast(type, msg) {
   display: flex; justify-content: space-between; align-items: center;
 }
 .bill-stat__label {
-  font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--t3);
+  font-size: 0.63rem; font-weight: 700;
+  letter-spacing: 0.04em; color: var(--t3);
 }
 .bill-stat-icon {
   width: 32px; height: 32px; border-radius: 9px;

@@ -653,11 +653,10 @@ function fmtAmount(amount, currency = 'NGN') {
 }
 
 .ps-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--t3);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--t2);
   line-height: 1.4;
 }
 
@@ -681,7 +680,8 @@ function fmtAmount(amount, currency = 'NGN') {
 
 .ps-sub {
   font-size: 0.7rem;
-  color: var(--t3);
+  color: var(--t1);
+  font-weight: 600;
   margin-top: auto;
 }
 
