@@ -363,7 +363,7 @@ function fmtAmount(amount, currency = 'NGN') {
 .b-recent-pay       { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both; }
 .b-promo-row        { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.55s both; }
 
-.dashboard { display: flex; flex-direction: column; gap: 12px; }
+.dashboard { display: flex; flex-direction: column; gap: 18px; }
 
 /* ══ PAGE HEADER ══ */
 .dash-header {
@@ -442,7 +442,7 @@ function fmtAmount(amount, currency = 'NGN') {
 .bento {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 16px;
 }
 
 /* Card base */
@@ -452,10 +452,10 @@ function fmtAmount(amount, currency = 'NGN') {
 
   border: 1px solid var(--border-soft);
   border-radius: 16px;
-  padding: 14px 16px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   overflow: hidden;
   transition: border-color 0.25s ease;
 }
@@ -1064,7 +1064,9 @@ function fmtAmount(amount, currency = 'NGN') {
    MOBILE RESPONSIVE
    ══════════════════════════════════════ */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .dashboard       { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .dashboard       { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .bento           { gap: 14px; }
+  .b-card          { padding: 18px 20px; gap: 12px; }
   .b-balance       { grid-column: span 2; }
   .b-plan-row      { grid-column: span 2; }
   .b-recent-txn    { grid-column: span 1; }
@@ -1075,7 +1077,7 @@ function fmtAmount(amount, currency = 'NGN') {
 @media (max-width: 768px) {
 
   /* Page gap */
-  .dashboard { gap: 8px; }
+  .dashboard { gap: 14px; }
 
   /* Header stacks */
   .dash-header {
@@ -1089,10 +1091,10 @@ function fmtAmount(amount, currency = 'NGN') {
   .plan-badge  { font-size: 0.7rem; padding: 5px 11px; }
   .upgrade-btn { font-size: 0.72rem; padding: 5px 14px; }
 
-  /* Bento: single column, tighter */
+  /* Bento: single column */
   .bento {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 12px;
   }
 
   /* Reset all column spans */
@@ -1104,8 +1106,8 @@ function fmtAmount(amount, currency = 'NGN') {
     grid-column: span 1;
   }
 
-  /* Smaller card base */
-  .b-card { padding: 12px 14px; border-radius: 14px; gap: 8px; }
+  /* Card base */
+  .b-card { padding: 16px 18px; border-radius: 14px; gap: 10px; }
 
   /* Balance figures */
   .bal-greeting { font-size: 0.78rem; }
@@ -1155,8 +1157,8 @@ function fmtAmount(amount, currency = 'NGN') {
   .pay-status   { padding: 2px 7px; font-size: 0.62rem; }
 
   /* Promo row */
-  .b-promo-row { grid-template-columns: 1fr; gap: 8px; }
-  .promo-card  { padding: 12px; border-radius: 14px; gap: 8px; }
+  .b-promo-row { grid-template-columns: 1fr; gap: 12px; }
+  .promo-card  { padding: 16px; border-radius: 14px; gap: 10px; }
   .promo-icon  { width: 34px; height: 34px; border-radius: 10px; }
   .promo-card__title { font-size: 0.85rem; }
   .promo-card__sub   { font-size: 0.68rem; }
