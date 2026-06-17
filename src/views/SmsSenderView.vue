@@ -598,7 +598,7 @@ function sendBulkSMS() {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
-  border-radius: 16px; padding: 18px 22px;
+  border-radius: 12px; padding: 10px 14px;
   display: flex; flex-direction: column; gap: 8px;
 }
 .sms-stat__label {
@@ -639,7 +639,7 @@ function sendBulkSMS() {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
-  border-radius: 20px; padding: 28px;
+  border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 20px;
 }
 

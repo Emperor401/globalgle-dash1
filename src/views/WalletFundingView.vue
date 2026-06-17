@@ -331,8 +331,8 @@ function selectCoin(coin) {
   backdrop-filter: blur(20px) saturate(180%);
  
   border: 1px solid var(--border-soft);
-  border-radius: 20px;
-  padding: 24px 28px;
+  border-radius: 14px;
+  padding: 14px 16px;
   display: flex;
   justify-content: space-between;
   gap: 24px;

@@ -332,7 +332,7 @@ function showToast(type, msg) {
 .tut-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-soft); border-radius: 20px;
+  border: 1px solid var(--border-soft); border-radius: 14px;
   overflow: hidden; cursor: pointer; transition: border-color 0.22s, transform 0.22s;
   display: flex; flex-direction: column;
 }

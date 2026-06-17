@@ -229,7 +229,7 @@ const recentSends = [
 .btn-send:hover { background:var(--accent); color:#fff; }
 
 /* Recent Sends */
-.glass-panel { background:var(--glass); border:1px solid var(--border-soft); border-radius:18px; padding:22px; }
+.glass-panel { background:var(--glass); border:1px solid var(--border-soft); border-radius:14px; padding:14px 16px; }
 .panel-head { margin-bottom:16px; }
 .panel-title { font-size:0.95rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
 .panel-sub { font-size:0.72rem; color:var(--t4); margin:0; }

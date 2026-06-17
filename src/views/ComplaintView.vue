@@ -522,7 +522,7 @@ function closeTicket(id) {
 .cmp-row {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-soft); border-radius: 16px;
+  border: 1px solid var(--border-soft); border-radius: 12px;
   overflow: hidden; cursor: pointer; transition: border-color 0.2s;
 }
 .cmp-row:hover       { border-color: var(--border); }

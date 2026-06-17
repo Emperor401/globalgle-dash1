@@ -263,7 +263,7 @@ const quickStats = [
 .composer-layout { display:grid; grid-template-columns:1fr 300px; gap:18px; align-items:start; }
 
 /* Glass panel */
-.glass-panel { background:var(--glass); border:1px solid var(--border-soft); border-radius:18px; padding:22px; }
+.glass-panel { background:var(--glass); border:1px solid var(--border-soft); border-radius:14px; padding:14px 16px; }
 
 /* Compose Panel */
 .compose-panel { display:flex; flex-direction:column; gap:18px; }

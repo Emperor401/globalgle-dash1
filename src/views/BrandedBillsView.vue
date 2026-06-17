@@ -216,8 +216,8 @@ const cards = [
   backdrop-filter: blur(20px) saturate(180%);
  
   border: 1px solid var(--border-soft);
-  border-radius: 18px;
-  padding: 28px 26px 30px;
+  border-radius: 14px;
+  padding: 14px 16px;
   display: flex; flex-direction: column; gap: 14px;
   cursor: pointer;
   transition: border-color 0.22s ease, transform 0.18s ease;
@@ -232,7 +232,7 @@ const cards = [
 .gen-card__desc  { font-size: 0.8rem; color: var(--accent); line-height: 1.55; margin: 0; }
 
 /* ── Recent Panel ── */
-.recent-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:18px; padding:20px 22px; }
+.recent-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:14px; padding:12px 14px; }
 .recent-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:14px; }
 .recent-title { font-size:0.95rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
 .recent-sub { font-size:0.72rem; color:var(--t4); margin:0; }
