@@ -795,14 +795,14 @@ const navItems = [
   align-items: center;
   justify-content: space-between;
   margin: 0 14px 18px;
-  padding: 20px 18px;
+  padding: 22px 18px 22px 18px;
   border-radius: 18px;
   background: linear-gradient(145deg, #1a1506 0%, #2a1f02 60%, #1e1a05 100%);
   border: 1px solid rgba(245, 158, 11, 0.22);
   cursor: pointer;
   overflow: visible;
   flex-shrink: 0;
-  min-height: 110px;
+  min-height: 132px;
   transition: border-color 0.25s ease;
 }
 
@@ -811,7 +811,7 @@ const navItems = [
 .upgrade__body {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   z-index: 1;
   padding-right: 88px;
 }
@@ -834,9 +834,9 @@ const navItems = [
 }
 
 .upgrade__btn {
-  margin-top: 12px;
+  margin-top: 14px;
   align-self: flex-start;
-  padding: 7px 20px;
+  padding: 7px 18px;
   border-radius: 999px;
   background: linear-gradient(135deg, #9d7cff 0%, #7c5cfc 100%);
   border: none;
@@ -852,9 +852,9 @@ const navItems = [
 
 .upgrade__deco-img {
   position: absolute;
-  right: 6px;
+  right: 4px;
   bottom: 0;
-  width: 90px;
+  width: 88px;
   height: 90px;
   object-fit: contain;
   pointer-events: none;

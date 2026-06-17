@@ -235,14 +235,14 @@ const cards = [
 .recent-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:14px; padding:12px 14px; }
 .recent-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:14px; }
 .recent-title { font-size:0.95rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
-.recent-sub { font-size:0.72rem; color:var(--t4); margin:0; }
+.recent-sub { font-size:0.78rem; color:var(--t3); margin:0; }
 .recent-list { display:flex; flex-direction:column; gap:4px; }
 .recent-item { display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:10px; transition:background 0.18s; }
 .recent-item:hover { background:var(--glass-2); }
 .recent-item__icon { width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .recent-item__info { flex:1; display:flex; flex-direction:column; gap:2px; }
 .recent-item__name { font-size:0.82rem; font-weight:600; color:var(--t1); }
-.recent-item__meta { font-size:0.68rem; color:var(--t4); }
+.recent-item__meta { font-size:0.75rem; color:var(--t3); }
 .recent-item__amount { font-size:0.84rem; font-weight:700; color:var(--t1); white-space:nowrap; }
 .recent-item__status { font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:999px; }
 .ris--sent   { color:#22c55e; background:var(--accent-dim); border:1px solid var(--accent-border); }
