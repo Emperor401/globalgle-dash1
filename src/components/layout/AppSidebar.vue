@@ -852,7 +852,7 @@ const navItems = [
 
 .upgrade__deco-img {
   position: absolute;
-  right: 0%;
+  right: -9%;
   bottom: 8px;
   width: 108px;
   height: 110px;
