@@ -363,7 +363,7 @@ function fmtAmount(amount, currency = 'NGN') {
 .b-recent-pay       { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both; }
 .b-promo-row        { animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.55s both; }
 
-.dashboard { display: flex; flex-direction: column; gap: 20px; }
+.dashboard { display: flex; flex-direction: column; gap: 12px; }
 
 /* ══ PAGE HEADER ══ */
 .dash-header {
@@ -442,20 +442,20 @@ function fmtAmount(amount, currency = 'NGN') {
 .bento {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 10px;
 }
 
 /* Card base */
 .b-card {
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
- 
+
   border: 1px solid var(--border-soft);
-  border-radius: 22px;
-  padding: 22px;
+  border-radius: 16px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   overflow: hidden;
   transition: border-color 0.25s ease;
 }
@@ -640,8 +640,8 @@ function fmtAmount(amount, currency = 'NGN') {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8px;
-  padding: 16px 18px;
+  gap: 6px;
+  padding: 12px 14px;
   min-height: unset;
 }
 
@@ -798,9 +798,9 @@ function fmtAmount(amount, currency = 'NGN') {
 .promo-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 22px;
-  border-radius: 20px;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 16px;
   border: 1.5px solid var(--border-soft);
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
