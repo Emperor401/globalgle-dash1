@@ -556,7 +556,7 @@ function selectCoin(coin) {
 
   /* modal: bottom sheet */
   .modal-overlay  { padding: 0; align-items: flex-end; }
-  .modal-box      { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; overflow-y: auto; padding: 18px 16px 28px; }
+  .modal-box      { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; overflow-y: auto; }
 }
 
 /* ── Small Mobile ── */

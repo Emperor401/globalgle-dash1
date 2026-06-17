@@ -854,8 +854,8 @@ function showToast(type, msg) {
   .bill-plans-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .bill-plan-card  { padding: 18px 14px; }
   .bill-plan-price { font-size: 1.4rem; }
-  .bill-overlay    { padding: 0; align-items: flex-end; }
-  .bill-modal      { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; padding: 18px 16px 28px; }
+  .bill-overlay    { padding: 12px; align-items: flex-end; }
+  .bill-modal      { max-width: 100%; border-radius: 22px 22px 0 0; max-height: 90vh; }
   .bill-toast      { bottom: 90px; max-width: calc(100vw - 32px); white-space: normal; }
 }
 @media (max-width: 480px) {

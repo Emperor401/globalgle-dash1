@@ -312,12 +312,9 @@ const recentSends = [
 .modal-enter-active, .modal-leave-active { transition:all 0.25s ease; }
 .modal-enter-from, .modal-leave-to { opacity:0; transform:scale(0.96); }
 
-@media (max-width: 768px) {
-  .modal-overlay { align-items: flex-end; padding: 0; }
-  .modal-box     { max-width: 100%; border-radius: 22px 22px 0 0; }
-  .modal-top     { padding: 14px 16px 12px; }
-  .modal-email   { margin: 14px; }
-  .modal-actions { padding: 0 14px 22px; }
+@media (max-width: 480px) {
+  .modal-box { max-width:100%; border-radius:22px 22px 0 0; }
+  .modal-overlay { align-items:flex-end; padding:0; }
 }
 
 [data-theme="light"] .modal-email { background: rgba(255,255,255,0.7); }

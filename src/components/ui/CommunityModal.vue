@@ -209,31 +209,5 @@ onBeforeUnmount(() => {
 .modal-enter-from   { opacity: 0; transform: scale(0.88) translateY(16px); }
 .modal-leave-to     { opacity: 0; transform: scale(0.95) translateY(8px); }
 
-/* ── Mobile ── */
-@media (max-width: 768px) {
-  .modal-card {
-    padding: 24px 20px 20px;
-    gap: 14px;
-    max-width: 320px;
-    border-radius: 20px;
-  }
-  .modal-icon-wrap { width: 56px; height: 56px; }
-  .modal-icon      { width: 44px; height: 44px; }
-  .modal-icon svg  { width: 20px; height: 20px; }
-  .modal-title     { font-size: 1rem; margin-bottom: 5px; }
-  .modal-sub       { font-size: 0.76rem; }
-  .btn-join        { padding: 11px 18px; font-size: 0.83rem; }
-  .btn-later       { padding: 10px 18px; font-size: 0.8rem; }
-}
 
-/* ── Small mobile — bottom sheet ── */
-@media (max-width: 480px) {
-  .modal-backdrop { align-items: flex-end; padding: 0; }
-  .modal-card {
-    max-width: 100%;
-    border-radius: 22px 22px 0 0;
-    padding: 22px 18px 32px;
-    gap: 12px;
-  }
-}
 </style>

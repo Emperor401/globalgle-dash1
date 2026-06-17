@@ -242,13 +242,6 @@ button, input, textarea, select { font-family: 'Outfit', sans-serif; font-weight
     border-radius: 14px !important;
   }
 
-  /* ── Global modal / overlay reduction ── */
-  .modal-card, .bill-modal, .launch-modal, .tut-modal,
-  .cmp-modal, .ec-modal, .modal-box, .wf-modal {
-    padding: 18px 16px !important;
-  }
-  .tut-modal-body, .cmp-modal-body { padding: 14px 16px !important; }
-
   /* ── Dashboard — handled by scoped styles in DashboardView.vue ── */
 
   /* ── Two-column body layouts ── */
