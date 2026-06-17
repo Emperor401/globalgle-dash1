@@ -838,7 +838,7 @@ const navItems = [
   align-self: flex-start;
   padding: 7px 20px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  background: linear-gradient(135deg, #9d7cff 0%, #7c5cfc 100%);
   border: none;
   color: #fff;
   font-family: 'Outfit', sans-serif;
