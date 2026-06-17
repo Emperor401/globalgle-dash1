@@ -49,7 +49,7 @@ import ToastContainer from '../ui/ToastContainer.vue'
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .app-layout__main  { margin-left: 200px; }
+  .app-layout__main  { margin-left: 210px; }
   .app-layout__content { padding: 76px 16px 24px; }
 }
 @media (max-width: 768px) {

@@ -361,8 +361,8 @@ const navItems = [
 /* ── Mobile close btn (hidden on desktop) ── */
 .sidebar__close-btn { display: none; }
 
-/* ── Tablet — iPad Pro 11"/13" M4/M5 portrait & landscape ── */
-@media (min-width: 769px) and (max-width: 1366px) {
+/* ── Tablet only — 769px–1024px (iPad range, NOT desktop) ── */
+@media (min-width: 769px) and (max-width: 1024px) {
   .sidebar        { width: 210px; }
   .sidebar__group { padding: 14px 12px 4px; }
   .nav-item       { padding: 8px 9px; }
