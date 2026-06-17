@@ -145,6 +145,7 @@
 
 html {
   font-size: 16px;
+  zoom: 0.9;
 }
 
 html, body {
@@ -159,10 +160,6 @@ html, body {
   transition: background 0.35s ease, color 0.35s ease;
 }
 
-/* ── Scale entire UI to match 90% browser zoom on all desktop/tablet screens ── */
-@media (min-width: 769px) {
-  body { zoom: 0.9; }
-}
 
 /* ── Global thin weight overrides ── */
 h1, h2, h3, h4, h5, h6 { font-weight: 400; letter-spacing: 0.04em; }
