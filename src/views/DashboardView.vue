@@ -1077,7 +1077,7 @@ function fmtAmount(amount, currency = 'NGN') {
 @media (max-width: 768px) {
 
   /* Page gap */
-  .dashboard { gap: 18px; }
+  .dashboard { gap: 22px; }
 
   /* Header stacks */
   .dash-header {
@@ -1094,7 +1094,7 @@ function fmtAmount(amount, currency = 'NGN') {
   /* Bento: single column */
   .bento {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 18px;
   }
 
   /* Reset all column spans */
@@ -1107,7 +1107,7 @@ function fmtAmount(amount, currency = 'NGN') {
   }
 
   /* Card base */
-  .b-card { padding: 18px 20px; border-radius: 14px; gap: 12px; }
+  .b-card { padding: 22px 24px; border-radius: 14px; gap: 14px; }
 
   /* Balance figures */
   .bal-greeting { font-size: 0.78rem; }
@@ -1126,9 +1126,9 @@ function fmtAmount(amount, currency = 'NGN') {
   .b-plan-row {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
+    gap: 10px !important;
   }
-  .ps-card  { padding: 11px 10px !important; gap: 5px !important; border-radius: 12px !important; }
+  .ps-card  { padding: 14px 12px !important; gap: 7px !important; border-radius: 12px !important; }
   .ps-value { font-size: 0.88rem !important; }
   .ps-label { font-size: 0.5rem !important; letter-spacing: 0.04em; }
   .ps-sub   { font-size: 0.58rem !important; }
