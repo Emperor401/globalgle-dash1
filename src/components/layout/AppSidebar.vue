@@ -15,7 +15,14 @@
     <!-- Logo -->
     <div class="sidebar__logo">
       <div class="sidebar__logo-icon">
-        <img :src="cartnLogo" alt="Globalgle logo" class="logo-img" />
+        <Transition name="logo-flip" mode="out-in">
+          <img
+            :key="isLight ? 'dark' : 'white'"
+            :src="isLight ? darkLogo : whiteLogo"
+            alt="Globalgle logo"
+            class="logo-img"
+          />
+        </Transition>
       </div>
       <span class="sidebar__logo-name">Globalgle</span>
       <!-- Mobile close button -->
@@ -277,7 +284,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
-import cartnLogo from '../../assets/cartn.jpeg'
+import whiteLogo from '../../assets/white.jpeg'
+import darkLogo  from '../../assets/dark.jpeg'
 import { useSidebar } from '../../composables/useSidebar.js'
 
 const { sidebarOpen, closeSidebar } = useSidebar()
@@ -441,7 +449,7 @@ const navItems = [
 .logo-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 50%;
   display: block;
 }
