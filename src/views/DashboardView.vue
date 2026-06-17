@@ -386,7 +386,7 @@ function fmtAmount(amount, currency = 'NGN') {
 
 .dash-header__sub {
   font-size: 0.82rem;
-  color: var(--t3);
+  color: var(--t2);
   margin: 0;
 }
 
