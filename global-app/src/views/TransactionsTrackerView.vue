@@ -106,13 +106,45 @@ const services = [
 }
 .service-card__desc :deep(.hl) { color: var(--accent); font-weight: 500; }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .service-grid { grid-template-columns: 1fr; gap: 12px; }
-  .service-card { padding: 20px 18px; }
+/* ── Responsive ── */
+
+/* Tablet (601px – 768px): side-by-side still works */
+@media (max-width: 768px) and (min-width: 601px) {
+  .tt-page       { gap: 22px; }
+  .service-grid  { gap: 14px; }
+  .service-card  { padding: 22px 18px; gap: 10px; }
+  .page-header__title { font-size: 1.3rem; }
 }
 
-/* Light mode */
+/* Mobile (≤ 600px): single column */
+@media (max-width: 600px) {
+  .tt-page       { gap: 18px; }
+  .service-grid  { grid-template-columns: 1fr; gap: 12px; }
+  .service-card  { padding: 20px 18px; gap: 10px; border-radius: 14px; }
+  .page-header__title { font-size: 1.2rem; }
+  .page-header__sub   { font-size: 0.78rem; }
+  .service-card__title { font-size: 0.95rem; }
+  .service-card__desc  { font-size: 0.8rem; }
+  .service-card__icon  { width: 42px; height: 42px; border-radius: 11px; }
+}
+
+/* Small phones (≤ 430px) */
+@media (max-width: 430px) {
+  .service-card  { padding: 18px 16px; gap: 9px; border-radius: 13px; }
+  .page-header__title { font-size: 1.1rem; }
+  .service-card__icon  { width: 38px; height: 38px; border-radius: 10px; }
+  .service-card__title { font-size: 0.9rem; }
+  .service-card__desc  { font-size: 0.76rem; line-height: 1.55; }
+}
+
+/* Tiny phones (≤ 360px) */
+@media (max-width: 360px) {
+  .service-card  { padding: 16px 14px; }
+  .page-header__title { font-size: 1rem; }
+  .service-card__desc  { font-size: 0.72rem; }
+}
+
+/* ── Light mode ── */
 [data-theme="light"] .service-card {
   background: #fff;
   border-color: rgba(0,0,0,0.08);
@@ -125,4 +157,7 @@ const services = [
   background: rgba(34, 197, 94, 0.1);
   border-color: rgba(34, 197, 94, 0.2);
 }
+[data-theme="light"] .page-header__sub  { color: rgba(12,10,30,0.55); }
+[data-theme="light"] .service-card__desc { color: rgba(12,10,30,0.60); }
+[data-theme="light"] .service-card__title { color: rgba(12,10,30,0.92); }
 </style>
