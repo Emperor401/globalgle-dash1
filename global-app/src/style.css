@@ -78,19 +78,19 @@
    ══════════════════════════════════════════════ */
 
 [data-theme="light"] {
-  --bg: #eef2ff;
+  --bg: #ffffff;
 
-  --glass:        rgba(255, 255, 255, 0.52);
-  --glass-2:      rgba(255, 255, 255, 0.38);
-  --glass-hover:  rgba(255, 255, 255, 0.68);
-  --glass-filter: blur(24px) saturate(200%);
+  --glass:        rgba(255, 255, 255, 0.75);
+  --glass-2:      rgba(255, 255, 255, 0.55);
+  --glass-hover:  rgba(255, 255, 255, 0.90);
+  --glass-filter: blur(20px) saturate(160%);
 
   --modal-glass:  rgba(255, 255, 255, 0.94);
   --modal-input:  rgba(255, 255, 255, 0.75);
   --modal-border: rgba(99, 102, 241, 0.14);
 
-  --border:      rgba(99, 102, 241, 0.26);
-  --border-soft: rgba(99, 102, 241, 0.16);
+  --border:      rgba(0, 0, 0, 0.13);
+  --border-soft: rgba(0, 0, 0, 0.09);
 
   --shadow:       none;
   --shadow-hover: none;
@@ -146,12 +146,12 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* ── Tablet font boost ── */
 @media (min-width: 769px) and (max-width: 1024px) {
-  html { font-size: 17px; }
+  html { font-size: 14.5px; }
 }
 
 html, body {
@@ -164,12 +164,6 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 0.35s ease, color 0.35s ease;
-}
-
-[data-theme="light"] body {
-  background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 35%, #d1fae5 65%, #e0f2fe 100%);
-  background-attachment: fixed;
-  min-height: 100vh;
 }
 
 
