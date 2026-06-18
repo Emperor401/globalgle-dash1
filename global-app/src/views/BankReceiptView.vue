@@ -402,6 +402,8 @@ async function downloadPDF() {
 }
 
 /* ── Header ── */
+.br-header { margin-top: 14px; }
+
 .br-back {
   display: inline-flex;
   align-items: center;
@@ -715,19 +717,33 @@ async function downloadPDF() {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .br-layout { grid-template-columns: 1fr; }
+  .br-layout      { grid-template-columns: 1fr; }
   .br-preview-col { position: static; order: -1; }
-  .br-phone-wrap  { max-width: 340px; margin: 0 auto; }
+  .br-phone-wrap  { max-width: 360px; margin: 0 auto; }
 }
 @media (max-width: 600px) {
-  .br-title { font-size: 1.3rem; }
-  .br-card  { padding: 18px 14px; gap: 14px; border-radius: 14px; }
-  .br-row   { grid-template-columns: 1fr; gap: 14px; }
-  .br-actions { flex-direction: column; }
-  .br-phone-wrap { max-width: 100%; border-radius: 16px; }
+  .br-header      { margin-top: 10px; }
+  .br-title       { font-size: 1.3rem; }
+  .br-sub         { font-size: 0.8rem; margin-bottom: 18px; }
+  .br-card        { padding: 18px 14px; gap: 14px; border-radius: 14px; }
+  .br-row         { grid-template-columns: 1fr; gap: 14px; }
+  .br-actions     { flex-direction: column; }
+  .br-phone-wrap  { max-width: 100%; border-radius: 16px; }
+  .br-rx-amount   { font-size: 1.7rem; }
 }
 @media (max-width: 430px) {
-  .br-title { font-size: 1.15rem; }
-  .br-card  { padding: 14px 12px; }
+  .br-header      { margin-top: 8px; }
+  .br-title       { font-size: 1.15rem; }
+  .br-card        { padding: 14px 12px; gap: 12px; }
+  .br-input, .br-select { padding: 9px 11px; font-size: 0.82rem; }
+  .br-rx-amount   { font-size: 1.5rem; }
+  .br-rx-title    { font-size: 0.95rem; }
+}
+@media (max-width: 360px) {
+  .br-title       { font-size: 1.05rem; }
+  .br-card        { padding: 12px 10px; gap: 10px; border-radius: 12px; }
+  .br-input, .br-select { padding: 8px 10px; font-size: 0.8rem; }
+  .br-actions     { gap: 8px; }
+  .br-btn-pdf, .br-btn-img { padding: 10px 0; font-size: 0.8rem; }
 }
 </style>
