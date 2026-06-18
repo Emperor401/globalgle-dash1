@@ -72,7 +72,7 @@
         <div class="bill-stat__top">
           <span class="bill-stat__label">Auto-Renew</span>
           <div class="bill-stat-icon bill-stat-icon--purple">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa"
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
               stroke-width="2" stroke-linecap="round">
               <polyline points="17 1 21 5 17 9"/>
               <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
@@ -542,7 +542,7 @@ function showToast(type, msg) {
 .bill-stat-icon--blue   { background: rgba(96,165,250,.1);  border: 1px solid rgba(96,165,250,.2);  }
 .bill-stat-icon--amber  { background: rgba(245,158,11,.1);  border: 1px solid rgba(245,158,11,.2);  }
 .bill-stat-icon--red    { background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.2); }
-.bill-stat-icon--purple { background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.2); }
+.bill-stat-icon--purple { background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2); }
 
 .bill-stat__val         { font-size: 1.5rem; font-weight: 800; color: var(--t1); line-height: 1; }
 .bill-stat__val--warn   { color: #f87171; }
@@ -600,7 +600,7 @@ function showToast(type, msg) {
   font-family: inherit; transition: all 0.2s;
   backdrop-filter: blur(20px) saturate(180%);
 }
-.bill-redeem-btn:hover { border-color: rgba(167,139,250,.35); color: var(--t1); }
+.bill-redeem-btn:hover { border-color: rgba(34,197,94,.35); color: var(--t1); }
 
 /* ── Plan cards grid ── */
 .bill-plans-grid {
@@ -624,11 +624,11 @@ function showToast(type, msg) {
   border-color: rgba(34,197,94,.3);
 }
 .bill-plan-card--current { border-color: rgba(34,197,94,.5); background: rgba(34,197,94,.04); }
-.bill-plan-card--popular { border-color: rgba(167,139,250,.4); background: rgba(167,139,250,.04); }
+.bill-plan-card--popular { border-color: rgba(34,197,94,.4); background: rgba(34,197,94,.04); }
 
 .bill-plan-popular {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(90deg, #a78bfa, #7c5cfc);
+  background: linear-gradient(90deg, #22c55e, #16a34a);
   color: #fff; font-size: 0.6rem; font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.09em;
   padding: 3px 12px; border-radius: 999px; white-space: nowrap;
