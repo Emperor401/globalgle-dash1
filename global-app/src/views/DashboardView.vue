@@ -430,7 +430,7 @@ function fmtAmount(amount, currency = 'NGN') {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 26px;
   flex-wrap: wrap;
 }
 
