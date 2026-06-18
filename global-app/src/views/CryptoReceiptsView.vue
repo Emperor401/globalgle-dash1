@@ -386,4 +386,7 @@ function onImgError(e) {
 [data-theme="light"] .p-card { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 [data-theme="light"] .p-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
 [data-theme="light"] .p-card__logo-wrap { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .p-card__name { color: rgba(12,10,30,0.92); }
+[data-theme="light"] .p-card__tag  { color: rgba(12,10,30,0.62); }
+[data-theme="light"] .p-card__cta  { color: rgba(12,10,30,0.52); border-top-color: rgba(0,0,0,0.10); }
 </style>
