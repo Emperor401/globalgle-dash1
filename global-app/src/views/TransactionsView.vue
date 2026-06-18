@@ -204,10 +204,10 @@ function showToast(message, type = 'success') {
 }
 
 const kpis = [
-  { label:'Total Volume',  value:'$24,850', pct:'8.2%', up:true,  color:'#22c55e', iconBg:'rgba(34,197,94,0.18)',   border:'rgba(34,197,94,0.25)',   bg:'linear-gradient(135deg,rgba(34,197,94,0.16) 0%,rgba(20,83,45,0.32) 100%)',  icon:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
-  { label:'Completed',     value:'6',       pct:'2.1%', up:true,  color:'#60a5fa', iconBg:'rgba(96,165,250,0.18)',  border:'rgba(96,165,250,0.25)',  bg:'linear-gradient(135deg,rgba(96,165,250,0.14) 0%,rgba(30,58,138,0.32) 100%)', icon:'<polyline points="20 6 9 17 4 12"/>' },
-  { label:'Failed',        value:'1',       pct:'0.5%', up:false, color:'#f87171', iconBg:'rgba(248,113,113,0.18)', border:'rgba(248,113,113,0.25)', bg:'linear-gradient(135deg,rgba(248,113,113,0.14) 0%,rgba(80,20,20,0.32) 100%)',  icon:'<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>' },
-  { label:'Pending',       value:'1',       pct:'1.3%', up:false, color:'#fbbf24', iconBg:'rgba(251,191,36,0.18)',  border:'rgba(251,191,36,0.25)',  bg:'linear-gradient(135deg,rgba(251,191,36,0.14) 0%,rgba(80,55,10,0.32) 100%)',  icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
+  { label:'Total Volume',  value:'$24,850', pct:'8.2%', up:true,  color:'#22c55e', iconBg:'rgba(34,197,94,0.18)',   border:'rgba(34,197,94,0.30)',   bg:'rgba(34,197,94,0.07)',   icon:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
+  { label:'Completed',     value:'6',       pct:'2.1%', up:true,  color:'#60a5fa', iconBg:'rgba(96,165,250,0.18)',  border:'rgba(96,165,250,0.30)',  bg:'rgba(96,165,250,0.07)',  icon:'<polyline points="20 6 9 17 4 12"/>' },
+  { label:'Failed',        value:'1',       pct:'0.5%', up:false, color:'#f87171', iconBg:'rgba(248,113,113,0.18)', border:'rgba(248,113,113,0.30)', bg:'rgba(248,113,113,0.07)', icon:'<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>' },
+  { label:'Pending',       value:'1',       pct:'1.3%', up:false, color:'#fbbf24', iconBg:'rgba(251,191,36,0.18)',  border:'rgba(251,191,36,0.30)',  bg:'rgba(251,191,36,0.07)',  icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
 ]
 
 // Date filter helpers — today is treated as the reference point
@@ -338,8 +338,8 @@ function exportCSV() {
 
 /* KPI */
 .kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-.kpi-card { border:1px solid; border-radius:12px; padding:10px 14px; display:flex; align-items:center; gap:12px; transition:opacity 0.2s; }
-.kpi-card:hover { opacity:0.9; }
+.kpi-card { border:1px solid; border-radius:14px; padding:10px 14px; display:flex; align-items:center; gap:12px; backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); transition:border-color 0.2s, transform 0.2s; }
+.kpi-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.18) !important; }
 .kpi-card__icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .kpi-card__body { flex:1; display:flex; flex-direction:column; gap:2px; }
 .kpi-card__label { font-size:0.7rem; color:var(--t2); }
