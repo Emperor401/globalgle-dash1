@@ -26,6 +26,7 @@ import SpoofCallingView        from '../views/SpoofCallingView.vue'
 import WalletView              from '../views/WalletView.vue'
 import BillingView             from '../views/BillingView.vue'
 import TutorialsView           from '../views/TutorialsView.vue'
+import BankReceiptView         from '../views/BankReceiptView.vue'
 
 const routes = [
   { path: '/',                            name: 'Dashboard',      component: DashboardView     },
@@ -48,6 +49,7 @@ const routes = [
   { path: '/tools/wallet-funding', name: 'WalletFunding',    component: WalletFundingView  },
   { path: '/tools/sms-sender',    name: 'SmsSender',     component: SmsSenderView    },
   { path: '/tools/spoof-calling', name: 'SpoofCalling',  component: SpoofCallingView },
+  { path: '/tools/bank-receipt', name: 'BankReceipt',   component: BankReceiptView  },
   { path: '/wallet',        name: 'Wallet',       component: WalletView       },
   { path: '/billing',       name: 'Billing',      component: BillingView      },
   { path: '/tutorials',     name: 'Tutorials',    component: TutorialsView    },
