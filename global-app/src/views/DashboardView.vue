@@ -835,7 +835,7 @@ function fmtAmount(amount, currency = 'NGN') {
   /* Balance — keep side by side, shrink font to fit */
   .bal-top-row {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 10px;
   }
