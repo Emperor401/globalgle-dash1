@@ -12,7 +12,13 @@ import ComplaintView      from '../views/ComplaintView.vue'
 import BrandedEmailsView  from '../views/BrandedEmailsView.vue'
 import BrandedBillsView   from '../views/BrandedBillsView.vue'
 import EmailComposerView  from '../views/EmailComposerView.vue'
+import BankMailerView     from '../views/BankMailerView.vue'
 import ToolsView               from '../views/ToolsView.vue'
+import CryptoReceiptsView        from '../views/CryptoReceiptsView.vue'
+import TransactionsTrackerView  from '../views/TransactionsTrackerView.vue'
+import ReceiptsTrackingView    from '../views/ReceiptsTrackingView.vue'
+import PaymentTrackingView    from '../views/PaymentTrackingView.vue'
+import DigitalView            from '../views/DigitalView.vue'
 import CurrencyConverterView   from '../views/CurrencyConverterView.vue'
 import WalletFundingView       from '../views/WalletFundingView.vue'
 import SmsSenderView           from '../views/SmsSenderView.vue'
@@ -27,12 +33,18 @@ const routes = [
   { path: '/email-services/branded-emails', name: 'BrandedEmails',  component: BrandedEmailsView },
   { path: '/email-services/branded-bills',  name: 'BrandedBills',   component: BrandedBillsView  },
   { path: '/email-services/composer',       name: 'EmailComposer',  component: EmailComposerView },
+  { path: '/email-services/bank-mailer',    name: 'BankMailer',     component: BankMailerView    },
   { path: '/transactions',  name: 'Transactions', component: TransactionsView },
   { path: '/analytics',     name: 'Analytics',    component: AnalyticsView    },
   { path: '/settings',      name: 'Settings',     component: SettingsView     },
   { path: '/help',          name: 'Help',         component: HelpView         },
-  { path: '/tools',              name: 'Tools',             component: ToolsView             },
+  { path: '/tools',                   name: 'Tools',          component: ToolsView          },
+  { path: '/tools/crypto-receipts',        name: 'CryptoReceipts',       component: CryptoReceiptsView       },
+  { path: '/tools/transactions-tracker',          name: 'TransactionsTracker',  component: TransactionsTrackerView  },
+  { path: '/tools/transactions-tracker/receipts', name: 'ReceiptsTracking',  component: ReceiptsTrackingView  },
+  { path: '/tools/transactions-tracker/payment', name: 'PaymentTracking',   component: PaymentTrackingView   },
   { path: '/tools/currency',       name: 'CurrencyConverter', component: CurrencyConverterView },
+  { path: '/digital',              name: 'Digital',          component: DigitalView        },
   { path: '/tools/wallet-funding', name: 'WalletFunding',    component: WalletFundingView  },
   { path: '/tools/sms-sender',    name: 'SmsSender',     component: SmsSenderView    },
   { path: '/tools/spoof-calling', name: 'SpoofCalling',  component: SpoofCallingView },

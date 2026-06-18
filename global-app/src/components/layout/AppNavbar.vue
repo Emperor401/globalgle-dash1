@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <!-- Right: search, notifications, theme, date -->
+    <!-- Right: search, notifications, theme, profile -->
     <div class="navbar__right">
 
       <!-- Search -->
@@ -125,8 +125,75 @@
         </svg>
       </button>
 
-      <!-- Date chip -->
-      <div class="navbar__date">{{ currentDate }}</div>
+      <!-- Profile chip -->
+      <div class="navbar__profile-chip" ref="profileChipRef" @click.stop="toggleProfileDrop">
+        <img
+          src="https://api.dicebear.com/7.x/notionists/svg?seed=Daniel"
+          alt="Daniel"
+          class="navbar__profile-avatar"
+        />
+        <div class="navbar__profile-info">
+          <span class="navbar__profile-name">Daniel</span>
+          <span class="navbar__profile-user">@emprerorsolos...</span>
+        </div>
+        <button class="navbar__profile-dots" :class="{ 'navbar__profile-dots--active': profileDropOpen }" aria-label="Profile menu">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="5"  cy="12" r="1.8"/>
+            <circle cx="12" cy="12" r="1.8"/>
+            <circle cx="19" cy="12" r="1.8"/>
+          </svg>
+        </button>
+
+        <Transition name="profile-chip-drop">
+          <div v-if="profileDropOpen" class="navbar__profile-dropdown" @click.stop>
+            <div class="npd-header">
+              <img
+                src="https://api.dicebear.com/7.x/notionists/svg?seed=Daniel"
+                alt="Daniel"
+                class="npd-avatar"
+              />
+              <div class="npd-info">
+                <span class="npd-name">Daniel</span>
+                <span class="npd-email">emprerorsolos@gmail.com</span>
+              </div>
+            </div>
+
+            <div class="npd-divider" />
+
+            <button class="npd-item" @click="goTo('/settings')">
+              <span class="npd-icon npd-icon--blue">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </span>
+              <span class="npd-label">Account Settings</span>
+              <svg class="npd-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+
+            <button class="npd-item" @click="goTo('/billing')">
+              <span class="npd-icon npd-icon--amber">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </span>
+              <span class="npd-label">Billing &amp; Plans</span>
+              <svg class="npd-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+
+            <button class="npd-item" @click="goTo('/help')">
+              <span class="npd-icon npd-icon--green">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="npd-label">Help &amp; Support</span>
+              <svg class="npd-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+
+          </div>
+        </Transition>
+      </div>
 
     </div>
   </header>
@@ -251,11 +318,12 @@
 
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { notifications as notifData } from '../../data/mockData.js'
 import { useSidebar } from '../../composables/useSidebar.js'
 
-const route = useRoute()
+const route  = useRoute()
+const router = useRouter()
 const { sidebarOpen, toggleSidebar, closeSidebar } = useSidebar()
 
 const bottomNavItems = [
@@ -269,11 +337,12 @@ const isActiveNav = (item) => route.path === item.route
 /* ── Page meta ── */
 const pages = {
   '/':           { title: 'Dashboard',       subtitle: 'Welcome back, Daniel',        color: '#22c55e', icon: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>' },
-  '/customers':  { title: 'Email Services',  subtitle: 'Manage your email campaigns',  color: '#60a5fa', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
+  '/customers':  { title: 'Mailing Tools',   subtitle: 'Manage your email campaigns',  color: '#60a5fa', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
   '/transactions':              { title: 'Transactions', subtitle: 'Your transaction history',       color: '#a78bfa', icon: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
-  '/email-services/branded-bills': { title: 'Generator',    subtitle: 'Create and manage content',   color: '#a78bfa', icon: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>' },
-  '/email-services/branded-emails':{ title: 'Branded Emails',subtitle: 'Send branded emails',        color: '#22c55e', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
+  '/email-services/branded-bills': { title: 'Crypto Bills Mails', subtitle: 'Pick a provider to send a brand-styled billing email', color: '#60a5fa', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
+  '/email-services/branded-emails':{ title: 'Crypto Mails', subtitle: 'Pick a provider to send a brand-styled email', color: '#22c55e', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
   '/email-services/composer':      { title: 'Email Composer',subtitle: 'Write and send emails',      color: '#60a5fa', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
+  '/email-services/bank-mailer':   { title: 'Bank Mailer',   subtitle: 'Send debit & credit bank transfer notices', color: '#22c55e', icon: '<line x1="3" y1="22" x2="21" y2="22"/><rect x="2" y="11" width="20" height="11"/><polygon points="12 2 2 7 22 7"/>' },
   '/analytics':  { title: 'Websites',        subtitle: 'Monitor your web properties',  color: '#f472b6', icon: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
   '/settings':   { title: 'Settings',        subtitle: 'Manage your preferences',      color: '#94a3b8', icon: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>' },
   '/tutorials':  { title: 'Tutorials',       subtitle: 'Learn how to use every feature',color: '#60a5fa', icon: '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>' },
@@ -281,7 +350,12 @@ const pages = {
   '/complaint':  { title: 'Make a Complaint',subtitle: 'Submit and track your reports', color: '#f87171', icon: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>' },
   '/wallet':     { title: 'My Wallet',       subtitle: 'Your balance and transactions', color: '#fbbf24', icon: '<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>' },
   '/billing':    { title: 'Billing & Plans', subtitle: 'Subscriptions and invoices',   color: '#fb923c', icon: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
-  '/tools':      { title: 'Tools',           subtitle: 'Extra tools for your business', color: '#22c55e', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
+  '/tools/transactions-tracker':          { title: 'Transactions Trackers', subtitle: 'Choose a style and share a receipt link',                         color: '#22c55e', icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>' },
+  '/tools/transactions-tracker/payment':  { title: 'Payment Tracking',   subtitle: 'Create a live tracking receipt and share it instantly with a link', color: '#22c55e', icon: '<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>' },
+  '/tools/transactions-tracker/receipts': { title: 'Receipts Tracking',    subtitle: 'Create a live transaction receipt and share it on your own link', color: '#D4A017', icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>' },
+  '/tools/crypto-receipts': { title: 'Crypto Receipts', subtitle: 'Pick a brand and generate a branded receipt', color: '#f59e0b', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
+  '/digital':    { title: 'Digital', subtitle: 'Extra tools for your business', color: '#22c55e', icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>' },
+  '/tools':      { title: 'Generator',   subtitle: 'Generate branded receipts, trackers and documents', color: '#22c55e', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
   '/tools/currency':       { title: 'Currency Converter', subtitle: 'Live exchange rates', color: '#22c55e', icon: '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
   '/tools/wallet-funding': { title: 'Wallet Funding',     subtitle: 'Crypto wallet top-ups', color: '#f59e0b', icon: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>' },
   '/tools/sms-sender':    { title: 'SMS Sender',    subtitle: 'Send SMS messages', color: '#22c55e', icon: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>' },
@@ -302,11 +376,12 @@ const mobileNotifBtn    = ref(null)
 const notifications     = ref(notifData)
 const isLight           = ref(document.documentElement.getAttribute('data-theme') === 'light')
 
+/* ── Profile chip dropdown ── */
+const profileDropOpen = ref(false)
+const profileChipRef  = ref(null)
+const toggleProfileDrop = () => { profileDropOpen.value = !profileDropOpen.value }
+function goTo(path) { profileDropOpen.value = false; router.push(path) }
 const unreadCount = computed(() => notifications.value.filter(n => !n.read).length)
-
-const currentDate = computed(() =>
-  new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
-)
 
 /* ── Time-based greeting ── */
 const greeting = computed(() => {
@@ -340,6 +415,7 @@ const handleOutsideClick = (e) => {
   const clickedNotifBtn   = notifBtn.value?.contains(e.target)
   const clickedMobileBtn  = mobileNotifBtn.value?.contains(e.target)
   if (!clickedNotifBtn && !clickedMobileBtn) showNotifications.value = false
+  if (!profileChipRef.value?.contains(e.target)) profileDropOpen.value = false
 }
 onMounted(()       => document.addEventListener('click', handleOutsideClick))
 onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
@@ -408,10 +484,132 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border: 2px solid var(--bg); padding: 0 3px;
 }
 
-.navbar__date {
-  font-size: 0.775rem; font-weight: 600; color: var(--t1);
-  padding: 8px 13px; background: var(--glass-2); border: 1px solid var(--border);
-  border-radius: 8px; white-space: nowrap; flex-shrink: 0;
+.navbar__profile-chip {
+  position: relative;
+  display: flex; align-items: center; gap: 9px;
+  padding: 6px 8px 6px 6px;
+  background: var(--glass-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  user-select: none;
+}
+.navbar__profile-chip:hover {
+  background: var(--glass-hover);
+  border-color: rgba(255,255,255,0.18);
+}
+.navbar__profile-avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.navbar__profile-info {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.navbar__profile-name {
+  font-size: 0.78rem; font-weight: 700; color: var(--t1); line-height: 1;
+}
+.navbar__profile-user {
+  font-size: 0.65rem; font-weight: 500; color: var(--t3); line-height: 1;
+}
+
+/* ── Three-dots button ── */
+.navbar__profile-dots {
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--t3);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.navbar__profile-dots:hover,
+.navbar__profile-dots--active {
+  background: rgba(255,255,255,0.1);
+  color: var(--t1);
+}
+.navbar__profile-dots--active { transform: rotate(90deg); }
+
+/* ── Profile dropdown panel ── */
+.navbar__profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 210px;
+  background: rgba(15, 16, 36, 0.72);
+  backdrop-filter: blur(48px) saturate(220%);
+  -webkit-backdrop-filter: blur(48px) saturate(220%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+  z-index: 200;
+  transform-origin: top right;
+}
+
+/* ── Dropdown header ── */
+.npd-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 10px 8px;
+}
+.npd-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.npd-info { display: flex; flex-direction: column; gap: 2px; }
+.npd-name  { font-size: 0.82rem; font-weight: 700; color: var(--t1); }
+.npd-email { font-size: 0.67rem; color: var(--t3); }
+
+/* ── Divider ── */
+.npd-divider { height: 1px; background: var(--border-soft); margin: 4px 0; }
+
+/* ── Items ── */
+.npd-item {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 9px 10px;
+  border-radius: 10px; border: none;
+  background: transparent; color: var(--t2);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem; font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+.npd-item:hover { background: var(--glass-hover); }
+
+.npd-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.npd-icon--blue  { background: rgba(96,165,250,.15);  color: #60a5fa; }
+.npd-icon--amber { background: rgba(245,158,11,.15);  color: #f59e0b; }
+.npd-icon--green { background: rgba(34,197,94,.15);   color: #22c55e; }
+.npd-label { flex: 1; }
+.npd-arrow { color: var(--t4); flex-shrink: 0; }
+
+/* ── Dropdown animation ── */
+.profile-chip-drop-enter-active {
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.profile-chip-drop-leave-active {
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+.profile-chip-drop-enter-from {
+  opacity: 0;
+  transform: scale(0.88) translateY(-8px);
+}
+.profile-chip-drop-leave-to {
+  opacity: 0;
+  transform: scale(0.94) translateY(-4px);
 }
 
 /* ══════════════════════════════

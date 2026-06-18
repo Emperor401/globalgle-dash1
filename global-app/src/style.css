@@ -92,8 +92,8 @@
   --border:      rgba(99, 102, 241, 0.26);
   --border-soft: rgba(99, 102, 241, 0.16);
 
-  --shadow:       0 2px 20px rgba(99, 102, 241, 0.10), 0 1px 5px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 6px 32px rgba(99, 102, 241, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow:       none;
+  --shadow-hover: none;
 
   --t1: rgba(12, 10, 30, 0.92);
   --t2: rgba(12, 10, 30, 0.6);
@@ -130,7 +130,7 @@
   /* Dropdown / Popover */
   --dropdown-bg:     rgba(255, 255, 255, 0.95);
   --dropdown-border: rgba(0, 0, 0, 0.08);
-  --dropdown-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --dropdown-shadow: none;
 }
 
 /* ══════════════════════════════════════════════
@@ -141,6 +141,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
 html {
@@ -333,55 +335,3 @@ button, input, textarea, select { font-family: 'Outfit', sans-serif; font-weight
   .billing-toggle           { flex-direction: column !important; align-items: flex-start !important; }
 }
 
-/* ══════════════════════════════════════════════
-   LIGHT MODE — GLASS PANEL ELEVATION
-   Adds shadow depth so glass surfaces pop
-   against the light #eef0ff background
-   ══════════════════════════════════════════════ */
-
-[data-theme="light"] .sidebar {
-  box-shadow: 4px 0 32px rgba(99, 102, 241, 0.10), 2px 0 8px rgba(0, 0, 0, 0.05);
-}
-
-[data-theme="light"] .navbar,
-[data-theme="light"] .mobile-nav {
-  box-shadow: 0 2px 24px rgba(99, 102, 241, 0.10), 0 1px 5px rgba(0, 0, 0, 0.05);
-}
-
-[data-theme="light"] .b-card,
-[data-theme="light"] .ps-card,
-[data-theme="light"] .promo-card,
-[data-theme="light"] .bill-stat,
-[data-theme="light"] .bill-plan-card,
-[data-theme="light"] .bill-notes,
-[data-theme="light"] .bill-cycle-toggle,
-[data-theme="light"] .gen-card,
-[data-theme="light"] .cc-card,
-[data-theme="light"] .cc-pair-card,
-[data-theme="light"] .service-card,
-[data-theme="light"] .help-card,
-[data-theme="light"] .help-cat,
-[data-theme="light"] .help-faq,
-[data-theme="light"] .help-right,
-[data-theme="light"] .set-card,
-[data-theme="light"] .set-subnav,
-[data-theme="light"] .sms-form-card,
-[data-theme="light"] .sms-history,
-[data-theme="light"] .sms-tab-bar,
-[data-theme="light"] .sc-form-card,
-[data-theme="light"] .sc-recent-card,
-[data-theme="light"] .sc-tab-bar,
-[data-theme="light"] .tool-card,
-[data-theme="light"] .tut-card,
-[data-theme="light"] .wf-card,
-[data-theme="light"] .wf-howto,
-[data-theme="light"] .wf-plan-card,
-[data-theme="light"] .w-stat,
-[data-theme="light"] .w-txn-section,
-[data-theme="light"] .w-auto-row,
-[data-theme="light"] .cmp-row,
-[data-theme="light"] .cmp-tabs,
-[data-theme="light"] .cmp-cat-card,
-[data-theme="light"] .sms-preview-stats {
-  box-shadow: 0 2px 18px rgba(99, 102, 241, 0.09), 0 1px 4px rgba(0, 0, 0, 0.05);
-}

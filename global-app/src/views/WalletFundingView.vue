@@ -87,27 +87,7 @@
       >
         <!-- Logo -->
         <div class="wf-card-logo" :style="{ background: p.bg }">
-          <svg v-if="p.logo === 'binance'" width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2l2.5 2.5L12 7 9.5 4.5 12 2z" fill="#F3BA2F"/>
-            <path d="M7 7l2.5 2.5-2.5 2.5L4.5 9.5 7 7zm10 0l2.5 2.5-2.5 2.5-2.5-2.5L17 7z" fill="#F3BA2F"/>
-            <path d="M12 12l2.5 2.5L12 17l-2.5-2.5L12 12zm0 5l2.5 2.5L12 22l-2.5-2.5L12 17z" fill="#F3BA2F"/>
-          </svg>
-          <svg v-else-if="p.logo === 'trust'" width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L4 5v7c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V5L12 2z" fill="#3375BB" stroke="#5B9EE1" stroke-width="0.5"/>
-            <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <svg v-else-if="p.logo === 'gate'" width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#2B4EFF" opacity="0.15"/>
-            <path d="M12 7a5 5 0 0 1 4.33 2.5H13v2h5.9A6 6 0 1 0 12 18v-2a4 4 0 1 1 3.46-6H12V7z" fill="#2B4EFF"/>
-          </svg>
-          <svg v-else-if="p.logo === 'coinbase'" width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#0052FF" opacity="0.15"/>
-            <text x="12" y="17" text-anchor="middle" font-size="13" font-weight="900" font-family="Arial" fill="#0052FF">C</text>
-          </svg>
-          <svg v-else-if="p.logo === 'kucoin'" width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <rect width="24" height="24" rx="6" fill="#23AF91" opacity="0.15"/>
-            <text x="12" y="17" text-anchor="middle" font-size="11" font-weight="900" font-family="Arial" fill="#23AF91">K</text>
-          </svg>
+          <img :src="gf(p.domain)" :alt="p.name" class="provider-logo" />
         </div>
 
         <!-- Info -->
@@ -157,24 +137,7 @@
 
             <div class="modal-header">
               <div class="modal-logo" :style="{ background: activeProvider.bg }">
-                <svg v-if="activeProvider.logo === 'binance'" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l2.5 2.5L12 7 9.5 4.5 12 2z" fill="#F3BA2F"/>
-                  <path d="M7 7l2.5 2.5-2.5 2.5L4.5 9.5 7 7zm10 0l2.5 2.5-2.5 2.5-2.5-2.5L17 7z" fill="#F3BA2F"/>
-                  <path d="M12 12l2.5 2.5L12 17l-2.5-2.5L12 12zm0 5l2.5 2.5L12 22l-2.5-2.5L12 17z" fill="#F3BA2F"/>
-                </svg>
-                <svg v-else-if="activeProvider.logo === 'trust'" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L4 5v7c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V5L12 2z" fill="#3375BB"/>
-                  <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <svg v-else-if="activeProvider.logo === 'gate'" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 7a5 5 0 0 1 4.33 2.5H13v2h5.9A6 6 0 1 0 12 18v-2a4 4 0 1 1 3.46-6H12V7z" fill="#2B4EFF"/>
-                </svg>
-                <svg v-else-if="activeProvider.logo === 'coinbase'" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <text x="12" y="18" text-anchor="middle" font-size="15" font-weight="900" font-family="Arial" fill="#0052FF">C</text>
-                </svg>
-                <svg v-else-if="activeProvider.logo === 'kucoin'" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <text x="12" y="18" text-anchor="middle" font-size="13" font-weight="900" font-family="Arial" fill="#23AF91">K</text>
-                </svg>
+                <img :src="gf(activeProvider.domain)" :alt="activeProvider.name" class="provider-logo" />
               </div>
               <div>
                 <h2 class="modal-title">{{ activeProvider.name }}</h2>
@@ -215,42 +178,14 @@ const router = useRouter()
 
 const activeProvider = ref(null)
 
+const gf = d => `https://www.google.com/s2/favicons?domain=${d}&sz=128`
+
 const providers = [
-  {
-    name: 'Binance Funding',
-    logo: 'binance',
-    bg:   'rgba(243,186,47,.12)',
-    coins: 2,
-    coinList: ['BTC', 'ETH'],
-  },
-  {
-    name: 'Trust Wallet Funding',
-    logo: 'trust',
-    bg:   'rgba(51,117,187,.12)',
-    coins: 3,
-    coinList: ['BTC', 'ETH', 'BNB'],
-  },
-  {
-    name: 'Gate.io Funding',
-    logo: 'gate',
-    bg:   'rgba(43,78,255,.12)',
-    coins: 3,
-    coinList: ['BTC', 'ETH', 'USDT'],
-  },
-  {
-    name: 'Coinbase',
-    logo: 'coinbase',
-    bg:   'rgba(0,82,255,.12)',
-    coins: 1,
-    coinList: ['BTC'],
-  },
-  {
-    name: 'Kucoin',
-    logo: 'kucoin',
-    bg:   'rgba(35,175,145,.12)',
-    coins: 2,
-    coinList: ['BTC', 'ETH'],
-  },
+  { name: 'Binance Funding',      domain: 'binance.com',     bg: 'rgba(243,186,47,.12)',  coins: 2, coinList: ['BTC','ETH'] },
+  { name: 'Trust Wallet Funding', domain: 'trustwallet.com', bg: 'rgba(51,117,187,.12)',  coins: 3, coinList: ['BTC','ETH','BNB'] },
+  { name: 'Gate.io Funding',      domain: 'gate.io',         bg: 'rgba(43,78,255,.12)',   coins: 3, coinList: ['BTC','ETH','USDT'] },
+  { name: 'Coinbase',             domain: 'coinbase.com',    bg: 'rgba(0,82,255,.12)',    coins: 1, coinList: ['BTC'] },
+  { name: 'Kucoin',               domain: 'kucoin.com',      bg: 'rgba(35,175,145,.12)', coins: 2, coinList: ['BTC','ETH'] },
 ]
 
 const steps = [
@@ -410,6 +345,7 @@ function selectCoin(coin) {
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
+.provider-logo { width: 30px; height: 30px; object-fit: contain; border-radius: 6px; }
 
 .wf-card-info { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
 .wf-card-name  { font-size: 0.9rem; font-weight: 700; color: var(--t1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

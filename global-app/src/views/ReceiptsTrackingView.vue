@@ -1,0 +1,749 @@
+<!-- src/views/ReceiptsTrackingView.vue -->
+<template>
+  <div class="rt-page">
+
+    <!-- Page Header -->
+    <div class="rt-header">
+      <div class="rt-icon-box">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="rt-title">Receipts Tracking</h1>
+        <p class="rt-sub">Create a live transaction receipt and share it on <span class="rt-sub-hl">your own link</span>.</p>
+      </div>
+    </div>
+
+    <!-- Two-column layout -->
+    <div class="rt-layout">
+
+      <!-- ── LEFT: Form ── -->
+      <div class="rt-form-col">
+
+        <!-- 1. Branding -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <h3 class="sec-title">Branding</h3>
+          </div>
+          <div class="fg">
+            <label class="fl">Company Name</label>
+            <input v-model="form.companyName" type="text" placeholder="e.g. Your Company" class="fi" />
+          </div>
+          <div class="two-col">
+            <div class="fg">
+              <label class="fl">Logo</label>
+              <div class="logo-row">
+                <div class="logo-preview-box">
+                  <img v-if="logoUrl" :src="logoUrl" class="logo-img" alt="logo" />
+                  <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <label class="logo-drop" @dragover.prevent @drop.prevent="e => handleDrop(e,'logo')">
+                  <input type="file" accept="image/*" hidden ref="logoRef" @change="e => handleFile(e,'logo')" />
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                  <span>Drag & drop or <button type="button" class="click-link" @click.prevent="logoRef.click()">click</button></span>
+                </label>
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl">Status Icon / Logo</label>
+              <div class="logo-row">
+                <div class="logo-preview-box">
+                  <img v-if="statusIconUrl" :src="statusIconUrl" class="logo-img" alt="icon" />
+                  <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <label class="logo-drop" @dragover.prevent @drop.prevent="e => handleDrop(e,'status')">
+                  <input type="file" accept="image/*" hidden ref="statusIconRef" @change="e => handleFile(e,'status')" />
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+                  <span>Drag & drop or <button type="button" class="click-link" @click.prevent="statusIconRef.click()">click</button></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Receipt Link -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <h3 class="sec-title">Receipt Link</h3>
+          </div>
+          <p class="sec-desc">Pick a name — your receipt gets its own clean link on one of our domains. <span class="hl">Leave blank to add one later from Manage.</span></p>
+          <p class="fl" style="margin:0">Your receipt link</p>
+          <div class="subdomain-box">
+            <div class="subdomain-head">
+              <div class="subdomain-title-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span class="subdomain-name">Use our subdomain</span>
+                <span class="subdomain-free">free</span>
+              </div>
+              <p class="subdomain-hint">Pick a keyword — we set up the link for you. <span class="hl">Nothing</span> to configure at your domain.</p>
+            </div>
+            <div class="slug-row">
+              <input v-model="form.receiptSlug" type="text" placeholder="payment-pending" class="fi slug-input" />
+              <select v-model="form.domain" class="fs slug-domain">
+                <option>.qst1x.com</option>
+                <option>.cryptotrack.app</option>
+                <option>.receiptlive.io</option>
+              </select>
+            </div>
+            <p class="slug-note">Lowercase letters, numbers and dashes — then <span class="hl">pick a domain</span>. <span class="hl">Locked in once created.</span></p>
+          </div>
+        </div>
+
+        <!-- 3. Colors -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            <h3 class="sec-title">Colors</h3>
+          </div>
+          <div class="two-col">
+            <div class="fg">
+              <label class="fl">Primary / Accent Color</label>
+              <div class="color-field">
+                <label class="color-swatch-wrap" :style="{ background: form.accentColor }">
+                  <input type="color" v-model="form.accentColor" class="color-native" />
+                </label>
+                <input v-model="form.accentColor" type="text" class="fi color-hex" @blur="validateHex('accentColor')" placeholder="#D4A017" />
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl">Background Color</label>
+              <div class="color-field">
+                <label class="color-swatch-wrap" :style="{ background: form.bgColor }">
+                  <input type="color" v-model="form.bgColor" class="color-native" />
+                </label>
+                <input v-model="form.bgColor" type="text" class="fi color-hex" @blur="validateHex('bgColor')" placeholder="#0c0c0a" />
+              </div>
+            </div>
+          </div>
+          <div class="mode-row">
+            <span class="fl">Receipt mode</span>
+            <div class="mode-pills">
+              <button :class="['mode-pill', { 'mode-pill--active': form.receiptMode === 'light' }]" @click="form.receiptMode = 'light'">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                Light
+              </button>
+              <button :class="['mode-pill', { 'mode-pill--active': form.receiptMode === 'dark' }]" @click="form.receiptMode = 'dark'">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                Dark
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Payment Information -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <h3 class="sec-title">Payment Information</h3>
+          </div>
+          <div class="two-col">
+            <div class="fg">
+              <label class="fl">Recipient Name <span class="req">*</span></label>
+              <input v-model="form.recipientName" type="text" placeholder="e.g. Ben" class="fi" />
+            </div>
+            <div class="fg">
+              <label class="fl">Issuer</label>
+              <input v-model="form.issuer" type="text" placeholder="e.g. your company name" class="fi" />
+            </div>
+          </div>
+          <div class="two-col">
+            <div class="fg">
+              <label class="fl">Currency Symbol</label>
+              <input v-model="form.currencySymbol" type="text" placeholder="R" class="fi" />
+            </div>
+            <div class="fg">
+              <label class="fl">Profit Amount <span class="req">*</span></label>
+              <input v-model="form.profitAmount" type="text" placeholder="12,432.00" class="fi" />
+            </div>
+          </div>
+          <div class="two-col">
+            <div class="fg">
+              <label class="fl">Processing Fee</label>
+              <input v-model="form.processingFee" type="text" placeholder="453.00" class="fi" />
+            </div>
+            <div class="fg">
+              <label class="fl">Status Title</label>
+              <input v-model="form.statusTitle" type="text" placeholder="Payment Pending" class="fi" />
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">Headline</label>
+            <input v-model="form.headline" type="text" :placeholder="`Your profit of ${form.currencySymbol || 'R'} ${form.profitAmount || '12,432'} is ready for payout.`" class="fi" />
+          </div>
+          <div class="fg">
+            <label class="fl">Fee sentence</label>
+            <textarea v-model="form.feeSentence" class="fi-area" rows="3" :placeholder="`A processing fee of ${form.currencySymbol || 'R'} ${form.processingFee || '453'} is required before funds can be released.`"></textarea>
+          </div>
+        </div>
+
+        <!-- 5. Billing Warning -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon sec-icon--warn" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <h3 class="sec-title">Billing Warning</h3>
+          </div>
+          <textarea v-model="form.billingWarning" class="fi-area" rows="4" placeholder="Optional: Add a warning about why payment is not successful..."></textarea>
+        </div>
+
+        <!-- 6. Status / Progress Steps -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <h3 class="sec-title">Status / Progress Steps</h3>
+          </div>
+          <div class="list-header">
+            <span class="fl">Status Steps</span>
+            <button class="add-btn" @click="steps.push('')">+ Add Step</button>
+          </div>
+          <p class="sec-desc">Add the steps shown on the receipt (e.g. <span class="hl">"Profit verification complete"</span>).</p>
+          <div v-if="steps.length" class="dynamic-list">
+            <div v-for="(_, i) in steps" :key="i" class="dynamic-row">
+              <input v-model="steps[i]" type="text" class="fi" placeholder='e.g. "Profit verification complete"' />
+              <button class="remove-btn" @click="steps.splice(i, 1)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Action Button -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            <h3 class="sec-title">Action Button</h3>
+          </div>
+          <div class="two-col">
+            <div class="fg">
+              <label class="fl">Button Text</label>
+              <input v-model="form.actionBtnText" type="text" placeholder="Pay Release Fee Now" class="fi" />
+            </div>
+            <div class="fg">
+              <label class="fl">Button URL</label>
+              <input v-model="form.actionBtnUrl" type="text" placeholder="https://..." class="fi" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Copyable Details -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <h3 class="sec-title">Copyable Details</h3>
+          </div>
+          <p class="sec-desc">Add any details the recipient should copy — a wallet address, a reference, an account number. Each gets its own copy button.</p>
+          <div class="list-header">
+            <span class="fl">Copyable details</span>
+            <button class="add-btn" @click="copyFields.push({ label: '', value: '' })">+ Add field</button>
+          </div>
+          <p class="sec-desc">Add a <span class="hl">wallet address</span>, a <span class="hl">fee address</span>, a <span class="hl">memo/tag</span> — each gets a copy button on the receipt.</p>
+          <div v-if="copyFields.length" class="dynamic-list">
+            <div v-for="(field, i) in copyFields" :key="i" class="dynamic-row">
+              <input v-model="field.label" type="text" class="fi" placeholder="Label (e.g. Wallet)" style="flex:0.6" />
+              <input v-model="field.value" type="text" class="fi" placeholder="Value (e.g. 0x...)" />
+              <button class="remove-btn" @click="copyFields.splice(i, 1)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Contact & Live Chat -->
+        <div class="sec-card">
+          <div class="sec-head">
+            <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <h3 class="sec-title">Contact & Live Chat</h3>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info">
+              <div class="toggle-label-row">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span class="fl">Live chat on the receipt</span>
+              </div>
+              <p class="sec-desc">Adds a real chat box. The <span class="hl">recipient messages you</span>; you reply from <span class="hl">"Manage"</span>.</p>
+            </div>
+            <button :class="['toggle-switch', { 'toggle-switch--on': form.liveChatEnabled }]" @click="form.liveChatEnabled = !form.liveChatEnabled" />
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-info">
+              <span class="fl">External chat link instead</span>
+              <p class="sec-desc">Only used when the in-app chat above is off.</p>
+            </div>
+            <button :class="['toggle-switch', { 'toggle-switch--on': form.externalChatEnabled }]" @click="form.externalChatEnabled = !form.externalChatEnabled" />
+          </div>
+          <div class="list-header" style="margin-top:4px">
+            <span class="fl">Contact / Social Links</span>
+            <button class="add-btn" @click="socialLinks.push({ label: '', url: '' })">+ Add Link</button>
+          </div>
+          <p class="sec-desc">Add <span class="hl">WhatsApp</span>, <span class="hl">Telegram</span>, a website — any label and link.</p>
+          <div v-if="socialLinks.length" class="dynamic-list">
+            <div v-for="(link, i) in socialLinks" :key="i" class="dynamic-row">
+              <input v-model="link.label" type="text" class="fi" placeholder="Label (e.g. WhatsApp)" style="flex:0.6" />
+              <input v-model="link.url" type="text" class="fi" placeholder="URL or number" />
+              <button class="remove-btn" @click="socialLinks.splice(i, 1)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error -->
+        <p v-if="formError" class="form-error">{{ formError }}</p>
+
+        <!-- Generate Button -->
+        <button :class="['generate-btn', { 'generate-btn--loading': generating }]"
+          :style="{ background: form.accentColor }" @click="generate">
+          <template v-if="!generating">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Generate Receipt
+          </template>
+          <template v-else>
+            <span class="spinner" /> Generating...
+          </template>
+        </button>
+
+        <!-- My receipts -->
+        <div class="my-receipts-card">
+          <h3 class="my-receipts-title">My transaction receipts</h3>
+          <div v-if="generatedReceipts.length === 0" class="my-receipts-empty">
+            <p>Your generated receipts will appear here.</p>
+          </div>
+          <div v-else class="receipts-list">
+            <div v-for="r in generatedReceipts" :key="r.id" class="receipt-item">
+              <div class="receipt-item__dot" :style="{ background: r.accent }" />
+              <div class="receipt-item__info">
+                <span class="receipt-item__name">{{ r.company }}</span>
+                <span class="receipt-item__meta">{{ r.slug }}{{ r.domain }} · {{ r.time }}</span>
+              </div>
+              <span class="receipt-item__badge">Live</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Live Preview ── -->
+      <div class="rt-preview-col">
+        <p class="preview-label">LIVE PREVIEW</p>
+        <div class="receipt-preview-card" :style="{ background: form.bgColor || '#0c0c0a' }">
+
+          <!-- Status icon circle -->
+          <div class="rp-circle" :style="{ borderColor: form.accentColor || '#D4A017' }">
+            <img v-if="statusIconUrl" :src="statusIconUrl" class="rp-circle-img" />
+            <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none"
+              :stroke="form.accentColor || '#D4A017'" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+
+          <!-- Company name -->
+          <p class="rp-company" :style="{ color: form.accentColor || '#D4A017' }">
+            {{ (form.companyName || 'YOUR COMPANY').toUpperCase() }}
+          </p>
+
+          <!-- Tabs -->
+          <div class="rp-tabs">
+            <button class="rp-tab rp-tab--active" :style="{ background: form.accentColor || '#D4A017' }">Status</button>
+            <button class="rp-tab">Details</button>
+          </div>
+
+          <!-- Status title -->
+          <p v-if="form.statusTitle" class="rp-status-title" :style="{ color: form.accentColor || '#D4A017' }">
+            {{ form.statusTitle }}
+          </p>
+
+          <!-- Headline preview -->
+          <p v-if="form.headline || form.profitAmount" class="rp-headline">
+            {{ form.headline || `Your profit of ${form.currencySymbol || 'R'} ${form.profitAmount || '0'} is ready for payout.` }}
+          </p>
+
+          <!-- Live chat button -->
+          <button v-if="form.liveChatEnabled" class="rp-chat">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Live chat
+          </button>
+
+          <!-- Footer -->
+          <p class="rp-footer">{{ form.companyName || 'Your company' }} Receipt · Secure & Verified</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Success Toast -->
+    <Transition name="toast-pop">
+      <div v-if="showSuccess" class="success-toast">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Receipt generated successfully!
+      </div>
+    </Transition>
+
+  </div>
+</template>
+
+<script setup>
+import { ref, reactive } from 'vue'
+
+const logoRef        = ref(null)
+const statusIconRef  = ref(null)
+const logoUrl        = ref(null)
+const statusIconUrl  = ref(null)
+const generating     = ref(false)
+const showSuccess    = ref(false)
+const formError      = ref('')
+const steps          = ref([])
+const copyFields     = ref([])
+const socialLinks    = ref([])
+const generatedReceipts = ref([])
+
+const form = reactive({
+  companyName:        '',
+  receiptSlug:        '',
+  domain:             '.qst1x.com',
+  accentColor:        '#D4A017',
+  bgColor:            '#0c0c0a',
+  receiptMode:        'dark',
+  recipientName:      '',
+  issuer:             '',
+  currencySymbol:     'R',
+  profitAmount:       '',
+  processingFee:      '',
+  statusTitle:        'Payment Pending',
+  headline:           '',
+  feeSentence:        '',
+  billingWarning:     '',
+  actionBtnText:      '',
+  actionBtnUrl:       '',
+  liveChatEnabled:    true,
+  externalChatEnabled:false,
+})
+
+function handleFile(e, type) {
+  const file = e.target.files[0]
+  if (!file) return
+  const reader = new FileReader()
+  reader.onload = ev => {
+    if (type === 'logo') logoUrl.value = ev.target.result
+    else statusIconUrl.value = ev.target.result
+  }
+  reader.readAsDataURL(file)
+}
+function handleDrop(e, type) {
+  const file = e.dataTransfer.files[0]
+  if (!file || !file.type.startsWith('image/')) return
+  const reader = new FileReader()
+  reader.onload = ev => {
+    if (type === 'logo') logoUrl.value = ev.target.result
+    else statusIconUrl.value = ev.target.result
+  }
+  reader.readAsDataURL(file)
+}
+
+function validateHex(field) {
+  if (!/^#[0-9a-fA-F]{6}$/.test(form[field])) {
+    form[field] = field === 'accentColor' ? '#D4A017' : '#0c0c0a'
+  }
+}
+
+function generate() {
+  formError.value = ''
+  if (!form.companyName.trim())  { formError.value = 'Company name is required.'; return }
+  if (!form.recipientName.trim()){ formError.value = 'Recipient name is required.'; return }
+  if (!form.profitAmount.trim()) { formError.value = 'Profit amount is required.'; return }
+
+  generating.value = true
+  setTimeout(() => {
+    generating.value = false
+    showSuccess.value = true
+    generatedReceipts.value.unshift({
+      id:      Date.now(),
+      company: form.companyName,
+      slug:    form.receiptSlug || 'receipt-' + Date.now().toString(36),
+      domain:  form.domain,
+      accent:  form.accentColor,
+      time:    new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+    })
+    setTimeout(() => { showSuccess.value = false }, 3500)
+  }, 1800)
+}
+</script>
+
+<style scoped>
+.rt-page { display: flex; flex-direction: column; gap: 24px; }
+
+/* Header */
+.rt-header { display: flex; align-items: center; gap: 14px; }
+.rt-icon-box {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  background: rgba(212,160,23,0.15); border: 1px solid rgba(212,160,23,0.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.rt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
+.rt-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.rt-sub-hl { color: #D4A017; font-weight: 500; }
+
+/* Layout */
+.rt-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Form column */
+.rt-form-col { display: flex; flex-direction: column; gap: 16px; }
+
+/* Section card — always light/white */
+.sec-card {
+  background: #fff;
+  border: 1px solid #e8ecf0;
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+.sec-head { display: flex; align-items: center; gap: 8px; }
+.sec-icon { color: #D4A017; flex-shrink: 0; }
+.sec-icon--warn { color: #f59e0b; }
+.sec-title { font-size: 0.9rem; font-weight: 700; color: #0f172a; margin: 0; }
+.sec-desc { font-size: 0.78rem; color: #64748b; line-height: 1.6; margin: 0; }
+.sec-desc .hl { color: #D4A017; font-weight: 500; }
+
+/* Fields */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fg { display: flex; flex-direction: column; gap: 6px; }
+.fl { font-size: 0.78rem; font-weight: 600; color: #334155; }
+.req { color: #ef4444; }
+
+.fi {
+  width: 100%; padding: 9px 12px; border-radius: 9px;
+  border: 1px solid #e2e8f0; background: #fff; color: #0f172a;
+  font-family: 'Outfit', sans-serif; font-size: 0.82rem;
+  transition: border-color 0.18s; box-sizing: border-box;
+}
+.fi:focus { outline: none; border-color: #D4A017; }
+.fi::placeholder { color: #94a3b8; }
+
+.fi-area {
+  width: 100%; padding: 9px 12px; border-radius: 9px;
+  border: 1px solid #e2e8f0; background: #fff; color: #0f172a;
+  font-family: 'Outfit', sans-serif; font-size: 0.82rem;
+  resize: vertical; min-height: 80px;
+  transition: border-color 0.18s; box-sizing: border-box;
+}
+.fi-area:focus { outline: none; border-color: #D4A017; }
+.fi-area::placeholder { color: #94a3b8; }
+
+/* Logo upload */
+.logo-row { display: flex; gap: 8px; align-items: stretch; }
+.logo-preview-box {
+  width: 60px; height: 60px; border-radius: 10px; flex-shrink: 0;
+  border: 1px solid #e2e8f0; background: #f8fafc;
+  display: flex; align-items: center; justify-content: center; color: #94a3b8; overflow: hidden;
+}
+.logo-img { width: 100%; height: 100%; object-fit: contain; }
+.logo-drop {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
+  border: 1.5px dashed #cbd5e1; border-radius: 10px; padding: 10px;
+  font-size: 0.75rem; color: #64748b; cursor: pointer; transition: border-color 0.18s;
+}
+.logo-drop:hover { border-color: #D4A017; }
+.click-link { background: none; border: none; padding: 0; color: #D4A017; font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+
+/* Subdomain box */
+.subdomain-box {
+  border: 1.5px solid #22c55e; border-radius: 12px; padding: 14px 16px;
+  background: rgba(34,197,94,0.04); display: flex; flex-direction: column; gap: 10px;
+}
+.subdomain-head { display: flex; flex-direction: column; gap: 6px; }
+.subdomain-title-row { display: flex; align-items: center; gap: 8px; }
+.subdomain-name { font-size: 0.85rem; font-weight: 700; color: #0f172a; }
+.subdomain-free {
+  font-size: 0.65rem; font-weight: 700; color: #22c55e;
+  background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
+  padding: 2px 8px; border-radius: 999px;
+}
+.subdomain-hint { font-size: 0.75rem; color: #64748b; margin: 0; }
+.subdomain-hint .hl { color: #D4A017; font-weight: 500; }
+.slug-row { display: flex; gap: 8px; }
+.slug-input  { flex: 1; }
+.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid #e2e8f0; background: #fff; color: #0f172a; font-family: 'Outfit', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
+.slug-domain:focus { outline: none; border-color: #D4A017; }
+.slug-note { font-size: 0.72rem; color: #64748b; margin: 0; }
+.slug-note .hl { color: #D4A017; font-weight: 500; }
+
+/* Color picker */
+.color-field { display: flex; gap: 8px; align-items: center; }
+.color-swatch-wrap {
+  width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+  border: 1px solid #e2e8f0; cursor: pointer; overflow: hidden; position: relative;
+}
+.color-native {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  width: 100%; height: 100%; border: none; padding: 0;
+}
+.color-hex { flex: 1; }
+
+/* Receipt mode */
+.mode-row { display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
+.mode-pills { display: flex; gap: 6px; }
+.mode-pill {
+  display: flex; align-items: center; gap: 6px; padding: 7px 16px;
+  border-radius: 999px; border: 1px solid #e2e8f0; background: #f8fafc;
+  color: #475569; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; transition: all 0.18s;
+}
+.mode-pill--active { background: #D4A017; border-color: #D4A017; color: #fff; }
+
+/* Toggle switch */
+.toggle-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.toggle-info { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.toggle-label-row { display: flex; align-items: center; gap: 6px; }
+.toggle-switch {
+  width: 44px; height: 24px; border-radius: 12px; border: none;
+  background: #e2e8f0; position: relative; cursor: pointer; flex-shrink: 0;
+  transition: background 0.2s; margin-top: 2px;
+}
+.toggle-switch::after {
+  content: ''; position: absolute; width: 18px; height: 18px;
+  border-radius: 50%; background: #fff; top: 3px; left: 3px;
+  transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.toggle-switch--on { background: #D4A017; }
+.toggle-switch--on::after { transform: translateX(20px); }
+
+/* Dynamic list */
+.list-header { display: flex; align-items: center; justify-content: space-between; }
+.dynamic-list { display: flex; flex-direction: column; gap: 8px; }
+.dynamic-row { display: flex; gap: 8px; align-items: center; }
+.remove-btn {
+  width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px;
+  border: 1px solid #e2e8f0; background: #fff; color: #94a3b8;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.remove-btn:hover { background: #fee2e2; color: #ef4444; border-color: #fca5a5; }
+.add-btn {
+  font-size: 0.75rem; font-weight: 700; color: #D4A017; background: rgba(212,160,23,0.1);
+  border: 1px solid rgba(212,160,23,0.25); border-radius: 8px; padding: 5px 12px;
+  cursor: pointer; font-family: 'Outfit', sans-serif; transition: background 0.18s;
+  white-space: nowrap;
+}
+.add-btn:hover { background: rgba(212,160,23,0.18); }
+
+/* Form error */
+.form-error {
+  font-size: 0.78rem; color: #ef4444; background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.2); border-radius: 8px; padding: 10px 14px; margin: 0;
+}
+
+/* Generate button */
+.generate-btn {
+  width: 100%; padding: 15px; border-radius: 12px; border: none; color: #fff;
+  font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 700;
+  cursor: pointer; transition: filter 0.2s, transform 0.18s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.generate-btn:hover:not(.generate-btn--loading) { filter: brightness(1.1); transform: translateY(-1px); }
+.generate-btn--loading { opacity: 0.75; cursor: not-allowed; }
+
+/* Spinner */
+.spinner {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* My receipts */
+.my-receipts-card {
+  background: #fff; border: 1px solid #e8ecf0; border-radius: 14px;
+  padding: 18px 22px; display: flex; flex-direction: column; gap: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+.my-receipts-title { font-size: 0.9rem; font-weight: 700; color: #0f172a; margin: 0; }
+.my-receipts-empty p { font-size: 0.8rem; color: #94a3b8; margin: 0; }
+.my-receipts-empty .hl { color: #D4A017; }
+.receipts-list { display: flex; flex-direction: column; gap: 8px; }
+.receipt-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: #f8fafc; border: 1px solid #e8ecf0; }
+.receipt-item__dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.receipt-item__info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.receipt-item__name { font-size: 0.82rem; font-weight: 600; color: #0f172a; }
+.receipt-item__meta { font-size: 0.7rem; color: #94a3b8; }
+.receipt-item__badge { font-size: 0.65rem; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+
+/* ── RIGHT: Preview column ── */
+.rt-preview-col {
+  position: sticky; top: 24px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.preview-label {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--t3); margin: 0;
+}
+
+/* Receipt preview card */
+.receipt-preview-card {
+  border-radius: 20px; padding: 32px 24px 24px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 14px; min-height: 280px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+.rp-circle {
+  width: 68px; height: 68px; border-radius: 50%;
+  border: 2px solid #D4A017; display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.rp-circle-img { width: 100%; height: 100%; object-fit: contain; }
+.rp-company { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; margin: 0; }
+.rp-tabs { display: flex; gap: 6px; background: rgba(255,255,255,0.06); border-radius: 999px; padding: 4px; }
+.rp-tab {
+  padding: 7px 20px; border-radius: 999px; border: none;
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700;
+  cursor: default; color: rgba(255,255,255,0.45); background: transparent;
+}
+.rp-tab--active { color: #0f172a; }
+.rp-status-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; margin: 0; }
+.rp-headline { font-size: 0.72rem; color: rgba(255,255,255,0.55); text-align: center; margin: 0; max-width: 240px; line-height: 1.5; }
+.rp-chat {
+  display: flex; align-items: center; gap: 7px;
+  padding: 10px 28px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.75);
+  font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: default;
+  width: 100%; justify-content: center;
+}
+.rp-footer { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin: 0; text-align: center; }
+
+/* Success Toast */
+.success-toast {
+  position: fixed; bottom: 28px; right: 28px; z-index: 400;
+  display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
+  background: #16a34a; color: #fff; font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
+}
+.toast-pop-enter-active { transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+.toast-pop-leave-active { transition: opacity 0.2s ease, transform 0.2s ease; }
+.toast-pop-enter-from,
+.toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .rt-layout { grid-template-columns: 1fr 300px; }
+}
+@media (max-width: 900px) {
+  .rt-layout { grid-template-columns: 1fr; }
+  .rt-preview-col { position: static; order: -1; }
+  .receipt-preview-card { min-height: 200px; }
+}
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+  .slug-row { flex-direction: column; }
+  .slug-domain { width: 100%; }
+}
+</style>
