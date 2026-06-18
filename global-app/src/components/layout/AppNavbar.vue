@@ -543,13 +543,13 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   top: calc(100% + 10px);
   right: 0;
   min-width: 210px;
-  background: rgba(15, 16, 36, 0.72);
-  backdrop-filter: blur(48px) saturate(220%);
-  -webkit-backdrop-filter: blur(48px) saturate(220%);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(4, 5, 10, 0.88);
+  backdrop-filter: blur(72px) saturate(180%);
+  -webkit-backdrop-filter: blur(72px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
   padding: 6px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.05);
   z-index: 200;
   transform-origin: top right;
 }
