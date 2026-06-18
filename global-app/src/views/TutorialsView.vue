@@ -305,13 +305,13 @@ function showToast(type, msg) {
 
 .tut-empty-title { font-size: 1.05rem; font-weight: 800; color: var(--t1); margin: 0; }
 .tut-empty-sub {
-  font-size: 0.82rem; color: var(--t3); margin: 0; line-height: 1.6; max-width: 420px;
+  font-size: 0.82rem; color: var(--t2); margin: 0; line-height: 1.6; max-width: 420px;
   display: flex; flex-direction: column; gap: 6px;
 }
-.tut-empty-hint { font-size: 0.73rem; color: var(--t3); }
+.tut-empty-hint { font-size: 0.73rem; color: var(--t2); }
 .tut-empty-hint code {
   background: rgba(255,255,255,.08); border: 1px solid var(--border-soft);
-  border-radius: 5px; padding: 1px 7px; font-size: 0.72rem; color: var(--t2);
+  border-radius: 5px; padding: 1px 7px; font-size: 0.72rem; color: var(--t1);
   font-family: monospace;
 }
 
