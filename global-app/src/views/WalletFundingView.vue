@@ -462,8 +462,8 @@ function selectCoin(coin) {
   .wf-page        { gap: 20px; }
   .wf-grid        { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .wf-howto-grid  { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .wf-plan-card   { padding: 20px 22px; }
-  .wf-howto       { padding: 20px 22px; }
+  .wf-plan-card   { padding: 14px 16px; }
+  .wf-howto       { padding: 14px 16px; }
 }
 
 /* ── Mobile ── */
@@ -477,7 +477,7 @@ function selectCoin(coin) {
   .wf-history-btn { width: 100%; justify-content: center; }
 
   /* plan card stacks; right side left-aligns and stretches full width */
-  .wf-plan-card   { flex-direction: column; padding: 18px 16px; gap: 16px; }
+  .wf-plan-card   { flex-direction: column; padding: 14px 14px; gap: 12px; }
   .wf-plan-right  { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 12px; align-items: center; }
   .wf-balance-label { display: none; }
   .wf-balance-val { font-size: 1.3rem; }
@@ -488,7 +488,7 @@ function selectCoin(coin) {
 
   /* how it works: 1 col */
   .wf-howto-grid  { grid-template-columns: 1fr; gap: 14px; }
-  .wf-howto       { padding: 18px 16px; }
+  .wf-howto       { padding: 13px 13px; }
 
   /* modal: bottom sheet */
   .modal-overlay  { padding: 0; align-items: flex-end; }
@@ -500,7 +500,7 @@ function selectCoin(coin) {
   .wf-page        { gap: 14px; }
   .wf-title       { font-size: 1.15rem; }
   .wf-plan-value  { font-size: 1.4rem; }
-  .wf-plan-card   { padding: 14px; }
+  .wf-plan-card   { padding: 10px; }
   .wf-card        { padding: 16px; gap: 10px; }
   .wf-card-logo   { width: 42px; height: 42px; border-radius: 12px; }
   .wf-card-name   { font-size: 0.84rem; }

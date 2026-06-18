@@ -112,7 +112,7 @@ const services = [
 @media (max-width: 768px) and (min-width: 601px) {
   .tt-page       { gap: 22px; }
   .service-grid  { gap: 14px; }
-  .service-card  { padding: 22px 18px; gap: 10px; }
+  .service-card  { padding: 14px 14px; gap: 8px; }
   .page-header__title { font-size: 1.3rem; }
 }
 
@@ -120,7 +120,7 @@ const services = [
 @media (max-width: 600px) {
   .tt-page       { gap: 18px; }
   .service-grid  { grid-template-columns: 1fr; gap: 12px; }
-  .service-card  { padding: 20px 18px; gap: 10px; border-radius: 14px; }
+  .service-card  { padding: 13px 13px; gap: 8px; border-radius: 14px; }
   .page-header__title { font-size: 1.2rem; }
   .page-header__sub   { font-size: 0.78rem; }
   .service-card__title { font-size: 0.95rem; }
@@ -130,7 +130,7 @@ const services = [
 
 /* Small phones (≤ 430px) */
 @media (max-width: 430px) {
-  .service-card  { padding: 18px 16px; gap: 9px; border-radius: 13px; }
+  .service-card  { padding: 12px 12px; gap: 7px; border-radius: 13px; }
   .page-header__title { font-size: 1.1rem; }
   .service-card__icon  { width: 38px; height: 38px; border-radius: 10px; }
   .service-card__title { font-size: 0.9rem; }

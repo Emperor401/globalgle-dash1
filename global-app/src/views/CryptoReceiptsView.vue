@@ -407,7 +407,7 @@ function onImgError(e) {
   .p-card__cta   { font-size: 0.6rem; }
   .back-btn      { font-size: 0.75rem; padding: 6px 12px; }
 }
-@media (max-width: 480px) { .receipt-modal { max-width: 95vw; } .modal-body { padding: 20px 18px; } }
+@media (max-width: 480px) { .receipt-modal { max-width: 95vw; } .modal-body { padding: 14px 14px; } }
 
 /* Light mode */
 [data-theme="light"] .p-card { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }

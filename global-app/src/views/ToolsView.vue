@@ -155,7 +155,7 @@ const services = [
 }
 @media (max-width: 768px) {
   .service-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .service-card { padding: 20px 18px; }
+  .service-card { padding: 14px 14px; }
 }
 @media (max-width: 480px) {
   .service-grid { grid-template-columns: 1fr; }

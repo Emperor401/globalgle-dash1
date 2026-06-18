@@ -781,7 +781,7 @@ function fmtAmount(amount, currency = 'NGN') {
 @media (max-width: 1024px) and (min-width: 769px) {
   .dashboard    { gap: 18px; }
   .bento        { gap: 14px; grid-template-columns: repeat(4, 1fr); }
-  .b-card       { padding: 18px 20px; gap: 12px; }
+  .b-card       { padding: 14px 16px; gap: 10px; }
   .b-balance    { grid-column: span 2; }
   .b-quick-actions { grid-column: span 2; }
   .b-recent-txn { grid-column: span 2; }
@@ -799,7 +799,7 @@ function fmtAmount(amount, currency = 'NGN') {
   .b-recent-txn,
   .b-recent-pay    { grid-column: span 1; }
 
-  .b-card { padding: 20px 18px; border-radius: 16px; gap: 12px; }
+  .b-card { padding: 14px 14px; border-radius: 16px; gap: 10px; }
 
   .dash-header__title { font-size: 1.35rem; }
   .bal-int  { font-size: 2.2rem; }
@@ -825,7 +825,7 @@ function fmtAmount(amount, currency = 'NGN') {
   .b-recent-txn,
   .b-recent-pay { grid-column: span 1; }
 
-  .b-card { padding: 18px 16px; border-radius: 16px; gap: 12px; }
+  .b-card { padding: 12px 12px; border-radius: 16px; gap: 10px; }
 
   /* Header */
   .dash-header       { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -881,7 +881,7 @@ function fmtAmount(amount, currency = 'NGN') {
 
 /* ── Small phones (≤ 430px) ── */
 @media (max-width: 430px) {
-  .b-card   { padding: 16px 14px; }
+  .b-card   { padding: 11px 11px; }
   .bal-int  { font-size: 1.45rem; }
   .bal-sign,
   .bal-dec  { font-size: 0.85rem; }
@@ -898,7 +898,7 @@ function fmtAmount(amount, currency = 'NGN') {
 
 /* ── Tiny phones (≤ 360px) ── */
 @media (max-width: 360px) {
-  .b-card   { padding: 14px 12px; border-radius: 14px; }
+  .b-card   { padding: 10px 10px; border-radius: 14px; }
   .bal-int  { font-size: 1.28rem; }
   .bal-sign,
   .bal-dec  { font-size: 0.78rem; }
