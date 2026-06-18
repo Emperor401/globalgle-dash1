@@ -749,7 +749,7 @@ function closeTicket(id) {
 .cmp-textarea-wrap--error .cmp-textarea { border-color: rgba(248,113,113,.5); }
 .cmp-textarea {
   width: 100%; background: var(--modal-input); border: 1px solid var(--modal-border);
-  border-radius: 11px; padding: 11px 14px; resize: vertical;
+  border-radius: 11px; padding: 11px 14px; resize: none;
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s; box-sizing: border-box;
 }

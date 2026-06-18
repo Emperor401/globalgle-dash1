@@ -507,7 +507,7 @@ function onImgError(e) {
   border-radius: 10px; border: 1px solid var(--border-soft);
   background: var(--glass-2); color: var(--t1);
   font-family: 'Outfit', sans-serif; font-size: 0.82rem;
-  resize: vertical; min-height: 80px;
+  resize: none; min-height: 80px;
   transition: border-color 0.18s;
   box-sizing: border-box;
 }

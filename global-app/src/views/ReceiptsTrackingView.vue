@@ -534,7 +534,7 @@ function generate() {
   width: 100%; padding: 9px 12px; border-radius: 9px;
   border: 1px solid #e2e8f0; background: #fff; color: #0f172a;
   font-family: 'Outfit', sans-serif; font-size: 0.82rem;
-  resize: vertical; min-height: 80px;
+  resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .fi-area:focus { outline: none; border-color: #D4A017; }

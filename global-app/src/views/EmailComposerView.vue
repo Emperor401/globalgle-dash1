@@ -296,7 +296,7 @@ const quickStats = [
 .toolbar-div { width:1px; height:16px; background:var(--border-soft); margin:0 4px; }
 
 .body-group { }
-.body-input { background:var(--glass-2); border:1px solid var(--border-soft); border-top:none; border-radius:0 0 10px 10px; padding:14px; color:var(--t1); font-family:'Outfit',sans-serif; font-size:0.84rem; line-height:1.6; outline:none; resize:vertical; transition:border-color 0.2s ease; width:100%; }
+.body-input { background:var(--glass-2); border:1px solid var(--border-soft); border-top:none; border-radius:0 0 10px 10px; padding:14px; color:var(--t1); font-family:'Outfit',sans-serif; font-size:0.84rem; line-height:1.6; outline:none; resize:none; transition:border-color 0.2s ease; width:100%; }
 .body-input::placeholder { color:var(--t4); }
 .body-input:focus { border-color:var(--accent-border); }
 

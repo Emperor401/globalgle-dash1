@@ -467,7 +467,7 @@ function onImgError(e) {
 .field-textarea {
   width: 100%; padding: 10px 12px; border-radius: 10px;
   border: 1px solid var(--border-soft); background: var(--glass-2); color: var(--t1);
-  font-family: 'Outfit', sans-serif; font-size: 0.82rem; resize: vertical; min-height: 80px;
+  font-family: 'Outfit', sans-serif; font-size: 0.82rem; resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .field-textarea:focus { outline: none; border-color: var(--accent); }

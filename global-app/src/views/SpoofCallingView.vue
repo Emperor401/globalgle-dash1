@@ -699,7 +699,7 @@ onBeforeUnmount(() => {
 .sc-textarea {
   background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 12px 16px; font-size: 0.88rem;
-  color: var(--t1); font-family: inherit; outline: none; resize: vertical;
+  color: var(--t1); font-family: inherit; outline: none; resize: none;
   transition: border-color 0.2s; line-height: 1.6;
 }
 .sc-textarea:focus       { border-color: rgba(167,139,250,.4); }
