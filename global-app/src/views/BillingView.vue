@@ -37,8 +37,8 @@
       <div class="bill-stat">
         <div class="bill-stat__top">
           <span class="bill-stat__label">Renews / Expires</span>
-          <div class="bill-stat-icon bill-stat-icon--blue">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa"
+          <div class="bill-stat-icon bill-stat-icon--green">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
               stroke-width="2" stroke-linecap="round">
               <rect x="3" y="4" width="18" height="18" rx="2"/>
               <line x1="16" y1="2" x2="16" y2="6"/>
@@ -53,9 +53,9 @@
       <div class="bill-stat">
         <div class="bill-stat__top">
           <span class="bill-stat__label">Days Remaining</span>
-          <div class="bill-stat-icon" :class="daysLeft <= 3 ? 'bill-stat-icon--red' : 'bill-stat-icon--amber'">
+          <div class="bill-stat-icon bill-stat-icon--green">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-              :stroke="daysLeft <= 3 ? '#f87171' : '#f59e0b'"
+              stroke="#22c55e"
               stroke-width="2" stroke-linecap="round">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
