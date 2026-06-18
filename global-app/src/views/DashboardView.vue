@@ -366,6 +366,7 @@ function fmtAmount(amount, currency = 'NGN') {
   align-items: flex-end;
   justify-content: space-between;
   gap: 12px;
+  margin-top: 18px;
 }
 
 .bal-left { display: flex; flex-direction: column; gap: 4px; }
