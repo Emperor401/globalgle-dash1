@@ -2,6 +2,23 @@
 <template>
   <div class="auth-page">
 
+    <!-- Toast notification -->
+    <Transition name="toast-slide">
+      <div v-if="toast.show" class="auth-toast" :class="`auth-toast--${toast.type}`">
+        <svg v-if="toast.type === 'error'" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="15" y1="9" x2="9" y2="15"/>
+          <line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+        <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        {{ toast.message }}
+      </div>
+    </Transition>
+
     <!-- Background orbs -->
     <div class="auth-orb auth-orb--1" />
     <div class="auth-orb auth-orb--2" />
@@ -55,16 +72,6 @@
           </button>
         </div>
 
-        <p v-if="error" class="auth-error">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2.5" stroke-linecap="round">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="8" x2="12" y2="12"/>
-            <line x1="12" y1="16" x2="12.01" y2="16"/>
-          </svg>
-          Incorrect access code. Try again.
-        </p>
-
         <button type="submit" class="auth-btn" :class="{ 'auth-btn--loading': loading }">
           <span v-if="!loading">Unlock Dashboard →</span>
           <span v-else class="auth-spinner" />
@@ -80,22 +87,34 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
+const router   = useRouter()
 const code     = ref('')
-const error    = ref(false)
 const showPass = ref(false)
 const loading  = ref(false)
+const toast    = ref({ show: false, type: 'error', message: '' })
+
+let toastTimer = null
+
+function showToast(type, message) {
+  clearTimeout(toastTimer)
+  toast.value = { show: true, type, message }
+  toastTimer = setTimeout(() => { toast.value.show = false }, 3500)
+}
 
 function unlock() {
-  if (!code.value.trim()) return
+  if (!code.value.trim()) {
+    showToast('error', 'Please enter an access code.')
+    return
+  }
   loading.value = true
 
   setTimeout(() => {
     if (code.value.trim() === 'globalgle') {
+      showToast('success', 'Access granted! Loading dashboard...')
       localStorage.setItem('globalgle_auth', 'true')
-      router.push('/')
+      setTimeout(() => router.push('/'), 800)
     } else {
-      error.value   = true
+      showToast('error', 'Incorrect access code. Please try again.')
       loading.value = false
       code.value    = ''
     }
@@ -271,4 +290,42 @@ function unlock() {
   .auth-icon  { width: 56px; height: 56px; border-radius: 15px; }
   .auth-title { font-size: 1.2rem; }
 }
+
+/* ── Toast ── */
+.auth-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+.auth-toast--error {
+  background: rgba(239,68,68,0.18);
+  border: 1px solid rgba(239,68,68,0.35);
+  color: #fca5a5;
+}
+.auth-toast--success {
+  background: rgba(34,197,94,0.18);
+  border: 1px solid rgba(34,197,94,0.35);
+  color: #86efac;
+}
+
+/* Toast transition */
+.toast-slide-enter-active { transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1); }
+.toast-slide-leave-active { transition: all 0.25s ease; }
+.toast-slide-enter-from  { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+.toast-slide-leave-to    { opacity: 0; transform: translateX(-50%) translateY(-8px); }
 </style>
