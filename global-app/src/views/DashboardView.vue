@@ -21,7 +21,7 @@
         <!-- Balance row -->
         <div class="bal-top-row">
           <div class="bal-left">
-            <span class="bal-label" @click="router.push('/wallet')" style="cursor:pointer">Balance
+            <span class="bal-label" @click="router.push('/wallet')" style="cursor:pointer">Available Balance
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
             </span>
             <div class="bal-fig">
