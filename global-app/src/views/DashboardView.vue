@@ -91,17 +91,33 @@
         <!-- Header -->
         <div class="wo-head">
           <span class="wo-title">Your wallet</span>
-          <div class="wo-filter">
-            <span>Months</span>
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="wo-filter-wrap" @click.stop>
+            <div class="wo-filter" @click="filterOpen = !filterOpen">
+              <span>{{ selectedPeriod }}</span>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                :style="{ transform: filterOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <Transition name="dd-pop">
+              <div v-if="filterOpen" class="wo-dropdown">
+                <button
+                  v-for="p in periods" :key="p"
+                  :class="['wo-dd-item', { 'wo-dd-item--active': p === selectedPeriod }]"
+                  @click="selectPeriod(p)">
+                  {{ p }}
+                  <svg v-if="p === selectedPeriod" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+              </div>
+            </Transition>
           </div>
         </div>
 
         <!-- Growth + Sparkline -->
         <div class="wo-chart-wrap">
           <div class="wo-growth">
-            <span class="wo-percent">+24%</span>
-            <span class="wo-grow-sub">Grow since last month ↗</span>
+            <span class="wo-percent">{{ ap.percent }}</span>
+            <span class="wo-grow-sub">{{ ap.sub }}</span>
           </div>
           <div class="wo-chart">
             <div class="wo-peak-label">Highest</div>
@@ -112,10 +128,10 @@
                   <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
                 </linearGradient>
               </defs>
-              <path d="M0,68 L20,60 L40,66 L60,48 L80,56 L100,35 L120,42 L145,8 L165,38 L185,55 L205,44 L230,60 L260,50 L300,58 L300,85 L0,85 Z" fill="url(#woGrad)"/>
-              <polyline points="0,68 20,60 40,66 60,48 80,56 100,35 120,42 145,8 165,38 185,55 205,44 230,60 260,50 300,58" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="145" y1="8" x2="145" y2="85" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
-              <circle cx="145" cy="8" r="4" fill="#22c55e"/>
+              <path :d="`M${ap.spark.split(' ').map((pt,i,a) => { const [x,y]=pt.split(','); return i===0?`${x},${y}`:` L${x},${y}` }).join('')} L300,85 L0,85 Z`" fill="url(#woGrad)"/>
+              <polyline :points="ap.spark" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line :x1="ap.peakX" :y1="ap.peakY" :x2="ap.peakX" y2="85" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+              <circle :cx="ap.peakX" :cy="ap.peakY" r="4" fill="#22c55e"/>
             </svg>
           </div>
         </div>
@@ -127,8 +143,8 @@
               <span class="wo-stat__label">Saving</span>
               <button class="wo-stat__btn" @click="router.push('/wallet')">+</button>
             </div>
-            <span class="wo-stat__badge">▲ 5.21%</span>
-            <span class="wo-stat__val">$1,269</span>
+            <span class="wo-stat__badge">{{ ap.badge }}</span>
+            <span class="wo-stat__val">{{ ap.saving }}</span>
           </div>
           <div class="wo-stat">
             <div class="wo-stat__head">
@@ -185,12 +201,30 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import CommunityModal from '../components/ui/CommunityModal.vue'
 
 const router = useRouter()
 
+/* ── Period filter ── */
+const periods       = ['Days', 'Weeks', 'Months', 'Years']
+const selectedPeriod = ref('Months')
+const filterOpen    = ref(false)
 
+const periodData = {
+  Days:   { percent: '+2%',  sub: 'Grow since yesterday ↗',  saving: '$43',    badge: '▲ 0.8%',  spark: '0,70 20,65 40,72 60,60 80,68 100,55 120,62 145,40 165,58 185,65 205,52 230,68 260,55 300,62', peakX: 145, peakY: 40 },
+  Weeks:  { percent: '+8%',  sub: 'Grow since last week ↗',  saving: '$312',   badge: '▲ 3.2%',  spark: '0,72 20,62 40,68 60,50 80,58 100,38 120,45 145,14 165,40 185,57 205,46 230,62 260,52 300,60',  peakX: 145, peakY: 14 },
+  Months: { percent: '+24%', sub: 'Grow since last month ↗', saving: '$1,269', badge: '▲ 5.21%', spark: '0,68 20,60 40,66 60,48 80,56 100,35 120,42 145,8 165,38 185,55 205,44 230,60 260,50 300,58',   peakX: 145, peakY: 8  },
+  Years:  { percent: '+68%', sub: 'Grow since last year ↗',  saving: '$8,420', badge: '▲ 12.4%', spark: '0,75 20,68 40,60 60,45 80,35 100,22 120,18 145,5 165,20 185,35 205,28 230,42 260,32 300,38',   peakX: 145, peakY: 5  },
+}
+
+const ap = computed(() => periodData[selectedPeriod.value])
+
+function selectPeriod(p) { selectedPeriod.value = p; filterOpen.value = false }
+function onDocClick() { filterOpen.value = false }
+onMounted(()   => document.addEventListener('click', onDocClick))
+onUnmounted(() => document.removeEventListener('click', onDocClick))
 
 const recentPayments = [
   { id: 1, date: 'Jun 7, 2026', wallet: 'Main Wallet', currency: 'NGN', amount: 8,     status: 'pending'   },
@@ -530,6 +564,8 @@ function fmtAmount(amount, currency = 'NGN') {
   font-weight: 700;
   color: var(--t1);
 }
+.wo-filter-wrap { position: relative; }
+
 .wo-filter {
   display: flex;
   align-items: center;
@@ -543,8 +579,51 @@ function fmtAmount(amount, currency = 'NGN') {
   border-radius: 999px;
   cursor: pointer;
   transition: background 0.2s;
+  user-select: none;
 }
 .wo-filter:hover { background: var(--glass-hover); }
+
+.wo-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 130px;
+  background: var(--dropdown-bg);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 12px;
+  padding: 6px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  backdrop-filter: blur(20px) saturate(180%);
+}
+.wo-dd-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  color: var(--t2);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+  width: 100%;
+}
+.wo-dd-item:hover       { background: var(--glass-hover); color: var(--t1); }
+.wo-dd-item--active     { color: #22c55e; font-weight: 700; }
+
+/* Dropdown pop animation */
+.dd-pop-enter-active { transition: opacity 0.15s ease, transform 0.15s cubic-bezier(0.34,1.56,0.64,1); }
+.dd-pop-leave-active { transition: opacity 0.1s ease, transform 0.1s ease; }
+.dd-pop-enter-from,
+.dd-pop-leave-to     { opacity: 0; transform: translateY(-6px) scale(0.97); }
 
 .wo-chart-wrap {
   display: flex;
