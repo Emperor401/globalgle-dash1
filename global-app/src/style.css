@@ -78,12 +78,12 @@
    ══════════════════════════════════════════════ */
 
 [data-theme="light"] {
-  --bg: #ffffff;
+  --bg: #eef2ff;
 
-  --glass:        rgba(255, 255, 255, 0.90);
-  --glass-2:      rgba(255, 255, 255, 0.75);
-  --glass-hover:  rgba(255, 255, 255, 0.97);
-  --glass-filter: blur(20px) saturate(160%);
+  --glass:        rgba(255, 255, 255, 0.52);
+  --glass-2:      rgba(255, 255, 255, 0.38);
+  --glass-hover:  rgba(255, 255, 255, 0.68);
+  --glass-filter: blur(24px) saturate(200%);
 
   --modal-glass:  rgba(255, 255, 255, 0.94);
   --modal-input:  rgba(255, 255, 255, 0.75);
@@ -164,6 +164,12 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 0.35s ease, color 0.35s ease;
+}
+
+[data-theme="light"] body {
+  background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 35%, #d1fae5 65%, #e0f2fe 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 
