@@ -334,7 +334,7 @@ function exportCSV() {
 </script>
 
 <style scoped>
-.transactions { display:flex; flex-direction:column; gap:20px; }
+.transactions { display:flex; flex-direction:column; gap:20px; margin-top: 14px; }
 
 /* KPI */
 .kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
