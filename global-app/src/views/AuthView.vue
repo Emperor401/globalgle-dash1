@@ -284,11 +284,73 @@ function unlock() {
   letter-spacing: 0.03em;
 }
 
+/* ── Responsive breakpoints ── */
+
+/* Large desktop: widen card slightly */
+@media (min-width: 1200px) {
+  .auth-card  { max-width: 420px; padding: 48px 44px 36px; }
+  .auth-icon  { width: 72px; height: 72px; border-radius: 20px; }
+  .auth-title { font-size: 1.55rem; }
+  .auth-orb--1 { width: 600px; height: 600px; }
+  .auth-orb--2 { width: 500px; height: 500px; }
+}
+
+/* Tablet landscape / small laptop */
+@media (max-width: 1024px) {
+  .auth-card  { max-width: 390px; padding: 38px 34px 30px; }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .auth-card  { max-width: 380px; padding: 36px 30px 28px; }
+  .auth-title { font-size: 1.3rem; }
+  .auth-orb--1 { width: 300px; height: 300px; }
+  .auth-orb--2 { width: 260px; height: 260px; }
+}
+
+/* Large mobile */
+@media (max-width: 600px) {
+  .auth-page  { padding: 16px; align-items: center; }
+  .auth-card  { max-width: 100%; padding: 34px 24px 26px; border-radius: 22px; }
+  .auth-icon  { width: 60px; height: 60px; border-radius: 16px; }
+  .auth-title { font-size: 1.25rem; }
+  .auth-input { font-size: 0.88rem; }
+  .auth-btn   { font-size: 0.9rem; min-height: 48px; }
+}
+
 /* Mobile */
 @media (max-width: 430px) {
-  .auth-card { padding: 32px 22px 26px; border-radius: 20px; }
-  .auth-icon  { width: 56px; height: 56px; border-radius: 15px; }
-  .auth-title { font-size: 1.2rem; }
+  .auth-page  { padding: 14px; }
+  .auth-card  { padding: 28px 18px 24px; border-radius: 20px; gap: 16px; }
+  .auth-icon  { width: 54px; height: 54px; border-radius: 14px; }
+  .auth-title { font-size: 1.15rem; }
+  .auth-sub   { font-size: 0.8rem; }
+  .auth-input { font-size: 0.85rem; padding: 12px 0; }
+  .auth-btn   { font-size: 0.88rem; min-height: 46px; }
+  .auth-footer { font-size: 0.68rem; }
+  .auth-orb--1 { width: 200px; height: 200px; top: -60px; left: -60px; }
+  .auth-orb--2 { width: 180px; height: 180px; bottom: -50px; right: -50px; }
+}
+
+/* Small mobile */
+@media (max-width: 360px) {
+  .auth-card  { padding: 24px 14px 20px; border-radius: 18px; gap: 14px; }
+  .auth-icon  { width: 48px; height: 48px; border-radius: 13px; }
+  .auth-title { font-size: 1.05rem; }
+  .auth-btn   { font-size: 0.84rem; min-height: 44px; }
+}
+
+/* Toast responsive */
+@media (max-width: 600px) {
+  .auth-toast {
+    white-space: normal;
+    width: calc(100% - 32px);
+    max-width: 340px;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 11px 16px;
+  }
 }
 
 /* ── Toast ── */
