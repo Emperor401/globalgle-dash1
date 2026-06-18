@@ -120,7 +120,7 @@
             <span class="wo-grow-sub">{{ ap.sub }}</span>
           </div>
           <div class="wo-chart">
-            <div class="wo-peak-label">Highest</div>
+            <div class="wo-peak-label" :style="{ left: (ap.peakX / 300 * 100).toFixed(1) + '%' }">Highest</div>
             <svg viewBox="0 0 300 85" preserveAspectRatio="none" class="wo-sparkline">
               <defs>
                 <linearGradient id="woGrad" x1="0" y1="0" x2="0" y2="1">
@@ -128,7 +128,7 @@
                   <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
                 </linearGradient>
               </defs>
-              <path :d="`M${ap.spark.split(' ').map((pt,i) => { const [x,y]=pt.split(','); return i===0?`${x},${y}`:` L${x},${y}` }).join('')} L300,85 L0,85 Z`" fill="url(#woGrad)"/>
+              <path :d="sparkPath" fill="url(#woGrad)"/>
               <polyline :points="ap.spark" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               <line :x1="ap.peakX" :y1="ap.peakY" :x2="ap.peakX" y2="85" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
               <circle :cx="ap.peakX" :cy="ap.peakY" r="4" fill="#22c55e"/>
@@ -220,6 +220,15 @@ const periodData = {
 }
 
 const ap = computed(() => periodData[selectedPeriod.value])
+
+const sparkPath = computed(() => {
+  const pts = ap.value.spark.split(' ')
+  const d = pts.map((pt, i) => {
+    const [x, y] = pt.split(',')
+    return i === 0 ? `M${x},${y}` : `L${x},${y}`
+  }).join(' ')
+  return `${d} L300,85 L0,85 Z`
+})
 
 function selectPeriod(p) { selectedPeriod.value = p; filterOpen.value = false }
 function onDocClick() { filterOpen.value = false }
@@ -654,7 +663,6 @@ function fmtAmount(amount, currency = 'NGN') {
 .wo-peak-label {
   position: absolute;
   top: -10px;
-  left: 48%;
   transform: translateX(-50%);
   font-size: 0.6rem;
   font-weight: 700;
