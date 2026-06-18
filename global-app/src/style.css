@@ -146,12 +146,12 @@
 }
 
 html {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 /* ── Tablet font boost ── */
 @media (min-width: 769px) and (max-width: 1024px) {
-  html { font-size: 14.5px; }
+  html { font-size: 15.5px; }
 }
 
 html, body {
