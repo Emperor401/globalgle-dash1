@@ -753,20 +753,21 @@ function fmtAmount(amount, currency = 'NGN') {
   .dash-header__title { font-size: 1.25rem; }
   .dash-header__sub   { font-size: 0.75rem; }
 
-  /* Balance — stack the row so number doesn't fight the button */
+  /* Balance — keep side by side, shrink font to fit */
   .bal-top-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
-  .bal-int  { font-size: 2rem; }
-  .bal-sign { font-size: 1.1rem; }
-  .bal-dec  { font-size: 1.1rem; }
+  .bal-int  { font-size: 1.65rem; }
+  .bal-sign { font-size: 0.95rem; }
+  .bal-dec  { font-size: 0.95rem; }
   .add-funds-btn {
-    width: 100%;
-    padding: 11px 0;
-    font-size: 0.82rem;
-    text-align: center;
+    padding: 9px 16px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* Plan row */
@@ -802,9 +803,10 @@ function fmtAmount(amount, currency = 'NGN') {
 /* ── Small phones (≤ 430px) ── */
 @media (max-width: 430px) {
   .b-card   { padding: 16px 14px; }
-  .bal-int  { font-size: 1.8rem; }
+  .bal-int  { font-size: 1.45rem; }
   .bal-sign,
-  .bal-dec  { font-size: 1rem; }
+  .bal-dec  { font-size: 0.85rem; }
+  .add-funds-btn { padding: 8px 13px; font-size: 0.73rem; }
   .wo-percent { font-size: 1.7rem; }
   .wo-stat__val { font-size: 1.2rem; }
 
@@ -818,9 +820,10 @@ function fmtAmount(amount, currency = 'NGN') {
 /* ── Tiny phones (≤ 360px) ── */
 @media (max-width: 360px) {
   .b-card   { padding: 14px 12px; border-radius: 14px; }
-  .bal-int  { font-size: 1.6rem; }
+  .bal-int  { font-size: 1.28rem; }
   .bal-sign,
-  .bal-dec  { font-size: 0.9rem; }
+  .bal-dec  { font-size: 0.78rem; }
+  .add-funds-btn { padding: 7px 11px; font-size: 0.68rem; }
   .qa-tile  { padding: 12px 4px; }
   .qa-tile__icon { width: 34px; height: 34px; }
   .qa-tile__label { font-size: 0.6rem; }
