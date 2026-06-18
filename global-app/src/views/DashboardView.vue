@@ -140,7 +140,7 @@
         <div class="wo-stats">
           <div class="wo-stat">
             <div class="wo-stat__head">
-              <span class="wo-stat__label">Saving</span>
+              <span class="wo-stat__label">Wallet</span>
               <button class="wo-stat__btn" @click="router.push('/wallet')">+</button>
             </div>
             <span class="wo-stat__badge">{{ ap.badge }}</span>
@@ -148,11 +148,11 @@
           </div>
           <div class="wo-stat">
             <div class="wo-stat__head">
-              <span class="wo-stat__label">My goal</span>
-              <button class="wo-stat__btn" @click="router.push('/wallet')">+</button>
+              <span class="wo-stat__label">Monthly Spend</span>
+              <button class="wo-stat__btn" @click="router.push('/transactions')">→</button>
             </div>
-            <span class="wo-stat__sub-lbl">20% completed</span>
-            <span class="wo-stat__val">$400<span class="wo-stat__target">/$2k</span></span>
+            <span class="wo-stat__badge wo-stat__badge--spend">{{ ap.spendBadge }}</span>
+            <span class="wo-stat__val">{{ ap.spend }}</span>
           </div>
         </div>
       </div>
@@ -213,10 +213,10 @@ const selectedPeriod = ref('Months')
 const filterOpen    = ref(false)
 
 const periodData = {
-  Days:   { percent: '+2%',  sub: 'Grow since yesterday ↗',  saving: '$43',    badge: '▲ 0.8%',  spark: '0,70 20,65 40,72 60,60 80,68 100,55 120,62 145,40 165,58 185,65 205,52 230,68 260,55 300,62', peakX: 145, peakY: 40 },
-  Weeks:  { percent: '+8%',  sub: 'Grow since last week ↗',  saving: '$312',   badge: '▲ 3.2%',  spark: '0,72 20,62 40,68 60,50 80,58 100,38 120,45 145,14 165,40 185,57 205,46 230,62 260,52 300,60',  peakX: 145, peakY: 14 },
-  Months: { percent: '+24%', sub: 'Grow since last month ↗', saving: '$1,269', badge: '▲ 5.21%', spark: '0,68 20,60 40,66 60,48 80,56 100,35 120,42 145,8 165,38 185,55 205,44 230,60 260,50 300,58',   peakX: 145, peakY: 8  },
-  Years:  { percent: '+68%', sub: 'Grow since last year ↗',  saving: '$8,420', badge: '▲ 12.4%', spark: '0,75 20,68 40,60 60,45 80,35 100,22 120,18 145,5 165,20 185,35 205,28 230,42 260,32 300,38',   peakX: 145, peakY: 5  },
+  Days:   { percent: '+2%',  sub: 'Grow since yesterday ↗',  saving: '$43',    badge: '▲ 0.8%',  spend: '$18',     spendBadge: '▼ 1.2%', spark: '0,70 20,65 40,72 60,60 80,68 100,55 120,62 145,40 165,58 185,65 205,52 230,68 260,55 300,62', peakX: 145, peakY: 40 },
+  Weeks:  { percent: '+8%',  sub: 'Grow since last week ↗',  saving: '$312',   badge: '▲ 3.2%',  spend: '$124',    spendBadge: '▼ 0.8%', spark: '0,72 20,62 40,68 60,50 80,58 100,38 120,45 145,14 165,40 185,57 205,46 230,62 260,52 300,60',  peakX: 145, peakY: 14 },
+  Months: { percent: '+24%', sub: 'Grow since last month ↗', saving: '$1,269', badge: '▲ 5.21%', spend: '$430',    spendBadge: '▼ 2.1%', spark: '0,68 20,60 40,66 60,48 80,56 100,35 120,42 145,8 165,38 185,55 205,44 230,60 260,50 300,58',   peakX: 145, peakY: 8  },
+  Years:  { percent: '+68%', sub: 'Grow since last year ↗',  saving: '$8,420', badge: '▲ 12.4%', spend: '$5,200',  spendBadge: '▼ 8.4%', spark: '0,75 20,68 40,60 60,45 80,35 100,22 120,18 145,5 165,20 185,35 205,28 230,42 260,32 300,38',   peakX: 145, peakY: 5  },
 }
 
 const ap = computed(() => periodData[selectedPeriod.value])
@@ -727,6 +727,10 @@ function fmtAmount(amount, currency = 'NGN') {
   background: rgba(34, 197, 94, 0.12);
   padding: 2px 8px;
   border-radius: 999px;
+}
+.wo-stat__badge--spend {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.12);
 }
 .wo-stat__sub-lbl {
   font-size: 0.62rem;
