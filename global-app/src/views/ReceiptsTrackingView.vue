@@ -5,7 +5,7 @@
     <!-- Page Header -->
     <div class="rt-header">
       <div class="rt-icon-box">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
         </svg>
       </div>
@@ -105,7 +105,7 @@
                 <label class="color-swatch-wrap" :style="{ background: form.accentColor }">
                   <input type="color" v-model="form.accentColor" class="color-native" />
                 </label>
-                <input v-model="form.accentColor" type="text" class="fi color-hex" @blur="validateHex('accentColor')" placeholder="#D4A017" />
+                <input v-model="form.accentColor" type="text" class="fi color-hex" @blur="validateHex('accentColor')" placeholder="#22c55e" />
               </div>
             </div>
             <div class="fg">
@@ -330,10 +330,10 @@
         <div class="receipt-preview-card" :style="{ background: form.bgColor || '#0c0c0a' }">
 
           <!-- Status icon circle -->
-          <div class="rp-circle" :style="{ borderColor: form.accentColor || '#D4A017' }">
+          <div class="rp-circle" :style="{ borderColor: form.accentColor || '#22c55e' }">
             <img v-if="statusIconUrl" :src="statusIconUrl" class="rp-circle-img" />
             <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="form.accentColor || '#D4A017'" stroke-width="2.5" stroke-linecap="round">
+              :stroke="form.accentColor || '#22c55e'" stroke-width="2.5" stroke-linecap="round">
               <circle cx="12" cy="12" r="10"/>
               <line x1="12" y1="8" x2="12" y2="12"/>
               <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -341,18 +341,18 @@
           </div>
 
           <!-- Company name -->
-          <p class="rp-company" :style="{ color: form.accentColor || '#D4A017' }">
+          <p class="rp-company" :style="{ color: form.accentColor || '#22c55e' }">
             {{ (form.companyName || 'YOUR COMPANY').toUpperCase() }}
           </p>
 
           <!-- Tabs -->
           <div class="rp-tabs">
-            <button class="rp-tab rp-tab--active" :style="{ background: form.accentColor || '#D4A017' }">Status</button>
+            <button class="rp-tab rp-tab--active" :style="{ background: form.accentColor || '#22c55e' }">Status</button>
             <button class="rp-tab">Details</button>
           </div>
 
           <!-- Status title -->
-          <p v-if="form.statusTitle" class="rp-status-title" :style="{ color: form.accentColor || '#D4A017' }">
+          <p v-if="form.statusTitle" class="rp-status-title" :style="{ color: form.accentColor || '#22c55e' }">
             {{ form.statusTitle }}
           </p>
 
@@ -404,7 +404,7 @@ const form = reactive({
   companyName:        '',
   receiptSlug:        '',
   domain:             '.qst1x.com',
-  accentColor:        '#D4A017',
+  accentColor:        '#22c55e',
   bgColor:            '#0c0c0a',
   receiptMode:        'dark',
   recipientName:      '',
@@ -445,7 +445,7 @@ function handleDrop(e, type) {
 
 function validateHex(field) {
   if (!/^#[0-9a-fA-F]{6}$/.test(form[field])) {
-    form[field] = field === 'accentColor' ? '#D4A017' : '#0c0c0a'
+    form[field] = field === 'accentColor' ? '#22c55e' : '#0c0c0a'
   }
 }
 
@@ -484,7 +484,7 @@ function generate() {
 }
 .rt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
 .rt-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
-.rt-sub-hl { color: #D4A017; font-weight: 500; }
+.rt-sub-hl { color: #22c55e; font-weight: 500; }
 
 /* Layout */
 .rt-layout {
@@ -509,11 +509,11 @@ function generate() {
   box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
 .sec-head { display: flex; align-items: center; gap: 8px; }
-.sec-icon { color: #D4A017; flex-shrink: 0; }
-.sec-icon--warn { color: #f59e0b; }
+.sec-icon { color: #22c55e; flex-shrink: 0; }
+.sec-icon--warn { color: #22c55e; }
 .sec-title { font-size: 0.9rem; font-weight: 700; color: #0f172a; margin: 0; }
 .sec-desc { font-size: 0.78rem; color: #64748b; line-height: 1.6; margin: 0; }
-.sec-desc .hl { color: #D4A017; font-weight: 500; }
+.sec-desc .hl { color: #22c55e; font-weight: 500; }
 
 /* Fields */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -527,7 +527,7 @@ function generate() {
   font-family: 'Outfit', sans-serif; font-size: 0.82rem;
   transition: border-color 0.18s; box-sizing: border-box;
 }
-.fi:focus { outline: none; border-color: #D4A017; }
+.fi:focus { outline: none; border-color: #22c55e; }
 .fi::placeholder { color: #94a3b8; }
 
 .fi-area {
@@ -537,7 +537,7 @@ function generate() {
   resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
-.fi-area:focus { outline: none; border-color: #D4A017; }
+.fi-area:focus { outline: none; border-color: #22c55e; }
 .fi-area::placeholder { color: #94a3b8; }
 
 /* Logo upload */
@@ -553,8 +553,8 @@ function generate() {
   border: 1.5px dashed #cbd5e1; border-radius: 10px; padding: 10px;
   font-size: 0.75rem; color: #64748b; cursor: pointer; transition: border-color 0.18s;
 }
-.logo-drop:hover { border-color: #D4A017; }
-.click-link { background: none; border: none; padding: 0; color: #D4A017; font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+.logo-drop:hover { border-color: #22c55e; }
+.click-link { background: none; border: none; padding: 0; color: #22c55e; font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: inherit; }
 
 /* Subdomain box */
 .subdomain-box {
@@ -570,13 +570,13 @@ function generate() {
   padding: 2px 8px; border-radius: 999px;
 }
 .subdomain-hint { font-size: 0.75rem; color: #64748b; margin: 0; }
-.subdomain-hint .hl { color: #D4A017; font-weight: 500; }
+.subdomain-hint .hl { color: #22c55e; font-weight: 500; }
 .slug-row { display: flex; gap: 8px; }
 .slug-input  { flex: 1; }
 .slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid #e2e8f0; background: #fff; color: #0f172a; font-family: 'Outfit', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
-.slug-domain:focus { outline: none; border-color: #D4A017; }
+.slug-domain:focus { outline: none; border-color: #22c55e; }
 .slug-note { font-size: 0.72rem; color: #64748b; margin: 0; }
-.slug-note .hl { color: #D4A017; font-weight: 500; }
+.slug-note .hl { color: #22c55e; font-weight: 500; }
 
 /* Color picker */
 .color-field { display: flex; gap: 8px; align-items: center; }
@@ -599,7 +599,7 @@ function generate() {
   color: #475569; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s;
 }
-.mode-pill--active { background: #D4A017; border-color: #D4A017; color: #fff; }
+.mode-pill--active { background: #22c55e; border-color: #22c55e; color: #fff; }
 
 /* Toggle switch */
 .toggle-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
@@ -615,7 +615,7 @@ function generate() {
   border-radius: 50%; background: #fff; top: 3px; left: 3px;
   transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
-.toggle-switch--on { background: #D4A017; }
+.toggle-switch--on { background: #22c55e; }
 .toggle-switch--on::after { transform: translateX(20px); }
 
 /* Dynamic list */
@@ -630,7 +630,7 @@ function generate() {
 }
 .remove-btn:hover { background: #fee2e2; color: #ef4444; border-color: #fca5a5; }
 .add-btn {
-  font-size: 0.75rem; font-weight: 700; color: #D4A017; background: rgba(212,160,23,0.1);
+  font-size: 0.75rem; font-weight: 700; color: #22c55e; background: rgba(212,160,23,0.1);
   border: 1px solid rgba(212,160,23,0.25); border-radius: 8px; padding: 5px 12px;
   cursor: pointer; font-family: 'Outfit', sans-serif; transition: background 0.18s;
   white-space: nowrap;
@@ -669,7 +669,7 @@ function generate() {
 }
 .my-receipts-title { font-size: 0.9rem; font-weight: 700; color: #0f172a; margin: 0; }
 .my-receipts-empty p { font-size: 0.8rem; color: #94a3b8; margin: 0; }
-.my-receipts-empty .hl { color: #D4A017; }
+.my-receipts-empty .hl { color: #22c55e; }
 .receipts-list { display: flex; flex-direction: column; gap: 8px; }
 .receipt-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: #f8fafc; border: 1px solid #e8ecf0; }
 .receipt-item__dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
@@ -697,7 +697,7 @@ function generate() {
 }
 .rp-circle {
   width: 68px; height: 68px; border-radius: 50%;
-  border: 2px solid #D4A017; display: flex; align-items: center; justify-content: center;
+  border: 2px solid #22c55e; display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
 .rp-circle-img { width: 100%; height: 100%; object-fit: contain; }
