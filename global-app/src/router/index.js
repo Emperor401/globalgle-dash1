@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useLoader } from '../composables/useLoader.js'
 
+import AuthView           from '../views/AuthView.vue'
 import DashboardView      from '../views/DashboardView.vue'
 import CustomersView      from '../views/CustomersView.vue'
 import TransactionsView   from '../views/TransactionsView.vue'
@@ -29,6 +30,7 @@ import TutorialsView           from '../views/TutorialsView.vue'
 import BankReceiptView         from '../views/BankReceiptView.vue'
 
 const routes = [
+  { path: '/auth',                         name: 'Auth',           component: AuthView,  meta: { public: true } },
   { path: '/',                            name: 'Dashboard',      component: DashboardView     },
   { path: '/customers',                   name: 'Customers',      component: CustomersView     },
   { path: '/email-services/branded-emails', name: 'BrandedEmails',  component: BrandedEmailsView },
@@ -64,7 +66,12 @@ const router = createRouter({
 
 const { loading } = useLoader()
 
-router.beforeEach(() => { loading.value = true  })
-router.afterEach(()  => { loading.value = false })
+router.beforeEach((to) => {
+  loading.value = true
+  const authed = localStorage.getItem('globalgle_auth') === 'true'
+  if (!authed && !to.meta.public) return '/auth'
+  if (authed && to.path === '/auth') return '/'
+})
+router.afterEach(() => { loading.value = false })
 
 export default router
