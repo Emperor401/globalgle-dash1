@@ -56,16 +56,16 @@ import ToastContainer from '../ui/ToastContainer.vue'
 }
 @media (max-width: 768px) {
   .app-layout__main  { margin-left: 0; }
-  .app-layout__content { padding: 68px 14px 90px; }
+  .app-layout__content { padding: 84px 14px 90px; }
 }
 @media (max-width: 600px) {
-  .app-layout__content { padding: 64px 12px 86px; }
+  .app-layout__content { padding: 80px 12px 86px; }
 }
 @media (max-width: 430px) {
-  .app-layout__content { padding: 60px 10px 84px; }
+  .app-layout__content { padding: 76px 10px 84px; }
 }
 @media (max-width: 360px) {
-  .app-layout__content { padding: 58px 8px 82px; }
+  .app-layout__content { padding: 72px 8px 82px; }
 }
 
 .page-enter-active,
