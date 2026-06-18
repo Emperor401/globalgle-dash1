@@ -13,7 +13,7 @@
     <div class="wf-header">
       <div class="wf-header__left">
         <div class="wf-header-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b"
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
             stroke-width="2" stroke-linecap="round">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
@@ -49,7 +49,7 @@
           Pure pay-as-you-go on this plan — every request comes out of your wallet balance.
         </p>
         <div class="wf-discount-alert">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b"
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
             stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
             <line x1="12" y1="9" x2="12" y2="13"/>
@@ -235,8 +235,8 @@ function selectCoin(coin) {
 .wf-header__left { display: flex; align-items: flex-start; gap: 16px; }
 .wf-header-icon {
   width: 52px; height: 52px; border-radius: 16px;
-  background: rgba(245,158,11,.1);
-  border: 1px solid rgba(245,158,11,.2);
+  background: rgba(34,197,94,.1);
+  border: 1px solid rgba(34,197,94,.2);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -246,7 +246,7 @@ function selectCoin(coin) {
   font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.08em; padding: 3px 9px; border-radius: 999px;
 }
-.wf-badge--web3 { background: rgba(167,139,250,.15); color: #a78bfa; border: 1px solid rgba(167,139,250,.25); }
+.wf-badge--web3 { background: rgba(34,197,94,.15); color: #22c55e; border: 1px solid rgba(34,197,94,.25); }
 .wf-sub { font-size: 0.83rem; color: var(--t3); margin: 0; line-height: 1.5; max-width: 520px; }
 
 /* history btn */
@@ -285,14 +285,14 @@ function selectCoin(coin) {
 
 .wf-discount-alert {
   display: flex; gap: 10px; align-items: flex-start;
-  background: rgba(245,158,11,.08);
-  border: 1px solid rgba(245,158,11,.2);
+  background: rgba(34,197,94,.08);
+  border: 1px solid rgba(34,197,94,.2);
   border-radius: 12px; padding: 12px 14px;
 }
 .wf-discount-alert p {
   font-size: 0.78rem; color: var(--t2); margin: 0; line-height: 1.5;
 }
-.wf-discount-alert strong { color: #f59e0b; }
+.wf-discount-alert strong { color: #22c55e; }
 
 .wf-plan-right {
   display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
