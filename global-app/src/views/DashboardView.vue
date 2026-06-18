@@ -483,10 +483,10 @@ function fmtAmount(amount, currency = 'NGN') {
   display: flex; align-items: center; justify-content: center;
 }
 
-.qa-tile__icon--blue   { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
-.qa-tile__icon--amber  { background: rgba(245, 158, 11, 0.15);  color: #f59e0b; }
-.qa-tile__icon--purple { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
-.qa-tile__icon--green  { background: rgba(34, 197, 94, 0.15);   color: #22c55e; }
+.qa-tile__icon--blue,
+.qa-tile__icon--amber,
+.qa-tile__icon--purple,
+.qa-tile__icon--green  { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
 
 .qa-tile__label {
   font-size: 0.72rem;
