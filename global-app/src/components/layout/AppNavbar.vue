@@ -215,7 +215,7 @@
     <div class="mn-greeting">
       <div class="mn-avatar">
         <img
-          src="https://api.dicebear.com/9.x/micah/png?seed=Emperor&backgroundColor=0f3d20&baseColor=f9c9b6&earringsProbability=0&facialHairProbability=0&size=36"
+          src="https://api.dicebear.com/7.x/notionists/svg?seed=Daniel"
           width="36"
           height="36"
           alt="Avatar"
