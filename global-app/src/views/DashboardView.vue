@@ -128,7 +128,7 @@
                   <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
                 </linearGradient>
               </defs>
-              <path :d="`M${ap.spark.split(' ').map((pt,i,a) => { const [x,y]=pt.split(','); return i===0?`${x},${y}`:` L${x},${y}` }).join('')} L300,85 L0,85 Z`" fill="url(#woGrad)"/>
+              <path :d="`M${ap.spark.split(' ').map((pt,i) => { const [x,y]=pt.split(','); return i===0?`${x},${y}`:` L${x},${y}` }).join('')} L300,85 L0,85 Z`" fill="url(#woGrad)"/>
               <polyline :points="ap.spark" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               <line :x1="ap.peakX" :y1="ap.peakY" :x2="ap.peakX" y2="85" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
               <circle :cx="ap.peakX" :cy="ap.peakY" r="4" fill="#22c55e"/>
