@@ -479,7 +479,7 @@ function generate() {
 .rt-header { display: flex; align-items: center; gap: 14px; }
 .rt-icon-box {
   width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
-  background: rgba(212,160,23,0.15); border: 1px solid rgba(212,160,23,0.3);
+  background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3);
   display: flex; align-items: center; justify-content: center;
 }
 .rt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
@@ -630,12 +630,12 @@ function generate() {
 }
 .remove-btn:hover { background: #fee2e2; color: #ef4444; border-color: #fca5a5; }
 .add-btn {
-  font-size: 0.75rem; font-weight: 700; color: #22c55e; background: rgba(212,160,23,0.1);
-  border: 1px solid rgba(212,160,23,0.25); border-radius: 8px; padding: 5px 12px;
+  font-size: 0.75rem; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25); border-radius: 8px; padding: 5px 12px;
   cursor: pointer; font-family: 'Outfit', sans-serif; transition: background 0.18s;
   white-space: nowrap;
 }
-.add-btn:hover { background: rgba(212,160,23,0.18); }
+.add-btn:hover { background: rgba(34,197,94,0.18); }
 
 /* Form error */
 .form-error {
