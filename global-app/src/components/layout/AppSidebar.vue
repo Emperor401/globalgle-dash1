@@ -525,8 +525,8 @@ const navItems = [
   margin: 0 14px 18px;
   padding: 22px 18px 22px 18px;
   border-radius: 18px;
-  background: linear-gradient(145deg, #1a1506 0%, #2a1f02 60%, #1e1a05 100%);
-  border: 1px solid rgba(245, 158, 11, 0.22);
+  background: linear-gradient(145deg, #052e16 0%, #14532d 55%, #166534 100%);
+  border: 1px solid rgba(34, 197, 94, 0.28);
   cursor: pointer;
   overflow: visible;
   flex-shrink: 0;
@@ -534,7 +534,7 @@ const navItems = [
   transition: border-color 0.25s ease;
 }
 
-.sidebar__upgrade:hover { border-color: rgba(245, 158, 11, 0.55); }
+.sidebar__upgrade:hover { border-color: rgba(34, 197, 94, 0.60); }
 
 .upgrade__body {
   display: flex;
