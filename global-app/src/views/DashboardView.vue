@@ -695,87 +695,160 @@ function fmtAmount(amount, currency = 'NGN') {
 
 
 /* ══════════════════════════════════════
-   MOBILE RESPONSIVE
+   RESPONSIVE
    ══════════════════════════════════════ */
+
+/* ── Tablet landscape (769px – 1024px) ── */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .dashboard    { gap: 20px; }
-  .bento        { gap: 14px; }
+  .dashboard    { gap: 18px; }
+  .bento        { gap: 14px; grid-template-columns: repeat(4, 1fr); }
   .b-card       { padding: 18px 20px; gap: 12px; }
   .b-balance    { grid-column: span 2; }
-  .b-recent-txn { grid-column: span 1; }
-  .b-recent-pay { grid-column: span 1; }
-  .bal-actions  { gap: 8px; }
+  .b-quick-actions { grid-column: span 2; }
+  .b-recent-txn { grid-column: span 2; }
+  .b-recent-pay { grid-column: span 2; }
+  .bal-int      { font-size: 2.4rem; }
 }
-@media (max-width: 768px) {
 
-  /* Page gap */
-  .dashboard { gap: 22px; }
+/* ── Tablet portrait (601px – 768px) ── */
+@media (max-width: 768px) and (min-width: 601px) {
+  .dashboard { gap: 16px; }
+  .bento     { grid-template-columns: 1fr 1fr; gap: 14px; }
 
-  /* Header stacks */
-  .dash-header {
+  .b-balance,
+  .b-quick-actions { grid-column: span 2; }
+  .b-recent-txn,
+  .b-recent-pay    { grid-column: span 1; }
+
+  .b-card { padding: 20px 18px; border-radius: 16px; gap: 12px; }
+
+  .dash-header__title { font-size: 1.35rem; }
+  .bal-int  { font-size: 2.2rem; }
+  .bal-sign,
+  .bal-dec  { font-size: 1.2rem; }
+
+  .qa-grid  { gap: 10px; }
+  .qa-tile  { padding: 14px 8px; }
+
+  .pay-table th,
+  .pay-table td { padding: 9px 7px; font-size: 0.76rem; }
+  .pay-table th { font-size: 0.62rem; }
+  .pay-status   { padding: 3px 9px; font-size: 0.66rem; }
+}
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .dashboard { gap: 14px; }
+  .bento     { grid-template-columns: 1fr; gap: 12px; }
+
+  .b-balance,
+  .b-quick-actions,
+  .b-recent-txn,
+  .b-recent-pay { grid-column: span 1; }
+
+  .b-card { padding: 18px 16px; border-radius: 16px; gap: 12px; }
+
+  /* Header */
+  .dash-header       { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .dash-header__title { font-size: 1.25rem; }
+  .dash-header__sub   { font-size: 0.75rem; }
+
+  /* Balance — stack the row so number doesn't fight the button */
+  .bal-top-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
   }
-  .dash-header__title { font-size: 1.15rem; }
-  .dash-header__sub   { font-size: 0.75rem; }
-  .plan-badge  { font-size: 0.7rem; padding: 5px 11px; }
-  .upgrade-btn { font-size: 0.72rem; padding: 5px 14px; }
-
-  /* Bento: single column */
-  .bento {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  /* Reset all column spans */
-  .b-balance,
-  .b-recent-txn,
-  .b-recent-pay {
-    grid-column: span 1;
-  }
-
-  /* Card base */
-  .b-card { padding: 22px 24px; border-radius: 14px; gap: 14px; }
-
-  /* Balance figures */
-  .bal-int  { font-size: 1.85rem; }
+  .bal-int  { font-size: 2rem; }
   .bal-sign { font-size: 1.1rem; }
   .bal-dec  { font-size: 1.1rem; }
-  .bal-top-row { align-items: center; }
-  .add-funds-btn { padding: 7px 14px; font-size: 0.75rem; }
+  .add-funds-btn {
+    width: 100%;
+    padding: 11px 0;
+    font-size: 0.82rem;
+    text-align: center;
+  }
 
-  /* Action tiles */
-  .bal-actions  { gap: 12px; justify-content: space-between; margin-top: 2px; }
-  .ba-tile__label { font-size: 0.62rem; }
+  /* Plan row */
+  .bal-plan-row { gap: 8px; flex-wrap: wrap; }
+  .plan-badge   { font-size: 0.7rem; padding: 5px 11px; }
+  .upgrade-btn  { font-size: 0.7rem; padding: 5px 14px; }
 
-  /* Section heading */
-  .section-title { font-size: 0.85rem; }
+  /* Quick actions */
+  .section-title { font-size: 0.88rem; }
   .see-all       { font-size: 0.72rem; }
+  .qa-grid       { gap: 10px; }
+  .qa-tile       { padding: 14px 6px; gap: 8px; border-radius: 12px; }
+  .qa-tile__icon { width: 40px; height: 40px; border-radius: 10px; }
+  .qa-tile__label { font-size: 0.68rem; }
 
-  /* Payments table */
+  /* Wallet overview */
+  .wo-percent  { font-size: 1.9rem; }
+  .wo-stat__val { font-size: 1.35rem; }
+
+  /* Table */
   .b-recent-pay { overflow: hidden; }
-  .pay-table    { width: 100%; table-layout: fixed; }
+  .pay-table    { table-layout: fixed; }
   .pay-table th,
-  .pay-table td { padding: 8px 5px; font-size: 0.72rem; }
-  .pay-table th { font-size: 0.6rem; padding-bottom: 7px; }
-  .pay-method-icon { width: 18px; height: 18px; border-radius: 5px; }
-  .pay-method   { gap: 4px; }
-  .pay-amount   { font-size: 0.73rem; }
+  .pay-table td { padding: 8px 5px; font-size: 0.71rem; }
+  .pay-table th { font-size: 0.58rem; padding-bottom: 8px; }
+  .pay-method-icon { width: 20px; height: 20px; border-radius: 6px; }
+  .pay-method   { gap: 5px; }
+  .pay-cur      { display: none; }
+  .pay-amount   { font-size: 0.71rem; }
   .pay-status   { padding: 2px 7px; font-size: 0.62rem; }
-
 }
 
-@media (max-width: 480px) {
+/* ── Small phones (≤ 430px) ── */
+@media (max-width: 430px) {
+  .b-card   { padding: 16px 14px; }
+  .bal-int  { font-size: 1.8rem; }
+  .bal-sign,
+  .bal-dec  { font-size: 1rem; }
+  .wo-percent { font-size: 1.7rem; }
+  .wo-stat__val { font-size: 1.2rem; }
+
+  /* Hide Wallet column on narrow table */
+  .pay-table th:nth-child(2),
+  .pay-table td:nth-child(2) { display: none; }
+  .pay-table th,
+  .pay-table td { padding: 7px 4px; font-size: 0.68rem; }
+}
+
+/* ── Tiny phones (≤ 360px) ── */
+@media (max-width: 360px) {
+  .b-card   { padding: 14px 12px; border-radius: 14px; }
   .bal-int  { font-size: 1.6rem; }
   .bal-sign,
-  .bal-dec  { font-size: 0.95rem; }
-}
-
-@media (max-width: 400px) {
-  .ba-tile__icon { width: 28px; height: 28px; }
+  .bal-dec  { font-size: 0.9rem; }
+  .qa-tile  { padding: 12px 4px; }
+  .qa-tile__icon { width: 34px; height: 34px; }
+  .qa-tile__label { font-size: 0.6rem; }
+  .section-title  { font-size: 0.82rem; }
+  .pay-table th,
+  .pay-table td   { padding: 6px 3px; font-size: 0.63rem; }
+  .pay-status     { padding: 2px 6px; font-size: 0.58rem; }
 }
 
 /* ── Light mode surface fixes ── */
 [data-theme="light"] .pay-table tr:hover td { background: var(--glass-2); }
+
+[data-theme="light"] .b-card {
+  background: rgba(255, 255, 255, 0.80);
+  border: 1px solid rgba(0, 0, 0, 0.11);
+}
+[data-theme="light"] .b-card:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+[data-theme="light"] .qa-tile {
+  background: rgba(255, 255, 255, 0.80);
+  border-color: rgba(0, 0, 0, 0.11);
+}
+[data-theme="light"] .qa-tile:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+[data-theme="light"] .wo-stat {
+  background: rgba(255, 255, 255, 0.80);
+  border-color: rgba(0, 0, 0, 0.11);
+}
 </style>
