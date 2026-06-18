@@ -491,7 +491,7 @@ function showToast(type, msg) {
 
 <style scoped>
 .bill-page {
-  padding: 28px 32px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 24px;

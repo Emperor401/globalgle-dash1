@@ -441,7 +441,7 @@ function onImgError(e) {
 /* Drawer Head */
 .drawer-head {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 22px;
+  padding: 16px 18px;
   border-bottom: 1px solid var(--border-soft);
   flex-shrink: 0;
 }

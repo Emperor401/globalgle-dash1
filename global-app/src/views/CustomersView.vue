@@ -104,7 +104,7 @@ const services = [
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
-  padding: 24px 22px;
+  padding: 18px 18px;
   display: flex;
   flex-direction: column;
   gap: 12px;

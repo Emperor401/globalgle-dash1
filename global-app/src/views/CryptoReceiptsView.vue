@@ -286,7 +286,7 @@ function onImgError(e) {
 
 /* Modal colored header */
 .modal-head {
-  padding: 36px 32px 28px;
+  padding: 26px 24px 20px;
   display: flex; flex-direction: column; align-items: center;
   gap: 10px; text-align: center; position: relative;
 }
@@ -303,8 +303,8 @@ function onImgError(e) {
 /* Modal form body — always light, like a real document */
 .modal-body {
   background: #ffffff;
-  padding: 28px 28px 24px;
-  display: flex; flex-direction: column; gap: 18px;
+  padding: 20px 22px 18px;
+  display: flex; flex-direction: column; gap: 14px;
 }
 
 /* Fields */

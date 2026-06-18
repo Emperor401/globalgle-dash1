@@ -341,10 +341,10 @@ function fmtAmount(amount, currency = 'NGN') {
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   border-radius: 18px;
-  padding: 20px 22px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }

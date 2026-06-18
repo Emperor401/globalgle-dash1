@@ -502,10 +502,10 @@ function generate() {
   background: #fff;
   border: 1px solid #e8ecf0;
   border-radius: 14px;
-  padding: 20px 22px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
 .sec-head { display: flex; align-items: center; gap: 8px; }

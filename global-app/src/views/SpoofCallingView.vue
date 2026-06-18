@@ -592,10 +592,10 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .sc-page {
-  padding: 28px 32px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 18px;
   min-height: 100vh;
 }
 

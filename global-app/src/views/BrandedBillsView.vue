@@ -419,7 +419,7 @@ function onImgError(e) {
 }
 .drawer-head {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 22px; border-bottom: 1px solid var(--border-soft); flex-shrink: 0;
+  padding: 16px 18px; border-bottom: 1px solid var(--border-soft); flex-shrink: 0;
 }
 .drawer-head__left   { display: flex; align-items: center; gap: 12px; }
 .drawer-logo-wrap    { width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.07); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; overflow: hidden; }

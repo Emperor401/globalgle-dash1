@@ -371,10 +371,10 @@ function selectCoin(coin) {
  
   border: 1px solid var(--border-soft);
   border-radius: 20px;
-  padding: 24px 28px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 .wf-howto-title { font-size: 0.85rem; font-weight: 700; color: var(--t1); }
 .wf-howto-grid  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }

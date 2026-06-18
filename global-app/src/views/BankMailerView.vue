@@ -443,7 +443,7 @@ function sendEmails() {
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 20px;
-  padding: 24px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   gap: 0;

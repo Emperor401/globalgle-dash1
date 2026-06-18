@@ -445,10 +445,10 @@ async function downloadPDF() {
   background: var(--glass);
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 24px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   backdrop-filter: var(--glass-filter);
 }
 
