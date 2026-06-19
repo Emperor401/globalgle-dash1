@@ -620,7 +620,7 @@ onBeforeUnmount(() => {
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .sc-hdr-title { font-size: 1.5rem; font-weight: 800; color: var(--t1); margin: 0 0 4px; letter-spacing: -0.02em; }
-.sc-hdr-sub   { font-size: 0.8rem; color: var(--t3); margin: 0; line-height: 1.5; max-width: 560px; }
+.sc-hdr-sub   { font-size: 0.8rem; color: var(--t1); font-weight: 600; margin: 0; line-height: 1.5; max-width: 560px; }
 
 .sc-refresh-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
@@ -820,7 +820,7 @@ onBeforeUnmount(() => {
   padding: 20px 24px 16px; border-bottom: 1px solid var(--border-soft);
 }
 .sc-recent-title { font-size: 0.92rem; font-weight: 700; color: var(--t1); margin-bottom: 4px; }
-.sc-recent-sub   { font-size: 0.75rem; color: var(--t3); margin: 0; line-height: 1.4; max-width: 480px; }
+.sc-recent-sub   { font-size: 0.75rem; color: var(--t1); font-weight: 600; margin: 0; line-height: 1.4; max-width: 480px; }
 
 .sc-empty {
   display: flex; flex-direction: column; align-items: center; gap: 10px;

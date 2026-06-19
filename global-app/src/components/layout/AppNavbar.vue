@@ -452,7 +452,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 .page-title__text  { display: flex; flex-direction: column; gap: 1px; }
 .page-title__name  { font-size: 1rem; font-weight: 800; color: var(--t1); letter-spacing: -0.02em; margin: 0; line-height: 1.2; }
-.page-title__sub   { font-size: 0.7rem; color: var(--t2); margin: 0; line-height: 1.3; }
+.page-title__sub   { font-size: 0.7rem; color: var(--t1); font-weight: 600; margin: 0; line-height: 1.3; }
 
 .navbar__search {
   display: flex; align-items: center; gap: 8px;

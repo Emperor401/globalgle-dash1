@@ -588,7 +588,7 @@ function sendBulkSMS() {
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .sms-hdr-title { font-size: 1.5rem; font-weight: 800; color: var(--t1); margin: 0 0 4px; letter-spacing: -0.02em; }
-.sms-hdr-sub   { font-size: 0.8rem; color: var(--t3); margin: 0; }
+.sms-hdr-sub   { font-size: 0.8rem; color: var(--t1); font-weight: 600; margin: 0; }
 
 /* ── Stats ── */
 .sms-stats {

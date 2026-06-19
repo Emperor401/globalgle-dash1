@@ -891,7 +891,7 @@ function copyText(text) {
   background: rgba(255,255,255,.02); border: 1px solid rgba(248,113,113,.1);
 }
 .set-danger-name { font-size: 0.83rem; font-weight: 700; color: var(--t1); margin-bottom: 3px; }
-.set-danger-sub  { font-size: 0.72rem; color: var(--t3); }
+.set-danger-sub  { font-size: 0.72rem; color: var(--t1); font-weight: 600; }
 .set-danger-btn {
   flex-shrink: 0; padding: 7px 15px; border-radius: 9px;
   font-size: 0.77rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.2s;
