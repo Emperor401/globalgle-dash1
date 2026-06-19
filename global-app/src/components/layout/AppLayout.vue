@@ -50,9 +50,10 @@ import ToastContainer from '../ui/ToastContainer.vue'
   margin: 0 auto;
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+/* iPad Mini → iPad Pro 13" (769px–1366px) */
+@media (max-width: 1366px) and (min-width: 769px) {
   .app-layout__main  { margin-left: 210px; }
-  .app-layout__content { padding: 76px 16px 24px; }
+  .app-layout__content { padding: 76px 18px 24px; }
 }
 @media (max-width: 768px) {
   .app-layout__main  { margin-left: 0; }

@@ -152,29 +152,27 @@
       </nav>
     </div>
 
-    </div><!-- end sidebar__scroll -->
-
-    <!-- Upgrade CTA -->
-    <div class="sidebar__upgrade" @click="goUpgrade">
-      <div class="upgrade__body">
-        <p class="upgrade__label">Upgrade to</p>
-        <p class="upgrade__title">Premium!</p>
-        <button class="upgrade__btn" @click.stop="goUpgrade">Upgrade</button>
+      <!-- Upgrade CTA -->
+      <div class="sidebar__upgrade" @click="goUpgrade">
+        <div class="upgrade__body">
+          <p class="upgrade__label">Upgrade to</p>
+          <p class="upgrade__title">Premium!</p>
+          <button class="upgrade__btn" @click.stop="goUpgrade">Upgrade</button>
+        </div>
+        <img :src="cartnLogo" class="upgrade__deco-img" aria-hidden="true" />
       </div>
 
-      <!-- Decorative image -->
-      <img :src="cartnLogo" class="upgrade__deco-img" aria-hidden="true" />
-    </div>
+      <!-- Logout button -->
+      <button class="sidebar__logout" @click="logout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Log Out
+      </button>
 
-    <!-- Logout button -->
-    <button class="sidebar__logout" @click="logout">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-        <polyline points="16 17 21 12 16 7"/>
-        <line x1="21" y1="12" x2="9" y2="12"/>
-      </svg>
-      Log Out
-    </button>
+    </div><!-- end sidebar__scroll -->
 
   </aside>
 </template>
@@ -198,7 +196,8 @@ function goUpgrade() {
 function logout() {
   closeSidebar()
   localStorage.removeItem('theme')
-  router.push('/')
+  localStorage.removeItem('globalgle_auth')
+  router.push('/auth')
 }
 
 /* Track theme so the right logo shows */
@@ -264,29 +263,37 @@ const navItems = [
 /* ── Mobile close btn (hidden on desktop) ── */
 .sidebar__close-btn { display: none; }
 
-/* ── Tablet only — 769px–1024px (iPad range, NOT desktop) ── */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* ── Tablet — 769px–1366px (iPad Mini → iPad Pro 13") ── */
+@media (min-width: 769px) and (max-width: 1366px) {
   .sidebar        { width: 210px; }
   .sidebar__group { padding: 14px 12px 4px; }
   .nav-item       { padding: 8px 9px; }
   .nav-item__label { font-size: 0.82rem; }
 }
 
-/* ── Short viewport — tablet landscape (height ≤ 860px) ── */
-@media (max-height: 860px) and (min-width: 769px) {
-  .sidebar__logo  { padding: 14px 18px 12px; }
-  .sidebar__group { padding: 12px 12px 4px; }
-  .nav-item       { padding: 7px 9px; }
+/* ── iPad landscape short viewport (height ≤ 900px, width ≥ 769px) ── */
+@media (max-height: 900px) and (min-width: 769px) {
+  .sidebar__logo  { padding: 12px 16px 10px; }
+  .sidebar__group { padding: 10px 12px 3px; }
+  .nav-item       { padding: 6px 9px; }
+  .nav-item__icon { width: 28px; height: 28px; border-radius: 8px; }
 
   .sidebar__upgrade {
     min-height: auto;
-    padding: 13px 14px;
+    padding: 12px 13px;
     margin: 0 12px 10px;
   }
   .upgrade__body  { padding-right: 78px; }
   .upgrade__title { font-size: 1rem; }
   .upgrade__btn   { margin-top: 8px; padding: 5px 14px; font-size: 0.73rem; }
   .upgrade__deco-img { width: 76px; height: 76px; }
+
+  .sidebar__logout {
+    margin: 0 12px 14px;
+    width: calc(100% - 24px);
+    padding: 9px 0;
+    font-size: 0.78rem;
+  }
 }
 
 /* ── Very short viewport — hide upgrade card (height ≤ 700px) ── */
@@ -341,6 +348,8 @@ const navItems = [
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 0;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sidebar__scroll::-webkit-scrollbar { width: 3px; }
