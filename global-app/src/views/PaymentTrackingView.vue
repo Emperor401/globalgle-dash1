@@ -1,4 +1,4 @@
-<!-- src/views/PaymentTrackingView.vue -->
+﻿<!-- src/views/PaymentTrackingView.vue -->
 <template>
   <div class="pt-page">
 
@@ -18,7 +18,7 @@
     <!-- Two-column layout -->
     <div class="pt-layout">
 
-      <!-- ── LEFT: Form ── -->
+      <!-- â”€â”€ LEFT: Form â”€â”€ -->
       <div class="pt-form-col">
 
         <!-- 1. Service Customization -->
@@ -75,7 +75,7 @@
             <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <h3 class="sec-title">Receipt Link</h3>
           </div>
-          <p class="sec-desc">Pick a name — your receipt gets its own clean link on one of our domains. <span class="hl">Leave blank to use a short auto link instead.</span></p>
+          <p class="sec-desc">Pick a name â€” your receipt gets its own clean link on one of our domains. <span class="hl">Leave blank to use a short auto link instead.</span></p>
           <p class="fl" style="margin:0">Your receipt link</p>
           <div class="subdomain-box">
             <div class="subdomain-title-row">
@@ -83,7 +83,7 @@
               <span class="subdomain-name">Use our subdomain</span>
               <span class="subdomain-free">free</span>
             </div>
-            <p class="subdomain-hint">Pick a keyword — we set up the link for you. <span class="hl">Nothing</span> to configure at your domain.</p>
+            <p class="subdomain-hint">Pick a keyword â€” we set up the link for you. <span class="hl">Nothing</span> to configure at your domain.</p>
             <div class="slug-row">
               <input v-model="form.receiptSlug" type="text" placeholder="payment-receipt" class="fi slug-input" />
               <select v-model="form.domain" class="fs slug-domain">
@@ -92,7 +92,7 @@
                 <option>.receiptlive.io</option>
               </select>
             </div>
-            <p class="slug-note">Lowercase letters, numbers and dashes — then <span class="hl">pick a domain</span>. <span class="hl">Locked in once created.</span></p>
+            <p class="slug-note">Lowercase letters, numbers and dashes â€” then <span class="hl">pick a domain</span>. <span class="hl">Locked in once created.</span></p>
           </div>
         </div>
 
@@ -257,7 +257,7 @@
             <span class="fl">Contact / Social Links</span>
             <button class="add-btn" @click="socialLinks.push({ label: '', url: '' })">+ Add Link</button>
           </div>
-          <p class="sec-desc">Add <span class="hl">WhatsApp</span>, <span class="hl">Telegram</span>, a website — any label and link.</p>
+          <p class="sec-desc">Add <span class="hl">WhatsApp</span>, <span class="hl">Telegram</span>, a website â€” any label and link.</p>
           <div v-if="socialLinks.length" class="dynamic-list">
             <div v-for="(lnk, i) in socialLinks" :key="i" class="dynamic-row">
               <input v-model="lnk.label" type="text" class="fi" placeholder="Label (e.g. WhatsApp)" style="flex:0.6" />
@@ -299,7 +299,7 @@
           <div class="two-col">
             <div class="fg">
               <label class="fl">Footer Text</label>
-              <input v-model="form.footerText" type="text" placeholder="Secure · Fast · Decentralized" class="fi" />
+              <input v-model="form.footerText" type="text" placeholder="Secure Â· Fast Â· Decentralized" class="fi" />
             </div>
             <div class="fg">
               <label class="fl">Thank You Text</label>
@@ -334,7 +334,7 @@
               <div class="receipt-item__dot" :style="{ background: r.color }" />
               <div class="receipt-item__info">
                 <span class="receipt-item__name">{{ r.service }}</span>
-                <span class="receipt-item__meta">{{ r.slug }}{{ r.domain }} · {{ r.time }}</span>
+                <span class="receipt-item__meta">{{ r.slug }}{{ r.domain }} Â· {{ r.time }}</span>
               </div>
               <span class="receipt-item__badge" :style="{ color: statusColor(r.status), background: statusBg(r.status), borderColor: statusColor(r.status) }">{{ r.status }}</span>
             </div>
@@ -343,7 +343,7 @@
 
       </div>
 
-      <!-- ── RIGHT: Live Preview ── -->
+      <!-- â”€â”€ RIGHT: Live Preview â”€â”€ -->
       <div class="pt-preview-col">
         <p class="preview-label">LIVE PREVIEW</p>
         <div class="receipt-preview" :style="previewCardStyle">
@@ -417,7 +417,7 @@
 
           <!-- Footer -->
           <div class="rp-footer-row">
-            <span class="rp-footer-text">{{ form.footerText || 'Secure · Fast · Decentralized' }}</span>
+            <span class="rp-footer-text">{{ form.footerText || 'Secure Â· Fast Â· Decentralized' }}</span>
             <span class="rp-thank-you" :style="{ color: form.primaryColor }">{{ form.thankYouText || 'Thank you!' }}</span>
           </div>
 
@@ -456,7 +456,7 @@ const socialLinks     = ref([])
 const generatedReceipts = ref([])
 
 const defaultDateTime = new Date().toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' })
-  + ' • ' + new Date().toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' })
+  + ' â€¢ ' + new Date().toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' })
 
 const form = reactive({
   serviceName:          '',
@@ -481,7 +481,7 @@ const form = reactive({
   billingWarningText:   '',
   liveChatEnabled:      true,
   externalChatEnabled:  false,
-  footerText:           'Secure · Fast · Decentralized',
+  footerText:           'Secure Â· Fast Â· Decentralized',
   thankYouText:         'Thank you!',
 })
 
@@ -569,7 +569,7 @@ function generate() {
   display: flex; align-items: center; justify-content: center;
 }
 .pt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
-.pt-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.pt-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 .pt-hl    { color: #22c55e; font-weight: 500; }
 
 /* Layout */
@@ -583,7 +583,7 @@ function generate() {
 /* Form column */
 .pt-form-col { display: flex; flex-direction: column; gap: 16px; }
 
-/* Section cards — always white */
+/* Section cards â€” always white */
 .sec-card {
   background: #fff; border: 1px solid #e8ecf0; border-radius: 14px;
   padding: 16px 18px; display: flex; flex-direction: column; gap: 12px;
@@ -769,7 +769,7 @@ function generate() {
 .receipt-item__meta { font-size: 0.7rem; color: #94a3b8; }
 .receipt-item__badge { font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
 
-/* ── Preview column ── */
+/* â”€â”€ Preview column â”€â”€ */
 .pt-preview-col {
   position: sticky; top: 24px;
   display: flex; flex-direction: column; gap: 10px;
@@ -860,14 +860,14 @@ function generate() {
 .toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
 
 /* Responsive */
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 
-/* Tablet landscape (901px – 1100px) */
+/* Tablet landscape (901px â€“ 1100px) */
 @media (max-width: 1100px) {
   .pt-layout { grid-template-columns: 1fr 300px; gap: 20px; }
 }
 
-/* Tablet portrait (601px – 900px): stack preview above form */
+/* Tablet portrait (601px â€“ 900px): stack preview above form */
 @media (max-width: 900px) {
   .pt-page        { gap: 20px; }
   .pt-layout      { grid-template-columns: 1fr; gap: 18px; }
@@ -876,7 +876,7 @@ function generate() {
   .two-col        { grid-template-columns: 1fr 1fr; }
 }
 
-/* Mobile (≤ 600px) */
+/* Mobile (â‰¤ 600px) */
 @media (max-width: 600px) {
   .pt-page        { gap: 16px; }
   .pt-layout      { gap: 14px; }
@@ -902,7 +902,7 @@ function generate() {
   .success-toast  { bottom: 90px; right: 14px; left: 14px; font-size: 0.8rem; padding: 12px 16px; }
 }
 
-/* Small phones (≤ 430px) */
+/* Small phones (â‰¤ 430px) */
 @media (max-width: 430px) {
   .pt-title       { font-size: 1.1rem; }
   .sec-card       { padding: 14px 12px; gap: 10px; }
@@ -915,7 +915,7 @@ function generate() {
   .generate-btn   { padding: 12px; font-size: 0.82rem; }
 }
 
-/* Tiny phones (≤ 360px) */
+/* Tiny phones (â‰¤ 360px) */
 @media (max-width: 360px) {
   .pt-title       { font-size: 1rem; }
   .sec-card       { padding: 12px 10px; }

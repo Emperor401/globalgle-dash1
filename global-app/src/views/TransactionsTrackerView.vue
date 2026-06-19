@@ -1,4 +1,4 @@
-<!-- src/views/TransactionsTrackerView.vue -->
+﻿<!-- src/views/TransactionsTrackerView.vue -->
 <template>
   <div class="tt-page">
 
@@ -35,13 +35,13 @@
 const services = [
   {
     title: 'Receipts Tracking',
-    desc:  'A step-by-step receipt with <span class="hl">a status icon</span>, <span class="hl">a progress timeline</span> and <span class="hl">an action button</span> — share it with a link.',
+    desc:  'A step-by-step receipt with <span class="hl">a status icon</span>, <span class="hl">a progress timeline</span> and <span class="hl">an action button</span> â€” share it with a link.',
     route: '/tools/transactions-tracker/receipts',
     icon:  '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
   },
   {
     title: 'Payment Tracking',
-    desc:  'A live receipt with <span class="hl">a spinning status</span>, <span class="hl">amounts</span> and <span class="hl">copyable details</span> — share it with a link.',
+    desc:  'A live receipt with <span class="hl">a spinning status</span>, <span class="hl">amounts</span> and <span class="hl">copyable details</span> â€” share it with a link.',
     route: '/tools/transactions-tracker/payment',
     icon:  '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
   },
@@ -61,7 +61,7 @@ const services = [
   font-size: 1.5rem; font-weight: 800; color: var(--t1);
   letter-spacing: -0.025em; margin: 0;
 }
-.page-header__sub { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.page-header__sub { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 
 /* Grid */
 .service-grid {
@@ -106,9 +106,9 @@ const services = [
 }
 .service-card__desc :deep(.hl) { color: var(--accent); font-weight: 500; }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 
-/* Tablet (601px – 768px): side-by-side still works */
+/* Tablet (601px â€“ 768px): side-by-side still works */
 @media (max-width: 768px) and (min-width: 601px) {
   .tt-page       { gap: 22px; }
   .service-grid  { gap: 14px; }
@@ -116,7 +116,7 @@ const services = [
   .page-header__title { font-size: 1.3rem; }
 }
 
-/* Mobile (≤ 600px): single column */
+/* Mobile (â‰¤ 600px): single column */
 @media (max-width: 600px) {
   .tt-page       { gap: 18px; }
   .service-grid  { grid-template-columns: 1fr; gap: 12px; }
@@ -128,7 +128,7 @@ const services = [
   .service-card__icon  { width: 42px; height: 42px; border-radius: 11px; }
 }
 
-/* Small phones (≤ 430px) */
+/* Small phones (â‰¤ 430px) */
 @media (max-width: 430px) {
   .service-card  { padding: 12px 12px; gap: 7px; border-radius: 13px; }
   .page-header__title { font-size: 1.1rem; }
@@ -137,14 +137,14 @@ const services = [
   .service-card__desc  { font-size: 0.76rem; line-height: 1.55; }
 }
 
-/* Tiny phones (≤ 360px) */
+/* Tiny phones (â‰¤ 360px) */
 @media (max-width: 360px) {
   .service-card  { padding: 16px 14px; }
   .page-header__title { font-size: 1rem; }
   .service-card__desc  { font-size: 0.72rem; }
 }
 
-/* ── Light mode ── */
+/* â”€â”€ Light mode â”€â”€ */
 [data-theme="light"] .service-card {
   background: #fff;
   border-color: rgba(0,0,0,0.08);

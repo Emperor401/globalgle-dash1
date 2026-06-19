@@ -480,7 +480,7 @@ function closeTicket(id) {
   font-size: 1.45rem; font-weight: 800; color: var(--t1);
   letter-spacing: -0.03em; margin: 0 0 4px;
 }
-.cmp-sub { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.cmp-sub { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 
 .cmp-new-btn {
   display: flex; align-items: center; gap: 7px;

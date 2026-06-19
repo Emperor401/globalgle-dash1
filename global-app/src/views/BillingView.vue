@@ -504,7 +504,7 @@ function showToast(type, msg) {
   justify-content: space-between; gap: 16px;
 }
 .bill-title { font-size: 1.6rem; font-weight: 800; color: var(--t1); margin: 0 0 5px; letter-spacing: -0.02em; }
-.bill-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.bill-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 
 .bill-hist-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;

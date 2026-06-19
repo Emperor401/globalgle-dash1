@@ -351,7 +351,7 @@ function exportCSV() {
 
 .panel-header { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 .panel-title { font-size:1rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
-.panel-sub { font-size:0.72rem; color:var(--t4); margin:0; }
+.panel-sub { font-size:0.72rem; color: var(--t2); font-weight: 500; margin:0; }
 .panel-controls { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 
 .date-tabs { display:flex; gap:3px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:9px; padding:3px; }

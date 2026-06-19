@@ -1,4 +1,4 @@
-<!-- src/views/CryptoReceiptsView.vue -->
+﻿<!-- src/views/CryptoReceiptsView.vue -->
 <template>
   <div class="cr-page">
 
@@ -34,12 +34,12 @@
       </div>
     </div>
 
-    <!-- ── Backdrop ── -->
+    <!-- â”€â”€ Backdrop â”€â”€ -->
     <Transition name="backdrop-fade">
       <div v-if="modalOpen" class="modal-backdrop" @click="closeModal" />
     </Transition>
 
-    <!-- ── Receipt Modal ── -->
+    <!-- â”€â”€ Receipt Modal â”€â”€ -->
     <Transition name="modal-pop">
       <div v-if="modalOpen" class="receipt-modal" role="dialog">
 
@@ -117,7 +117,7 @@
           <!-- Sender wallet -->
           <div class="fg">
             <label class="fl">Sender's wallet address</label>
-            <input v-model="form.sender" type="text" placeholder='0x... or bc1... — shows as the "From" address on the receipt' class="fi" />
+            <input v-model="form.sender" type="text" placeholder='0x... or bc1... â€” shows as the "From" address on the receipt' class="fi" />
           </div>
 
           <!-- Error -->
@@ -231,7 +231,7 @@ function onImgError(e) {
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
 .cr-head-text { display: flex; flex-direction: column; gap: 4px; }
 .cr-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
-.cr-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.cr-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 
 /* Provider Grid */
 .provider-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -300,7 +300,7 @@ function onImgError(e) {
 .modal-head-title { font-size: 1.2rem; font-weight: 800; color: #fff; margin: 0; }
 .modal-head-sub   { font-size: 0.82rem; color: rgba(255,255,255,0.82); margin: 0; }
 
-/* Modal form body — always light, like a real document */
+/* Modal form body â€” always light, like a real document */
 .modal-body {
   background: #ffffff;
   padding: 20px 22px 18px;

@@ -1,4 +1,4 @@
-<!-- src/views/CustomersView.vue  →  Mailing Tools -->
+﻿<!-- src/views/CustomersView.vue  â†’  Mailing Tools -->
 <template>
   <div class="email-page">
 
@@ -86,7 +86,7 @@ const services = [
 }
 .page-header__sub {
   font-size: 0.82rem;
-  color: var(--t3);
+  color: var(--t2); font-weight: 500;
   margin: 0;
 }
 

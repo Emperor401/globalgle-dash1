@@ -371,7 +371,7 @@ function showToast(type, msg) {
   display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
 }
 .help-section-title { font-size: 0.92rem; font-weight: 800; color: var(--t1); margin: 0 0 3px; }
-.help-section-sub   { font-size: 0.75rem; color: var(--t3); margin: 0; }
+.help-section-sub   { font-size: 0.75rem; color: var(--t2); font-weight: 500; margin: 0; }
 .help-section-sub strong { color: var(--t2); }
 
 .help-filter-chip {

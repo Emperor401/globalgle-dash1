@@ -1,4 +1,4 @@
-<!-- src/views/BrandedBillsView.vue -->
+﻿<!-- src/views/BrandedBillsView.vue -->
 <template>
   <div class="cbm-page">
 
@@ -50,14 +50,14 @@
           </svg>
         </div>
         <p class="recent-empty__title">No Crypto Bills Mails yet</p>
-        <p class="recent-empty__sub">Pick a provider above and send your first bill — it will appear here.</p>
+        <p class="recent-empty__sub">Pick a provider above and send your first bill â€” it will appear here.</p>
       </div>
       <div v-else class="sent-list">
         <div v-for="b in sentBills" :key="b.id" class="sent-item">
           <img :src="b.logo" :alt="b.provider" class="sent-item__logo" />
           <div class="sent-item__info">
             <span class="sent-item__to">{{ b.recipient }}</span>
-            <span class="sent-item__meta">{{ b.provider }} · Invoice #{{ b.invoice }} · {{ b.amount }}</span>
+            <span class="sent-item__meta">{{ b.provider }} Â· Invoice #{{ b.invoice }} Â· {{ b.amount }}</span>
           </div>
           <span class="sent-item__badge">Sent</span>
           <span class="sent-item__time">{{ b.time }}</span>
@@ -65,12 +65,12 @@
       </div>
     </div>
 
-    <!-- ── Drawer Backdrop ── -->
+    <!-- â”€â”€ Drawer Backdrop â”€â”€ -->
     <Transition name="backdrop-fade">
       <div v-if="drawerOpen" class="drawer-backdrop" @click="closeDrawer" />
     </Transition>
 
-    <!-- ── Send Drawer ── -->
+    <!-- â”€â”€ Send Drawer â”€â”€ -->
     <Transition name="drawer-slide">
       <div v-if="drawerOpen" class="send-drawer">
 
@@ -203,7 +203,7 @@
       </div>
     </Transition>
 
-    <!-- ── Success Toast ── -->
+    <!-- â”€â”€ Success Toast â”€â”€ -->
     <Transition name="toast-pop">
       <div v-if="showSuccess" class="success-toast">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
@@ -241,7 +241,7 @@ const providers = [
   { name: 'GCash',          tagline: 'GCash, Crypto in Your Wallet',                badge: 'PHP',          badgeBg: '#22d3ee',  badgeColor: '#fff', topColor: '#22d3ee',  logo: gf('gcash.com') },
 ]
 
-/* ── Drawer state ── */
+/* â”€â”€ Drawer state â”€â”€ */
 const drawerOpen        = ref(false)
 const activeProvider    = ref(null)
 const sending           = ref(false)
@@ -318,7 +318,7 @@ function onImgError(e) {
   gap: 28px;
 }
 
-/* ── Header ── */
+/* â”€â”€ Header â”€â”€ */
 .cbm-header {
   display: flex;
   align-items: flex-start;
@@ -335,16 +335,16 @@ function onImgError(e) {
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
 .cbm-header__text { display: flex; flex-direction: column; gap: 4px; }
 .cbm-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
-.cbm-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.cbm-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 
-/* ── Provider Grid ── */
+/* â”€â”€ Provider Grid â”€â”€ */
 .provider-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
-/* ── Provider Card ── */
+/* â”€â”€ Provider Card â”€â”€ */
 .p-card {
   position: relative; display: flex; flex-direction: column; align-items: center;
   gap: 10px; padding: 0 18px 18px; border-radius: 16px;
@@ -374,7 +374,7 @@ function onImgError(e) {
 .p-card__tag  { font-size: 0.75rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .p-card__cta  { margin-top: auto; font-size: 0.72rem; color: var(--t4); padding-top: 8px; border-top: 1px solid var(--border-soft); width: 100%; text-align: center; }
 
-/* ── Recently Sent ── */
+/* â”€â”€ Recently Sent â”€â”€ */
 .recent-section { display: flex; flex-direction: column; gap: 14px; }
 .recent-title   { font-size: 1rem; font-weight: 700; color: var(--t1); margin: 0; }
 .recent-empty {
@@ -404,13 +404,13 @@ function onImgError(e) {
 }
 .sent-item__time  { font-size: 0.7rem; color: var(--t4); white-space: nowrap; }
 
-/* ── Drawer Backdrop ── */
+/* â”€â”€ Drawer Backdrop â”€â”€ */
 .drawer-backdrop {
   position: fixed; inset: 0; z-index: 300;
   background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
 }
 
-/* ── Send Drawer ── */
+/* â”€â”€ Send Drawer â”€â”€ */
 .send-drawer {
   position: fixed; top: 0; right: 0; bottom: 0; width: 420px; z-index: 301;
   display: flex; flex-direction: column;
@@ -517,7 +517,7 @@ function onImgError(e) {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Success Toast ── */
+/* â”€â”€ Success Toast â”€â”€ */
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
@@ -525,7 +525,7 @@ function onImgError(e) {
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 
-/* ── Animations ── */
+/* â”€â”€ Animations â”€â”€ */
 .backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity 0.25s ease; }
 .backdrop-fade-enter-from,   .backdrop-fade-leave-to     { opacity: 0; }
 .drawer-slide-enter-active { transition: transform 0.3s cubic-bezier(0.34, 1.1, 0.64, 1); }
@@ -537,7 +537,7 @@ function onImgError(e) {
 .toast-pop-enter-from,
 .toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 1024px) { .provider-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
 @media (max-width: 768px) {
   .cbm-header    { flex-direction: column; gap: 10px; margin-top: 10px; }
@@ -569,7 +569,7 @@ function onImgError(e) {
   .back-btn      { font-size: 0.75rem; padding: 6px 12px; }
 }
 
-/* ── Light mode ── */
+/* â”€â”€ Light mode â”€â”€ */
 [data-theme="light"] .p-card { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 [data-theme="light"] .p-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
 [data-theme="light"] .p-card__logo-wrap { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }

@@ -1,4 +1,4 @@
-<!-- src/views/BankMailerView.vue -->
+﻿<!-- src/views/BankMailerView.vue -->
 <template>
   <div class="bm-page">
 
@@ -10,14 +10,14 @@
       </button>
       <div class="bm-head-text">
         <h1 class="bm-title">Bank Mailer</h1>
-        <p class="bm-sub">Compose one bank transfer — we send the debit notice to the sender and the credit notice to the receiver.</p>
+        <p class="bm-sub">Compose one bank transfer â€” we send the debit notice to the sender and the credit notice to the receiver.</p>
       </div>
     </div>
 
     <!-- Two-column layout -->
     <div class="bm-layout">
 
-      <!-- ── LEFT: Form card ── -->
+      <!-- â”€â”€ LEFT: Form card â”€â”€ -->
       <div class="bm-form-card">
 
         <!-- Preview toggle -->
@@ -26,11 +26,11 @@
           <div class="toggle-btns">
             <button :class="['toggle-btn', preview === 'debit' ? 'toggle-btn--dark' : 'toggle-btn--light']" @click="preview = 'debit'">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              Debit → sender
+              Debit â†’ sender
             </button>
             <button :class="['toggle-btn', preview === 'credit' ? 'toggle-btn--dark' : 'toggle-btn--light']" @click="preview = 'credit'">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="7" x2="7" y2="17"/><polyline points="17 17 7 17 7 7"/></svg>
-              Credit → receiver
+              Credit â†’ receiver
             </button>
           </div>
         </div>
@@ -47,11 +47,11 @@
               <label class="fl">Currency</label>
               <select v-model="form.currency" class="fs">
                 <option value="USD">$</option>
-                <option value="GBP">£</option>
-                <option value="EUR">€</option>
-                <option value="NGN">₦</option>
-                <option value="BTC">₿ BTC</option>
-                <option value="ETH">Ξ ETH</option>
+                <option value="GBP">Â£</option>
+                <option value="EUR">â‚¬</option>
+                <option value="NGN">â‚¦</option>
+                <option value="BTC">â‚¿ BTC</option>
+                <option value="ETH">Îž ETH</option>
                 <option value="USDT">USDT</option>
               </select>
             </div>
@@ -75,7 +75,7 @@
 
         <!-- SENDER -->
         <div class="form-section">
-          <p class="section-label">SENDER — DEBITED</p>
+          <p class="section-label">SENDER â€” DEBITED</p>
           <div class="two-col">
             <div class="fg">
               <label class="fl">Sender name <span class="req">*</span></label>
@@ -91,7 +91,7 @@
             <div class="fg">
               <label class="fl">Sender account number <span class="req">*</span></label>
               <input v-model="form.senderAccount" type="text" class="fi" />
-              <span class="field-hint">Masked to •••• {{ maskedLast4(form.senderAccount) }} in the debit email.</span>
+              <span class="field-hint">Masked to â€¢â€¢â€¢â€¢ {{ maskedLast4(form.senderAccount) }} in the debit email.</span>
             </div>
             <div class="fg">
               <label class="fl">Sender's bank <span class="req">*</span></label>
@@ -133,7 +133,7 @@
 
         <!-- RECEIVER -->
         <div class="form-section">
-          <p class="section-label">RECEIVER — CREDITED</p>
+          <p class="section-label">RECEIVER â€” CREDITED</p>
           <div class="two-col">
             <div class="fg">
               <label class="fl">Receiver name <span class="req">*</span></label>
@@ -222,10 +222,10 @@
 
       </div>
 
-      <!-- ── RIGHT: Live Email Preview ── -->
+      <!-- â”€â”€ RIGHT: Live Email Preview â”€â”€ -->
       <div class="bm-preview-col">
         <div class="preview-bar">
-          <span class="preview-type-tag">{{ preview === 'debit' ? 'DEBIT EMAIL — SENDER' : 'CREDIT EMAIL — RECEIVER' }}</span>
+          <span class="preview-type-tag">{{ preview === 'debit' ? 'DEBIT EMAIL â€” SENDER' : 'CREDIT EMAIL â€” RECEIVER' }}</span>
           <span class="preview-subject-txt">Subject: <strong>{{ emailSubject }}</strong></span>
         </div>
         <div class="email-shell">
@@ -241,7 +241,7 @@
                   <line x1="14" y1="11" x2="14" y2="22"/><line x1="18" y1="11" x2="18" y2="22"/>
                 </svg>
               </div>
-              <span class="e-alerts-tag">Alerts •</span>
+              <span class="e-alerts-tag">Alerts â€¢</span>
             </div>
             <p class="e-bank-name-tag">{{ activeBankDisplay || 'Your Bank' }}</p>
             <div class="e-separator"></div>
@@ -271,9 +271,9 @@
             <div class="e-block">
               <div class="e-block-head">{{ isDebit ? 'Withdrawal Beneficiary' : 'Deposit Sender' }}</div>
               <div class="e-block-body">
-                <div class="e-row"><span class="e-row-lbl">Recipient</span><span class="e-row-val">{{ isDebit ? (form.receiverName || '—') : (form.senderName || '—') }}</span></div>
-                <div class="e-row"><span class="e-row-lbl">Account Number</span><span class="e-row-val">{{ isDebit ? (form.receiverAccount || '—') : (form.senderAccount || '—') }}</span></div>
-                <div class="e-row"><span class="e-row-lbl">SWIFT Code</span><span class="e-row-val">{{ form.swift || '—' }}</span></div>
+                <div class="e-row"><span class="e-row-lbl">Recipient</span><span class="e-row-val">{{ isDebit ? (form.receiverName || 'â€”') : (form.senderName || 'â€”') }}</span></div>
+                <div class="e-row"><span class="e-row-lbl">Account Number</span><span class="e-row-val">{{ isDebit ? (form.receiverAccount || 'â€”') : (form.senderAccount || 'â€”') }}</span></div>
+                <div class="e-row"><span class="e-row-lbl">SWIFT Code</span><span class="e-row-val">{{ form.swift || 'â€”' }}</span></div>
               </div>
             </div>
 
@@ -336,7 +336,7 @@ const form = reactive({
   accountType: 'Checking Account', memo: '',
 })
 
-const currencySymbols = { USD: '$', GBP: '£', EUR: '€', NGN: '₦', BTC: '₿', ETH: 'Ξ', USDT: '' }
+const currencySymbols = { USD: '$', GBP: 'Â£', EUR: 'â‚¬', NGN: 'â‚¦', BTC: 'â‚¿', ETH: 'Îž', USDT: '' }
 
 const formattedAmount = computed(() => {
   const sym = currencySymbols[form.currency] ?? ''
@@ -351,12 +351,12 @@ const activeName        = computed(() => isDebit.value ? form.senderName : form.
 
 const emailTitle = computed(() =>
   isDebit.value
-    ? 'Withdrawal Successful – Funds Debited From Your Account'
-    : 'Deposit Successful – Funds Credited To Your Account'
+    ? 'Withdrawal Successful â€“ Funds Debited From Your Account'
+    : 'Deposit Successful â€“ Funds Credited To Your Account'
 )
 const emailSubject = computed(() => {
   const action = isDebit.value ? 'Withdrawal Successful' : 'Deposit Successful'
-  return form.amount ? `${action} — ${formattedAmount.value}` : action
+  return form.amount ? `${action} â€” ${formattedAmount.value}` : action
 })
 const emailBodyHtml = computed(() => {
   const amt = `<strong style="color:#1a56db">${formattedAmount.value}</strong>`
@@ -369,8 +369,8 @@ function maskedLast4(acct) {
   if (!acct || acct.length < 4) return '1234'
   return acct.slice(-4)
 }
-const maskedSenderAccount   = computed(() => form.senderAccount   ? '•••• ' + form.senderAccount.slice(-4)   : '•••• ••••')
-const maskedReceiverAccount = computed(() => form.receiverAccount ? '•••• ' + form.receiverAccount.slice(-4) : '•••• ••••')
+const maskedSenderAccount   = computed(() => form.senderAccount   ? 'â€¢â€¢â€¢â€¢ ' + form.senderAccount.slice(-4)   : 'â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢')
+const maskedReceiverAccount = computed(() => form.receiverAccount ? 'â€¢â€¢â€¢â€¢ ' + form.receiverAccount.slice(-4) : 'â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢')
 
 function handleLogoFile(e, type) {
   const file = e.target.files[0]
@@ -426,7 +426,7 @@ function sendEmails() {
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
 .bm-head-text { display: flex; flex-direction: column; gap: 4px; }
 .bm-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
-.bm-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.bm-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 
 /* Two-column layout */
 .bm-layout {
@@ -552,7 +552,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── RIGHT: Preview column ── */
+/* â”€â”€ RIGHT: Preview column â”€â”€ */
 .bm-preview-col {
   position: sticky; top: 24px; display: flex; flex-direction: column;
   border: 1px solid var(--border-soft); border-radius: 20px; overflow: hidden;
@@ -578,7 +578,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
   padding: 28px 28px 20px; max-width: 520px; margin: 0 auto;
 }
 
-/* Email internals — always light */
+/* Email internals â€” always light */
 .e-logo-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 4px; }
 .e-logo-box {
   width: 46px; height: 46px; border-radius: 8px; background: #f8fafc;
@@ -622,14 +622,14 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 .toast-pop-enter-from,
 .toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 
-/* Tablet landscape (901px – 1200px) */
+/* Tablet landscape (901px â€“ 1200px) */
 @media (max-width: 1200px) {
   .bm-layout { grid-template-columns: 1fr 1fr; gap: 18px; }
 }
 
-/* Tablet portrait (601px – 900px): stack preview below form */
+/* Tablet portrait (601px â€“ 900px): stack preview below form */
 @media (max-width: 900px) {
   .bm-page        { gap: 20px; }
   .bm-layout      { grid-template-columns: 1fr; gap: 18px; }
@@ -637,7 +637,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
   .two-col        { grid-template-columns: 1fr 1fr; }
 }
 
-/* Mobile (≤ 600px) */
+/* Mobile (â‰¤ 600px) */
 @media (max-width: 600px) {
   .bm-page        { gap: 16px; }
   .bm-layout      { gap: 14px; }
@@ -660,7 +660,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
   .preview-subject-txt { font-size: 0.72rem; }
 }
 
-/* Small phones (≤ 430px) */
+/* Small phones (â‰¤ 430px) */
 @media (max-width: 430px) {
   .bm-title       { font-size: 1.1rem; }
   .bm-form-card   { padding: 16px 13px; border-radius: 14px; }
@@ -671,7 +671,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
   .send-btn       { padding: 12px; font-size: 0.82rem; }
 }
 
-/* Tiny phones (≤ 360px) */
+/* Tiny phones (â‰¤ 360px) */
 @media (max-width: 360px) {
   .bm-title       { font-size: 1rem; }
   .bm-form-card   { padding: 14px 11px; }

@@ -1,4 +1,4 @@
-<!-- src/views/EmailComposerView.vue -->
+﻿<!-- src/views/EmailComposerView.vue -->
 <template>
   <div class="composer-page">
 
@@ -16,7 +16,7 @@
 
     <div class="composer-layout">
 
-      <!-- ── Compose Panel ── -->
+      <!-- â”€â”€ Compose Panel â”€â”€ -->
       <div class="glass-panel compose-panel">
         <div class="compose-top">
           <h2 class="compose-heading">New Email</h2>
@@ -36,7 +36,7 @@
                 <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
             </div>
-            <input v-if="mode === 'single'" v-model="toInput" class="to-input" placeholder="Enter email address…"
+            <input v-if="mode === 'single'" v-model="toInput" class="to-input" placeholder="Enter email addressâ€¦"
               @keydown.enter.prevent="addChip" @keydown.tab.prevent="addChip" @keydown.comma.prevent="addChip" />
             <span v-else class="bulk-hint">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -48,7 +48,7 @@
         <!-- Subject -->
         <div class="field-group">
           <label class="field-label">Subject</label>
-          <input v-model="subject" type="text" class="field-input" placeholder="Email subject line…" />
+          <input v-model="subject" type="text" class="field-input" placeholder="Email subject lineâ€¦" />
         </div>
 
         <!-- Body toolbar -->
@@ -63,7 +63,7 @@
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </button>
           </div>
-          <textarea ref="bodyRef" v-model="body" class="body-input" rows="9" placeholder="Write your email content here…" />
+          <textarea ref="bodyRef" v-model="body" class="body-input" rows="9" placeholder="Write your email content hereâ€¦" />
         </div>
 
         <!-- Attachment row -->
@@ -91,7 +91,7 @@
         </div>
       </div>
 
-      <!-- ── Right Panel ── -->
+      <!-- â”€â”€ Right Panel â”€â”€ -->
       <div class="right-col">
 
         <!-- Preview -->
@@ -104,8 +104,8 @@
                 <span class="ep-brand">Globalgle</span>
               </div>
               <p class="ep-subject">{{ subject || 'Your subject line' }}</p>
-              <p class="ep-body">{{ body || 'Your email content will appear here…' }}</p>
-              <div class="ep-footer">© 2026 Globalgle Bank. All rights reserved.</div>
+              <p class="ep-body">{{ body || 'Your email content will appear hereâ€¦' }}</p>
+              <div class="ep-footer">Â© 2026 Globalgle Bank. All rights reserved.</div>
             </div>
           </div>
         </Transition>
@@ -123,7 +123,7 @@
               </div>
               <div class="draft-item__body">
                 <p class="draft-item__subject">{{ d.subject }}</p>
-                <p class="draft-item__meta">{{ d.time }} · {{ d.recipients }}</p>
+                <p class="draft-item__meta">{{ d.time }} Â· {{ d.recipients }}</p>
               </div>
             </div>
           </div>
@@ -170,7 +170,7 @@ function applyFormat(type) {
   const start = el.selectionStart
   const end   = el.selectionEnd
   const sel   = body.value.slice(start, end) || 'text'
-  const wrapMap = { Bold: `**${sel}**`, Italic: `*${sel}*`, Underline: `__${sel}__`, Link: `[${sel}](https://)`, List: `\n• ${sel}`, Image: null }
+  const wrapMap = { Bold: `**${sel}**`, Italic: `*${sel}*`, Underline: `__${sel}__`, Link: `[${sel}](https://)`, List: `\nâ€¢ ${sel}`, Image: null }
   if (type === 'Image') { toastInfo('Image Upload', 'Image attachment is coming soon. Use Attach File for now.'); return }
   const wrapped = wrapMap[type]
   if (!wrapped) return
@@ -198,7 +198,7 @@ function saveDraft() {
     id: Date.now(),
     subject: subject.value.trim() || '(No subject)',
     time: `Today, ${time}`,
-    recipients: mode.value === 'bulk' ? `Bulk · ${(bulkCount / 1000).toFixed(0)}K` : toChips.value.length ? `${toChips.value.length} recipient${toChips.value.length > 1 ? 's' : ''}` : 'Single'
+    recipients: mode.value === 'bulk' ? `Bulk Â· ${(bulkCount / 1000).toFixed(0)}K` : toChips.value.length ? `${toChips.value.length} recipient${toChips.value.length > 1 ? 's' : ''}` : 'Single'
   })
   toastSuccess('Draft saved', 'Your email has been saved to drafts.')
 }
@@ -213,8 +213,8 @@ const toolbar = [
 ]
 
 const drafts = ref([
-  { id:1, subject:'June Savings Offer — Earn More',    time:'2h ago',    recipients:'Bulk · 94K' },
-  { id:2, subject:'Your April Statement is Ready',     time:'Yesterday', recipients:'Bulk · 48K' },
+  { id:1, subject:'June Savings Offer â€” Earn More',    time:'2h ago',    recipients:'Bulk Â· 94K' },
+  { id:2, subject:'Your April Statement is Ready',     time:'Yesterday', recipients:'Bulk Â· 48K' },
   { id:3, subject:'Upgrade Your Plan Today',           time:'Jun 3',     recipients:'Single'     },
 ])
 
@@ -257,7 +257,7 @@ const quickStats = [
 .back-btn { display:flex; align-items:center; gap:6px; padding:8px 14px; background:var(--glass); border:1px solid var(--border-soft); border-radius:9px; color:var(--t3); font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:600; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; margin-top:4px; }
 .back-btn:hover { color:var(--t1); border-color:var(--border); }
 .comp-title { font-size:1.4rem; font-weight:800; color:var(--t1); letter-spacing:-0.025em; margin:0 0 4px; }
-.comp-sub { font-size:0.8rem; color:var(--t3); margin:0; }
+.comp-sub { font-size:0.8rem; color: var(--t2); font-weight: 500; margin:0; }
 
 /* Layout */
 .composer-layout { display:grid; grid-template-columns:1fr 300px; gap:18px; align-items:start; }
@@ -359,6 +359,6 @@ const quickStats = [
   .ec-modal  { max-width: 100%; border-radius: 22px 22px 0 0; }
 }
 
-/* ── Light mode surface fixes ── */
+/* â”€â”€ Light mode surface fixes â”€â”€ */
 [data-theme="light"] .email-preview { background: var(--glass); }
 </style>

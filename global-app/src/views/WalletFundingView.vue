@@ -247,7 +247,7 @@ function selectCoin(coin) {
   letter-spacing: 0.08em; padding: 3px 9px; border-radius: 999px;
 }
 .wf-badge--web3 { background: rgba(34,197,94,.15); color: #22c55e; border: 1px solid rgba(34,197,94,.25); }
-.wf-sub { font-size: 0.83rem; color: var(--t3); margin: 0; line-height: 1.5; max-width: 520px; }
+.wf-sub { font-size: 0.83rem; color: var(--t2); font-weight: 500; margin: 0; line-height: 1.5; max-width: 520px; }
 
 /* history btn */
 .wf-history-btn {
@@ -425,7 +425,7 @@ function selectCoin(coin) {
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .modal-title { font-size: 1.1rem; font-weight: 800; color: var(--t1); margin: 0 0 3px; }
-.modal-sub   { font-size: 0.78rem; color: var(--t3); margin: 0; }
+.modal-sub   { font-size: 0.78rem; color: var(--t2); font-weight: 500; margin: 0; }
 
 .modal-coins { display: flex; flex-direction: column; gap: 10px; }
 .modal-coin-row {

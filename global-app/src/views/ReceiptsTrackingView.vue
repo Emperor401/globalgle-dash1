@@ -1,4 +1,4 @@
-<!-- src/views/ReceiptsTrackingView.vue -->
+﻿<!-- src/views/ReceiptsTrackingView.vue -->
 <template>
   <div class="rt-page">
 
@@ -18,7 +18,7 @@
     <!-- Two-column layout -->
     <div class="rt-layout">
 
-      <!-- ── LEFT: Form ── -->
+      <!-- â”€â”€ LEFT: Form â”€â”€ -->
       <div class="rt-form-col">
 
         <!-- 1. Branding -->
@@ -69,7 +69,7 @@
             <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <h3 class="sec-title">Receipt Link</h3>
           </div>
-          <p class="sec-desc">Pick a name — your receipt gets its own clean link on one of our domains. <span class="hl">Leave blank to add one later from Manage.</span></p>
+          <p class="sec-desc">Pick a name â€” your receipt gets its own clean link on one of our domains. <span class="hl">Leave blank to add one later from Manage.</span></p>
           <p class="fl" style="margin:0">Your receipt link</p>
           <div class="subdomain-box">
             <div class="subdomain-head">
@@ -78,7 +78,7 @@
                 <span class="subdomain-name">Use our subdomain</span>
                 <span class="subdomain-free">free</span>
               </div>
-              <p class="subdomain-hint">Pick a keyword — we set up the link for you. <span class="hl">Nothing</span> to configure at your domain.</p>
+              <p class="subdomain-hint">Pick a keyword â€” we set up the link for you. <span class="hl">Nothing</span> to configure at your domain.</p>
             </div>
             <div class="slug-row">
               <input v-model="form.receiptSlug" type="text" placeholder="payment-pending" class="fi slug-input" />
@@ -88,7 +88,7 @@
                 <option>.receiptlive.io</option>
               </select>
             </div>
-            <p class="slug-note">Lowercase letters, numbers and dashes — then <span class="hl">pick a domain</span>. <span class="hl">Locked in once created.</span></p>
+            <p class="slug-note">Lowercase letters, numbers and dashes â€” then <span class="hl">pick a domain</span>. <span class="hl">Locked in once created.</span></p>
           </div>
         </div>
 
@@ -233,12 +233,12 @@
             <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <h3 class="sec-title">Copyable Details</h3>
           </div>
-          <p class="sec-desc">Add any details the recipient should copy — a wallet address, a reference, an account number. Each gets its own copy button.</p>
+          <p class="sec-desc">Add any details the recipient should copy â€” a wallet address, a reference, an account number. Each gets its own copy button.</p>
           <div class="list-header">
             <span class="fl">Copyable details</span>
             <button class="add-btn" @click="copyFields.push({ label: '', value: '' })">+ Add field</button>
           </div>
-          <p class="sec-desc">Add a <span class="hl">wallet address</span>, a <span class="hl">fee address</span>, a <span class="hl">memo/tag</span> — each gets a copy button on the receipt.</p>
+          <p class="sec-desc">Add a <span class="hl">wallet address</span>, a <span class="hl">fee address</span>, a <span class="hl">memo/tag</span> â€” each gets a copy button on the receipt.</p>
           <div v-if="copyFields.length" class="dynamic-list">
             <div v-for="(field, i) in copyFields" :key="i" class="dynamic-row">
               <input v-model="field.label" type="text" class="fi" placeholder="Label (e.g. Wallet)" style="flex:0.6" />
@@ -277,7 +277,7 @@
             <span class="fl">Contact / Social Links</span>
             <button class="add-btn" @click="socialLinks.push({ label: '', url: '' })">+ Add Link</button>
           </div>
-          <p class="sec-desc">Add <span class="hl">WhatsApp</span>, <span class="hl">Telegram</span>, a website — any label and link.</p>
+          <p class="sec-desc">Add <span class="hl">WhatsApp</span>, <span class="hl">Telegram</span>, a website â€” any label and link.</p>
           <div v-if="socialLinks.length" class="dynamic-list">
             <div v-for="(link, i) in socialLinks" :key="i" class="dynamic-row">
               <input v-model="link.label" type="text" class="fi" placeholder="Label (e.g. WhatsApp)" style="flex:0.6" />
@@ -315,7 +315,7 @@
               <div class="receipt-item__dot" :style="{ background: r.accent }" />
               <div class="receipt-item__info">
                 <span class="receipt-item__name">{{ r.company }}</span>
-                <span class="receipt-item__meta">{{ r.slug }}{{ r.domain }} · {{ r.time }}</span>
+                <span class="receipt-item__meta">{{ r.slug }}{{ r.domain }} Â· {{ r.time }}</span>
               </div>
               <span class="receipt-item__badge">Live</span>
             </div>
@@ -324,7 +324,7 @@
 
       </div>
 
-      <!-- ── RIGHT: Live Preview ── -->
+      <!-- â”€â”€ RIGHT: Live Preview â”€â”€ -->
       <div class="rt-preview-col">
         <p class="preview-label">LIVE PREVIEW</p>
         <div class="receipt-preview-card" :style="{ background: form.bgColor || '#0c0c0a' }">
@@ -368,7 +368,7 @@
           </button>
 
           <!-- Footer -->
-          <p class="rp-footer">{{ form.companyName || 'Your company' }} Receipt · Secure & Verified</p>
+          <p class="rp-footer">{{ form.companyName || 'Your company' }} Receipt Â· Secure & Verified</p>
         </div>
       </div>
 
@@ -483,7 +483,7 @@ function generate() {
   display: flex; align-items: center; justify-content: center;
 }
 .rt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
-.rt-sub   { font-size: 0.82rem; color: var(--t3); margin: 0; }
+.rt-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
 .rt-sub-hl { color: #22c55e; font-weight: 500; }
 
 /* Layout */
@@ -497,7 +497,7 @@ function generate() {
 /* Form column */
 .rt-form-col { display: flex; flex-direction: column; gap: 16px; }
 
-/* Section card — always light/white */
+/* Section card â€” always light/white */
 .sec-card {
   background: #fff;
   border: 1px solid #e8ecf0;
@@ -678,7 +678,7 @@ function generate() {
 .receipt-item__meta { font-size: 0.7rem; color: #94a3b8; }
 .receipt-item__badge { font-size: 0.65rem; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
 
-/* ── RIGHT: Preview column ── */
+/* â”€â”€ RIGHT: Preview column â”€â”€ */
 .rt-preview-col {
   position: sticky; top: 24px;
   display: flex; flex-direction: column; gap: 10px;
@@ -732,14 +732,14 @@ function generate() {
 .toast-pop-enter-from,
 .toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 
-/* Tablet landscape (901px – 1100px) */
+/* Tablet landscape (901px â€“ 1100px) */
 @media (max-width: 1100px) {
   .rt-layout { grid-template-columns: 1fr 300px; gap: 20px; }
 }
 
-/* Tablet portrait (601px – 900px): stack preview above form */
+/* Tablet portrait (601px â€“ 900px): stack preview above form */
 @media (max-width: 900px) {
   .rt-page        { gap: 20px; }
   .rt-layout      { grid-template-columns: 1fr; gap: 18px; }
@@ -748,7 +748,7 @@ function generate() {
   .two-col        { grid-template-columns: 1fr 1fr; }
 }
 
-/* Mobile (≤ 600px) */
+/* Mobile (â‰¤ 600px) */
 @media (max-width: 600px) {
   .rt-page        { gap: 16px; }
   .rt-layout      { gap: 14px; }
@@ -777,7 +777,7 @@ function generate() {
   .success-toast  { bottom: 90px; right: 14px; left: 14px; font-size: 0.8rem; padding: 12px 16px; }
 }
 
-/* Small phones (≤ 430px) */
+/* Small phones (â‰¤ 430px) */
 @media (max-width: 430px) {
   .rt-title       { font-size: 1.1rem; }
   .sec-card       { padding: 14px 12px; gap: 10px; }
@@ -790,7 +790,7 @@ function generate() {
   .generate-btn   { padding: 12px; font-size: 0.82rem; }
 }
 
-/* Tiny phones (≤ 360px) */
+/* Tiny phones (â‰¤ 360px) */
 @media (max-width: 360px) {
   .rt-title       { font-size: 1rem; }
   .sec-card       { padding: 12px 10px; }

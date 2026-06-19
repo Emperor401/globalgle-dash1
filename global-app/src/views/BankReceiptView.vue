@@ -1,4 +1,4 @@
-<!-- src/views/BankReceiptView.vue -->
+﻿<!-- src/views/BankReceiptView.vue -->
 <template>
   <div class="br-page">
 
@@ -9,13 +9,13 @@
         Back
       </button>
       <h1 class="br-title">Bank Receipt</h1>
-      <p class="br-sub">Fill in the details and generate a bank-app-styled receipt — download it as a <span class="br-hl">PDF</span> or an <span class="br-hl">image</span>.</p>
+      <p class="br-sub">Fill in the details and generate a bank-app-styled receipt â€” download it as a <span class="br-hl">PDF</span> or an <span class="br-hl">image</span>.</p>
     </div>
 
     <!-- Two-column layout -->
     <div class="br-layout">
 
-      <!-- ── LEFT: Form ── -->
+      <!-- â”€â”€ LEFT: Form â”€â”€ -->
       <div class="br-form-col">
         <div class="br-card">
 
@@ -124,18 +124,18 @@
           <div class="br-actions">
             <button class="br-btn-pdf" @click="downloadPDF" :disabled="downloading">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              {{ downloading === 'pdf' ? 'Generating…' : 'Download PDF' }}
+              {{ downloading === 'pdf' ? 'Generatingâ€¦' : 'Download PDF' }}
             </button>
             <button class="br-btn-img" @click="saveImage" :disabled="downloading">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              {{ downloading === 'img' ? 'Saving…' : 'Save image' }}
+              {{ downloading === 'img' ? 'Savingâ€¦' : 'Save image' }}
             </button>
           </div>
 
         </div>
       </div>
 
-      <!-- ── RIGHT: Receipt Preview ── -->
+      <!-- â”€â”€ RIGHT: Receipt Preview â”€â”€ -->
       <div class="br-preview-col">
         <div class="br-preview-label">Live Preview</div>
         <div class="br-phone-wrap">
@@ -167,7 +167,7 @@
                 <span class="br-bank-sym">{{ activeBank.symbol }}</span>
                 <span class="br-bank-name">{{ form.bank.toUpperCase() }}</span>
               </div>
-              <div class="br-bank-x">✕</div>
+              <div class="br-bank-x">âœ•</div>
             </div>
 
             <!-- Body -->
@@ -194,14 +194,14 @@
                 <div class="br-dr">
                   <span class="br-dl">To</span>
                   <div class="br-dv">
-                    <strong>{{ form.toName || '—' }}</strong>
+                    <strong>{{ form.toName || 'â€”' }}</strong>
                     <small>{{ form.toAccount || '' }}</small>
                   </div>
                 </div>
                 <div class="br-dr">
                   <span class="br-dl">From</span>
                   <div class="br-dv">
-                    <strong>{{ form.fromName || '—' }}</strong>
+                    <strong>{{ form.fromName || 'â€”' }}</strong>
                     <small>{{ form.fromAccount || '' }}</small>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ const router = useRouter()
 const receiptEl = ref(null)
 const downloading = ref(null)
 
-/* ── Clock ── */
+/* â”€â”€ Clock â”€â”€ */
 const clockTime = ref(formatClock())
 function formatClock() {
   const d = new Date()
@@ -259,23 +259,23 @@ function formatClock() {
 }
 setInterval(() => { clockTime.value = formatClock() }, 10000)
 
-/* ── Banks ── */
+/* â”€â”€ Banks â”€â”€ */
 const banks = [
-  { name: 'Chase',          color: '#1565C0', symbol: '+',  legal: 'JPMorgan Chase Bank, N.A. Member FDIC',         sub: 'Equal Housing Lender · © 2026 JPMorgan Chase & Co.' },
-  { name: 'Bank of America',color: '#E31837', symbol: '⬡',  legal: 'Bank of America, N.A. Member FDIC',              sub: 'Equal Housing Lender · © 2026 Bank of America Corp.' },
-  { name: 'Wells Fargo',    color: '#CC0000', symbol: '✦',  legal: 'Wells Fargo Bank, N.A. Member FDIC',             sub: 'Equal Housing Lender · © 2026 Wells Fargo & Company' },
-  { name: 'Citibank',       color: '#003B8E', symbol: '◎',  legal: 'Citibank, N.A. Member FDIC',                     sub: 'Equal Housing Lender · © 2026 Citigroup Inc.' },
-  { name: 'Capital One',    color: '#C8102E', symbol: '◆',  legal: 'Capital One, N.A. Member FDIC',                  sub: 'Equal Housing Lender · © 2026 Capital One Financial Corp.' },
-  { name: 'TD Bank',        color: '#34A853', symbol: '◉',  legal: 'TD Bank, N.A. Member FDIC',                      sub: 'Equal Housing Lender · © 2026 TD Bank Group.' },
-  { name: 'US Bank',        color: '#002B5C', symbol: '★',  legal: 'U.S. Bank National Association, Member FDIC',    sub: 'Equal Housing Lender · © 2026 U.S. Bancorp' },
-  { name: 'PNC Bank',       color: '#EF3E42', symbol: '■',  legal: 'PNC Bank, National Association, Member FDIC',    sub: 'Equal Housing Lender · © 2026 The PNC Financial Services Group' },
-  { name: 'Ally Bank',      color: '#7C4DFF', symbol: 'A',  legal: 'Ally Bank, Member FDIC',                         sub: 'Equal Housing Lender · © 2026 Ally Financial Inc.' },
-  { name: 'Chime',          color: '#00B894', symbol: '✦',  legal: 'Banking services provided by The Bancorp Bank',  sub: 'Member FDIC · © 2026 Chime Financial Inc.' },
-  { name: 'Cash App',       color: '#00D64F', symbol: '$',  legal: 'Cash App is a product of Block, Inc.',           sub: 'Investing in stocks via Cash App Investing LLC. © 2026 Block Inc.' },
-  { name: 'Zelle',          color: '#6C1CD3', symbol: 'Z',  legal: 'Zelle® and the Zelle® related marks are wholly owned by Early Warning Services, LLC', sub: '© 2026 Early Warning Services, LLC' },
+  { name: 'Chase',          color: '#1565C0', symbol: '+',  legal: 'JPMorgan Chase Bank, N.A. Member FDIC',         sub: 'Equal Housing Lender Â· Â© 2026 JPMorgan Chase & Co.' },
+  { name: 'Bank of America',color: '#E31837', symbol: 'â¬¡',  legal: 'Bank of America, N.A. Member FDIC',              sub: 'Equal Housing Lender Â· Â© 2026 Bank of America Corp.' },
+  { name: 'Wells Fargo',    color: '#CC0000', symbol: 'âœ¦',  legal: 'Wells Fargo Bank, N.A. Member FDIC',             sub: 'Equal Housing Lender Â· Â© 2026 Wells Fargo & Company' },
+  { name: 'Citibank',       color: '#003B8E', symbol: 'â—Ž',  legal: 'Citibank, N.A. Member FDIC',                     sub: 'Equal Housing Lender Â· Â© 2026 Citigroup Inc.' },
+  { name: 'Capital One',    color: '#C8102E', symbol: 'â—†',  legal: 'Capital One, N.A. Member FDIC',                  sub: 'Equal Housing Lender Â· Â© 2026 Capital One Financial Corp.' },
+  { name: 'TD Bank',        color: '#34A853', symbol: 'â—‰',  legal: 'TD Bank, N.A. Member FDIC',                      sub: 'Equal Housing Lender Â· Â© 2026 TD Bank Group.' },
+  { name: 'US Bank',        color: '#002B5C', symbol: 'â˜…',  legal: 'U.S. Bank National Association, Member FDIC',    sub: 'Equal Housing Lender Â· Â© 2026 U.S. Bancorp' },
+  { name: 'PNC Bank',       color: '#EF3E42', symbol: 'â– ',  legal: 'PNC Bank, National Association, Member FDIC',    sub: 'Equal Housing Lender Â· Â© 2026 The PNC Financial Services Group' },
+  { name: 'Ally Bank',      color: '#7C4DFF', symbol: 'A',  legal: 'Ally Bank, Member FDIC',                         sub: 'Equal Housing Lender Â· Â© 2026 Ally Financial Inc.' },
+  { name: 'Chime',          color: '#00B894', symbol: 'âœ¦',  legal: 'Banking services provided by The Bancorp Bank',  sub: 'Member FDIC Â· Â© 2026 Chime Financial Inc.' },
+  { name: 'Cash App',       color: '#00D64F', symbol: '$',  legal: 'Cash App is a product of Block, Inc.',           sub: 'Investing in stocks via Cash App Investing LLC. Â© 2026 Block Inc.' },
+  { name: 'Zelle',          color: '#6C1CD3', symbol: 'Z',  legal: 'ZelleÂ® and the ZelleÂ® related marks are wholly owned by Early Warning Services, LLC', sub: 'Â© 2026 Early Warning Services, LLC' },
 ]
 
-/* ── Transaction types ── */
+/* â”€â”€ Transaction types â”€â”€ */
 const txTypes = [
   { value: 'transfer-sent',     label: 'Transfer sent' },
   { value: 'transfer-received', label: 'Transfer received' },
@@ -286,7 +286,7 @@ const txTypes = [
   { value: 'purchase',          label: 'Purchase' },
 ]
 
-/* ── Form state ── */
+/* â”€â”€ Form state â”€â”€ */
 const today = new Date()
 const padded = v => String(v).padStart(2,'0')
 const defaultDate = `${today.getFullYear()}-${padded(today.getMonth()+1)}-${padded(today.getDate())}`
@@ -308,7 +308,7 @@ const form = reactive({
   reference:   'FGIOEDORF3',
 })
 
-/* ── Computed ── */
+/* â”€â”€ Computed â”€â”€ */
 const activeBank = computed(() => banks.find(b => b.name === form.bank) || banks[0])
 
 const txTitle = computed(() => {
@@ -331,7 +331,7 @@ const formattedDateTime = computed(() => {
 })
 
 const formattedDateOnly = computed(() => {
-  if (!form.date) return '—'
+  if (!form.date) return 'â€”'
   const d = new Date(form.date + 'T00:00:00')
   return d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' })
 })
@@ -355,13 +355,13 @@ const statusClass = computed(() => {
   return 'br-check--success'
 })
 
-/* ── Generate reference ── */
+/* â”€â”€ Generate reference â”€â”€ */
 function genRef() {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
   form.reference = Array.from({ length: 10 }, () => chars[Math.floor(Math.random() * chars.length)]).join('')
 }
 
-/* ── Download helpers ── */
+/* â”€â”€ Download helpers â”€â”€ */
 async function captureReceipt() {
   return html2canvas(receiptEl.value, {
     scale: 2,
@@ -401,7 +401,7 @@ async function downloadPDF() {
   margin: 0 auto;
 }
 
-/* ── Header ── */
+/* â”€â”€ Header â”€â”€ */
 .br-header { margin-top: 14px; }
 
 .br-back {
@@ -429,10 +429,10 @@ async function downloadPDF() {
   margin: 0 0 6px;
   letter-spacing: -0.02em;
 }
-.br-sub  { font-size: 0.85rem; color: var(--t3); margin: 0 0 24px; }
+.br-sub  { font-size: 0.85rem; color: var(--t2); font-weight: 500; margin: 0 0 24px; }
 .br-hl   { color: #22c55e; font-weight: 600; }
 
-/* ── Layout ── */
+/* â”€â”€ Layout â”€â”€ */
 .br-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -440,7 +440,7 @@ async function downloadPDF() {
   align-items: start;
 }
 
-/* ── Form Card ── */
+/* â”€â”€ Form Card â”€â”€ */
 .br-card {
   background: var(--glass);
   border: 1px solid var(--border);
@@ -563,7 +563,7 @@ async function downloadPDF() {
   color: var(--t1);
 }
 
-/* ── Preview ── */
+/* â”€â”€ Preview â”€â”€ */
 .br-preview-col {
   position: sticky;
   top: 80px;
@@ -587,7 +587,7 @@ async function downloadPDF() {
   box-shadow: 0 16px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
 }
 
-/* ── Receipt ── */
+/* â”€â”€ Receipt â”€â”€ */
 .br-receipt {
   background: #fff;
   width: 100%;
@@ -706,7 +706,7 @@ async function downloadPDF() {
   line-height: 1.6;
 }
 
-/* ── Light mode ── */
+/* â”€â”€ Light mode â”€â”€ */
 [data-theme="light"] .br-card  { background: rgba(255,255,255,0.85); border-color: rgba(0,0,0,0.10); }
 [data-theme="light"] .br-input { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #111; }
 [data-theme="light"] .br-input:focus { background: #fff; }
@@ -715,7 +715,7 @@ async function downloadPDF() {
 [data-theme="light"] .br-btn-img { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.15) !important; color: #111; }
 [data-theme="light"] .br-back { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #333; }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 900px) {
   .br-layout      { grid-template-columns: 1fr; }
   .br-preview-col { position: static; order: -1; }

@@ -1,4 +1,4 @@
-<!-- src/views/ToolsView.vue -->
+﻿<!-- src/views/ToolsView.vue -->
 <template>
   <div class="tools-page">
 
@@ -87,7 +87,7 @@ const services = [
 }
 .page-header__sub {
   font-size: 0.82rem;
-  color: var(--t3);
+  color: var(--t2); font-weight: 500;
   margin: 0;
 }
 
