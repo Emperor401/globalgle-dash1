@@ -260,7 +260,7 @@ function showToast(type, msg) {
   display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;
 }
 .tut-title { font-size: 1.6rem; font-weight: 800; color: var(--t1); margin: 0 0 4px; letter-spacing: -0.02em; }
-.tut-sub   { font-size: 0.85rem; color: var(--t2); font-weight: 500; margin: 0; }
+.tut-sub   { font-size: 0.85rem; color: var(--t1); font-weight: 600; margin: 0; }
 
 .tut-filterbar {
   display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;

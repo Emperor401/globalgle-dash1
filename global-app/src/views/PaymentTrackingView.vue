@@ -569,7 +569,7 @@ function generate() {
   display: flex; align-items: center; justify-content: center;
 }
 .pt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
-.pt-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
+.pt-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 .pt-hl    { color: #22c55e; font-weight: 500; }
 
 /* Layout */

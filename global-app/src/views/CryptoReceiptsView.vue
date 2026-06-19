@@ -231,7 +231,7 @@ function onImgError(e) {
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
 .cr-head-text { display: flex; flex-direction: column; gap: 4px; }
 .cr-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
-.cr-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
+.cr-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 
 /* Provider Grid */
 .provider-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }

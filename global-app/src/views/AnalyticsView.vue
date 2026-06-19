@@ -105,7 +105,7 @@ const stats = [
 
 .page-header { display:flex; flex-direction:column; gap:5px; }
 .page-title { font-size:1.5rem; font-weight:800; color:var(--t1); letter-spacing:-0.025em; margin:0; }
-.page-sub   { font-size:0.82rem; color: var(--t2); font-weight: 500; margin:0; }
+.page-sub   { font-size:0.82rem; color: var(--t1); font-weight: 600; margin:0; }
 
 /* Service cards */
 .sites-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
@@ -128,7 +128,7 @@ const stats = [
 .glass-panel { background:var(--glass); backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--border-soft); border-radius:14px; padding:14px 16px; }
 .panel-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:18px; }
 .panel-title { font-size:0.95rem; font-weight:700; color:var(--t1); margin:0 0 3px; }
-.panel-sub { font-size:0.72rem; color: var(--t2); font-weight: 500; margin:0; }
+.panel-sub { font-size:0.72rem; color: var(--t1); font-weight: 600; margin:0; }
 .btn-new-site { display:flex; align-items:center; gap:6px; padding:8px 16px; background:var(--accent-dim); border:1px solid var(--accent-border); border-radius:9px; color:var(--accent); font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:700; cursor:pointer; transition:all 0.2s; }
 .btn-new-site:hover { background:var(--accent); color:#fff; }
 

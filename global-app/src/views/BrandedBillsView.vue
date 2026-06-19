@@ -335,7 +335,7 @@ function onImgError(e) {
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
 .cbm-header__text { display: flex; flex-direction: column; gap: 4px; }
 .cbm-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
-.cbm-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
+.cbm-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 
 /* â”€â”€ Provider Grid â”€â”€ */
 .provider-grid {

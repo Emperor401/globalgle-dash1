@@ -300,7 +300,7 @@ onMounted(async () => {
   font-size: 1.4rem; font-weight: 800; color: var(--t1);
   margin: 0 0 3px; letter-spacing: -0.02em;
 }
-.cc-sub { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
+.cc-sub { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 .cc-status {
   margin-left: auto; display: flex; align-items: center; gap: 6px;
   font-size: 0.72rem; font-weight: 600; text-transform: uppercase;

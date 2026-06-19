@@ -426,7 +426,7 @@ function sendEmails() {
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
 .bm-head-text { display: flex; flex-direction: column; gap: 4px; }
 .bm-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
-.bm-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
+.bm-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 
 /* Two-column layout */
 .bm-layout {

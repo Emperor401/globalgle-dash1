@@ -535,7 +535,7 @@ function showToast(type, msg) {
   justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
 .w-title { font-size: 1.6rem; font-weight: 800; color: var(--t1); margin: 0 0 5px; letter-spacing: -0.02em; }
-.w-sub   { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
+.w-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 
 .w-hdr-actions { display: flex; gap: 10px; flex-shrink: 0; align-items: center; }
 

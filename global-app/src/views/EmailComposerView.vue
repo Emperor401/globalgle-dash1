@@ -257,7 +257,7 @@ const quickStats = [
 .back-btn { display:flex; align-items:center; gap:6px; padding:8px 14px; background:var(--glass); border:1px solid var(--border-soft); border-radius:9px; color:var(--t3); font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:600; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; margin-top:4px; }
 .back-btn:hover { color:var(--t1); border-color:var(--border); }
 .comp-title { font-size:1.4rem; font-weight:800; color:var(--t1); letter-spacing:-0.025em; margin:0 0 4px; }
-.comp-sub { font-size:0.8rem; color: var(--t2); font-weight: 500; margin:0; }
+.comp-sub { font-size:0.8rem; color: var(--t1); font-weight: 600; margin:0; }
 
 /* Layout */
 .composer-layout { display:grid; grid-template-columns:1fr 300px; gap:18px; align-items:start; }

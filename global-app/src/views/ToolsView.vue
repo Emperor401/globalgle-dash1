@@ -87,7 +87,7 @@ const services = [
 }
 .page-header__sub {
   font-size: 0.82rem;
-  color: var(--t2); font-weight: 500;
+  color: var(--t1); font-weight: 600;
   margin: 0;
 }
 

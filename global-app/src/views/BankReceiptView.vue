@@ -429,7 +429,7 @@ async function downloadPDF() {
   margin: 0 0 6px;
   letter-spacing: -0.02em;
 }
-.br-sub  { font-size: 0.85rem; color: var(--t2); font-weight: 500; margin: 0 0 24px; }
+.br-sub  { font-size: 0.85rem; color: var(--t1); font-weight: 600; margin: 0 0 24px; }
 .br-hl   { color: #22c55e; font-weight: 600; }
 
 /* â”€â”€ Layout â”€â”€ */

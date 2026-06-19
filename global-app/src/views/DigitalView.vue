@@ -75,7 +75,7 @@ const services = [
   background: transparent; border: 1.5px solid var(--t1);
   padding: 3px 9px; border-radius: 999px; letter-spacing: 0.05em;
 }
-.page-header__sub { font-size: 0.82rem; color: var(--t2); font-weight: 500; margin: 0; }
+.page-header__sub { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 
 /* Grid */
 .service-grid {
