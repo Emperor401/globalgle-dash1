@@ -504,16 +504,21 @@ function logout() {
   margin: 0 14px 18px;
   padding: 22px 18px 22px 18px;
   border-radius: 18px;
-  background: linear-gradient(145deg, #052e16 0%, #14532d 55%, #166534 100%);
-  border: 1px solid rgba(34, 197, 94, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
   overflow: visible;
   flex-shrink: 0;
   min-height: 132px;
-  transition: border-color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-.sidebar__upgrade:hover { border-color: rgba(34, 197, 94, 0.60); }
+.sidebar__upgrade:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.24);
+}
 
 .upgrade__body {
   display: flex;
@@ -526,7 +531,7 @@ function logout() {
 .upgrade__label {
   font-size: 0.75rem;
   font-weight: 500;
-  color: rgba(253, 211, 77, 0.65);
+  color: rgba(255, 255, 255, 0.55);
   margin: 0;
   line-height: 1;
 }
@@ -534,7 +539,7 @@ function logout() {
 .upgrade__title {
   font-size: 1.18rem;
   font-weight: 800;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -545,17 +550,20 @@ function logout() {
   align-self: flex-start;
   padding: 7px 18px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.upgrade__btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.upgrade__btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
 
 .upgrade__deco-img {
   position: absolute;
@@ -566,7 +574,7 @@ function logout() {
   object-fit: contain;
   pointer-events: none;
   z-index: 2;
-  filter: drop-shadow(0 4px 12px rgba(245,158,11,0.4));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 
