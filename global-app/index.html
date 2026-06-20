@@ -16,6 +16,11 @@
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
   </head>
   <body>
+    <!-- Blurred background — filter:blur on the element itself is the only
+         100% reliable way to get frosted-glass in production Chromium.
+         backdrop-filter on children fails when Chrome creates separate GPU
+         compositing layers for fixed/positioned elements. -->
+    <div id="bg-layer" aria-hidden="true"></div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>

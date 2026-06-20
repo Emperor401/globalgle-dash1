@@ -110,15 +110,31 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*
-  Background on body (not a pseudo-element, not fixed attachment, no transform).
-  This keeps it in the SAME paint layer as all children, so backdrop-filter
-  can blur through it in production Chromium builds on Vercel.
-*/
 body {
+  background: transparent;
+}
+
+/*
+  Frosted-glass background strategy:
+  Apply filter:blur() to the BACKGROUND ELEMENT ITSELF — not backdrop-filter
+  on children. This is the only production-reliable approach because
+  backdrop-filter fails when Chrome promotes fixed/positioned elements to
+  separate GPU compositing layers (which always happens in production builds).
+
+  The div extends 80px beyond all edges to prevent blur edge-fade artifacts.
+*/
+#bg-layer {
+  position: fixed;
+  top: -80px;
+  left: -80px;
+  right: -80px;
+  bottom: -80px;
+  z-index: -1;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
+    linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)),
     url('/bg2.png') center / cover no-repeat;
+  filter: blur(60px) saturate(140%);
+  pointer-events: none;
 }
 
 /* ── Global thin weight overrides ── */
@@ -320,8 +336,8 @@ button, input, textarea, select { font-family: 'Space Grotesk', sans-serif; font
 .cmp-cat-card,
 .promo-card,
 .be-card {
-  background: rgba(255, 255, 255, 0.09) !important;
-  backdrop-filter: blur(60px) saturate(160%) brightness(0.80) !important;
-  -webkit-backdrop-filter: blur(60px) saturate(160%) brightness(0.80) !important;
-  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: rgba(255, 255, 255, 0.11) !important;
+  backdrop-filter: blur(20px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }
