@@ -405,18 +405,32 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(60px) saturate(180%);
-  -webkit-backdrop-filter: blur(60px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.07) 100%
+  );
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 12px;
   padding: 9px 14px;
   width: 340px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 4px 24px rgba(0, 0, 0, 0.25);
   transition: all 0.25s ease;
 }
 .navbar__search:focus-within {
-  background: rgba(255,255,255,0.09);
-  border-color: rgba(34,197,94,0.35);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.20) 0%,
+    rgba(255, 255, 255, 0.10) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 4px 28px rgba(0, 0, 0, 0.30);
   width: 380px;
 }
 .search-icon { width: 14px; height: 14px; color: rgba(255,255,255,0.32); flex-shrink: 0; }
