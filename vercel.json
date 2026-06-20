@@ -1,5 +1,0 @@
-{
-  "buildCommand": "cd global-app && npm install && npm run build",
-  "outputDirectory": "global-app/dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
