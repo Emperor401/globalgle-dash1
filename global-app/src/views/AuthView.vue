@@ -90,7 +90,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import bgImage from '../assets/bg 2.png'
+const bgImage = '/bg2.png'
 
 const router   = useRouter()
 const code     = ref('')

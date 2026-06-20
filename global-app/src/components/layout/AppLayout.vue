@@ -30,7 +30,7 @@ import AppSidebar from './AppSidebar.vue'
 import AppNavbar from './AppNavbar.vue'
 import PageLoader from '../ui/PageLoader.vue'
 import ToastContainer from '../ui/ToastContainer.vue'
-import bgImage from '../../assets/bg 2.png'
+const bgImage = '/bg2.png'
 </script>
 
 <style scoped>
