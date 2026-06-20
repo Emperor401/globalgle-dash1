@@ -450,14 +450,15 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar__icon-btn {
   position: relative; width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(60px) saturate(180%);
-  -webkit-backdrop-filter: blur(60px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 10px; cursor: pointer; transition: all 0.22s ease; flex-shrink: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0; cursor: pointer; transition: all 0.22s ease; flex-shrink: 0;
 }
-.navbar__icon-btn svg { width: 16px; height: 16px; color: var(--t2); }
-.navbar__icon-btn:hover { background: var(--glass-hover); border-color: var(--border); }
+.navbar__icon-btn svg { width: 18px; height: 18px; color: var(--t2); }
+.navbar__icon-btn:hover { background: transparent; border-color: transparent; }
+.navbar__icon-btn:hover svg { color: var(--t1); }
 .theme-btn:hover svg { color: var(--accent); }
 
 .navbar__badge {
