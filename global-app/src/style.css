@@ -87,15 +87,7 @@
 
 html {
   font-size: 15px;
-  /* Background lives on html (the viewport canvas) so backdrop-filter always sees it */
   background-color: #020203;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.38)),
-    url('/bg2.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 /* ── Tablet font boost ── */
@@ -118,8 +110,15 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+  Background on body (not a pseudo-element, not fixed attachment, no transform).
+  This keeps it in the SAME paint layer as all children, so backdrop-filter
+  can blur through it in production Chromium builds on Vercel.
+*/
 body {
-  background: transparent;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
+    url('/bg2.png') center / cover no-repeat;
 }
 
 /* ── Global thin weight overrides ── */
