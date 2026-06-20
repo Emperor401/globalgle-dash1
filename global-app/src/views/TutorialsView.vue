@@ -550,15 +550,4 @@ function showToast(type, msg) {
   .tut-modal-title { font-size: 0.97rem; }
 }
 
-/* ── Light mode surface fixes ── */
-[data-theme="light"] .tut-pill,
-[data-theme="light"] .tut-search,
-[data-theme="light"] .tut-empty-icon,
-[data-theme="light"] .tut-card-footer,
-[data-theme="light"] .tut-meta-chip,
-[data-theme="light"] .tut-empty-hint code { background: var(--glass); }
-[data-theme="light"] .tut-modal-play-btn {
-  background: var(--glass-hover);
-  border-color: var(--border);
-}
 </style>

@@ -1095,20 +1095,4 @@ function copyText(text) {
   .set-primary-btn  { width: 100%; }
 }
 
-/* ── Light mode surface fixes ── */
-[data-theme="light"] .set-empty-state svg { stroke: var(--t4); }
-[data-theme="light"] .set-nav-item:hover,
-[data-theme="light"] .set-locked-tag,
-[data-theme="light"] .set-danger-item,
-[data-theme="light"] .set-ref-row { background: var(--glass-2); }
-[data-theme="light"] .set-nav-icon,
-[data-theme="light"] .set-field-icon,
-[data-theme="light"] .set-btn-cancel,
-[data-theme="light"] .set-action-btn,
-[data-theme="light"] .set-input,
-[data-theme="light"] .set-id-role,
-[data-theme="light"] .set-inline-input,
-[data-theme="light"] .set-ghost-btn { background: var(--glass); }
-[data-theme="light"] .set-pw-bar,
-[data-theme="light"] .set-toggle { background: var(--glass-hover); }
 </style>

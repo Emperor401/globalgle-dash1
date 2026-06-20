@@ -144,20 +144,4 @@ const services = [
   .service-card__desc  { font-size: 0.72rem; }
 }
 
-/* â”€â”€ Light mode â”€â”€ */
-[data-theme="light"] .service-card {
-  background: #fff;
-  border-color: rgba(0,0,0,0.08);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-}
-[data-theme="light"] .service-card:hover {
-  box-shadow: 0 8px 28px rgba(34,197,94,0.1);
-}
-[data-theme="light"] .service-card__icon {
-  background: rgba(34, 197, 94, 0.1);
-  border-color: rgba(34, 197, 94, 0.2);
-}
-[data-theme="light"] .page-header__sub  { color: rgba(12,10,30,0.55); }
-[data-theme="light"] .service-card__desc { color: rgba(12,10,30,0.60); }
-[data-theme="light"] .service-card__title { color: rgba(12,10,30,0.92); }
 </style>

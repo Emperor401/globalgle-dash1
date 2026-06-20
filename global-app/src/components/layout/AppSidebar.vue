@@ -15,14 +15,11 @@
     <!-- Logo -->
     <div class="sidebar__logo">
       <div class="sidebar__logo-icon">
-        <Transition name="logo-flip" mode="out-in">
-          <img
-            :key="isLight ? 'dark' : 'white'"
-            :src="isLight ? darkLogo : whiteLogo"
-            alt="Globalgle logo"
-            class="logo-img"
-          />
-        </Transition>
+        <img
+          :src="whiteLogo"
+          alt="Globalgle logo"
+          class="logo-img"
+        />
       </div>
       <span class="sidebar__logo-name">Globalgle</span>
       <!-- Mobile close button -->
@@ -189,10 +186,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import whiteLogo from '../../assets/white.jpeg'
-import darkLogo  from '../../assets/dark.jpeg'
 import cartnLogo from '../../assets/cartn.png'
 import { useSidebar } from '../../composables/useSidebar.js'
 
@@ -213,27 +209,9 @@ function goUpgrade() {
 
 function logout() {
   closeSidebar()
-  localStorage.removeItem('theme')
   localStorage.removeItem('globalgle_auth')
   router.push('/auth')
 }
-
-/* Track theme so the right logo shows */
-const isLight = ref(document.documentElement.getAttribute('data-theme') === 'light')
-
-let themeObserver = null
-onMounted(() => {
-  themeObserver = new MutationObserver(() => {
-    isLight.value = document.documentElement.getAttribute('data-theme') === 'light'
-  })
-  themeObserver.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme'],
-  })
-})
-onBeforeUnmount(() => {
-  themeObserver?.disconnect()
-})
 
 
 
@@ -392,21 +370,6 @@ onBeforeUnmount(() => {
   display: block;
 }
 
-/* 3-D Y-axis flip on theme switch */
-.logo-flip-enter-active {
-  transition: transform 0.35s ease, opacity 0.35s ease;
-}
-.logo-flip-leave-active {
-  transition: transform 0.28s ease, opacity 0.28s ease;
-}
-.logo-flip-enter-from {
-  transform: rotateY(-90deg) scale(0.75);
-  opacity: 0;
-}
-.logo-flip-leave-to {
-  transform: rotateY(90deg) scale(0.75);
-  opacity: 0;
-}
 
 .sidebar__logo-name {
   font-weight: 800;
@@ -606,11 +569,6 @@ onBeforeUnmount(() => {
   filter: drop-shadow(0 4px 12px rgba(245,158,11,0.4));
 }
 
-/* ── Light mode surface fixes ── */
-[data-theme="light"] .sidebar__close-btn { background: var(--glass); }
-[data-theme="light"] .sidebar__close-btn:hover { background: var(--glass-hover); }
-[data-theme="light"] .sidebar__scroll::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); }
-[data-theme="light"] .sidebar__scroll::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.28); }
 
 /* ── Safari / older iPadOS fallback — -webkit-fill-available ── */
 @supports not (height: 100dvh) {

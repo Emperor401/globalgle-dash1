@@ -680,14 +680,4 @@ details[open] .optional-arrow { transform: rotate(90deg); }
   .toggle-btn     { padding: 7px 10px; font-size: 0.7rem; }
 }
 
-/* Light mode */
-[data-theme="light"] .bm-form-card   { background: #fff; border-color: rgba(0,0,0,0.09); }
-[data-theme="light"] .fi             { background: #fff; border-color: rgba(0,0,0,0.12); color: #0f172a; }
-[data-theme="light"] .fi::placeholder { color: #94a3b8; }
-[data-theme="light"] .fs             { background: #fff; border-color: rgba(0,0,0,0.12); color: #0f172a; }
-[data-theme="light"] .logo-preview-box { background: #f8fafc; border-color: rgba(0,0,0,0.1); }
-[data-theme="light"] .optional-details { border-color: rgba(0,0,0,0.1); }
-[data-theme="light"] .bm-preview-col { border-color: rgba(0,0,0,0.09); }
-[data-theme="light"] .preview-bar    { background: #f8fafc; border-color: rgba(0,0,0,0.09); }
-[data-theme="light"] .toggle-btn--light { background: #f8fafc; border-color: rgba(0,0,0,0.12); color: #475569; }
 </style>

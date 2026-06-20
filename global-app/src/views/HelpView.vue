@@ -627,11 +627,4 @@ function showToast(type, msg) {
   .help-status-name  { font-size: 0.7rem; }
 }
 
-/* ── Light mode surface fixes ── */
-[data-theme="light"] .help-faq-trigger:hover,
-[data-theme="light"] .help-link:hover,
-[data-theme="light"] .help-status-row { background: var(--glass-2); }
-[data-theme="light"] .help-faq-toggle,
-[data-theme="light"] .help-ghost-btn { background: var(--glass); }
-[data-theme="light"] .help-ghost-btn:hover { background: var(--glass-hover); }
 </style>

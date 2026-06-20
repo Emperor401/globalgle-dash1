@@ -160,9 +160,4 @@ const services = [
   .service-grid { grid-template-columns: 1fr; }
 }
 
-/* Light mode */
-[data-theme="light"] .service-card__icon {
-  background: rgba(34, 197, 94, 0.1);
-  border-color: rgba(34, 197, 94, 0.2);
-}
 </style>

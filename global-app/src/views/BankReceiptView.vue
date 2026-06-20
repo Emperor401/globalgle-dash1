@@ -706,14 +706,6 @@ async function downloadPDF() {
   line-height: 1.6;
 }
 
-/* â”€â”€ Light mode â”€â”€ */
-[data-theme="light"] .br-card  { background: rgba(255,255,255,0.85); border-color: rgba(0,0,0,0.10); }
-[data-theme="light"] .br-input { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #111; }
-[data-theme="light"] .br-input:focus { background: #fff; }
-[data-theme="light"] .br-select { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #111; }
-[data-theme="light"] .br-gen-ref { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); }
-[data-theme="light"] .br-btn-img { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.15) !important; color: #111; }
-[data-theme="light"] .br-back { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #333; }
 
 /* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 900px) {

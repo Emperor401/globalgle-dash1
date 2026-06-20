@@ -2,6 +2,10 @@
 <template>
   <div class="auth-page">
 
+    <!-- Background layers -->
+    <div class="auth-bg" :style="{ backgroundImage: `url(${bgImage})` }" aria-hidden="true"></div>
+    <div class="auth-bg-overlay" aria-hidden="true"></div>
+
     <!-- Toast notification -->
     <Transition name="toast-slide">
       <div v-if="toast.show" class="auth-toast" :class="`auth-toast--${toast.type}`">
@@ -86,6 +90,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import bgImage from '../assets/bg 2.png'
 
 const router   = useRouter()
 const code     = ref('')
@@ -128,10 +133,29 @@ function unlock() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #05060f;
+  background: #020203;
   position: relative;
   overflow: hidden;
   padding: 20px;
+}
+
+/* Background image layer */
+.auth-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay */
+.auth-bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.50);
+  pointer-events: none;
 }
 
 /* Ambient orbs */
@@ -140,35 +164,36 @@ function unlock() {
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
+  z-index: 2;
 }
 .auth-orb--1 {
   width: 420px; height: 420px;
-  background: rgba(34,197,94,0.08);
+  background: rgba(34,197,94,0.06);
   top: -100px; left: -100px;
 }
 .auth-orb--2 {
   width: 360px; height: 360px;
-  background: rgba(34,197,94,0.05);
+  background: rgba(34,197,94,0.04);
   bottom: -80px; right: -80px;
 }
 
 /* Card */
 .auth-card {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   max-width: 400px;
-  background: rgba(10, 12, 24, 0.85);
-  backdrop-filter: blur(48px) saturate(160%);
-  -webkit-backdrop-filter: blur(48px) saturate(160%);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(60px) saturate(180%) brightness(0.85);
+  -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(0.85);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 24px;
   padding: 40px 36px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.06);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
 }
 
 /* Lock icon box */

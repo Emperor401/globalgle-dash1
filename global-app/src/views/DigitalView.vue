@@ -125,13 +125,4 @@ const services = [
   .service-card { padding: 14px 14px; }
 }
 
-/* Light mode */
-[data-theme="light"] .page-header__badge { border-color: var(--t1); color: var(--t1); }
-[data-theme="light"] .service-card {
-  background: #fff;
-  border-color: rgba(0,0,0,0.08);
-}
-[data-theme="light"] .service-card:hover {
-  border-color: var(--accent-border);
-}
 </style>

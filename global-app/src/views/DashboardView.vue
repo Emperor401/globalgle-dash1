@@ -34,17 +34,17 @@
           </svg>
           Add Funds
         </button>
-        <button class="ha" @click="router.push('/transactions')">
+        <button class="ha" @click="router.push('/email-services/composer')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
           </svg>
-          Send
+          Email
         </button>
         <button class="ha" @click="router.push('/billing')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
           </svg>
-          Convert
+          Wallet
         </button>
       </div>
 
@@ -94,11 +94,11 @@
          ════════════════════════════════════ -->
     <div class="chart-row">
 
-      <!-- Balance Spendings (main line chart) -->
+      <!-- Wallet Spendings (main line chart) -->
       <div class="card chart-main">
         <div class="card__head">
           <div>
-            <p class="card__lbl">Balance Spendings</p>
+            <p class="card__lbl">Wallet Spendings</p>
             <span class="card__val">₦260,375</span>
           </div>
           <div class="period-tabs">
@@ -153,11 +153,11 @@
         </div>
       </div>
 
-      <!-- Balance Spendings (day bar chart) -->
+      <!-- Wallet Spendings (day bar chart) -->
       <div class="card chart-side">
         <div class="card__head">
           <div>
-            <p class="card__lbl">Balance Spendings</p>
+            <p class="card__lbl">Wallet Spendings</p>
             <span class="card__val">₦213</span>
           </div>
           <button class="see-all" @click="router.push('/wallet')">See All</button>
@@ -455,17 +455,19 @@ const dots = [
    SHARED CARD BASE
    ══════════════════════════════════ */
 .card {
-  background: rgba(8,8,12,0.95);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
+  -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
   border-radius: 16px;
   padding: 20px 22px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  transition: border-color .22s;
-  backdrop-filter: blur(12px);
+  transition: border-color .22s, background .22s;
 }
-.card:hover { border-color: rgba(255,255,255,0.12); }
+.card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
 
 /* ══════════════════════════════════
    HERO
@@ -482,9 +484,9 @@ const dots = [
 }
 
 .hero__lbl {
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.36);
+  color: rgba(255,255,255,0.80);
   margin: 0 0 8px;
   letter-spacing: 0.02em;
 }
@@ -539,8 +541,9 @@ const dots = [
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.74rem;
-  color: rgba(255,255,255,0.42);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
   font-weight: 500;
 }
 
@@ -592,8 +595,11 @@ const dots = [
   width: 200px;
   position: relative;
   overflow: hidden;
-  background: rgba(8,8,12,0.95);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
+  -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 12px 14px 10px;
   display: flex;
@@ -603,7 +609,7 @@ const dots = [
   cursor: default;
   backdrop-filter: blur(12px);
 }
-.cur:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.13); }
+.cur:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.16); }
 
 /* Dot-grid texture overlay like Vaulto */
 .cur__texture {
@@ -676,9 +682,9 @@ const dots = [
 .cur__chg--dn { color: #f87171; }
 
 .cur__sub {
-  font-size: 0.57rem;
-  color: rgba(255,255,255,0.22);
-  font-weight: 400;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 600;
   position: relative;
 }
 
@@ -828,14 +834,6 @@ const dots = [
 .dd-enter-from   { opacity: 0; transform: translateY(-4px); }
 .dd-leave-to     { opacity: 0; transform: translateY(-4px); }
 
-[data-theme="light"] .dd-menu {
-  background: rgba(255,255,255,0.92);
-  border-color: rgba(0,0,0,0.09);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-}
-[data-theme="light"] .dd-item { color: rgba(12,10,30,0.5); }
-[data-theme="light"] .dd-item:hover { background: rgba(0,0,0,0.05); color: rgba(12,10,30,0.88); }
-[data-theme="light"] .dd-item--on { color: rgba(12,10,30,0.9); }
 
 .chart-body { display: flex; flex-direction: column; gap: 6px; position: relative; }
 
@@ -1140,48 +1138,4 @@ const dots = [
   .card       { padding: 12px 12px; }
 }
 
-/* ── Light mode ── */
-[data-theme="light"] .hero,
-[data-theme="light"] .card,
-[data-theme="light"] .cur {
-  background: rgba(255,255,255,0.85);
-  border-color: rgba(0,0,0,0.1);
-}
-[data-theme="light"] .hero:hover,
-[data-theme="light"] .card:hover,
-[data-theme="light"] .cur:hover { border-color: rgba(0,0,0,0.17); }
-
-[data-theme="light"] .hero__lbl,
-[data-theme="light"] .hero__sub,
-[data-theme="light"] .card__lbl,
-[data-theme="light"] .stat-lbl,
-[data-theme="light"] .cur__code,
-[data-theme="light"] .cur__add,
-[data-theme="light"] .chart-xlabels span,
-[data-theme="light"] .bar-lbl,
-[data-theme="light"] .flow-node { color: rgba(12,10,30,0.42); }
-
-[data-theme="light"] .hero__amt,
-[data-theme="light"] .cur__amt,
-[data-theme="light"] .card__val,
-[data-theme="light"] .stat-val,
-[data-theme="light"] .bot-title,
-[data-theme="light"] .act-name,
-[data-theme="light"] .act-amt { color: rgba(12,10,30,0.92); }
-
-[data-theme="light"] .hero__dec,
-[data-theme="light"] .act-date,
-[data-theme="light"] .hero__sub-val { color: rgba(12,10,30,0.55); }
-
-[data-theme="light"] .ha {
-  background: rgba(0,0,0,0.06);
-  border-color: rgba(0,0,0,0.13);
-  color: rgba(12,10,30,0.88);
-}
-[data-theme="light"] .ha:hover { background: rgba(0,0,0,0.1); border-color: rgba(0,0,0,0.2); }
-[data-theme="light"] .ptab--on { background: rgba(0,0,0,0.07); border-color: rgba(0,0,0,0.13); color: rgba(12,10,30,0.9); }
-[data-theme="light"] .ptab { color: rgba(12,10,30,0.42); }
-[data-theme="light"] .ptab:hover:not(.ptab--on) { color: rgba(12,10,30,0.65); }
-[data-theme="light"] .bar-track { background: rgba(0,0,0,0.07); }
-[data-theme="light"] .cur__add { border-color: rgba(0,0,0,0.15); }
 </style>

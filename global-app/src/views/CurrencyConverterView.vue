@@ -489,10 +489,4 @@ onMounted(async () => {
   .cc-pairs       { gap: 6px; }
 }
 
-/* ── Light mode surface fixes ── */
-[data-theme="light"] .cc-input,
-[data-theme="light"] .cc-drop-search,
-[data-theme="light"] .cc-quick-btn,
-[data-theme="light"] .cc-select-wrap,
-[data-theme="light"] .cc-drop-item:hover { background: var(--glass); }
 </style>

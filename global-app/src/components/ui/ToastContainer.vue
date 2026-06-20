@@ -166,9 +166,4 @@ const { toasts, remove } = useToast()
   .toast-leave-to { transform: translateY(20px) scale(0.95); }
 }
 
-/* Light mode */
-[data-theme="light"] .toast {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-}
-[data-theme="light"] .toast__close:hover { background: rgba(0,0,0,0.06); }
 </style>

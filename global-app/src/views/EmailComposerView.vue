@@ -359,6 +359,4 @@ const quickStats = [
   .ec-modal  { max-width: 100%; border-radius: 22px 22px 0 0; }
 }
 
-/* â”€â”€ Light mode surface fixes â”€â”€ */
-[data-theme="light"] .email-preview { background: var(--glass); }
 </style>

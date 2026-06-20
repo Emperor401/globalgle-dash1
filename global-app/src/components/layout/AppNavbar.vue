@@ -106,25 +106,6 @@
         </Transition>
       </div>
 
-      <!-- Theme Toggle -->
-      <button class="navbar__icon-btn theme-btn" @click="toggleTheme"
-        :title="isLight ? 'Switch to dark' : 'Switch to light'">
-        <svg v-if="!isLight" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1"  x2="12" y2="3"/>  <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1"  y1="12" x2="3"  y2="12"/>  <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
-          <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
-        </svg>
-      </button>
-
       <!-- Profile chip -->
       <div class="navbar__profile-chip" ref="profileChipRef" @click.stop="toggleProfileDrop">
         <img
@@ -278,21 +259,6 @@
         </Transition>
       </button>
 
-      <!-- Theme -->
-      <button class="mn-icon-btn" @click="toggleTheme">
-        <svg v-if="!isLight" width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-        </svg>
-      </button>
 
     </div>
   </header>
@@ -374,7 +340,6 @@ const showNotifications = ref(false)
 const notifBtn          = ref(null)
 const mobileNotifBtn    = ref(null)
 const notifications     = ref(notifData)
-const isLight           = ref(document.documentElement.getAttribute('data-theme') === 'light')
 
 /* ── Profile chip dropdown ── */
 const profileDropOpen = ref(false)
@@ -397,18 +362,6 @@ const toggleNotifications = () => { showNotifications.value = !showNotifications
 const markRead  = (id) => { const n = notifications.value.find(n => n.id === id); if (n) n.read = true }
 const dismiss   = (id) => { notifications.value = notifications.value.filter(n => n.id !== id) }
 const clearAll  = () => { notifications.value = notifications.value.map(n => ({ ...n, read: true })) }
-
-/* ── Theme ── */
-const toggleTheme = () => {
-  isLight.value = !isLight.value
-  if (isLight.value) {
-    document.documentElement.setAttribute('data-theme', 'light')
-    localStorage.setItem('theme', 'light')
-  } else {
-    document.documentElement.removeAttribute('data-theme')
-    localStorage.removeItem('theme')
-  }
-}
 
 /* ── Click outside ── */
 const handleOutsideClick = (e) => {
@@ -450,17 +403,14 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .breadcrumb__sep     { font-size: 0.82rem; color: rgba(255,255,255,0.22); }
 .breadcrumb__current { font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.88); }
 
-[data-theme="light"] .breadcrumb__parent  { color: rgba(12,10,30,0.38); }
-[data-theme="light"] .breadcrumb__sep     { color: rgba(12,10,30,0.22); }
-[data-theme="light"] .breadcrumb__current { color: rgba(12,10,30,0.88); }
 
 .navbar__search {
   display: flex;
   align-items: center;
   gap: 8px;
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(60px) saturate(180%);
+  -webkit-backdrop-filter: blur(60px) saturate(180%);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 12px;
   padding: 9px 14px;
@@ -496,29 +446,13 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   font-style: normal;
 }
 
-[data-theme="light"] .navbar__search {
-  background: rgba(0,0,0,0.06);
-  border-color: rgba(0,0,0,0.11);
-}
-[data-theme="light"] .navbar__search:focus-within {
-  background: rgba(0,0,0,0.09);
-  border-color: rgba(34,197,94,0.4);
-}
-[data-theme="light"] .search-icon { color: rgba(0,0,0,0.35); }
-[data-theme="light"] .navbar__search-input { color: rgba(12,10,30,0.88); }
-[data-theme="light"] .navbar__search-input::placeholder { color: rgba(0,0,0,0.3); }
-[data-theme="light"] .search-key {
-  background: rgba(0,0,0,0.06);
-  border-color: rgba(0,0,0,0.12);
-  color: rgba(0,0,0,0.35);
-}
 
 .navbar__icon-btn {
   position: relative; width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(60px) saturate(180%);
+  -webkit-backdrop-filter: blur(60px) saturate(180%);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 10px; cursor: pointer; transition: all 0.22s ease; flex-shrink: 0;
 }
@@ -539,8 +473,8 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   display: flex; align-items: center; gap: 9px;
   padding: 6px 8px 6px 6px;
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(60px) saturate(180%);
+  -webkit-backdrop-filter: blur(60px) saturate(180%);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 999px;
   flex-shrink: 0;
@@ -882,37 +816,4 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   .mobile-bottom-nav { display: flex; }
 }
 
-/* ══════════════════════════════
-   LIGHT MODE OVERRIDES
-   ══════════════════════════════ */
-[data-theme="light"] .bn-item {
-  color: rgba(12, 10, 30, 0.38);
-}
-[data-theme="light"] .bn-item:not(.bn-item--active):hover {
-  color: rgba(12, 10, 30, 0.72);
-  background: rgba(12, 10, 30, 0.06);
-}
-[data-theme="light"] .bn-item--active {
-  background: linear-gradient(145deg, rgba(34, 197, 94, 0.18), rgba(22, 163, 74, 0.26));
-  border: 1px solid rgba(34, 197, 94, 0.40);
-  color: #16a34a;
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.12) inset;
-}
-[data-theme="light"] .mobile-bottom-nav {
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-}
-[data-theme="light"] .mn-hamburger {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-[data-theme="light"] .mn-bar {
-  background: rgba(12, 10, 30, 0.55);
-}
-[data-theme="light"] .mn-icon-btn {
-  border-color: rgba(0, 0, 0, 0.1);
-  color: rgba(12, 10, 30, 0.55);
-}
-[data-theme="light"] .mn-icon-btn:hover {
-  color: rgba(12, 10, 30, 0.85);
-}
 </style>

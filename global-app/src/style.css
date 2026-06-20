@@ -74,66 +74,6 @@
 }
 
 /* ══════════════════════════════════════════════
-   LIGHT THEME
-   ══════════════════════════════════════════════ */
-
-[data-theme="light"] {
-  --bg: #ffffff;
-
-  --glass:        rgba(255, 255, 255, 0.75);
-  --glass-2:      rgba(255, 255, 255, 0.55);
-  --glass-hover:  rgba(255, 255, 255, 0.90);
-  --glass-filter: blur(20px) saturate(160%);
-
-  --modal-glass:  rgba(255, 255, 255, 0.94);
-  --modal-input:  rgba(255, 255, 255, 0.75);
-  --modal-border: rgba(99, 102, 241, 0.14);
-
-  --border:      rgba(0, 0, 0, 0.13);
-  --border-soft: rgba(0, 0, 0, 0.09);
-
-  --shadow:       none;
-  --shadow-hover: none;
-
-  --t1: rgba(12, 10, 30, 0.92);
-  --t2: rgba(12, 10, 30, 0.6);
-  --t3: rgba(12, 10, 30, 0.38);
-  --t4: rgba(12, 10, 30, 0.18);
-
-  --accent:        #16a34a;
-  --accent-hover:  #15803d;
-  --accent-deep:   #14532d;
-  --accent-dim:    rgba(22, 163, 74, 0.12);
-  --accent-border: rgba(22, 163, 74, 0.28);
-  --accent-glow:   rgba(22, 163, 74, 0);
-
-  --green:        #16a34a;
-  --green-dim:    rgba(22, 163, 74, 0.1);
-  --green-border: rgba(22, 163, 74, 0.22);
-  --green-glow:   rgba(22, 163, 74, 0);
-
-  --red:        #dc2626;
-  --red-dim:    rgba(220, 38, 38, 0.1);
-  --red-border: rgba(220, 38, 38, 0.22);
-  --red-glow:   rgba(220, 38, 38, 0);
-
-  --yellow:        #d97706;
-  --yellow-dim:    rgba(217, 119, 6, 0.1);
-  --yellow-border: rgba(217, 119, 6, 0.22);
-
-  --purple:        #7c3aed;
-  --purple-deep:   #4c1d95;
-  --purple-dim:    rgba(124, 58, 237, 0.1);
-  --purple-border: rgba(124, 58, 237, 0.22);
-  --purple-glow:   rgba(124, 58, 237, 0);
-
-  /* Dropdown / Popover */
-  --dropdown-bg:     rgba(255, 255, 255, 0.95);
-  --dropdown-border: rgba(0, 0, 0, 0.08);
-  --dropdown-shadow: none;
-}
-
-/* ══════════════════════════════════════════════
    GLOBAL BASE
    ══════════════════════════════════════════════ */
 
@@ -141,7 +81,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  box-shadow: none !important;
   text-shadow: none !important;
 }
 
@@ -159,16 +98,19 @@ html {
 @media (max-width: 430px) { html { font-size: 11.5px; } }
 @media (max-width: 360px) { html { font-size: 11px; } }
 
+html {
+  background: #020203;
+}
+
 html, body {
   min-height: 100vh;
-  background: var(--bg);
+  background: transparent;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
   letter-spacing: -0.01em;
   color: var(--t1);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background 0.35s ease, color 0.35s ease;
 }
 
 
@@ -340,3 +282,40 @@ button, input, textarea, select { font-family: 'Space Grotesk', sans-serif; font
   .billing-toggle           { flex-direction: column !important; align-items: flex-start !important; }
 }
 
+/* ══════════════════════════════════════════════
+   GLOBAL GLASSMORPHISM — applies to ALL card
+   class names used across the entire app
+   ══════════════════════════════════════════════ */
+.card,
+.site-card,
+.stat-chip,
+.glass-panel,
+.p-card,
+.kpi-card,
+.txn-panel,
+.bill-stat,
+.bill-plan-card,
+.bm-form-card,
+.br-card,
+.sec-card,
+.auth-card,
+.service-card,
+.set-card,
+.help-card,
+.tut-card,
+.wf-card,
+.w-stat,
+.cc-card,
+.cc-pair-card,
+.sms-form-card,
+.sc-form-card,
+.cmp-row,
+.cmp-cat-card,
+.promo-card,
+.be-card {
+  background: rgba(255, 255, 255, 0.07) !important;
+  backdrop-filter: blur(40px) saturate(150%) brightness(0.85) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
