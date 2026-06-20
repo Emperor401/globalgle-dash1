@@ -472,20 +472,20 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar__profile-chip {
   position: relative;
   display: flex; align-items: center; gap: 9px;
-  padding: 6px 8px 6px 6px;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(60px) saturate(180%);
-  -webkit-backdrop-filter: blur(60px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 999px;
+  padding: 6px 4px 6px 4px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
   flex-shrink: 0;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition: opacity 0.2s;
   user-select: none;
 }
 .navbar__profile-chip:hover {
-  background: var(--glass-hover);
-  border-color: rgba(255,255,255,0.18);
+  background: transparent;
+  opacity: 0.85;
 }
 .navbar__profile-avatar {
   width: 30px; height: 30px;
