@@ -38,7 +38,6 @@ import bgImage from '../../assets/bg 2.png'
   min-height: 100vh;
   background: transparent;
   position: relative;
-  z-index: 2;
 }
 
 /* Background image — lowest fixed layer */
@@ -64,7 +63,6 @@ import bgImage from '../../assets/bg 2.png'
   margin-left: 220px;
   min-height: 100vh;
   position: relative;
-  z-index: 2;
 }
 
 .app-layout__content {
