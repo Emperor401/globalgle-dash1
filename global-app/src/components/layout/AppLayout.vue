@@ -2,10 +2,6 @@
 <template>
   <div class="app-layout">
 
-    <!-- Fixed background layers — always rendered before cards -->
-    <div class="bg-image" :style="{ backgroundImage: `url(${bgImage})` }" aria-hidden="true"></div>
-    <div class="bg-overlay" aria-hidden="true"></div>
-
     <PageLoader />
     <ToastContainer />
 
@@ -30,7 +26,6 @@ import AppSidebar from './AppSidebar.vue'
 import AppNavbar from './AppNavbar.vue'
 import PageLoader from '../ui/PageLoader.vue'
 import ToastContainer from '../ui/ToastContainer.vue'
-const bgImage = '/bg2.png'
 </script>
 
 <style scoped>
@@ -40,29 +35,22 @@ const bgImage = '/bg2.png'
   position: relative;
 }
 
-/* Background image — lowest fixed layer */
-.bg-image {
+/* Dark overlay — fixed, sits above background image */
+.app-layout::before {
+  content: '';
   position: fixed;
   inset: 0;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Dark overlay — sits on top of image */
-.bg-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.52);
   pointer-events: none;
+  z-index: 0;
 }
 
+/* Main content — above overlay so cards are visible */
 .app-layout__main {
   margin-left: 220px;
   min-height: 100vh;
   position: relative;
+  z-index: 1;
 }
 
 .app-layout__content {

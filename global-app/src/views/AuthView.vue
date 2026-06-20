@@ -2,10 +2,6 @@
 <template>
   <div class="auth-page">
 
-    <!-- Background layers -->
-    <div class="auth-bg" :style="{ backgroundImage: `url(${bgImage})` }" aria-hidden="true"></div>
-    <div class="auth-bg-overlay" aria-hidden="true"></div>
-
     <!-- Toast notification -->
     <Transition name="toast-slide">
       <div v-if="toast.show" class="auth-toast" :class="`auth-toast--${toast.type}`">
@@ -90,7 +86,6 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-const bgImage = '/bg2.png'
 
 const router   = useRouter()
 const code     = ref('')
@@ -133,29 +128,10 @@ function unlock() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #020203;
+  background: transparent;
   position: relative;
   overflow: hidden;
   padding: 20px;
-}
-
-/* Background image layer */
-.auth-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Dark overlay */
-.auth-bg-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.50);
-  pointer-events: none;
 }
 
 /* Ambient orbs */
@@ -164,7 +140,7 @@ function unlock() {
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 .auth-orb--1 {
   width: 420px; height: 420px;
@@ -180,7 +156,7 @@ function unlock() {
 /* Card */
 .auth-card {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   width: 100%;
   max-width: 400px;
   background: rgba(255, 255, 255, 0.07);
