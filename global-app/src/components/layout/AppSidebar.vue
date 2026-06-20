@@ -35,120 +35,131 @@
     </div>
 
     <!-- Scrollable nav area -->
-    <div class="sidebar__scroll">
+    <div class="sidebar__scroll" ref="scrollEl">
 
-    <!-- Main Navigation -->
+    <!-- GO MENU -->
     <div class="sidebar__group">
-      <span class="sidebar__group-label">Main Menu</span>
+      <span class="sidebar__group-label">Go Menu</span>
       <nav class="sidebar__nav">
-        <router-link
-          v-for="item in navItems"
-          :key="item.name"
-          :to="item.path"
-          class="nav-item"
-          :class="{ 'nav-item--active': $route.path === item.path }"
-          @click="closeSidebar"
-        >
+        <router-link to="/" class="nav-item" :class="{ 'nav-item--active': $route.path === '/' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="$route.path === item.path ? '#22c55e' : '#94a3b8'"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              v-html="item.icon"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
           </div>
-          <span class="nav-item__label">{{ item.name }}</span>
-          <span v-if="item.badge" class="nav-item__badge">{{ item.badge }}</span>
+          <span class="nav-item__label">Dashboard</span>
+        </router-link>
+
+        <router-link to="/customers" class="nav-item" :class="{ 'nav-item--active': $route.path === '/customers' }" @click="closeSidebar">
+          <div class="nav-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/customers' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <span class="nav-item__label">Mailing</span>
+        </router-link>
+
+        <router-link to="/analytics" class="nav-item" :class="{ 'nav-item--active': $route.path === '/analytics' }" @click="closeSidebar">
+          <div class="nav-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/analytics' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <span class="nav-item__label">Websites</span>
         </router-link>
       </nav>
     </div>
 
-    <!-- System Navigation -->
+    <!-- TOOLS -->
+    <div class="sidebar__group">
+      <span class="sidebar__group-label">Tools</span>
+      <nav class="sidebar__nav">
+        <router-link to="/tools" class="nav-item" :class="{ 'nav-item--active': $route.path === '/tools' }" @click="closeSidebar">
+          <div class="nav-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/tools' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <span class="nav-item__label">Generator</span>
+          <span class="nav-item__badge">TOOLS</span>
+        </router-link>
+
+        <router-link to="/digital" class="nav-item" :class="{ 'nav-item--active': $route.path === '/digital' }" @click="closeSidebar">
+          <div class="nav-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/digital' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <span class="nav-item__label">Digital</span>
+          <span class="nav-item__badge">TOOLS</span>
+        </router-link>
+      </nav>
+    </div>
+
+    <!-- SYSTEM -->
     <div class="sidebar__group">
       <span class="sidebar__group-label">System</span>
       <nav class="sidebar__nav">
-
-        <!-- My Wallet -->
         <router-link to="/wallet" class="nav-item" :class="{ 'nav-item--active': $route.path === '/wallet' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="$route.path === '/wallet' ? '#22c55e' : '#94a3b8'"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2"/>
-              <path d="M16 12h2"/>
-              <path d="M2 10h20"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/wallet' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 12h2"/><path d="M2 10h20"/>
             </svg>
           </div>
           <span class="nav-item__label">My Wallet</span>
           <span class="nav-item__badge">₦0</span>
         </router-link>
 
-        <!-- Billing & Plans -->
         <router-link to="/billing" class="nav-item" :class="{ 'nav-item--active': $route.path === '/billing' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="$route.path === '/billing' ? '#22c55e' : '#94a3b8'"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="9" y1="13" x2="15" y2="13"/>
-              <line x1="9" y1="17" x2="12" y2="17"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/billing' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/>
             </svg>
           </div>
           <span class="nav-item__label">Billing &amp; Plans</span>
         </router-link>
 
-        <!-- Settings -->
         <router-link to="/settings" class="nav-item" :class="{ 'nav-item--active': $route.path === '/settings' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="$route.path === '/settings' ? '#22c55e' : '#94a3b8'"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/settings' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
             </svg>
           </div>
           <span class="nav-item__label">Settings</span>
         </router-link>
+      </nav>
+    </div>
 
-        <!-- Tutorials -->
+    <!-- OTHER -->
+    <div class="sidebar__group">
+      <span class="sidebar__group-label">Other</span>
+      <nav class="sidebar__nav">
         <router-link to="/tutorials" class="nav-item" :class="{ 'nav-item--active': $route.path === '/tutorials' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="$route.path === '/tutorials' ? '#22c55e' : '#94a3b8'"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="23 7 16 12 23 17 23 7"/>
-              <rect x="1" y="5" width="15" height="14" rx="2"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/tutorials' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>
             </svg>
           </div>
           <span class="nav-item__label">Tutorials</span>
         </router-link>
 
-        <!-- Support -->
         <router-link to="/help" class="nav-item" :class="{ 'nav-item--active': $route.path === '/help' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="$route.path === '/help' ? '#22c55e' : '#94a3b8'"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/help' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
           </div>
           <span class="nav-item__label">Support</span>
         </router-link>
 
-        <!-- Make a complaint -->
         <router-link to="/complaint" class="nav-item" :class="{ 'nav-item--active': $route.path === '/complaint' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              :stroke="$route.path === '/complaint' ? '#22c55e' : '#94a3b8'"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
-              <line x1="4" y1="22" x2="4" y2="15"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/complaint' ? '#22c55e' : '#94a3b8'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
             </svg>
           </div>
-          <span class="nav-item__label">Make a complaint</span>
+          <span class="nav-item__label">Complaint</span>
         </router-link>
-
       </nav>
     </div>
 
@@ -178,8 +189,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import whiteLogo from '../../assets/white.jpeg'
 import darkLogo  from '../../assets/dark.jpeg'
 import cartnLogo from '../../assets/cartn.png'
@@ -187,6 +198,13 @@ import { useSidebar } from '../../composables/useSidebar.js'
 
 const { sidebarOpen, closeSidebar } = useSidebar()
 const router = useRouter()
+const route  = useRoute()
+
+/* Reset sidebar scroll to top on every route change */
+const scrollEl = ref(null)
+watch(() => route.path, () => {
+  if (scrollEl.value) scrollEl.value.scrollTop = 0
+})
 
 function goUpgrade() {
   closeSidebar()
@@ -217,18 +235,6 @@ onBeforeUnmount(() => {
   themeObserver?.disconnect()
 })
 
-const navItems = [
-  { name: 'Dashboard',      path: '/',                              badge: null,
-    icon: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>' },
-  { name: 'Mailing',        path: '/customers',                     badge: 'TOOLS',
-    icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  { name: 'Websites',       path: '/analytics',                     badge: null,
-    icon: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
-  { name: 'Generator',      path: '/tools',                         badge: 'TOOLS',
-    icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
-  { name: 'Digital',        path: '/digital',                       badge: 'TOOLS',
-    icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>' },
-]
 
 
 </script>
@@ -266,9 +272,10 @@ const navItems = [
 /* ── Tablet — 769px–1366px (iPad Mini → iPad Pro 13") ── */
 @media (min-width: 769px) and (max-width: 1366px) {
   .sidebar        { width: 210px; }
-  .sidebar__group { padding: 14px 12px 4px; }
-  .nav-item       { padding: 8px 9px; }
+  .sidebar__group { padding: 18px 12px 4px; }
+  .nav-item       { padding: 10px 9px; }
   .nav-item__label { font-size: 0.82rem; }
+  .sidebar__nav   { gap: 3px; }
 }
 
 /* ── iPad landscape short viewport (height ≤ 900px, width ≥ 769px) ── */
@@ -410,7 +417,7 @@ const navItems = [
 
 /* ── Section group ── */
 .sidebar__group {
-  padding: 18px 14px 6px;
+  padding: 22px 14px 6px;
   flex-shrink: 0;
 }
 
@@ -422,21 +429,21 @@ const navItems = [
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0 8px;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
 }
 
 /* ── Nav items ── */
 .sidebar__nav {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 10px;
+  padding: 11px 10px;
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.22s ease;
@@ -512,7 +519,7 @@ const navItems = [
   border: 1.5px solid rgba(239, 68, 68, 0.3);
   background: rgba(239, 68, 68, 0.08);
   color: #ef4444;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
@@ -578,7 +585,7 @@ const navItems = [
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   border: none;
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;

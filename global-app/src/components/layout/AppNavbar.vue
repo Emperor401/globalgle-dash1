@@ -6,34 +6,33 @@
        ═══════════════════════════════════ -->
   <header class="navbar desktop-nav">
 
-    <!-- Left: Page title -->
+    <!-- Left: Breadcrumb -->
     <div class="navbar__left">
-      <div class="page-title">
-        <div class="page-title__icon"
-          :style="{ background: pageAccentColor + '26', borderColor: pageAccentColor + '40' }">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-            :stroke="pageAccentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" v-html="pageIcon" />
-        </div>
-        <div class="page-title__text">
-          <h1 class="page-title__name">{{ pageTitle }}</h1>
-          <p class="page-title__sub">{{ pageSubtitle }}</p>
+      <div class="breadcrumb">
+        <span class="breadcrumb__parent">{{ pageTitle }}</span>
+        <span class="breadcrumb__sep">/</span>
+        <span class="breadcrumb__current">{{ pageSubtitle || 'Home' }}</span>
+      </div>
+    </div>
+
+    <!-- Center: Command search (Vaulto-style) -->
+    <div class="navbar__center">
+      <div class="navbar__search">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input v-model="searchQuery" type="text" placeholder="Search or type a command..."
+          class="navbar__search-input"/>
+        <div class="search-hint">
+          <kbd class="search-key">⌘</kbd>
+          <kbd class="search-key">Space</kbd>
         </div>
       </div>
     </div>
 
-    <!-- Right: search, notifications, theme, profile -->
+    <!-- Right: notifications, theme, profile -->
     <div class="navbar__right">
-
-      <!-- Search -->
-      <div class="navbar__search">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round">
-          <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-        <input v-model="searchQuery" type="text" placeholder="Search..."
-          class="navbar__search-input" />
-      </div>
 
       <!-- Notifications -->
       <div class="navbar__icon-btn" @click.stop="toggleNotifications" ref="notifBtn">
@@ -429,48 +428,98 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar {
   position: fixed;
   top: 0; left: 220px; right: 0;
-  height: 70px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 24px;
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--border-soft);
+  height: 64px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 22px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
   z-index: 90;
-  transition: background 0.35s ease, border-color 0.35s ease;
   gap: 16px;
 }
 
-.navbar__left  { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.navbar__right { display: flex; align-items: center; gap: 8px; }
+.navbar__left   { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.navbar__center { display: flex; align-items: center; justify-content: center; }
+.navbar__right  { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
 
-.page-title       { display: flex; align-items: center; gap: 11px; }
-.page-title__icon {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--glass-2); border: 1px solid var(--border-soft);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; transition: background 0.25s ease;
-}
-.page-title__text  { display: flex; flex-direction: column; gap: 1px; }
-.page-title__name  { font-size: 1rem; font-weight: 800; color: var(--t1); letter-spacing: -0.02em; margin: 0; line-height: 1.2; }
-.page-title__sub   { font-size: 0.7rem; color: var(--t1); font-weight: 600; margin: 0; line-height: 1.3; }
+.breadcrumb { display: flex; align-items: center; gap: 7px; }
+.breadcrumb__parent  { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.38); }
+.breadcrumb__sep     { font-size: 0.82rem; color: rgba(255,255,255,0.22); }
+.breadcrumb__current { font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.88); }
+
+[data-theme="light"] .breadcrumb__parent  { color: rgba(12,10,30,0.38); }
+[data-theme="light"] .breadcrumb__sep     { color: rgba(12,10,30,0.22); }
+[data-theme="light"] .breadcrumb__current { color: rgba(12,10,30,0.88); }
 
 .navbar__search {
-  display: flex; align-items: center; gap: 8px;
-  background: var(--glass-2); border: 1px solid var(--border-soft);
-  border-radius: 50px; padding: 8px 16px; width: 200px; transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  padding: 9px 14px;
+  width: 340px;
+  transition: all 0.25s ease;
 }
-.navbar__search:focus-within { background: var(--glass-hover); border-color: var(--accent-border); width: 240px; }
-.search-icon { width: 14px; height: 14px; color: var(--t4); flex-shrink: 0; }
+.navbar__search:focus-within {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(34,197,94,0.35);
+  width: 380px;
+}
+.search-icon { width: 14px; height: 14px; color: rgba(255,255,255,0.32); flex-shrink: 0; }
 .navbar__search-input {
   background: transparent; border: none; outline: none;
-  font-family: 'Outfit', sans-serif; font-size: 0.8rem; color: var(--t1); width: 100%;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem;
+  color: rgba(255,255,255,0.88); width: 100%;
 }
-.navbar__search-input::placeholder { color: var(--t4); }
+.navbar__search-input::placeholder { color: rgba(255,255,255,0.28); }
+.search-hint {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+.search-key {
+  padding: 2px 6px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 5px;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.3);
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: normal;
+}
+
+[data-theme="light"] .navbar__search {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.11);
+}
+[data-theme="light"] .navbar__search:focus-within {
+  background: rgba(0,0,0,0.09);
+  border-color: rgba(34,197,94,0.4);
+}
+[data-theme="light"] .search-icon { color: rgba(0,0,0,0.35); }
+[data-theme="light"] .navbar__search-input { color: rgba(12,10,30,0.88); }
+[data-theme="light"] .navbar__search-input::placeholder { color: rgba(0,0,0,0.3); }
+[data-theme="light"] .search-key {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.35);
+}
 
 .navbar__icon-btn {
   position: relative; width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--glass-2); border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 10px; cursor: pointer; transition: all 0.22s ease; flex-shrink: 0;
 }
 .navbar__icon-btn svg { width: 16px; height: 16px; color: var(--t2); }
@@ -489,8 +538,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   position: relative;
   display: flex; align-items: center; gap: 9px;
   padding: 6px 8px 6px 6px;
-  background: var(--glass-2);
-  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 999px;
   flex-shrink: 0;
   cursor: pointer;
@@ -579,7 +630,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   width: 100%; padding: 9px 10px;
   border-radius: 10px; border: none;
   background: transparent; color: var(--t2);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem; font-weight: 500;
   cursor: pointer;
   transition: background 0.15s;
@@ -815,8 +866,15 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 /* ══════════════════════════════
    RESPONSIVE: show/hide
    ══════════════════════════════ */
+@media (max-width: 1366px) and (min-width: 769px) {
+  .navbar { padding: 0 18px; left: 210px; }
+  .navbar__search { width: 280px; }
+  .navbar__search:focus-within { width: 320px; }
+  .search-hint { display: none; }
+}
 @media (max-width: 1024px) and (min-width: 769px) {
-  .navbar { padding: 0 20px; left: 200px; }
+  .navbar__search { width: 240px; }
+  .navbar__search:focus-within { width: 270px; }
 }
 @media (max-width: 768px) {
   .desktop-nav       { display: none; }

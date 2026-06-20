@@ -420,7 +420,7 @@ function sendEmails() {
 .back-btn {
   display: flex; align-items: center; gap: 6px; padding: 7px 14px;
   border-radius: 8px; border: 1px solid var(--border-soft); background: var(--glass-2);
-  color: var(--t2); font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600;
+  color: var(--t2); font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s, color 0.18s; flex-shrink: 0; margin-top: 4px;
 }
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
@@ -455,7 +455,7 @@ function sendEmails() {
 .toggle-btns  { display: flex; gap: 8px; }
 .toggle-btn {
   display: flex; align-items: center; gap: 7px; padding: 10px 18px;
-  border-radius: 10px; font-family: 'Outfit', sans-serif; font-size: 0.83rem; font-weight: 600;
+  border-radius: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s; border: 1px solid transparent;
 }
 .toggle-btn--dark  { background: #0f172a; color: #fff; border-color: #0f172a; }
@@ -483,7 +483,7 @@ function sendEmails() {
 
 .fi {
   padding: 9px 12px; border-radius: 9px; border: 1px solid var(--border-soft);
-  background: var(--glass-2); color: var(--t1); font-family: 'Outfit', sans-serif;
+  background: var(--glass-2); color: var(--t1); font-family: 'Space Grotesk', sans-serif;
   font-size: 0.82rem; transition: border-color 0.18s; box-sizing: border-box; width: 100%;
 }
 .fi:focus { outline: none; border-color: var(--accent); }
@@ -492,7 +492,7 @@ function sendEmails() {
 
 .fs {
   padding: 9px 12px; border-radius: 9px; border: 1px solid var(--border-soft);
-  background: var(--glass-2); color: var(--t1); font-family: 'Outfit', sans-serif;
+  background: var(--glass-2); color: var(--t1); font-family: 'Space Grotesk', sans-serif;
   font-size: 0.82rem; cursor: pointer; transition: border-color 0.18s; width: 100%;
 }
 .fs:focus { outline: none; border-color: var(--accent); }
@@ -536,7 +536,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 /* Send button */
 .send-btn {
   width: 100%; padding: 14px; border-radius: 12px; border: none; background: #0f172a; color: #fff;
-  font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer;
   transition: opacity 0.2s, transform 0.18s; display: flex; align-items: center;
   justify-content: center; gap: 8px; margin-top: 16px;
 }
@@ -613,7 +613,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #16a34a; color: #fff; font-family: 'Outfit', sans-serif;
+  background: #16a34a; color: #fff; font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 

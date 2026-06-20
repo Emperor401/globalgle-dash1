@@ -31,10 +31,25 @@ import ToastContainer from '../ui/ToastContainer.vue'
 <style scoped>
 .app-layout {
   min-height: 100vh;
-  background: var(--bg);
+  background: #020203;
   position: relative;
   transition: background 0.35s ease;
 }
+
+/* Clean dark background — no overlay */
+.app-layout::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-layout__main { position: relative; z-index: 1; }
+
+[data-theme="light"] .app-layout { background: #f1f5f9; }
+[data-theme="light"] .app-layout::before { display: none; }
 
 
 .app-layout__main {
@@ -45,8 +60,8 @@ import ToastContainer from '../ui/ToastContainer.vue'
 }
 
 .app-layout__content {
-  padding: 72px 22px 20px;
-  max-width: 1280px;
+  padding: 78px 24px 24px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 

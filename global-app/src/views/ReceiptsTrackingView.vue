@@ -524,7 +524,7 @@ function generate() {
 .fi {
   width: 100%; padding: 9px 12px; border-radius: 9px;
   border: 1px solid #e2e8f0; background: #fff; color: #0f172a;
-  font-family: 'Outfit', sans-serif; font-size: 0.82rem;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .fi:focus { outline: none; border-color: #22c55e; }
@@ -533,7 +533,7 @@ function generate() {
 .fi-area {
   width: 100%; padding: 9px 12px; border-radius: 9px;
   border: 1px solid #e2e8f0; background: #fff; color: #0f172a;
-  font-family: 'Outfit', sans-serif; font-size: 0.82rem;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem;
   resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
@@ -573,7 +573,7 @@ function generate() {
 .subdomain-hint .hl { color: #22c55e; font-weight: 500; }
 .slug-row { display: flex; gap: 8px; }
 .slug-input  { flex: 1; }
-.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid #e2e8f0; background: #fff; color: #0f172a; font-family: 'Outfit', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
+.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid #e2e8f0; background: #fff; color: #0f172a; font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
 .slug-domain:focus { outline: none; border-color: #22c55e; }
 .slug-note { font-size: 0.72rem; color: #64748b; margin: 0; }
 .slug-note .hl { color: #22c55e; font-weight: 500; }
@@ -596,7 +596,7 @@ function generate() {
 .mode-pill {
   display: flex; align-items: center; gap: 6px; padding: 7px 16px;
   border-radius: 999px; border: 1px solid #e2e8f0; background: #f8fafc;
-  color: #475569; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+  color: #475569; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s;
 }
 .mode-pill--active { background: #22c55e; border-color: #22c55e; color: #fff; }
@@ -632,7 +632,7 @@ function generate() {
 .add-btn {
   font-size: 0.75rem; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1);
   border: 1px solid rgba(34,197,94,0.25); border-radius: 8px; padding: 5px 12px;
-  cursor: pointer; font-family: 'Outfit', sans-serif; transition: background 0.18s;
+  cursor: pointer; font-family: 'Space Grotesk', sans-serif; transition: background 0.18s;
   white-space: nowrap;
 }
 .add-btn:hover { background: rgba(34,197,94,0.18); }
@@ -646,7 +646,7 @@ function generate() {
 /* Generate button */
 .generate-btn {
   width: 100%; padding: 15px; border-radius: 12px; border: none; color: #fff;
-  font-family: 'Outfit', sans-serif; font-size: 0.92rem; font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.92rem; font-weight: 700;
   cursor: pointer; transition: filter 0.2s, transform 0.18s;
   display: flex; align-items: center; justify-content: center; gap: 8px;
 }
@@ -705,7 +705,7 @@ function generate() {
 .rp-tabs { display: flex; gap: 6px; background: rgba(255,255,255,0.06); border-radius: 999px; padding: 4px; }
 .rp-tab {
   padding: 7px 20px; border-radius: 999px; border: none;
-  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700;
   cursor: default; color: rgba(255,255,255,0.45); background: transparent;
 }
 .rp-tab--active { color: #0f172a; }
@@ -715,7 +715,7 @@ function generate() {
   display: flex; align-items: center; gap: 7px;
   padding: 10px 28px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15);
   background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.75);
-  font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: default;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: default;
   width: 100%; justify-content: center;
 }
 .rp-footer { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin: 0; text-align: center; }
@@ -724,7 +724,7 @@ function generate() {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #16a34a; color: #fff; font-family: 'Outfit', sans-serif;
+  background: #16a34a; color: #fff; font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 .toast-pop-enter-active { transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
