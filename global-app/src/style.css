@@ -99,13 +99,13 @@ html {
 @media (max-width: 430px) { html { font-size: 11.5px; } }
 @media (max-width: 360px) { html { font-size: 11px; } }
 
+html {
+  background: #020203;
+}
+
 html, body {
   min-height: 100vh;
-  background-color: #020203;
-  background-image: url('/bg2.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: transparent;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
   letter-spacing: -0.01em;
@@ -114,6 +114,23 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* Background image + dark overlay — at z:-1 so backdrop-filter on ALL cards works */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('/bg2.png') center / cover no-repeat;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.50);
+  pointer-events: none;
+}
 
 /* ── Global thin weight overrides ── */
 h1, h2, h3, h4, h5, h6 { font-weight: 400; letter-spacing: 0.04em; }

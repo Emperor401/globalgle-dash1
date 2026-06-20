@@ -1,12 +1,9 @@
 <!-- src/components/layout/AppLayout.vue -->
 <template>
   <div class="app-layout">
-
     <PageLoader />
     <ToastContainer />
-
     <AppSidebar />
-
     <div class="app-layout__main">
       <AppNavbar />
       <main class="app-layout__content">
@@ -17,7 +14,6 @@
         </router-view>
       </main>
     </div>
-
   </div>
 </template>
 
@@ -35,22 +31,10 @@ import ToastContainer from '../ui/ToastContainer.vue'
   position: relative;
 }
 
-/* Dark overlay — fixed, sits above background image */
-.app-layout::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.52);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Main content — above overlay so cards are visible */
 .app-layout__main {
   margin-left: 220px;
   min-height: 100vh;
   position: relative;
-  z-index: 1;
 }
 
 .app-layout__content {
@@ -59,7 +43,6 @@ import ToastContainer from '../ui/ToastContainer.vue'
   margin: 0 auto;
 }
 
-/* iPad Mini → iPad Pro 13" (769px–1366px) */
 @media (max-width: 1366px) and (min-width: 769px) {
   .app-layout__main  { margin-left: 210px; }
   .app-layout__content { padding: 76px 18px 24px; }
