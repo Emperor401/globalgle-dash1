@@ -87,6 +87,15 @@
 
 html {
   font-size: 15px;
+  /* Background lives on html (the viewport canvas) so backdrop-filter always sees it */
+  background-color: #020203;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.38)),
+    url('/bg2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* ── Tablet font boost ── */
@@ -99,13 +108,8 @@ html {
 @media (max-width: 430px) { html { font-size: 11.5px; } }
 @media (max-width: 360px) { html { font-size: 11px; } }
 
-html {
-  background: #020203;
-}
-
 html, body {
   min-height: 100vh;
-  background: transparent;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
   letter-spacing: -0.01em;
@@ -114,25 +118,8 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-/* Background image — fixed, GPU-composited layer */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: url('/bg2.png') center / cover no-repeat;
-  transform: translateZ(0); /* force GPU layer — ensures backdrop-filter sees this in prod */
-}
-/* Dark overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: rgba(0, 0, 0, 0.38);
-  pointer-events: none;
-  transform: translateZ(0);
+body {
+  background: transparent;
 }
 
 /* ── Global thin weight overrides ── */
