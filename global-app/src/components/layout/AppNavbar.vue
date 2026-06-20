@@ -456,7 +456,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border: none;
   border-radius: 0; cursor: pointer; transition: all 0.22s ease; flex-shrink: 0;
 }
-.navbar__icon-btn svg { width: 18px; height: 18px; color: var(--t2); }
+.navbar__icon-btn svg { width: 24px; height: 24px; color: var(--t2); }
 .navbar__icon-btn:hover { background: transparent; border-color: transparent; }
 .navbar__icon-btn:hover svg { color: var(--t1); }
 .theme-btn:hover svg { color: var(--accent); }
