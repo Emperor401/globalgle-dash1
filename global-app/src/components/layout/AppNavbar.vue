@@ -387,9 +387,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   align-items: center;
   padding: 0 22px;
   background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: none;
   z-index: 90;
   gap: 16px;
 }
@@ -450,14 +447,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar__icon-btn {
   position: relative; width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: none;
-  border-radius: 0; cursor: pointer; transition: all 0.22s ease; flex-shrink: 0;
+  background: transparent; border: none;
+  cursor: pointer; transition: color 0.2s ease; flex-shrink: 0;
 }
 .navbar__icon-btn svg { width: 24px; height: 24px; color: var(--t2); }
-.navbar__icon-btn:hover { background: transparent; border-color: transparent; }
 .navbar__icon-btn:hover svg { color: var(--t1); }
 .theme-btn:hover svg { color: var(--accent); }
 
@@ -472,21 +465,14 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar__profile-chip {
   position: relative;
   display: flex; align-items: center; gap: 9px;
-  padding: 6px 4px 6px 4px;
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: none;
-  border-radius: 0;
+  padding: 4px;
+  background: transparent; border: none;
   flex-shrink: 0;
   cursor: pointer;
   transition: opacity 0.2s;
   user-select: none;
 }
-.navbar__profile-chip:hover {
-  background: transparent;
-  opacity: 0.85;
-}
+.navbar__profile-chip:hover { opacity: 0.8; }
 .navbar__profile-avatar {
   width: 30px; height: 30px;
   border-radius: 50%;
