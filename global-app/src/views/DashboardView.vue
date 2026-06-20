@@ -455,10 +455,10 @@ const dots = [
    SHARED CARD BASE
    ══════════════════════════════════ */
 .card {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
-  -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.09);
+  backdrop-filter: blur(60px) saturate(160%) brightness(0.80);
+  -webkit-backdrop-filter: blur(60px) saturate(160%) brightness(0.80);
+  border: 1px solid rgba(255,255,255,0.16);
   box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
   border-radius: 16px;
   padding: 20px 22px;

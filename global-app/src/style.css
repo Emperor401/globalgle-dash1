@@ -115,21 +115,24 @@ html, body {
 }
 
 
-/* Background image + dark overlay — at z:-1 so backdrop-filter on ALL cards works */
+/* Background image — fixed, GPU-composited layer */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   background: url('/bg2.png') center / cover no-repeat;
+  transform: translateZ(0); /* force GPU layer — ensures backdrop-filter sees this in prod */
 }
+/* Dark overlay */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.50);
+  background: rgba(0, 0, 0, 0.38);
   pointer-events: none;
+  transform: translateZ(0);
 }
 
 /* ── Global thin weight overrides ── */
@@ -331,8 +334,8 @@ button, input, textarea, select { font-family: 'Space Grotesk', sans-serif; font
 .cmp-cat-card,
 .promo-card,
 .be-card {
-  background: rgba(255, 255, 255, 0.07) !important;
-  backdrop-filter: blur(40px) saturate(150%) brightness(0.85) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+  backdrop-filter: blur(60px) saturate(160%) brightness(0.80) !important;
+  -webkit-backdrop-filter: blur(60px) saturate(160%) brightness(0.80) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
 }
