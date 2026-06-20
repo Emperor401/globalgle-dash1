@@ -331,8 +331,6 @@ const pages = {
 const currentPage    = computed(() => pages[route.path] ?? { title: 'Globalgle', subtitle: 'Banking Dashboard', color: '#22c55e', icon: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>' })
 const pageTitle      = computed(() => currentPage.value.title)
 const pageSubtitle   = computed(() => currentPage.value.subtitle)
-const pageIcon       = computed(() => currentPage.value.icon)
-const pageAccentColor = computed(() => currentPage.value.color)
 
 /* ── Shared state ── */
 const searchQuery       = ref('')
@@ -386,7 +384,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 22px;
-  background: transparent;
+  background: rgba(6, 6, 18, 0.80);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   z-index: 90;
   gap: 16px;
 }
