@@ -384,8 +384,8 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 22px;
-  background: rgba(8, 8, 20, 0.97);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border-bottom: none;
   z-index: 90;
   gap: 16px;
 }
