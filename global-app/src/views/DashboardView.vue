@@ -797,14 +797,13 @@ const dots = [
   top: calc(100% + 6px);
   right: 0;
   min-width: 170px;
-  background: rgba(18,19,32,0.88);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 5px;
   z-index: 200;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
 }
 
 .dd-item {
