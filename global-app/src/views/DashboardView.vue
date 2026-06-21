@@ -54,7 +54,7 @@
          CURRENCY CARDS (separate row)
          ════════════════════════════════════ -->
     <div class="cur-row">
-      <div v-for="c in currencies" :key="c.code" class="cur">
+      <div v-for="c in currencies" :key="c.code" class="cur" @click="router.push(c.route)" role="button" tabindex="0" @keydown.enter="router.push(c.route)">
         <div class="cur__texture"></div>
         <div class="cur__top">
           <div class="cur__ico-wrap">
@@ -79,7 +79,7 @@
         <span class="cur__sub">from last month</span>
       </div>
 
-      <button class="cur__add" @click="router.push('/wallet')">
+      <button class="cur__add" @click="router.push('/tools/currency')">
         <div class="cur__add-inner">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round">
             <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
@@ -420,12 +420,15 @@ const xlabels = computed(() => ({
 /* ── Currency cards ── */
 const currencies = [
   { code:'NGN', sym:'₦', amt:'₦260,375', chg:'+24.0%', up:true,
+    route: '/wallet',
     spark:'0,22 10,18 20,20 30,15 40,13 50,10 60,7 70,5 80,11',
     area:'M0,22 L10,18 L20,20 L30,15 L40,13 L50,10 L60,7 L70,5 L80,11 L80,28 L0,28 Z' },
   { code:'USD', sym:'$', amt:'$0.00', chg:'+0.00%', up:true,
+    route: '/tools/currency',
     spark:'0,18 10,17 20,18 30,18 40,17 50,18 60,18 70,17 80,18',
     area:'M0,18 L10,17 L20,18 L30,18 L40,17 L50,18 L60,18 L70,17 L80,18 L80,28 L0,28 Z' },
   { code:'EUR', sym:'€', amt:'€0.00', chg:'-0.02%', up:false,
+    route: '/tools/currency',
     spark:'0,10 10,12 20,13 30,16 40,17 50,19 60,21 70,23 80,25',
     area:'M0,10 L10,12 L20,13 L30,16 L40,17 L50,19 L60,21 L70,23 L80,25 L80,28 L0,28 Z' },
 ]
@@ -605,10 +608,10 @@ const dots = [
   display: flex;
   flex-direction: column;
   gap: 6px;
-  transition: border-color .2s, background .2s;
-  cursor: default;
-  backdrop-filter: blur(12px);
+  transition: border-color .2s, background .2s, transform .2s;
+  cursor: pointer;
 }
+.cur:active { transform: scale(0.98); }
 .cur:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.16); }
 
 /* Dot-grid texture overlay like Vaulto */
