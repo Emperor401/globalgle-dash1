@@ -34,11 +34,11 @@
           </svg>
           Add Funds
         </button>
-        <button class="ha" @click="router.push('/email-services/composer')">
+        <button class="ha" @click="router.push('/transactions')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
           </svg>
-          Email
+          Transfer
         </button>
         <button class="ha" @click="router.push('/digital')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
