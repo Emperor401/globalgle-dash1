@@ -124,22 +124,26 @@
             </div>
           </div>
         </div>
-        <div class="chart-body">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="none" class="chart-svg" style="height:160px">
-            <!-- Red line (spendings) — no fill -->
+        <div class="chart-body" @mouseleave="onChartLeave">
+          <svg ref="chartSvgRef" viewBox="0 0 400 140" preserveAspectRatio="none" class="chart-svg" style="height:160px"
+            @mousemove="onChartMove">
+            <!-- Red line (spendings) -->
             <path :d="line2Path" fill="none" stroke="rgba(220,38,38,0.85)" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- White/main line (balance) — no fill -->
+            <!-- White/main line (balance) -->
             <path :d="linePath" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.2"
               stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- Tooltip dot (orange) on red line intersection -->
-            <circle cx="220" cy="95" r="6" fill="rgba(251,146,60,0.25)"/>
-            <circle cx="220" cy="95" r="3.5" fill="#fb923c"/>
+            <!-- Vertical crosshair -->
+            <line :x1="dotX" y1="0" :x2="dotX" y2="140"
+              stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="4,3"/>
+            <!-- Moving dot on red line -->
+            <circle :cx="dotX" :cy="dotY" r="7" fill="rgba(251,146,60,0.20)"/>
+            <circle :cx="dotX" :cy="dotY" r="3.5" fill="#fb923c"/>
           </svg>
-          <!-- Tooltip callout -->
-          <div class="chart-tooltip">
-            <span class="ct-date">Jun 12, 2026</span>
-            <span class="ct-val">Count: ₦242,940</span>
+          <!-- Dynamic tooltip -->
+          <div class="chart-tooltip" :style="{ left: tooltipLeft }">
+            <span class="ct-date">{{ tipDate }}</span>
+            <span class="ct-val">Count: {{ tipVal }}</span>
           </div>
           <div class="chart-xlabels">
             <span v-for="l in xlabels" :key="l">{{ l }}</span>
@@ -158,19 +162,23 @@
         <div class="card__head">
           <div>
             <p class="card__lbl">Wallet Spendings</p>
-            <span class="card__val">₦213</span>
+            <span class="card__val">{{ activeBarAmt }}</span>
           </div>
-          <button class="see-all" @click="router.push('/wallet')">See All</button>
+          <button class="see-all" @click="router.push('/transactions')">See All</button>
         </div>
         <div class="bars-wrap">
-          <div v-for="b in daybars" :key="b.d" class="bar-col">
+          <div v-for="b in daybars" :key="b.d" class="bar-col"
+            @mouseenter="hoveredBar = b.d"
+            @mouseleave="hoveredBar = null"
+            @click="activeBar = b.d">
             <div class="bar-track">
-              <!-- full bar -->
-              <div class="bar-fill" :style="{ height: b.pct + '%' }"></div>
-              <!-- red alert block at top of bar -->
-              <div v-if="b.alert" class="bar-alert" :style="{ bottom: (b.pct - b.alertPct) + '%', height: b.alertPct + '%' }"></div>
+              <div class="bar-fill"
+                :class="{ 'bar-fill--active': b.d === activeBar, 'bar-fill--hover': b.d === hoveredBar }"
+                :style="{ height: b.pct + '%' }"></div>
+              <div v-if="b.alert" class="bar-alert"
+                :style="{ bottom: (b.pct - b.alertPct) + '%', height: b.alertPct + '%' }"></div>
             </div>
-            <span class="bar-lbl" :class="{ 'bar-lbl--on': b.active }">{{ b.d }}</span>
+            <span class="bar-lbl" :class="{ 'bar-lbl--on': b.d === activeBar }">{{ b.d }}</span>
           </div>
         </div>
       </div>
@@ -367,14 +375,20 @@ onMounted(() => {
 
 /* ── Day-of-week bar data ── */
 const daybars = [
-  { d:'Sun', pct:72, alert:false, alertPct:0, active:false },
-  { d:'Mon', pct:58, alert:false, alertPct:0, active:false },
-  { d:'Tue', pct:65, alert:false, alertPct:0, active:false },
-  { d:'Wed', pct:80, alert:true,  alertPct:30, active:true  },
-  { d:'Thu', pct:55, alert:false, alertPct:0, active:false },
-  { d:'Fri', pct:62, alert:false, alertPct:0, active:false },
-  { d:'Sat', pct:48, alert:false, alertPct:0, active:false },
+  { d:'Sun', pct:72, alert:false, alertPct:0,  amt:'₦187,200' },
+  { d:'Mon', pct:58, alert:false, alertPct:0,  amt:'₦150,890' },
+  { d:'Tue', pct:65, alert:false, alertPct:0,  amt:'₦168,750' },
+  { d:'Wed', pct:80, alert:true,  alertPct:30, amt:'₦213,000' },
+  { d:'Thu', pct:55, alert:false, alertPct:0,  amt:'₦142,600' },
+  { d:'Fri', pct:62, alert:false, alertPct:0,  amt:'₦160,980' },
+  { d:'Sat', pct:48, alert:false, alertPct:0,  amt:'₦124,500' },
 ]
+const activeBar  = ref('Wed')
+const hoveredBar = ref(null)
+const activeBarAmt = computed(() => {
+  const key = hoveredBar.value ?? activeBar.value
+  return daybars.find(b => b.d === key)?.amt ?? '₦213,000'
+})
 
 /* ── Chart data — main line (white/balance) ── */
 const pts = {
@@ -408,6 +422,68 @@ function smooth(ps) {
 
 const linePath  = computed(() => smooth(pts[selectedPeriod.value]))
 const line2Path = computed(() => smooth(pts2[selectedPeriod.value]))
+
+/* ── Line chart hover tracking ── */
+const chartSvgRef = ref(null)
+const dotX = ref(220)
+const dotY = ref(95)
+const tipDate = ref('Jun 12, 2026')
+const tipVal  = ref('₦242,940')
+const tooltipLeft = ref('44%')
+
+function interpY(points, x) {
+  for (let i = 1; i < points.length; i++) {
+    if (x <= points[i][0]) {
+      const a = points[i-1], b = points[i]
+      const t = (x - a[0]) / (b[0] - a[0])
+      return a[1] + t * (b[1] - a[1])
+    }
+  }
+  return points[points.length - 1][1]
+}
+
+const periodDateMap = {
+  All:    ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov'],
+  Custom: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov'],
+  Days:   ['00:00','03:00','06:00','09:00','12:00','15:00','18:00','21:00','24:00'],
+  Weeks:  ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+  Months: ['Wk 1','Wk 2','Wk 3','Wk 4'],
+  Years:  ['2021','2022','2023','2024','2025','2026'],
+}
+
+function getLabel(x) {
+  const labels = periodDateMap[selectedPeriod.value]
+  const idx = Math.min(Math.floor((x / 400) * labels.length), labels.length - 1)
+  const period = selectedPeriod.value
+  if (period === 'All' || period === 'Custom') {
+    const day = Math.round(((x / 400) * 11 - idx) * 28) + 1
+    return `${labels[idx]} ${Math.max(1, day)}, 2026`
+  }
+  return labels[idx]
+}
+
+function onChartMove(e) {
+  const svg = chartSvgRef.value
+  if (!svg) return
+  const rect = svg.getBoundingClientRect()
+  const svgX = Math.max(0, Math.min(400, ((e.clientX - rect.left) / rect.width) * 400))
+  const svgY = interpY(pts2[selectedPeriod.value], svgX)
+  dotX.value = svgX
+  dotY.value = svgY
+  tipDate.value = getLabel(svgX)
+  const fraction = 1 - (svgY - 40) / 90
+  tipVal.value = '₦' + Math.round(Math.max(0, fraction) * 260375).toLocaleString()
+  const pct = (svgX / 400) * 100
+  tooltipLeft.value = `${Math.min(Math.max(pct - 8, 2), 65)}%`
+}
+
+function onChartLeave() {
+  dotX.value = 220
+  dotY.value = 95
+  tipDate.value = 'Jun 12, 2026'
+  tipVal.value  = '₦242,940'
+  tooltipLeft.value = '44%'
+}
 const xlabels = computed(() => ({
   All:    ['Jan','Mar','May','Jul','Sep','Nov'],
   Custom: ['Jan','Mar','May','Jul','Sep','Nov'],
@@ -844,16 +920,18 @@ const dots = [
 /* Tooltip callout */
 .chart-tooltip {
   position: absolute;
-  top: 38px;
-  left: 44%;
-  background: rgba(28,29,44,0.96);
-  border: 1px solid rgba(255,255,255,0.1);
+  top: 28px;
+  background: rgba(18,19,34,0.97);
+  border: 1px solid rgba(255,255,255,0.13);
   border-radius: 8px;
   padding: 6px 10px;
   display: flex;
   flex-direction: column;
   gap: 2px;
   pointer-events: none;
+  transition: left 0.08s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
 .ct-date { font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 500; }
 .ct-val  { font-size: 0.68rem; color: rgba(255,255,255,0.88); font-weight: 700; }
@@ -932,6 +1010,7 @@ const dots = [
 }
 
 /* bar grows from bottom */
+.bar-col { cursor: pointer; }
 .bar-fill {
   position: absolute;
   bottom: 0;
@@ -939,8 +1018,10 @@ const dots = [
   right: 0;
   background: rgba(255,255,255,0.16);
   border-radius: 7px 7px 0 0;
-  transition: height .4s cubic-bezier(.4,0,.2,1);
+  transition: height .4s cubic-bezier(.4,0,.2,1), background .2s;
 }
+.bar-fill--hover  { background: rgba(255,255,255,0.28); }
+.bar-fill--active { background: rgba(255,255,255,0.38); }
 
 /* red alert block floats at top of bar */
 .bar-alert {
