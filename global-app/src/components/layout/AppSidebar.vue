@@ -225,17 +225,17 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.09) 0%,
-    rgba(255, 255, 255, 0.04) 30%,
-    rgba(0, 0, 0, 0.08) 70%,
-    rgba(0, 0, 0, 0.22) 100%
-  );
+  background:
+    linear-gradient(to right,  rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 28%),
+    linear-gradient(to bottom, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.00) 45%),
+    linear-gradient(to left,   rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.00) 25%),
+    rgba(12, 12, 22, 0.72);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 2px 0 0 rgba(255, 255, 255, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: fixed;
   top: 0;
   left: 0;
