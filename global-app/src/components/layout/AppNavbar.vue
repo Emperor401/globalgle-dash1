@@ -404,9 +404,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(8, 8, 18, 0.72);
-  backdrop-filter: blur(80px) saturate(180%);
-  -webkit-backdrop-filter: blur(80px) saturate(180%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 12px;
   padding: 9px 14px;
@@ -414,11 +415,21 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   box-shadow: none;
   transition: all 0.25s ease;
 }
+.navbar__search::before {
+  content: '';
+  position: absolute;
+  inset: -60px;
+  background: url('/bg2.png') center / cover no-repeat;
+  filter: blur(60px) saturate(180%) brightness(0.35);
+  z-index: -1;
+  border-radius: inherit;
+}
 .navbar__search:focus-within {
-  background: rgba(8, 8, 18, 0.80);
   border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: none;
   width: 380px;
+}
+.navbar__search:focus-within::before {
+  filter: blur(60px) saturate(200%) brightness(0.30);
 }
 .search-icon { width: 14px; height: 14px; color: rgba(255,255,255,0.32); flex-shrink: 0; }
 .navbar__search-input {
