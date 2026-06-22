@@ -112,7 +112,10 @@ body {
   right: -60px;
   bottom: -60px;
   z-index: -1;
-  background: url('/bg2.png') center / cover no-repeat;
+  background-image: url("/bg2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   filter: blur(40px) saturate(160%) brightness(0.75);
   pointer-events: none;
 }
