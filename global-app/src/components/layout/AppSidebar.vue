@@ -358,9 +358,8 @@ function logout() {
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  perspective: 600px;
-  border: 2px solid var(--border-soft);
-  background: var(--glass-2);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  background: #000;
 }
 
 .logo-img {
@@ -369,6 +368,7 @@ function logout() {
   object-fit: cover;
   border-radius: 50%;
   display: block;
+  filter: grayscale(1) brightness(0.15) contrast(1.4);
 }
 
 
