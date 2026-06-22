@@ -225,18 +225,40 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.025);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-right: 1px solid var(--border-soft);
-  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.06);
+  background: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.07);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  transition: background 0.35s ease, border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
-  overflow-x: hidden; /* horizontal clip only — lets profile dropdown render above sidebar */
+  transition: border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
+  overflow-x: hidden;
 }
+
+/* Blurred bg2.png inside the sidebar — reliable on all platforms */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/bg2.png') center / cover no-repeat;
+  filter: blur(28px) saturate(160%) brightness(0.55);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Glass tint layer on top of the blurred image */
+.sidebar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 22, 0.38);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* All sidebar children sit above the pseudo-element layers */
+.sidebar > * { position: relative; z-index: 1; }
 
 /* ── Mobile backdrop ── */
 .sidebar-backdrop {
