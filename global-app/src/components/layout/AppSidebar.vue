@@ -484,9 +484,11 @@ function logout() {
 .nav-item__badge {
   font-size: 0.62rem;
   font-weight: 700;
-  color: var(--accent);
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-border);
+  color: rgba(255, 255, 255, 0.80);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 2px 7px;
   border-radius: 999px;
   flex-shrink: 0;
