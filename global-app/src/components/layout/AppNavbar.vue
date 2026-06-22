@@ -482,21 +482,12 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 22px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-soft);
   z-index: 90;
   gap: 16px;
-  overflow: hidden;
-}
-
-.navbar::before {
-  content: '';
-  position: absolute;
-  inset: -60px;
-  background: url('/bg2.png') center / cover no-repeat;
-  filter: blur(40px) saturate(160%) brightness(0.75);
-  z-index: -1;
-  pointer-events: none;
 }
 
 .navbar__left   { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
