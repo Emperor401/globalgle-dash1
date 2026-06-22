@@ -389,13 +389,13 @@ function logout() {
   content: '';
   display: block;
   height: 1px;
-  margin: 0 8px 24px;
+  margin: 0 6px 24px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.6) 20%,
-    rgba(255, 255, 255, 0.25) 50%,
-    rgba(0, 0, 0, 0.6) 80%,
+    rgba(255, 255, 255, 0.08) 10%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.08) 90%,
     transparent 100%
   );
 }
