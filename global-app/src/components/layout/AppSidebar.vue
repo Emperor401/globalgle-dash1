@@ -225,10 +225,8 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.025);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-right: 1px solid var(--border-soft);
+  background: url('/bg1.jpeg') center / cover no-repeat;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.06);
   position: fixed;
   top: 0;
