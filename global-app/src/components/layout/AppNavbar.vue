@@ -482,7 +482,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 22px;
-  background: rgba(8, 8, 18, 0.55);
+  background: rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   z-index: 90;
   overflow: hidden;
@@ -494,7 +494,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   position: absolute;
   inset: -60px;
   background: url('/bg2.png') center / cover no-repeat;
-  filter: blur(60px) saturate(180%) brightness(0.30);
+  filter: blur(60px) saturate(180%) brightness(0.62);
   z-index: -1;
   pointer-events: none;
 }
