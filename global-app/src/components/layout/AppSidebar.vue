@@ -380,8 +380,24 @@ function logout() {
 
 /* ── Section group ── */
 .sidebar__group {
-  padding: 22px 4px 6px;
+  padding: 24px 4px 8px;
   flex-shrink: 0;
+  position: relative;
+}
+
+.sidebar__group + .sidebar__group::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin: 0 8px 24px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(0, 0, 0, 0.6) 80%,
+    transparent 100%
+  );
 }
 
 .sidebar__group-label {
@@ -392,7 +408,7 @@ function logout() {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 /* ── Nav items ── */
