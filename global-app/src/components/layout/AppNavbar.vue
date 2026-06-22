@@ -622,17 +622,19 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border-radius: 50%; flex-shrink: 0;
   background: #0f3d20;
   overflow: hidden;
-  border: 2px solid rgba(34,197,94,.5);
+  border: 2px solid rgba(255,255,255,0.15);
+  background: #000;
 }
 .mn-avatar-img {
   width: 36px; height: 36px;
   max-width: 36px; max-height: 36px;
   object-fit: cover; object-position: center top;
   display: block;
+  filter: grayscale(1) brightness(1.2);
 }
 .mn-avatar-dot {
   position: absolute; bottom: 1px; right: 1px;
-  width: 8px; height: 8px; background: #22c55e; border-radius: 50%;
+  width: 8px; height: 8px; background: #fff; border-radius: 50%;
   border: 2px solid var(--bg);
 }
 .mn-greeting-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
