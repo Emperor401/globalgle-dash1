@@ -59,7 +59,7 @@ const timerPct  = ref(100)
 let showInterval  = null
 let countInterval = null
 let countSeconds  = 0
-const INTERVAL_MS = 60_000   // show every 60 s
+const INTERVAL_MS = 240_000  // show every 4 minutes
 const DISPLAY_MS  = 15_000   // auto-dismiss after 15 s of inactivity
 
 function show() {
