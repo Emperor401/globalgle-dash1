@@ -737,9 +737,9 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   width: 28px; height: 28px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.npd-icon--blue  { background: rgba(96,165,250,.15);  color: #60a5fa; }
-.npd-icon--amber { background: rgba(245,158,11,.15);  color: #f59e0b; }
-.npd-icon--green { background: rgba(34,197,94,.15);   color: #22c55e; }
+.npd-icon--blue  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
+.npd-icon--amber { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
+.npd-icon--green { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
 .npd-label { flex: 1; }
 .npd-arrow { color: var(--t4); flex-shrink: 0; }
 
@@ -865,13 +865,13 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .notif-dropdown__title { font-size: 0.88rem; font-weight: 700; color: var(--t1); }
 .notif-count-pill {
   font-size: 0.65rem; font-weight: 700;
-  background: rgba(34,197,94,.18); color: #22c55e;
-  border: 1px solid rgba(34,197,94,.3); border-radius: 999px; padding: 2px 8px;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.70);
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; padding: 2px 8px;
 }
 .notif-dropdown__clear {
-  font-size: 0.72rem; font-weight: 600; color: var(--accent); cursor: pointer; transition: color 0.2s;
+  font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.50); cursor: pointer; transition: color 0.2s;
 }
-.notif-dropdown__clear:hover { color: var(--accent-hover); }
+.notif-dropdown__clear:hover { color: rgba(255,255,255,0.90); }
 
 .notif-list { max-height: 300px; overflow-y: auto; }
 .notif-list::-webkit-scrollbar { width: 3px; }
@@ -888,27 +888,27 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 .notif-item:last-child  { border-bottom: none; }
 .notif-item:hover       { background: var(--glass-2); }
-.notif-item--unread     { background: rgba(34,197,94,0.05); }
-.notif-item--unread:hover { background: rgba(34,197,94,0.08); }
-.notif-item--success { border-left: 2px solid #22c55e; }
-.notif-item--error   { border-left: 2px solid #f87171; }
-.notif-item--warning { border-left: 2px solid #fbbf24; }
-.notif-item--info    { border-left: 2px solid #60a5fa; }
+.notif-item--unread     { background: rgba(255,255,255,0.03); }
+.notif-item--unread:hover { background: rgba(255,255,255,0.06); }
+.notif-item--success { border-left: 2px solid rgba(255,255,255,0.25); }
+.notif-item--error   { border-left: 2px solid rgba(255,255,255,0.25); }
+.notif-item--warning { border-left: 2px solid rgba(255,255,255,0.25); }
+.notif-item--info    { border-left: 2px solid rgba(255,255,255,0.25); }
 
 .notif-icon {
   width: 26px; height: 26px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
 }
-.ni--success { background: rgba(34,197,94,.15);   color: #22c55e; }
-.ni--error   { background: rgba(248,113,113,.15); color: #f87171; }
-.ni--warning { background: rgba(251,191,36,.15);  color: #fbbf24; }
-.ni--info    { background: rgba(96,165,250,.15);  color: #60a5fa; }
+.ni--success { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
+.ni--error   { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
+.ni--warning { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
+.ni--info    { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
 
 .notif-item__content { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .notif-item__title   { font-size: 0.78rem; font-weight: 700; color: var(--t1); margin: 0; }
 .notif-item__message { font-size: 0.73rem; color: var(--t2); margin: 0; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .notif-item__time    { font-size: 0.67rem; color: var(--t3); margin-top: 2px; }
-.notif-item__dot     { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; flex-shrink: 0; margin-top: 6px; }
+.notif-item__dot     { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.40); flex-shrink: 0; margin-top: 6px; }
 .notif-dismiss {
   width: 20px; height: 20px; border-radius: 50%; border: none; background: transparent;
   color: var(--t3); cursor: pointer; display: flex; align-items: center; justify-content: center;
