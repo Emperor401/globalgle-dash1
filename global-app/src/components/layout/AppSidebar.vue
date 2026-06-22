@@ -451,8 +451,8 @@ function logout() {
 
 .nav-item__label {
   font-size: 0.845rem;
-  font-weight: 500;
-  color: var(--t2);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
   flex: 1;
   transition: color 0.2s ease;
 }
