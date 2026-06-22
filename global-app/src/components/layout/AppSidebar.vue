@@ -421,7 +421,7 @@ function logout() {
 }
 
 .nav-item--active {
-  background: linear-gradient(135deg, rgba(255,255,255,0.11) 0%, rgba(0,0,0,0.18) 100%);
+  background: linear-gradient(135deg, rgba(0,0,0,0.18) 0%, rgba(255,255,255,0.11) 100%);
   border-color: rgba(255,255,255,0.14);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 8px rgba(0,0,0,0.25);
 }
