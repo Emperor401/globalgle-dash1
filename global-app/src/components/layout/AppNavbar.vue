@@ -775,13 +775,13 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 
 /* Hamburger */
 .mn-hamburger {
-  width: 40px; height: 40px; background: var(--glass-2); border: 1px solid var(--border-soft);
+  width: 40px; height: 40px; background: transparent; border: none;
   border-radius: 11px; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 5px;
   cursor: pointer; flex-shrink: 0; padding: 0;
 }
 .mn-bar {
-  width: 18px; height: 2px; background: var(--t2); border-radius: 2px;
+  width: 18px; height: 2px; background: rgba(255,255,255,0.90); border-radius: 2px;
   transition: all 0.28s ease; transform-origin: center;
 }
 .mn-bar--mid    { width: 13px; align-self: flex-start; margin-left: 11px; }
@@ -821,11 +821,11 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mn-icon-btn {
   position: relative; width: 38px; height: 38px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--glass-2); border: 1px solid var(--border-soft);
-  border-radius: 10px; cursor: pointer; color: var(--t2);
+  background: transparent; border: none;
+  border-radius: 10px; cursor: pointer; color: rgba(255,255,255,0.90);
   transition: all 0.2s;
 }
-.mn-icon-btn:hover { background: var(--glass-hover); color: var(--t1); }
+.mn-icon-btn:hover { color: #fff; }
 .mn-badge {
   position: absolute; top: -4px; right: -4px;
   min-width: 17px; height: 17px; background: var(--red);
