@@ -299,7 +299,6 @@
         </Transition>
       </button>
 
-
     </div>
   </header>
 
@@ -342,33 +341,33 @@ const isActiveNav = (item) => route.path === item.route
 
 /* ── Page meta ── */
 const pages = {
-  '/':           { title: 'Dashboard',       subtitle: 'Welcome back, Daniel',        color: '#22c55e', icon: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>' },
-  '/customers':  { title: 'Mailing Tools',   subtitle: 'Manage your email campaigns',  color: '#60a5fa', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  '/transactions':              { title: 'Transactions', subtitle: 'Your transaction history',       color: '#a78bfa', icon: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
-  '/email-services/branded-bills': { title: 'Crypto Bills Mails', subtitle: 'Pick a provider to send a brand-styled billing email', color: '#60a5fa', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
-  '/email-services/branded-emails':{ title: 'Crypto Mails', subtitle: 'Pick a provider to send a brand-styled email', color: '#22c55e', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  '/email-services/composer':      { title: 'Email Composer',subtitle: 'Write and send emails',      color: '#60a5fa', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  '/email-services/bank-mailer':   { title: 'Bank Mailer',   subtitle: 'Send debit & credit bank transfer notices', color: '#22c55e', icon: '<line x1="3" y1="22" x2="21" y2="22"/><rect x="2" y="11" width="20" height="11"/><polygon points="12 2 2 7 22 7"/>' },
-  '/analytics':  { title: 'Websites',        subtitle: 'Monitor your web properties',  color: '#f472b6', icon: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
-  '/settings':   { title: 'Settings',        subtitle: 'Manage your preferences',      color: '#22c55e', icon: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>' },
-  '/tutorials':  { title: 'Tutorials',       subtitle: 'Learn how to use every feature',color: '#22c55e', icon: '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>' },
-  '/help':       { title: 'Support',         subtitle: 'Get help and find answers',    color: '#22c55e', icon: '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/>' },
-  '/complaint':  { title: 'Make a Complaint',subtitle: 'Submit and track your reports', color: '#22c55e', icon: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>' },
-  '/wallet':     { title: 'My Wallet',       subtitle: 'Your balance and transactions', color: '#22c55e', icon: '<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>' },
-  '/billing':    { title: 'Billing & Plans', subtitle: 'Subscriptions and invoices',   color: '#22c55e', icon: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
-  '/tools/transactions-tracker':          { title: 'Transactions Trackers', subtitle: 'Choose a style and share a receipt link',                         color: '#22c55e', icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>' },
-  '/tools/transactions-tracker/payment':  { title: 'Payment Tracking',   subtitle: 'Create a live tracking receipt and share it instantly with a link', color: '#22c55e', icon: '<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>' },
-  '/tools/transactions-tracker/receipts': { title: 'Receipts Tracking',    subtitle: 'Create a live transaction receipt and share it on your own link', color: '#22c55e', icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>' },
-  '/tools/crypto-receipts': { title: 'Crypto Receipts', subtitle: 'Pick a brand and generate a branded receipt', color: '#22c55e', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
-  '/digital':    { title: 'Digital', subtitle: 'Extra tools for your business', color: '#22c55e', icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>' },
-  '/tools':      { title: 'Generator',   subtitle: 'Generate branded receipts, trackers and documents', color: '#22c55e', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
-  '/tools/currency':       { title: 'Currency Converter', subtitle: 'Live exchange rates', color: '#22c55e', icon: '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
-  '/tools/wallet-funding': { title: 'Wallet Funding',     subtitle: 'Crypto wallet top-ups', color: '#22c55e', icon: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>' },
-  '/tools/sms-sender':    { title: 'SMS Sender',    subtitle: 'Send SMS messages', color: '#22c55e', icon: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>' },
-  '/tools/spoof-calling': { title: 'Spoof Calling', subtitle: 'Place calls with a chosen caller ID', color: '#22c55e', icon: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>' },
+  '/':                                    { title: 'Dashboard',            subtitle: 'Welcome back, Daniel' },
+  '/customers':                           { title: 'Mailing Tools',        subtitle: 'Manage your email campaigns' },
+  '/transactions':                        { title: 'Transactions',         subtitle: 'Your transaction history' },
+  '/email-services/branded-bills':        { title: 'Crypto Bills Mails',   subtitle: 'Pick a provider to send a brand-styled billing email' },
+  '/email-services/branded-emails':       { title: 'Crypto Mails',         subtitle: 'Pick a provider to send a brand-styled email' },
+  '/email-services/composer':             { title: 'Email Composer',       subtitle: 'Write and send emails' },
+  '/email-services/bank-mailer':          { title: 'Bank Mailer',          subtitle: 'Send debit & credit bank transfer notices' },
+  '/analytics':                           { title: 'Websites',             subtitle: 'Monitor your web properties' },
+  '/settings':                            { title: 'Settings',             subtitle: 'Manage your preferences' },
+  '/tutorials':                           { title: 'Tutorials',            subtitle: 'Learn how to use every feature' },
+  '/help':                                { title: 'Support',              subtitle: 'Get help and find answers' },
+  '/complaint':                           { title: 'Make a Complaint',     subtitle: 'Submit and track your reports' },
+  '/wallet':                              { title: 'My Wallet',            subtitle: 'Your balance and transactions' },
+  '/billing':                             { title: 'Billing & Plans',      subtitle: 'Subscriptions and invoices' },
+  '/tools/transactions-tracker':          { title: 'Transactions Trackers',subtitle: 'Choose a style and share a receipt link' },
+  '/tools/transactions-tracker/payment':  { title: 'Payment Tracking',     subtitle: 'Create a live tracking receipt and share it instantly with a link' },
+  '/tools/transactions-tracker/receipts': { title: 'Receipts Tracking',    subtitle: 'Create a live transaction receipt and share it on your own link' },
+  '/tools/crypto-receipts':               { title: 'Crypto Receipts',      subtitle: 'Pick a brand and generate a branded receipt' },
+  '/digital':                             { title: 'Digital',              subtitle: 'Extra tools for your business' },
+  '/tools':                               { title: 'Generator',            subtitle: 'Generate branded receipts, trackers and documents' },
+  '/tools/currency':                      { title: 'Currency Converter',   subtitle: 'Live exchange rates' },
+  '/tools/wallet-funding':                { title: 'Wallet Funding',       subtitle: 'Crypto wallet top-ups' },
+  '/tools/sms-sender':                    { title: 'SMS Sender',           subtitle: 'Send SMS messages' },
+  '/tools/spoof-calling':                 { title: 'Spoof Calling',        subtitle: 'Place calls with a chosen caller ID' },
 }
 
-const currentPage    = computed(() => pages[route.path] ?? { title: 'Globalgle', subtitle: 'Banking Dashboard', color: '#22c55e', icon: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>' })
+const currentPage    = computed(() => pages[route.path] ?? { title: 'Globalgle', subtitle: 'Banking Dashboard' })
 const pageTitle      = computed(() => currentPage.value.title)
 const pageSubtitle   = computed(() => currentPage.value.subtitle)
 
@@ -499,7 +498,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .breadcrumb__sep     { font-size: 0.82rem; color: rgba(255,255,255,0.22); }
 .breadcrumb__current { font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.88); }
 
-
 .navbar__search {
   display: flex;
   align-items: center;
@@ -554,7 +552,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   font-family: 'Space Grotesk', sans-serif;
   font-style: normal;
 }
-
 .search-clear {
   background: none; border: none; cursor: pointer; padding: 2px;
   color: rgba(255,255,255,0.4); display: flex; align-items: center;
@@ -579,14 +576,12 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   z-index: 999;
   box-shadow: none;
 }
-
 .search-no-results {
   padding: 20px 16px;
   text-align: center;
   font-size: 0.8rem;
   color: rgba(255,255,255,0.35);
 }
-
 .search-result-item {
   display: flex;
   align-items: center;
@@ -598,9 +593,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 .search-result-item:last-child { border-bottom: none; }
 .search-result-item:hover,
-.search-result-item--active {
-  background: rgba(255,255,255,0.07);
-}
+.search-result-item--active { background: rgba(255,255,255,0.07); }
 
 .sri-icon {
   width: 30px; height: 30px; flex-shrink: 0;
@@ -628,7 +621,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 .navbar__icon-btn svg { width: 24px; height: 24px; color: var(--t2); }
 .navbar__icon-btn:hover svg { color: var(--t1); }
-.theme-btn:hover svg { color: var(--accent); }
 
 .navbar__badge {
   position: absolute; top: -4px; right: -4px;
@@ -656,72 +648,40 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border: 2px solid var(--border);
   flex-shrink: 0;
 }
-.navbar__profile-info {
-  display: flex; flex-direction: column; gap: 1px;
-}
-.navbar__profile-name {
-  font-size: 0.78rem; font-weight: 700; color: var(--t1); line-height: 1;
-}
-.navbar__profile-user {
-  font-size: 0.65rem; font-weight: 500; color: var(--t3); line-height: 1;
-}
+.navbar__profile-info { display: flex; flex-direction: column; gap: 1px; }
+.navbar__profile-name { font-size: 0.78rem; font-weight: 700; color: var(--t1); line-height: 1; }
+.navbar__profile-user { font-size: 0.65rem; font-weight: 500; color: var(--t3); line-height: 1; }
 
-/* ── Three-dots button ── */
 .navbar__profile-dots {
   width: 24px; height: 24px;
   display: flex; align-items: center; justify-content: center;
-  border-radius: 50%;
-  border: none;
-  background: transparent;
-  color: var(--t3);
-  cursor: pointer;
-  flex-shrink: 0;
+  border-radius: 50%; border: none;
+  background: transparent; color: var(--t3);
+  cursor: pointer; flex-shrink: 0;
   transition: background 0.18s, color 0.18s, transform 0.18s;
 }
 .navbar__profile-dots:hover,
-.navbar__profile-dots--active {
-  background: rgba(255,255,255,0.1);
-  color: var(--t1);
-}
+.navbar__profile-dots--active { background: rgba(255,255,255,0.1); color: var(--t1); }
 .navbar__profile-dots--active { transform: rotate(90deg); }
 
-/* ── Profile dropdown panel ── */
 .navbar__profile-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
+  top: calc(100% + 10px); right: 0;
   min-width: 210px;
   background: rgba(4, 5, 10, 0.88);
   backdrop-filter: blur(72px) saturate(180%);
   -webkit-backdrop-filter: blur(72px) saturate(180%);
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px;
-  padding: 6px;
-  box-shadow: none;
-  z-index: 200;
+  border-radius: 16px; padding: 6px;
+  box-shadow: none; z-index: 200;
   transform-origin: top right;
 }
-
-/* ── Dropdown header ── */
-.npd-header {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 10px 8px;
-}
-.npd-avatar {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-}
+.npd-header { display: flex; align-items: center; gap: 10px; padding: 10px 10px 8px; }
+.npd-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); flex-shrink: 0; }
 .npd-info { display: flex; flex-direction: column; gap: 2px; }
 .npd-name  { font-size: 0.82rem; font-weight: 700; color: var(--t1); }
 .npd-email { font-size: 0.67rem; color: var(--t3); }
-
-/* ── Divider ── */
 .npd-divider { height: 1px; background: var(--border-soft); margin: 4px 0; }
-
-/* ── Items ── */
 .npd-item {
   display: flex; align-items: center; gap: 10px;
   width: 100%; padding: 9px 10px;
@@ -729,37 +689,18 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   background: transparent; color: var(--t2);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem; font-weight: 500;
-  cursor: pointer;
-  transition: background 0.15s;
-  text-align: left;
+  cursor: pointer; transition: background 0.15s; text-align: left;
 }
 .npd-item:hover { background: var(--glass-hover); }
-
-.npd-icon {
-  width: 28px; height: 28px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.npd-icon--blue  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
-.npd-icon--amber { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
+.npd-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .npd-icon--green { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
 .npd-label { flex: 1; }
 .npd-arrow { color: var(--t4); flex-shrink: 0; }
 
-/* ── Dropdown animation ── */
-.profile-chip-drop-enter-active {
-  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.profile-chip-drop-leave-active {
-  transition: opacity 0.14s ease, transform 0.14s ease;
-}
-.profile-chip-drop-enter-from {
-  opacity: 0;
-  transform: scale(0.88) translateY(-8px);
-}
-.profile-chip-drop-leave-to {
-  opacity: 0;
-  transform: scale(0.94) translateY(-4px);
-}
+.profile-chip-drop-enter-active { transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.profile-chip-drop-leave-active { transition: opacity 0.14s ease, transform 0.14s ease; }
+.profile-chip-drop-enter-from  { opacity: 0; transform: scale(0.88) translateY(-8px); }
+.profile-chip-drop-leave-to    { opacity: 0; transform: scale(0.94) translateY(-4px); }
 
 /* ══════════════════════════════
    MOBILE NAVBAR
@@ -769,13 +710,13 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 90;
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-soft);
   align-items: center; justify-content: space-between;
   padding: 0 16px; gap: 12px;
   transition: background 0.35s ease;
 }
 
-/* Hamburger */
 .mn-hamburger {
   width: 40px; height: 40px; background: transparent; border: none;
   border-radius: 11px; display: flex; flex-direction: column;
@@ -791,13 +732,11 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mn-bar--open-2 { opacity: 0; transform: scaleX(0); }
 .mn-bar--open-3 { transform: rotate(-45deg) translate(5px, -5px); width: 18px; }
 
-/* Greeting */
 .mn-greeting { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
 .mn-avatar {
   position: relative;
   width: 36px; height: 36px; min-width: 36px; min-height: 36px;
   border-radius: 50%; flex-shrink: 0;
-  background: #0f3d20;
   overflow: hidden;
   border: 2px solid rgba(255,255,255,0.15);
   background: #000;
@@ -818,7 +757,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mn-greet-line { font-size: 0.68rem; color: var(--t3); font-weight: 500; white-space: nowrap; }
 .mn-name { font-size: 0.88rem; font-weight: 800; color: var(--t1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Right actions */
 .mn-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .mn-icon-btn {
   position: relative; width: 38px; height: 38px;
@@ -863,15 +801,12 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 .notif-dropdown--mobile {
   position: fixed;
-  top: 70px;
-  left: 12px;
-  right: 12px;
+  top: 70px; left: 12px; right: 12px;
   width: auto;
   max-height: calc(100vh - 90px);
   overflow-y: auto;
   border-radius: 16px;
 }
-
 .notif-dropdown__header {
   display: flex; justify-content: space-between; align-items: center;
   padding: 14px 16px 12px; border-bottom: 1px solid var(--border-soft);
@@ -883,19 +818,14 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.70);
   border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; padding: 2px 8px;
 }
-.notif-dropdown__clear {
-  font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.50); cursor: pointer; transition: color 0.2s;
-}
+.notif-dropdown__clear { font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.50); cursor: pointer; transition: color 0.2s; }
 .notif-dropdown__clear:hover { color: rgba(255,255,255,0.90); }
 
 .notif-list { max-height: 300px; overflow-y: auto; }
 .notif-list::-webkit-scrollbar { width: 3px; }
 .notif-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
 
-.notif-empty {
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  padding: 28px 16px; color: var(--t3); font-size: 0.8rem;
-}
+.notif-empty { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 28px 16px; color: var(--t3); font-size: 0.8rem; }
 .notif-item {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 11px 16px; border-bottom: 1px solid var(--border-soft);
@@ -910,10 +840,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .notif-item--warning { border-left: 2px solid rgba(255,255,255,0.25); }
 .notif-item--info    { border-left: 2px solid rgba(255,255,255,0.25); }
 
-.notif-icon {
-  width: 26px; height: 26px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
-}
+.notif-icon { width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
 .ni--success { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
 .ni--error   { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
 .ni--warning { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
@@ -946,37 +873,24 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mobile-bottom-nav {
   display: none;
   position: fixed;
-  bottom: 22px;
-  left: 50%;
+  bottom: 22px; left: 50%;
   transform: translateX(-50%);
   z-index: 100;
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft);
   border-radius: 30px;
-  padding: 7px;
-  gap: 6px;
+  padding: 7px; gap: 6px;
   align-items: center;
 }
-
 .bn-item {
-  width: 54px;
-  height: 54px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.22s ease;
-  flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.28);
-  position: relative;
+  width: 54px; height: 54px; border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: all 0.22s ease;
+  flex-shrink: 0; color: rgba(255, 255, 255, 0.28); position: relative;
 }
-
-.bn-item:not(.bn-item--active):hover {
-  color: rgba(255, 255, 255, 0.55);
-}
-
+.bn-item:not(.bn-item--active):hover { color: rgba(255, 255, 255, 0.55); }
 .bn-item--active {
   background: rgba(255, 255, 255, 0.10);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1000,5 +914,4 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   .mobile-nav        { display: flex; }
   .mobile-bottom-nav { display: flex; }
 }
-
 </style>
