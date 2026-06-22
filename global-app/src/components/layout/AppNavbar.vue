@@ -846,7 +846,16 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   backdrop-filter: blur(28px) saturate(200%);
   border: 1px solid var(--dropdown-border); border-radius: 18px; overflow: hidden; z-index: 200;
 }
-.notif-dropdown--mobile { right: -40px; width: min(340px, calc(100vw - 32px)); }
+.notif-dropdown--mobile {
+  position: fixed;
+  top: 70px;
+  left: 12px;
+  right: 12px;
+  width: auto;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  border-radius: 16px;
+}
 
 .notif-dropdown__header {
   display: flex; justify-content: space-between; align-items: center;
