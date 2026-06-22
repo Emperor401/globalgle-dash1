@@ -380,7 +380,7 @@ function logout() {
 
 /* ── Section group ── */
 .sidebar__group {
-  padding: 22px 14px 6px;
+  padding: 22px 8px 6px;
   flex-shrink: 0;
 }
 
@@ -406,12 +406,13 @@ function logout() {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 10px;
-  border-radius: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.22s ease;
   position: relative;
   border: 1px solid transparent;
+  width: 100%;
 }
 
 .nav-item:hover {
