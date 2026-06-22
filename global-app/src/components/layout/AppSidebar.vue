@@ -454,6 +454,22 @@ function logout() {
   border-radius: 0 3px 3px 0;
 }
 
+.nav-item--active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.90);
+  border-radius: 3px 0 0 3px;
+  box-shadow:
+    0 0 6px 2px rgba(255, 255, 255, 0.55),
+    0 0 18px 6px rgba(255, 255, 255, 0.20),
+    0 0 35px 10px rgba(255, 255, 255, 0.08);
+}
+
 .nav-item__icon {
   width: 30px;
   height: 30px;
