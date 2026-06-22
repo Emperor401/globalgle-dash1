@@ -640,7 +640,7 @@ const dots = [
   align-items: center;
   gap: 7px;
   padding: 9px 20px;
-  border-radius: 8px;
+  border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.06);
   color: rgba(255,255,255,0.82);
