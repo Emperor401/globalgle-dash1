@@ -41,7 +41,7 @@
         <router-link to="/" class="nav-item" :class="{ 'nav-item--active': $route.path === '/' }" @click="closeSidebar">
           <div class="nav-item__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/>
             </svg>
           </div>
           <span class="nav-item__label">Dashboard</span>
