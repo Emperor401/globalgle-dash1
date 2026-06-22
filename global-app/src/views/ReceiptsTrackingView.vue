@@ -18,7 +18,7 @@
     <!-- Two-column layout -->
     <div class="rt-layout">
 
-      <!-- â”€â”€ LEFT: Form â”€â”€ -->
+      <!-- â"€â"€ LEFT: Form â"€â"€ -->
       <div class="rt-form-col">
 
         <!-- 1. Branding -->
@@ -69,7 +69,7 @@
             <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <h3 class="sec-title">Receipt Link</h3>
           </div>
-          <p class="sec-desc">Pick a name â€” your receipt gets its own clean link on one of our domains. <span class="hl">Leave blank to add one later from Manage.</span></p>
+          <p class="sec-desc">Pick a name â€" your receipt gets its own clean link on one of our domains. <span class="hl">Leave blank to add one later from Manage.</span></p>
           <p class="fl" style="margin:0">Your receipt link</p>
           <div class="subdomain-box">
             <div class="subdomain-head">
@@ -78,7 +78,7 @@
                 <span class="subdomain-name">Use our subdomain</span>
                 <span class="subdomain-free">free</span>
               </div>
-              <p class="subdomain-hint">Pick a keyword â€” we set up the link for you. <span class="hl">Nothing</span> to configure at your domain.</p>
+              <p class="subdomain-hint">Pick a keyword â€" we set up the link for you. <span class="hl">Nothing</span> to configure at your domain.</p>
             </div>
             <div class="slug-row">
               <input v-model="form.receiptSlug" type="text" placeholder="payment-pending" class="fi slug-input" />
@@ -88,7 +88,7 @@
                 <option>.receiptlive.io</option>
               </select>
             </div>
-            <p class="slug-note">Lowercase letters, numbers and dashes â€” then <span class="hl">pick a domain</span>. <span class="hl">Locked in once created.</span></p>
+            <p class="slug-note">Lowercase letters, numbers and dashes â€" then <span class="hl">pick a domain</span>. <span class="hl">Locked in once created.</span></p>
           </div>
         </div>
 
@@ -196,15 +196,18 @@
           </div>
           <div class="list-header">
             <span class="fl">Status Steps</span>
-            <button class="add-btn" @click="steps.push('')">+ Add Step</button>
+            <button class="add-btn" @click="steps.push({ title: '', subtitle: '' })">+ Add Step</button>
           </div>
-          <p class="sec-desc">Add the steps shown on the receipt (e.g. <span class="hl">"Profit verification complete"</span>).</p>
+          <p class="sec-desc">Add the steps shown on the receipt. First step = completed ✓, middle = in-progress, last = pending.</p>
           <div v-if="steps.length" class="dynamic-list">
-            <div v-for="(_, i) in steps" :key="i" class="dynamic-row">
-              <input v-model="steps[i]" type="text" class="fi" placeholder='e.g. "Profit verification complete"' />
-              <button class="remove-btn" @click="steps.splice(i, 1)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </button>
+            <div v-for="(step, i) in steps" :key="i" class="step-entry">
+              <div class="dynamic-row">
+                <input v-model="step.title" type="text" class="fi" placeholder="Step title (e.g. Payment initiated)" />
+                <button class="remove-btn" @click="steps.splice(i, 1)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+              <input v-model="step.subtitle" type="text" class="fi" placeholder="Subtitle (e.g. Funds are on their way)" />
             </div>
           </div>
         </div>
@@ -233,12 +236,12 @@
             <svg class="sec-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <h3 class="sec-title">Copyable Details</h3>
           </div>
-          <p class="sec-desc">Add any details the recipient should copy â€” a wallet address, a reference, an account number. Each gets its own copy button.</p>
+          <p class="sec-desc">Add any details the recipient should copy â€" a wallet address, a reference, an account number. Each gets its own copy button.</p>
           <div class="list-header">
             <span class="fl">Copyable details</span>
             <button class="add-btn" @click="copyFields.push({ label: '', value: '' })">+ Add field</button>
           </div>
-          <p class="sec-desc">Add a <span class="hl">wallet address</span>, a <span class="hl">fee address</span>, a <span class="hl">memo/tag</span> â€” each gets a copy button on the receipt.</p>
+          <p class="sec-desc">Add a <span class="hl">wallet address</span>, a <span class="hl">fee address</span>, a <span class="hl">memo/tag</span> â€" each gets a copy button on the receipt.</p>
           <div v-if="copyFields.length" class="dynamic-list">
             <div v-for="(field, i) in copyFields" :key="i" class="dynamic-row">
               <input v-model="field.label" type="text" class="fi" placeholder="Label (e.g. Wallet)" style="flex:0.6" />
@@ -277,7 +280,7 @@
             <span class="fl">Contact / Social Links</span>
             <button class="add-btn" @click="socialLinks.push({ label: '', url: '' })">+ Add Link</button>
           </div>
-          <p class="sec-desc">Add <span class="hl">WhatsApp</span>, <span class="hl">Telegram</span>, a website â€” any label and link.</p>
+          <p class="sec-desc">Add <span class="hl">WhatsApp</span>, <span class="hl">Telegram</span>, a website â€" any label and link.</p>
           <div v-if="socialLinks.length" class="dynamic-list">
             <div v-for="(link, i) in socialLinks" :key="i" class="dynamic-row">
               <input v-model="link.label" type="text" class="fi" placeholder="Label (e.g. WhatsApp)" style="flex:0.6" />
@@ -315,7 +318,7 @@
               <div class="receipt-item__dot" :style="{ background: r.accent }" />
               <div class="receipt-item__info">
                 <span class="receipt-item__name">{{ r.company }}</span>
-                <span class="receipt-item__meta">{{ r.slug }}{{ r.domain }} Â· {{ r.time }}</span>
+                <span class="receipt-item__meta">{{ r.slug }}{{ r.domain }} &middot; {{ r.time }}</span>
               </div>
               <span class="receipt-item__badge">Live</span>
             </div>
@@ -324,7 +327,7 @@
 
       </div>
 
-      <!-- â”€â”€ RIGHT: Live Preview â”€â”€ -->
+      <!-- ── RIGHT: Live Preview ── -->
       <div class="rt-preview-col">
         <p class="preview-label">LIVE PREVIEW</p>
         <div class="receipt-preview-card" :style="{ background: form.bgColor || '#0c0c0a' }">
@@ -332,11 +335,9 @@
           <!-- Status icon circle -->
           <div class="rp-circle" :style="{ borderColor: form.accentColor || '#22c55e' }">
             <img v-if="statusIconUrl" :src="statusIconUrl" class="rp-circle-img" />
-            <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none"
+            <svg v-else width="22" height="22" viewBox="0 0 24 24" fill="none"
               :stroke="form.accentColor || '#22c55e'" stroke-width="2.5" stroke-linecap="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="8" x2="12" y2="12"/>
-              <line x1="12" y1="16" x2="12.01" y2="16"/>
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
           </div>
 
@@ -345,30 +346,126 @@
             {{ (form.companyName || 'YOUR COMPANY').toUpperCase() }}
           </p>
 
+          <!-- Big status title -->
+          <h2 class="rp-big-title" :style="{ color: form.accentColor || '#22c55e' }">
+            {{ form.statusTitle || 'Payment Pending' }}
+          </h2>
+
+          <!-- Headline -->
+          <p class="rp-headline">
+            {{ form.headline || `Your profit of ${form.currencySymbol || 'R'} ${form.profitAmount || '12,432'} is ready for payout.` }}
+          </p>
+
+          <!-- Fee sentence -->
+          <p v-if="form.processingFee || form.feeSentence" class="rp-fee" :style="{ color: form.accentColor || '#22c55e' }">
+            {{ form.feeSentence || `A processing fee of ${form.currencySymbol || 'R'} ${form.processingFee} is required before funds can be released.` }}
+          </p>
+
           <!-- Tabs -->
           <div class="rp-tabs">
-            <button class="rp-tab rp-tab--active" :style="{ background: form.accentColor || '#22c55e' }">Status</button>
-            <button class="rp-tab">Details</button>
+            <button :class="['rp-tab', { 'rp-tab--active': previewTab === 'status' }]"
+              :style="previewTab === 'status' ? { background: form.accentColor || '#22c55e', color: '#000' } : {}"
+              @click="previewTab = 'status'">Status</button>
+            <button :class="['rp-tab', { 'rp-tab--active': previewTab === 'details' }]"
+              :style="previewTab === 'details' ? { background: form.accentColor || '#22c55e', color: '#000' } : {}"
+              @click="previewTab = 'details'">Details</button>
           </div>
 
-          <!-- Status title -->
-          <p v-if="form.statusTitle" class="rp-status-title" :style="{ color: form.accentColor || '#22c55e' }">
-            {{ form.statusTitle }}
-          </p>
+          <!-- ── Status tab ── -->
+          <template v-if="previewTab === 'status'">
 
-          <!-- Headline preview -->
-          <p v-if="form.headline || form.profitAmount" class="rp-headline">
-            {{ form.headline || `Your profit of ${form.currencySymbol || 'R'} ${form.profitAmount || '0'} is ready for payout.` }}
-          </p>
+            <!-- Steps timeline -->
+            <div v-if="steps.length" class="rp-steps">
+              <div v-for="(step, i) in steps" :key="i" class="rp-step">
+                <div class="rp-step__track">
+                  <div class="rp-step__icon"
+                    :style="i === 0 ? { borderColor: form.accentColor || '#22c55e' }
+                          : i < steps.length - 1 ? { borderColor: form.accentColor || '#22c55e' }
+                          : { borderColor: 'rgba(255,255,255,0.25)' }">
+                    <svg v-if="i === 0" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                      :stroke="form.accentColor || '#22c55e'" stroke-width="3.5" stroke-linecap="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <div v-else-if="i < steps.length - 1" class="rp-step__dot"
+                      :style="{ background: form.accentColor || '#22c55e' }" />
+                  </div>
+                  <div v-if="i < steps.length - 1" class="rp-step__line"
+                    :style="{ background: i === 0 ? (form.accentColor || '#22c55e') : 'rgba(255,255,255,0.12)' }" />
+                </div>
+                <div class="rp-step__body">
+                  <span class="rp-step__title">{{ step.title }}</span>
+                  <span v-if="step.subtitle" class="rp-step__sub" :style="{ color: form.accentColor || '#22c55e' }">{{ step.subtitle }}</span>
+                </div>
+              </div>
+            </div>
 
-          <!-- Live chat button -->
+            <!-- Copyable fields -->
+            <div v-for="(field, i) in copyFields.filter(f => f.label || f.value)" :key="i" class="rp-copy-box">
+              <span class="rp-copy-label">{{ (field.label || 'REFERENCE NO.').toUpperCase() }}</span>
+              <div class="rp-copy-row">
+                <span class="rp-copy-value">{{ field.value || '—' }}</span>
+                <button class="rp-copy-btn" @click.prevent>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </button>
+              </div>
+            </div>
+
+          </template>
+
+          <!-- ── Details tab ── -->
+          <template v-else>
+            <div class="rp-details-list">
+              <div class="rp-details-row">
+                <span class="rp-details-key" :style="{ color: form.accentColor || '#22c55e' }">Recipient</span>
+                <span class="rp-details-val">{{ form.recipientName || 'Ben' }}</span>
+              </div>
+              <div class="rp-details-row">
+                <span class="rp-details-key" :style="{ color: form.accentColor || '#22c55e' }">Profit Amount</span>
+                <span class="rp-details-val" :style="{ color: form.accentColor || '#22c55e' }">{{ form.currencySymbol || 'R' }} {{ form.profitAmount || '12,432.00' }}</span>
+              </div>
+              <div v-if="form.processingFee" class="rp-details-row">
+                <span class="rp-details-key" :style="{ color: form.accentColor || '#22c55e' }">Processing Fee</span>
+                <span class="rp-details-val rp-fee-val">{{ form.currencySymbol || 'R' }} {{ form.processingFee }}</span>
+              </div>
+              <div class="rp-details-row">
+                <span class="rp-details-key" :style="{ color: form.accentColor || '#22c55e' }">Issuer</span>
+                <span class="rp-details-val">{{ form.issuer || form.companyName || 'Your Company' }}</span>
+              </div>
+              <div class="rp-details-row">
+                <span class="rp-details-key" :style="{ color: form.accentColor || '#22c55e' }">Date &amp; time</span>
+                <span class="rp-details-val">{{ receiptDate }}</span>
+              </div>
+            </div>
+            <div v-if="form.billingWarning" class="rp-warning-box">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+              <p>{{ form.billingWarning }}</p>
+            </div>
+            <!-- Copyable fields also on details tab -->
+            <div v-for="(field, i) in copyFields.filter(f => f.label || f.value)" :key="'d' + i" class="rp-copy-box">
+              <span class="rp-copy-label">{{ (field.label || 'REFERENCE NO.').toUpperCase() }}</span>
+              <div class="rp-copy-row">
+                <span class="rp-copy-value">{{ field.value || '—' }}</span>
+                <button class="rp-copy-btn" @click.prevent>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </button>
+              </div>
+            </div>
+          </template>
+
+          <!-- Action button -->
+          <button v-if="form.actionBtnText" class="rp-action-btn"
+            :style="{ background: form.accentColor || '#22c55e' }">
+            {{ form.actionBtnText }}
+          </button>
+
+          <!-- Live chat -->
           <button v-if="form.liveChatEnabled" class="rp-chat">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             Live chat
           </button>
 
           <!-- Footer -->
-          <p class="rp-footer">{{ form.companyName || 'Your company' }} Receipt Â· Secure & Verified</p>
+          <p class="rp-footer">{{ form.companyName || 'Your Company' }} Receipt &middot; Secure &amp; Verified</p>
         </div>
       </div>
 
@@ -386,7 +483,13 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
+
+const receiptDate = computed(() => {
+  const d = new Date()
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) +
+         ' • ' + d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+})
 
 const logoRef        = ref(null)
 const statusIconRef  = ref(null)
@@ -395,8 +498,13 @@ const statusIconUrl  = ref(null)
 const generating     = ref(false)
 const showSuccess    = ref(false)
 const formError      = ref('')
-const steps          = ref([])
-const copyFields     = ref([])
+const previewTab     = ref('status')
+const steps = ref([
+  { title: 'Payment initiated',   subtitle: 'Funds are on their way' },
+  { title: 'Processing',          subtitle: 'Awaiting release fee clearance' },
+  { title: 'Released to account', subtitle: 'Funds transferred' },
+])
+const copyFields     = ref([{ label: 'Reference No.', value: 'TXN-20260524-9821' }])
 const socialLinks    = ref([])
 const generatedReceipts = ref([])
 
@@ -416,7 +524,7 @@ const form = reactive({
   headline:           '',
   feeSentence:        '',
   billingWarning:     '',
-  actionBtnText:      '',
+  actionBtnText:      'Pay Release Fee Now',
   actionBtnUrl:       '',
   liveChatEnabled:    true,
   externalChatEnabled:false,
@@ -497,61 +605,61 @@ function generate() {
 /* Form column */
 .rt-form-col { display: flex; flex-direction: column; gap: 16px; }
 
-/* Section card â€” always light/white */
+/* Section card */
 .sec-card {
-  background: #fff;
-  border: 1px solid #e8ecf0;
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-soft);
   border-radius: 14px;
   padding: 16px 18px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
 .sec-head { display: flex; align-items: center; gap: 8px; }
 .sec-icon { color: #22c55e; flex-shrink: 0; }
 .sec-icon--warn { color: #22c55e; }
-.sec-title { font-size: 0.9rem; font-weight: 700; color: #0f172a; margin: 0; }
-.sec-desc { font-size: 0.78rem; color: #64748b; line-height: 1.6; margin: 0; }
+.sec-title { font-size: 0.9rem; font-weight: 700; color: var(--t1); margin: 0; }
+.sec-desc { font-size: 0.78rem; color: var(--t2); line-height: 1.6; margin: 0; }
 .sec-desc .hl { color: #22c55e; font-weight: 500; }
 
 /* Fields */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .fg { display: flex; flex-direction: column; gap: 6px; }
-.fl { font-size: 0.78rem; font-weight: 600; color: #334155; }
+.fl { font-size: 0.78rem; font-weight: 600; color: var(--t1); }
 .req { color: #ef4444; }
 
 .fi {
   width: 100%; padding: 9px 12px; border-radius: 9px;
-  border: 1px solid #e2e8f0; background: #fff; color: #0f172a;
+  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1);
   font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .fi:focus { outline: none; border-color: #22c55e; }
-.fi::placeholder { color: #94a3b8; }
+.fi::placeholder { color: var(--t3); }
 
 .fi-area {
   width: 100%; padding: 9px 12px; border-radius: 9px;
-  border: 1px solid #e2e8f0; background: #fff; color: #0f172a;
+  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1);
   font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem;
   resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .fi-area:focus { outline: none; border-color: #22c55e; }
-.fi-area::placeholder { color: #94a3b8; }
+.fi-area::placeholder { color: var(--t3); }
 
 /* Logo upload */
 .logo-row { display: flex; gap: 8px; align-items: stretch; }
 .logo-preview-box {
   width: 60px; height: 60px; border-radius: 10px; flex-shrink: 0;
-  border: 1px solid #e2e8f0; background: #f8fafc;
-  display: flex; align-items: center; justify-content: center; color: #94a3b8; overflow: hidden;
+  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center; color: var(--t3); overflow: hidden;
 }
 .logo-img { width: 100%; height: 100%; object-fit: contain; }
 .logo-drop {
   flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
-  border: 1.5px dashed #cbd5e1; border-radius: 10px; padding: 10px;
-  font-size: 0.75rem; color: #64748b; cursor: pointer; transition: border-color 0.18s;
+  border: 1.5px dashed var(--border); border-radius: 10px; padding: 10px;
+  font-size: 0.75rem; color: var(--t2); cursor: pointer; transition: border-color 0.18s;
 }
 .logo-drop:hover { border-color: #22c55e; }
 .click-link { background: none; border: none; padding: 0; color: #22c55e; font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: inherit; }
@@ -563,26 +671,26 @@ function generate() {
 }
 .subdomain-head { display: flex; flex-direction: column; gap: 6px; }
 .subdomain-title-row { display: flex; align-items: center; gap: 8px; }
-.subdomain-name { font-size: 0.85rem; font-weight: 700; color: #0f172a; }
+.subdomain-name { font-size: 0.85rem; font-weight: 700; color: var(--t1); }
 .subdomain-free {
   font-size: 0.65rem; font-weight: 700; color: #22c55e;
   background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
   padding: 2px 8px; border-radius: 999px;
 }
-.subdomain-hint { font-size: 0.75rem; color: #64748b; margin: 0; }
+.subdomain-hint { font-size: 0.75rem; color: var(--t2); margin: 0; }
 .subdomain-hint .hl { color: #22c55e; font-weight: 500; }
 .slug-row { display: flex; gap: 8px; }
 .slug-input  { flex: 1; }
-.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid #e2e8f0; background: #fff; color: #0f172a; font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
+.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1); font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
 .slug-domain:focus { outline: none; border-color: #22c55e; }
-.slug-note { font-size: 0.72rem; color: #64748b; margin: 0; }
+.slug-note { font-size: 0.72rem; color: var(--t2); margin: 0; }
 .slug-note .hl { color: #22c55e; font-weight: 500; }
 
 /* Color picker */
 .color-field { display: flex; gap: 8px; align-items: center; }
 .color-swatch-wrap {
   width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
-  border: 1px solid #e2e8f0; cursor: pointer; overflow: hidden; position: relative;
+  border: 1px solid var(--border-soft); cursor: pointer; overflow: hidden; position: relative;
 }
 .color-native {
   position: absolute; inset: 0; opacity: 0; cursor: pointer;
@@ -595,8 +703,8 @@ function generate() {
 .mode-pills { display: flex; gap: 6px; }
 .mode-pill {
   display: flex; align-items: center; gap: 6px; padding: 7px 16px;
-  border-radius: 999px; border: 1px solid #e2e8f0; background: #f8fafc;
-  color: #475569; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600;
+  border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06);
+  color: var(--t2); font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s;
 }
 .mode-pill--active { background: #22c55e; border-color: #22c55e; color: #fff; }
@@ -624,7 +732,7 @@ function generate() {
 .dynamic-row { display: flex; gap: 8px; align-items: center; }
 .remove-btn {
   width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px;
-  border: 1px solid #e2e8f0; background: #fff; color: #94a3b8;
+  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t3);
   display: flex; align-items: center; justify-content: center; cursor: pointer;
   transition: background 0.18s, color 0.18s;
 }
@@ -663,22 +771,22 @@ function generate() {
 
 /* My receipts */
 .my-receipts-card {
-  background: #fff; border: 1px solid #e8ecf0; border-radius: 14px;
+  background: var(--glass); backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 18px 22px; display: flex; flex-direction: column; gap: 12px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
-.my-receipts-title { font-size: 0.9rem; font-weight: 700; color: #0f172a; margin: 0; }
-.my-receipts-empty p { font-size: 0.8rem; color: #94a3b8; margin: 0; }
+.my-receipts-title { font-size: 0.9rem; font-weight: 700; color: var(--t1); margin: 0; }
+.my-receipts-empty p { font-size: 0.8rem; color: var(--t3); margin: 0; }
 .my-receipts-empty .hl { color: #22c55e; }
 .receipts-list { display: flex; flex-direction: column; gap: 8px; }
-.receipt-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: #f8fafc; border: 1px solid #e8ecf0; }
+.receipt-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-soft); }
 .receipt-item__dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .receipt-item__info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.receipt-item__name { font-size: 0.82rem; font-weight: 600; color: #0f172a; }
-.receipt-item__meta { font-size: 0.7rem; color: #94a3b8; }
+.receipt-item__name { font-size: 0.82rem; font-weight: 600; color: var(--t1); }
+.receipt-item__meta { font-size: 0.7rem; color: var(--t3); }
 .receipt-item__badge { font-size: 0.65rem; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
 
-/* â”€â”€ RIGHT: Preview column â”€â”€ */
+/* â"€â"€ RIGHT: Preview column â"€â"€ */
 .rt-preview-col {
   position: sticky; top: 24px;
   display: flex; flex-direction: column; gap: 10px;
@@ -696,29 +804,99 @@ function generate() {
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
 }
 .rp-circle {
-  width: 68px; height: 68px; border-radius: 50%;
+  width: 72px; height: 72px; border-radius: 50%;
   border: 2px solid #22c55e; display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
+  overflow: hidden; flex-shrink: 0;
 }
 .rp-circle-img { width: 100%; height: 100%; object-fit: contain; }
-.rp-company { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; margin: 0; }
-.rp-tabs { display: flex; gap: 6px; background: rgba(255,255,255,0.06); border-radius: 999px; padding: 4px; }
-.rp-tab {
-  padding: 7px 20px; border-radius: 999px; border: none;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700;
-  cursor: default; color: rgba(255,255,255,0.45); background: transparent;
+.rp-company { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; margin: 0; }
+
+/* Big status title */
+.rp-big-title {
+  font-size: 1.6rem; font-weight: 800; text-align: center; margin: 0;
+  letter-spacing: -0.02em; line-height: 1.2;
 }
-.rp-tab--active { color: #0f172a; }
-.rp-status-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; margin: 0; }
-.rp-headline { font-size: 0.72rem; color: rgba(255,255,255,0.55); text-align: center; margin: 0; max-width: 240px; line-height: 1.5; }
+
+/* Headline & fee */
+.rp-headline { font-size: 0.76rem; color: rgba(255,255,255,0.82); text-align: center; margin: 0; line-height: 1.55; }
+.rp-fee      { font-size: 0.72rem; text-align: center; margin: 0; line-height: 1.5; opacity: 0.9; }
+
+/* Tabs */
+.rp-tabs { display: flex; gap: 4px; background: rgba(255,255,255,0.07); border-radius: 999px; padding: 4px; width: 100%; }
+.rp-tab {
+  flex: 1; padding: 8px 0; border-radius: 999px; border: none;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700;
+  cursor: pointer; color: rgba(255,255,255,0.4); background: transparent; transition: all 0.18s;
+}
+.rp-tab--active { color: #000 !important; }
+
+/* Steps timeline */
+.rp-steps { display: flex; flex-direction: column; gap: 0; width: 100%; }
+.rp-step  { display: flex; gap: 12px; align-items: flex-start; }
+.rp-step__track { display: flex; flex-direction: column; align-items: center; width: 24px; flex-shrink: 0; }
+.rp-step__icon  {
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: transparent;
+}
+.rp-step__dot { width: 8px; height: 8px; border-radius: 50%; }
+.rp-step__line { width: 2px; flex: 1; min-height: 20px; margin: 3px 0; }
+.rp-step__body {
+  display: flex; flex-direction: column; gap: 2px; padding-bottom: 16px; flex: 1;
+}
+.rp-step:last-child .rp-step__body { padding-bottom: 0; }
+.rp-step__title { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.9); }
+.rp-step__sub   { font-size: 0.7rem; }
+
+/* Copyable fields */
+.rp-copy-box {
+  width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px;
+}
+.rp-copy-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+.rp-copy-row   { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.rp-copy-value { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.85); flex: 1; }
+.rp-copy-btn   {
+  width: 28px; height: 28px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6);
+  display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
+  transition: background 0.18s;
+}
+.rp-copy-btn:hover { background: rgba(255,255,255,0.15); }
+
+/* Details tab */
+.rp-details-list { display: flex; flex-direction: column; gap: 0; width: 100%; }
+.rp-details-row  { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.rp-details-row:last-child { border-bottom: none; }
+.rp-details-key  { font-size: 0.75rem; font-weight: 500; }
+.rp-details-val  { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.92); }
+.rp-fee-val      { color: #f87171; }
+.rp-warning-box  {
+  background: rgba(255,180,0,0.08); border: 1px solid rgba(255,180,0,0.2);
+  border-radius: 9px; padding: 10px 12px; display: flex; align-items: flex-start; gap: 8px;
+  color: rgba(255,220,80,0.9); font-size: 0.72rem; line-height: 1.5; width: 100%;
+}
+.rp-warning-box p { margin: 0; }
+.rp-warning-box svg { flex-shrink: 0; margin-top: 1px; }
+
+/* Action button */
+.rp-action-btn {
+  width: 100%; padding: 13px; border-radius: 999px; border: none;
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700;
+  color: #000; cursor: default; letter-spacing: 0.01em;
+}
+
+/* Live chat */
 .rp-chat {
   display: flex; align-items: center; gap: 7px;
-  padding: 10px 28px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.75);
+  padding: 11px 0; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18);
+  background: transparent; color: rgba(255,255,255,0.7);
   font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: default;
   width: 100%; justify-content: center;
 }
-.rp-footer { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin: 0; text-align: center; }
+.rp-footer { font-size: 0.66rem; color: rgba(255,255,255,0.28); margin: 0; text-align: center; }
+
+/* Step entry in form */
+.step-entry { display: flex; flex-direction: column; gap: 6px; }
 
 /* Success Toast */
 .success-toast {
@@ -732,14 +910,14 @@ function generate() {
 .toast-pop-enter-from,
 .toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
 
-/* â”€â”€ Responsive â”€â”€ */
+/* â"€â"€ Responsive â"€â"€ */
 
-/* Tablet landscape (901px â€“ 1100px) */
+/* Tablet landscape (901px â€" 1100px) */
 @media (max-width: 1100px) {
   .rt-layout { grid-template-columns: 1fr 300px; gap: 20px; }
 }
 
-/* Tablet portrait (601px â€“ 900px): stack preview above form */
+/* Tablet portrait (601px â€" 900px): stack preview above form */
 @media (max-width: 900px) {
   .rt-page        { gap: 20px; }
   .rt-layout      { grid-template-columns: 1fr; gap: 18px; }

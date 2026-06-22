@@ -28,6 +28,10 @@ import WalletView              from '../views/WalletView.vue'
 import BillingView             from '../views/BillingView.vue'
 import TutorialsView           from '../views/TutorialsView.vue'
 import BankReceiptView         from '../views/BankReceiptView.vue'
+import SupportPagesView        from '../views/SupportPagesView.vue'
+import OnlineBankingView       from '../views/OnlineBankingView.vue'
+import BrokerView              from '../views/BrokerView.vue'
+import TrackingPagesView       from '../views/TrackingPagesView.vue'
 
 const routes = [
   { path: '/auth',                         name: 'Auth',           component: AuthView,  meta: { public: true } },
@@ -55,6 +59,10 @@ const routes = [
   { path: '/wallet',        name: 'Wallet',       component: WalletView       },
   { path: '/billing',       name: 'Billing',      component: BillingView      },
   { path: '/tutorials',     name: 'Tutorials',    component: TutorialsView    },
+  { path: '/support-pages',  name: 'SupportPages',  component: SupportPagesView  },
+  { path: '/online-banking', name: 'OnlineBanking', component: OnlineBankingView },
+  { path: '/broker',          name: 'Broker',         component: BrokerView         },
+  { path: '/tracking-pages', name: 'TrackingPages', component: TrackingPagesView  },
   { path: '/complaint',     name: 'Complaint',    component: ComplaintView    },
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
