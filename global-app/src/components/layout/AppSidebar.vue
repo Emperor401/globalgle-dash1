@@ -442,17 +442,6 @@ function logout() {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 8px rgba(0,0,0,0.25);
 }
 
-.nav-item--active::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 55%;
-  background: rgba(255,255,255,0.55);
-  border-radius: 0 3px 3px 0;
-}
 
 .nav-item--active::after {
   content: '';
