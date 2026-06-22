@@ -406,7 +406,7 @@ function logout() {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 12px;
+  padding: 7px 12px;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.22s ease;
