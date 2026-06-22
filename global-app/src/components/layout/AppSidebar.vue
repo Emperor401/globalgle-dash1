@@ -236,6 +236,7 @@ function logout() {
   z-index: 100;
   transition: background 0.35s ease, border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
   overflow-x: hidden;
+}
 
 /* ── Mobile backdrop ── */
 .sidebar-backdrop {
