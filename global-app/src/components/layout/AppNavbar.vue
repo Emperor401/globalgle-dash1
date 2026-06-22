@@ -853,9 +853,22 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 
 .notif-dropdown {
   position: absolute; top: calc(100% + 12px); right: 0;
-  width: 340px; background: var(--dropdown-bg);
-  backdrop-filter: blur(28px) saturate(200%);
-  border: 1px solid var(--dropdown-border); border-radius: 18px; overflow: hidden; z-index: 200;
+  width: 340px;
+  background: rgba(8, 8, 18, 0.45);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  overflow: hidden;
+  z-index: 200;
+  isolation: isolate;
+}
+.notif-dropdown::before {
+  content: '';
+  position: absolute;
+  inset: -60px;
+  background: url('/bg2.png') center / cover no-repeat;
+  filter: blur(60px) saturate(180%) brightness(0.28);
+  z-index: -1;
+  pointer-events: none;
 }
 .notif-dropdown--mobile {
   position: fixed;
