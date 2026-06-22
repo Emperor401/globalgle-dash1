@@ -71,7 +71,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  box-shadow: none;
+  box-shadow: none !important;
   text-shadow: none !important;
 }
 

@@ -575,7 +575,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border-radius: 14px;
   overflow: hidden;
   z-index: 999;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  box-shadow: none;
 }
 
 .search-no-results {
@@ -695,7 +695,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
   padding: 6px;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.05);
+  box-shadow: none;
   z-index: 200;
   transform-origin: top right;
 }
