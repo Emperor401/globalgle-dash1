@@ -380,7 +380,7 @@ function logout() {
 
 /* ── Section group ── */
 .sidebar__group {
-  padding: 22px 8px 6px;
+  padding: 22px 4px 6px;
   flex-shrink: 0;
 }
 
