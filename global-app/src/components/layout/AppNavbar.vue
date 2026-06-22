@@ -777,10 +777,9 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 
 .bn-item--active {
-  background: linear-gradient(145deg, rgba(34, 197, 94, 0.25), rgba(22, 163, 74, 0.35));
-  border: 1px solid rgba(34, 197, 94, 0.30);
-  color: #22c55e;
-  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.15) inset;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.90);
 }
 
 /* ══════════════════════════════
