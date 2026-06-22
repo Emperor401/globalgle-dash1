@@ -235,7 +235,7 @@ function logout() {
   left: 0;
   z-index: 100;
   transition: background 0.35s ease, border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 /* ── Mobile backdrop ── */
@@ -443,20 +443,22 @@ function logout() {
 }
 
 
-.nav-item--active::after {
+.nav-item--active::after,
+.nav-item:hover::after {
   content: '';
   position: absolute;
-  right: 0;
+  right: -9px;
   top: 50%;
   transform: translateY(-50%);
   width: 3px;
   height: 50%;
-  background: rgba(255, 255, 255, 0.90);
-  border-radius: 3px 0 0 3px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  z-index: 200;
   box-shadow:
-    0 0 6px 2px rgba(255, 255, 255, 0.55),
-    0 0 18px 6px rgba(255, 255, 255, 0.20),
-    0 0 35px 10px rgba(255, 255, 255, 0.08);
+    0 0 6px 3px rgba(255, 255, 255, 0.60),
+    0 0 18px 7px rgba(255, 255, 255, 0.22),
+    0 0 35px 12px rgba(255, 255, 255, 0.09);
 }
 
 .nav-item__icon {
