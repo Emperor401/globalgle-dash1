@@ -368,7 +368,6 @@ function logout() {
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  filter: grayscale(1) brightness(0.15) contrast(1.4);
 }
 
 
