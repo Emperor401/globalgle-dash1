@@ -443,8 +443,7 @@ function logout() {
 }
 
 
-.nav-item--active::after,
-.nav-item:hover::after {
+.nav-item--active::after {
   content: '';
   position: absolute;
   right: -9px;
