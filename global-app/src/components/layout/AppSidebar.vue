@@ -293,9 +293,8 @@ function logout() {
     transform: translateX(-100%);
     z-index: 100;
     width: 260px;
-    background: var(--bg);
-    backdrop-filter: none;
-    border-right: 1px solid var(--border-soft);
+    background: rgba(8, 8, 20, 0.88);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
   .sidebar--open { transform: translateX(0); }
 
