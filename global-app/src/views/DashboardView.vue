@@ -657,7 +657,7 @@ const dots = [
 .ha--green {
   background: #f05025;
   border-color: #f05025;
-  color: #000;
+  color: #fff;
   font-weight: 700;
 }
 .ha--green:hover { background: #ff6a3d; border-color: #ff6a3d; }
