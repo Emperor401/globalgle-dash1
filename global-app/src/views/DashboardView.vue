@@ -534,11 +534,10 @@ const dots = [
    SHARED CARD BASE
    ══════════════════════════════════ */
 .card {
-  background: rgba(255,255,255,0.09);
-  backdrop-filter: blur(60px) saturate(160%) brightness(0.80);
-  -webkit-backdrop-filter: blur(60px) saturate(160%) brightness(0.80);
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
+  -webkit-backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
   padding: 14px 16px;
   display: flex;
@@ -546,7 +545,7 @@ const dots = [
   gap: 10px;
   transition: border-color .22s, background .22s;
 }
-.card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+.card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.10); }
 
 /* ══════════════════════════════════
    HERO
@@ -676,11 +675,10 @@ const dots = [
   width: 200px;
   position: relative;
   overflow: hidden;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
-  -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(0.85);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
+  -webkit-backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
   padding: 12px 14px 10px;
   display: flex;
@@ -690,7 +688,7 @@ const dots = [
   cursor: pointer;
 }
 .cur:active { transform: scale(0.98); }
-.cur:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.16); }
+.cur:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.10); }
 
 /* Dot-grid texture overlay like Vaulto */
 .cur__texture {
