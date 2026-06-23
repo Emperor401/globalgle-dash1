@@ -347,6 +347,7 @@ function logout() {
     border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
   .sidebar--open { transform: translateX(0); }
+  .vaulto-badge  { display: none; }
 
   /* Compact nav on mobile */
   .sidebar__logo  { padding: 14px 16px 12px; }
