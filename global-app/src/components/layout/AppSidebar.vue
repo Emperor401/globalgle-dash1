@@ -25,14 +25,6 @@
 
       <!-- Toggle / close button -->
       <button class="vaulto-badge" @click="handleBadgeClick" aria-label="Toggle sidebar"></button>
-
-      <!-- Mobile close button -->
-      <button class="sidebar__close-btn" @click="closeSidebar" aria-label="Close menu">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
     </div>
 
     <!-- Scrollable nav area -->
@@ -296,8 +288,6 @@ function logout() {
 .backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity 0.28s ease; }
 .backdrop-fade-enter-from,   .backdrop-fade-leave-to     { opacity: 0; }
 
-/* ── Mobile close btn (hidden on desktop) ── */
-.sidebar__close-btn { display: none; }
 
 /* ── Tablet — 769px–1366px (iPad Mini → iPad Pro 13") ── */
 @media (min-width: 769px) and (max-width: 1366px) {
@@ -369,14 +359,6 @@ function logout() {
   .upgrade__btn    { margin-top: 7px; padding: 5px 13px; font-size: 0.7rem; }
   .upgrade__deco-img { width: 72px; height: 72px; }
 
-  .sidebar__close-btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 30px; height: 30px; border-radius: 8px; margin-left: auto;
-    background: rgba(255,255,255,.08); border: 1px solid var(--border-soft);
-    cursor: pointer; color: var(--t2); transition: background 0.2s;
-    flex-shrink: 0;
-  }
-  .sidebar__close-btn:hover { background: rgba(255,255,255,.15); color: var(--t1); }
 }
 
 /* ── Scrollable nav wrapper ── */
