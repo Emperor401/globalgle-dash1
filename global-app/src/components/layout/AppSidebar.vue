@@ -498,38 +498,13 @@ function logout() {
 
 .nav-indicator {
   position: absolute;
-  right: 0;
+  right: 1px;
   width: 3px;
   border-radius: 999px;
   background: #ffffff;
   pointer-events: none;
   z-index: 200;
   animation: indicator-pulse 2s ease-in-out infinite;
-  box-shadow:
-    0 0 4px 2px rgba(255, 255, 255, 1),
-    0 0 12px 5px rgba(255, 255, 255, 0.85),
-    0 0 24px 10px rgba(255, 255, 255, 0.55),
-    0 0 48px 18px rgba(255, 255, 255, 0.25),
-    0 0 80px 28px rgba(255, 255, 255, 0.10);
-}
-
-@keyframes indicator-pulse {
-  0%, 100% {
-    box-shadow:
-      0 0 4px 2px rgba(255, 255, 255, 1),
-      0 0 12px 5px rgba(255, 255, 255, 0.85),
-      0 0 24px 10px rgba(255, 255, 255, 0.55),
-      0 0 48px 18px rgba(255, 255, 255, 0.25),
-      0 0 80px 28px rgba(255, 255, 255, 0.10);
-  }
-  50% {
-    box-shadow:
-      0 0 6px 3px rgba(255, 255, 255, 1),
-      0 0 18px 8px rgba(255, 255, 255, 0.95),
-      0 0 36px 15px rgba(255, 255, 255, 0.70),
-      0 0 65px 25px rgba(255, 255, 255, 0.35),
-      0 0 100px 40px rgba(255, 255, 255, 0.15);
-  }
 }
 
 .nav-item__icon {
