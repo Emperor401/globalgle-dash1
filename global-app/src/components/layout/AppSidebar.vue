@@ -394,19 +394,8 @@ function logout() {
   border: none;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
-              opacity  0.18s ease,
-              box-shadow 0.18s ease;
+  margin-right: 4px;
   outline: none;
-}
-.vaulto-badge:hover {
-  transform: scale(1.10);
-  opacity: 0.92;
-}
-.vaulto-badge:active {
-  transform: scale(0.86) rotate(8deg);
-  opacity: 0.75;
-  transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
 /* ── Section group ── */
