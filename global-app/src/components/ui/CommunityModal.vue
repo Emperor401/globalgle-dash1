@@ -209,5 +209,16 @@ onBeforeUnmount(() => {
 .modal-enter-from   { opacity: 0; transform: scale(0.88) translateY(16px); }
 .modal-leave-to     { opacity: 0; transform: scale(0.95) translateY(8px); }
 
-
+@media (max-width: 768px) {
+  .modal-backdrop { padding: 0 28px; }
+  .modal-card {
+    max-width: 310px;
+    padding: 28px 20px 22px;
+    gap: 16px;
+    border-radius: 20px;
+  }
+  .modal-actions { gap: 8px; }
+  .btn-join  { width: auto; align-self: center; padding: 11px 36px; font-size: 0.85rem; }
+  .btn-later { width: auto; align-self: center; padding: 10px 32px; font-size: 0.82rem; }
+}
 </style>
