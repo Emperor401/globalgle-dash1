@@ -25,7 +25,7 @@
 
       <!-- Toggle / close button -->
       <button class="vaulto-badge" @click="closeSidebar" aria-label="Close sidebar">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Top row: dark squares (readable on white part of gradient) -->
           <rect x="0.5" y="0.5" width="5"   height="5"   rx="1.2" fill="rgba(10,10,10,0.75)"/>
           <rect x="7.5" y="0.5" width="5"   height="5"   rx="1.2" fill="rgba(10,10,10,0.75)"/>
@@ -396,9 +396,9 @@ function logout() {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
   background: linear-gradient(135deg, #e2e2e2 0%, #111111 100%);
   border: none;
   cursor: pointer;
