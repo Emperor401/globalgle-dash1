@@ -168,8 +168,8 @@ onBeforeUnmount(() => {
 
 /* Copy */
 .modal-body { text-align: center; }
-.modal-title { font-size: 1.15rem; font-weight: 800; color: var(--t1); margin: 0 0 8px; letter-spacing: -0.02em; }
-.modal-sub { font-size: 0.825rem; color: var(--t3); line-height: 1.55; margin: 0; }
+.modal-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0 0 8px; letter-spacing: -0.02em; }
+.modal-sub { font-size: 0.825rem; color: rgba(255,255,255,0.85); font-weight: 600; line-height: 1.55; margin: 0; }
 
 /* Buttons */
 .modal-actions { display: flex; flex-direction: column; gap: 10px; width: 100%; }
@@ -188,10 +188,10 @@ onBeforeUnmount(() => {
 .btn-later {
   width: 100%; padding: 12px 24px;
   background: var(--glass-2); border: 1px solid var(--border-soft); border-radius: 12px;
-  color: var(--t3); font-family: 'Poppins', sans-serif; font-size: 0.875rem; font-weight: 600;
+  color: rgba(255,255,255,0.85); font-family: 'Poppins', sans-serif; font-size: 0.875rem; font-weight: 700;
   cursor: pointer; transition: all 0.2s ease;
 }
-.btn-later:hover { background: var(--glass-hover); color: var(--t2); border-color: var(--border); }
+.btn-later:hover { background: var(--glass-hover); color: #fff; border-color: var(--border); }
 
 /* Countdown timer bar */
 .modal-timer {
@@ -212,15 +212,30 @@ onBeforeUnmount(() => {
 .modal-leave-to     { opacity: 0; transform: scale(0.95) translateY(8px); }
 
 @media (max-width: 768px) {
-  .modal-backdrop { padding: 0 28px; }
+  .modal-backdrop { padding: 0 24px; }
   .modal-card {
-    max-width: 310px;
-    padding: 28px 20px 22px;
-    gap: 16px;
-    border-radius: 20px;
+    max-width: 300px;
+    width: calc(100% - 48px);
+    padding: 26px 18px 20px;
+    gap: 14px;
+    border-radius: 18px;
   }
+  .modal-title { font-size: 1.05rem; }
+  .modal-sub   { font-size: 0.8rem; }
   .modal-actions { gap: 8px; }
-  .btn-join  { width: auto; align-self: center; padding: 11px 36px; font-size: 0.85rem; }
-  .btn-later { width: auto; align-self: center; padding: 10px 32px; font-size: 0.82rem; }
+  .btn-join  { width: auto; align-self: center; padding: 11px 32px; font-size: 0.85rem; }
+  .btn-later { width: auto; align-self: center; padding: 10px 28px; font-size: 0.82rem; }
+}
+
+@media (max-width: 400px) {
+  .modal-backdrop { padding: 0 16px; }
+  .modal-card {
+    max-width: 100%;
+    width: calc(100% - 32px);
+    padding: 24px 16px 18px;
+    gap: 12px;
+  }
+  .btn-join  { padding: 10px 24px; }
+  .btn-later { padding: 9px 20px; }
 }
 </style>
