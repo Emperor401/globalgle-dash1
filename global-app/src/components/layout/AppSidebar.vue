@@ -453,13 +453,31 @@ function logout() {
 }
 
 .nav-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: transparent;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%);
+  border-color: rgba(255,255,255,0.10);
 }
 
 .nav-item--active {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: transparent;
+  background: linear-gradient(135deg, rgba(0,0,0,0.18) 0%, rgba(255,255,255,0.11) 100%);
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.nav-item--active::after {
+  content: '';
+  position: absolute;
+  right: -9px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  z-index: 200;
+  box-shadow:
+    0 0 6px 3px rgba(255, 255, 255, 0.60),
+    0 0 18px 7px rgba(255, 255, 255, 0.22),
+    0 0 35px 12px rgba(255, 255, 255, 0.09);
 }
 
 .nav-item__icon {
