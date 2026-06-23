@@ -6,8 +6,9 @@
        ═══════════════════════════════════ -->
   <header class="navbar desktop-nav" :class="{ 'navbar--collapsed': !desktopOpen }">
 
-    <!-- Left: Breadcrumb -->
+    <!-- Left: Sidebar toggle + Breadcrumb -->
     <div class="navbar__left">
+      <button class="navbar__sidebar-toggle" @click="toggleDesktopSidebar" aria-label="Toggle sidebar"></button>
       <div class="breadcrumb">
         <span class="breadcrumb__parent">{{ pageTitle }}</span>
         <span class="breadcrumb__sep">/</span>
@@ -329,7 +330,7 @@ import { useSidebar } from '../../composables/useSidebar.js'
 
 const route  = useRoute()
 const router = useRouter()
-const { sidebarOpen, desktopOpen, toggleSidebar, closeSidebar } = useSidebar()
+const { sidebarOpen, desktopOpen, toggleSidebar, closeSidebar, toggleDesktopSidebar } = useSidebar()
 
 const bottomNavItems = [
   { route: '/',             icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
@@ -909,6 +910,28 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 
 @media (min-width: 769px) {
   .navbar--collapsed { left: 0; }
+}
+
+/* ── Sidebar toggle button in navbar (desktop/tablet only) ── */
+.navbar__sidebar-toggle {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .navbar__sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #e2e2e2 0%, #111111 100%);
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 12px;
+    outline: none;
+  }
 }
 @media (max-width: 1024px) and (min-width: 769px) {
   .navbar__search { width: 240px; }
