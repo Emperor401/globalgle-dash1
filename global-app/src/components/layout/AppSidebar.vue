@@ -502,7 +502,6 @@ function logout() {
   background: #ffffff;
   pointer-events: none;
   z-index: 200;
-  animation: indicator-pulse 2s ease-in-out infinite;
 }
 
 .nav-item__icon {
