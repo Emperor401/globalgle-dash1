@@ -279,7 +279,7 @@ function unlock() {
 /* Footer */
 .auth-footer {
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.75);
   margin: 0;
   letter-spacing: 0.03em;
 }
