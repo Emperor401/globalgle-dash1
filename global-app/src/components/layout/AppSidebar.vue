@@ -10,7 +10,7 @@
     <div v-if="sidebarOpen" class="sidebar-backdrop" @click="closeSidebar"/>
   </Transition>
 
-  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen }">
+  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen }" ref="sidebarEl">
 
     <!-- Logo -->
     <div class="sidebar__logo">
@@ -186,11 +186,14 @@
 
     </div><!-- end sidebar__scroll -->
 
+    <!-- Scrollbar-rail active indicator -->
+    <div class="nav-indicator" :style="indicatorStyle"></div>
+
   </aside>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import whiteLogo from '../../assets/white.jpeg'
 import cartnLogo from '../../assets/cartn.png'
@@ -202,8 +205,38 @@ const route  = useRoute()
 
 /* Reset sidebar scroll to top on every route change */
 const scrollEl = ref(null)
+const sidebarEl = ref(null)
+const indicatorStyle = ref({ top: '0px', height: '32px', opacity: '0', transition: 'top 0.25s ease, opacity 0.2s ease' })
+
+function updateIndicator() {
+  const activeItem = document.querySelector('.nav-item--active')
+  const sidebar = sidebarEl.value
+  if (!activeItem || !sidebar) {
+    indicatorStyle.value = { ...indicatorStyle.value, opacity: '0' }
+    return
+  }
+  const itemRect = activeItem.getBoundingClientRect()
+  const sidebarRect = sidebar.getBoundingClientRect()
+  indicatorStyle.value = {
+    top: `${itemRect.top - sidebarRect.top}px`,
+    height: `${itemRect.height}px`,
+    opacity: '1',
+    transition: 'top 0.25s ease, opacity 0.2s ease',
+  }
+}
+
 watch(() => route.path, () => {
   if (scrollEl.value) scrollEl.value.scrollTop = 0
+  nextTick(updateIndicator)
+})
+
+onMounted(() => {
+  nextTick(updateIndicator)
+  scrollEl.value?.addEventListener('scroll', updateIndicator)
+})
+
+onUnmounted(() => {
+  scrollEl.value?.removeEventListener('scroll', updateIndicator)
 })
 
 function goUpgrade() {
@@ -463,21 +496,40 @@ function logout() {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 8px rgba(0,0,0,0.25);
 }
 
-.nav-item--active::after {
-  content: '';
+.nav-indicator {
   position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 0;
   width: 3px;
-  height: 50%;
-  background: rgba(255, 255, 255, 0.95);
   border-radius: 999px;
+  background: #ffffff;
+  pointer-events: none;
   z-index: 200;
+  animation: indicator-pulse 2s ease-in-out infinite;
   box-shadow:
-    0 0 6px 3px rgba(255, 255, 255, 0.60),
-    0 0 18px 7px rgba(255, 255, 255, 0.22),
-    0 0 35px 12px rgba(255, 255, 255, 0.09);
+    0 0 4px 2px rgba(255, 255, 255, 1),
+    0 0 12px 5px rgba(255, 255, 255, 0.85),
+    0 0 24px 10px rgba(255, 255, 255, 0.55),
+    0 0 48px 18px rgba(255, 255, 255, 0.25),
+    0 0 80px 28px rgba(255, 255, 255, 0.10);
+}
+
+@keyframes indicator-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 4px 2px rgba(255, 255, 255, 1),
+      0 0 12px 5px rgba(255, 255, 255, 0.85),
+      0 0 24px 10px rgba(255, 255, 255, 0.55),
+      0 0 48px 18px rgba(255, 255, 255, 0.25),
+      0 0 80px 28px rgba(255, 255, 255, 0.10);
+  }
+  50% {
+    box-shadow:
+      0 0 6px 3px rgba(255, 255, 255, 1),
+      0 0 18px 8px rgba(255, 255, 255, 0.95),
+      0 0 36px 15px rgba(255, 255, 255, 0.70),
+      0 0 65px 25px rgba(255, 255, 255, 0.35),
+      0 0 100px 40px rgba(255, 255, 255, 0.15);
+  }
 }
 
 .nav-item__icon {
