@@ -56,13 +56,13 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const visible   = ref(false)
 const timerPct  = ref(100)
 
-let showInterval  = null
+let showTimer     = null
 let countInterval = null
 let countSeconds  = 0
-const INTERVAL_MS = 240_000  // show every 4 minutes
-const DISPLAY_MS  = 15_000   // auto-dismiss after 15 s of inactivity
+const DISPLAY_MS  = 15_000
 
 function show() {
+  if (sessionStorage.getItem('community_modal_seen')) return
   visible.value  = true
   timerPct.value = 100
   countSeconds   = 0
@@ -77,6 +77,7 @@ function show() {
 function dismiss() {
   visible.value = false
   clearInterval(countInterval)
+  sessionStorage.setItem('community_modal_seen', '1')
 }
 
 function join() {
@@ -85,12 +86,13 @@ function join() {
 }
 
 onMounted(() => {
-  // First show after 1 minute, then every minute
-  showInterval = setInterval(show, INTERVAL_MS)
+  if (!sessionStorage.getItem('community_modal_seen')) {
+    showTimer = setTimeout(show, 60_000)
+  }
 })
 
 onBeforeUnmount(() => {
-  clearInterval(showInterval)
+  clearTimeout(showTimer)
   clearInterval(countInterval)
 })
 </script>
