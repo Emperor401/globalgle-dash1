@@ -459,7 +459,8 @@ function logout() {
   transition: all 0.22s ease;
   position: relative;
   border: 1px solid transparent;
-  width: 100%;
+  width: calc(100% - 16px);
+  margin: 0 8px;
 }
 
 .nav-item:hover {
