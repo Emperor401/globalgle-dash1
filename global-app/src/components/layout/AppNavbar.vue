@@ -8,7 +8,7 @@
 
     <!-- Left: Sidebar toggle + Breadcrumb -->
     <div class="navbar__left">
-      <button class="navbar__sidebar-toggle" @click="toggleDesktopSidebar" aria-label="Toggle sidebar"></button>
+      <button v-if="!desktopOpen" class="navbar__sidebar-toggle" @click="toggleDesktopSidebar" aria-label="Open sidebar"></button>
       <div class="breadcrumb">
         <span class="breadcrumb__parent">{{ pageTitle }}</span>
         <span class="breadcrumb__sep">/</span>
