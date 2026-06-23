@@ -497,7 +497,7 @@ function logout() {
 .nav-indicator {
   position: absolute;
   right: 1px;
-  width: 3px;
+  width: 2px;
   border-radius: 999px;
   background: #ffffff;
   pointer-events: none;
