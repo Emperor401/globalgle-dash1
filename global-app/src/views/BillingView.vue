@@ -89,38 +89,22 @@
       </div>
     </div>
 
-    <!-- Switch plan section -->
+    <!-- Choose plan header -->
     <div class="bill-switch-hdr">
       <div>
-        <h2 class="bill-switch-title">Switch plan</h2>
-        <p class="bill-switch-sub">
-          On <strong style="color:var(--t1)">{{ currentPlan }}</strong>.
-          Upgrade charges immediately.
-          <span style="color:#60a5fa">Downgrade is queued and starts when your current plan ends.</span>
-        </p>
+        <h2 class="bill-switch-title">Choose a plan</h2>
+        <p class="bill-switch-sub">Cancel or change anytime.</p>
       </div>
-      <div class="bill-switch-actions">
-        <!-- Billing cycle toggle -->
-        <div class="bill-cycle-toggle">
-          <button :class="['bill-cycle-btn', { 'bill-cycle-btn--active': cycle === 'monthly' }]"
-            @click="cycle = 'monthly'">Monthly</button>
-          <button :class="['bill-cycle-btn', { 'bill-cycle-btn--active': cycle === 'annual' }]"
-            @click="cycle = 'annual'">
-            Annual
-            <span class="bill-cycle-save">Save 20%</span>
-          </button>
-        </div>
-        <button class="bill-redeem-btn" @click="showRedeem = true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <rect x="2" y="7" width="20" height="14" rx="2"/>
-            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-            <line x1="12" y1="12" x2="12" y2="16"/>
-            <line x1="10" y1="14" x2="14" y2="14"/>
-          </svg>
-          Redeem code
-        </button>
-      </div>
+      <button class="bill-redeem-btn" @click="showRedeem = true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          <line x1="12" y1="12" x2="12" y2="16"/>
+          <line x1="10" y1="14" x2="14" y2="14"/>
+        </svg>
+        Redeem code
+      </button>
     </div>
 
     <!-- Plan cards -->
@@ -131,21 +115,36 @@
           { 'bill-plan-card--popular': plan.popular },
         ]">
 
-        <!-- Popular badge -->
-        <div v-if="plan.popular" class="bill-plan-popular">Most Popular</div>
+        <!-- Trial badge -->
+        <div v-if="plan.trial" class="bill-plan-trial-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          1-day trial
+        </div>
 
-        <!-- Plan name + price -->
+        <!-- Popular badge -->
+        <div v-if="plan.popular" class="bill-plan-popular">Most popular</div>
+
+        <!-- Plan name -->
+        <span class="bill-plan-name">{{ plan.id }}</span>
+
+        <!-- Per-card Monthly / Quarterly toggle -->
+        <div class="bill-card-cycle">
+          <button :class="['bill-card-cycle-btn', { 'bill-card-cycle-btn--on': planCycles[plan.id] === 'monthly' }]"
+            @click="planCycles[plan.id] = 'monthly'">Monthly</button>
+          <button :class="['bill-card-cycle-btn', { 'bill-card-cycle-btn--on': planCycles[plan.id] === 'quarterly' }]"
+            @click="planCycles[plan.id] = 'quarterly'">Quarterly</button>
+        </div>
+
+        <!-- Price -->
         <div class="bill-plan-head">
-          <span class="bill-plan-name">{{ plan.id }}</span>
           <div class="bill-plan-price-wrap">
-            <span class="bill-plan-price">{{ displayPrice(plan) }}</span>
-            <span class="bill-plan-period" v-if="plan.base > 0">
-              /{{ cycle === 'annual' ? 'yr' : 'mo' }}
-            </span>
+            <span class="bill-plan-price">₦{{ planPrice(plan).toLocaleString() }}</span>
+            <span class="bill-plan-period">/ month</span>
           </div>
-          <span v-if="cycle === 'annual' && plan.base > 0" class="bill-plan-saving">
-            Save ₦{{ annualSaving(plan).toLocaleString() }}/yr
-          </span>
+          <p v-if="plan.trial && planCycles[plan.id] === 'monthly'" class="bill-plan-trial-note">
+            1 day free, then ₦{{ plan.price.toLocaleString() }} for 30 days
+          </p>
         </div>
 
         <!-- Features -->
@@ -157,12 +156,25 @@
           </li>
         </ul>
 
-        <!-- Limits row -->
-        <div class="bill-plan-limits">
-          <div v-for="limit in plan.limits" :key="limit.label" class="bill-plan-limit">
-            <span class="bill-plan-limit-val">{{ limit.val }}</span>
-            <span class="bill-plan-limit-lbl">{{ limit.label }}</span>
+        <!-- Perks & discounts accordion -->
+        <div class="bill-perks" @click="perksOpen[plan.id] = !perksOpen[plan.id]">
+          <div class="bill-perks__row">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+              stroke-width="2" stroke-linecap="round">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            </svg>
+            <span>Perks &amp; discounts</span>
+            <span class="bill-perks__count">({{ plan.perks }})</span>
+            <svg class="bill-perks__caret" :style="{ transform: perksOpen[plan.id] ? 'rotate(180deg)' : 'none' }"
+              width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
           </div>
+          <Transition name="slide-down">
+            <p v-if="perksOpen[plan.id]" class="bill-perks__body">
+              Priority access, partner discounts, and exclusive Globalgle offers included with this plan.
+            </p>
+          </Transition>
         </div>
 
         <!-- CTA button -->
@@ -176,7 +188,7 @@
             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
-          {{ plan.id === currentPlan ? 'Current plan' : plan.id === 'Enterprise' ? 'Contact sales' : `Switch to ${plan.id}` }}
+          {{ plan.id === currentPlan ? 'Current plan' : plan.trial ? 'Start 1-day trial' : 'Choose this plan' }}
         </button>
       </div>
     </div>
@@ -304,7 +316,7 @@
               </div>
               <div class="bill-confirm-row">
                 <span>Amount due</span>
-                <strong style="color:#f05025">{{ displayPrice(confirmPlan) }}</strong>
+                <strong style="color:#f05025">₦{{ confirmPlan ? planPrice(confirmPlan).toLocaleString() : '' }}</strong>
               </div>
               <div class="bill-confirm-row">
                 <span>Billing cycle</span>
@@ -353,15 +365,16 @@
 import { ref, computed } from 'vue'
 
 /* ── State ── */
-const currentPlan = ref('Starter')
+const currentPlan = ref('Basic')
 const renewDate   = ref('6/14/2026')
 const autoRenew   = ref(false)
-const cycle       = ref('monthly')
 const showHistory = ref(false)
 const showRedeem  = ref(false)
 const redeemCode  = ref('')
 const confirmPlan = ref(null)
 const toast       = ref(null)
+const planCycles  = ref({ Basic: 'monthly', Standard: 'monthly', Premium: 'monthly' })
+const perksOpen   = ref({ Basic: false, Standard: false, Premium: false })
 
 const daysLeft = computed(() => {
   const renew = new Date('2026-06-14')
@@ -372,84 +385,59 @@ const daysLeft = computed(() => {
 /* ── Plans ── */
 const plans = [
   {
-    id: 'Starter', base: 0, annualBase: 0, popular: false,
-    features: ['Email Composer', 'Support Pages', 'Tracking Pages', 'Online Banking', 'Pay-as-you-go SMS', 'Basic Analytics'],
-    limits: [
-      { val: '5', label: 'Emails/mo' },
-      { val: '0', label: 'SMS credits' },
-      { val: '0', label: 'Call mins' },
-      { val: '1', label: 'Website' },
+    id: 'Basic', price: 25000, quarterlyPrice: 21000, trial: true, popular: false, perks: 5,
+    features: [
+      'Support Pages', 'Online Banking', 'Broker', 'Tracking Pages',
+      'Crypto Receipts', 'Transactions Trackers', 'Wallet Funding',
     ],
   },
   {
-    id: 'Basic', base: 5000, annualBase: 4000, popular: false,
-    features: ['Everything in Starter', '500 Branded Emails/mo', '50 SMS Credits/mo', '10 Call Minutes/mo', '3 Websites', 'Priority Support'],
-    limits: [
-      { val: '500', label: 'Emails/mo' },
-      { val: '50',  label: 'SMS credits' },
-      { val: '10',  label: 'Call mins' },
-      { val: '3',   label: 'Websites' },
+    id: 'Standard', price: 35000, quarterlyPrice: 29000, trial: false, popular: true, perks: 6,
+    features: [
+      'Support Pages', 'Online Banking', 'Broker', 'Tracking Pages',
+      'Crypto Receipts', 'Transactions Trackers', 'Bank Receipt',
+      'Crypto Mails', 'Crypto Bills Mails', 'Bank Mailer',
+      'Wallet Funding', 'SMS Sender', 'Buy Account',
     ],
   },
   {
-    id: 'Professional', base: 15000, annualBase: 12000, popular: true,
-    features: ['Everything in Basic', '5,000 Branded Emails/mo', '500 SMS Credits/mo', '60 Call Minutes/mo', '10 Websites', 'Custom Sender IDs', 'Advanced Analytics', '24/7 Support'],
-    limits: [
-      { val: '5K',  label: 'Emails/mo' },
-      { val: '500', label: 'SMS credits' },
-      { val: '60',  label: 'Call mins' },
-      { val: '10',  label: 'Websites' },
-    ],
-  },
-  {
-    id: 'Enterprise', base: 50000, annualBase: 40000, popular: false,
-    features: ['Everything in Professional', 'Unlimited Emails', 'Unlimited SMS', '300 Call Minutes/mo', 'Unlimited Websites', 'Dedicated Account Manager', 'SLA Guarantee', 'White-label Options'],
-    limits: [
-      { val: '∞',   label: 'Emails/mo' },
-      { val: '∞',   label: 'SMS credits' },
-      { val: '300', label: 'Call mins' },
-      { val: '∞',   label: 'Websites' },
+    id: 'Premium', price: 50000, quarterlyPrice: 42000, trial: false, popular: false, perks: 8,
+    features: [
+      'Support Pages', 'Online Banking', 'Broker', 'Tracking Pages',
+      'Wallet Funding', 'SMS Sender', 'Buy Account', 'Crypto Mails',
+      'Crypto Bills Mails', 'Email Composer', 'Bank Mailer',
+      'Crypto Receipts', 'Transactions Trackers', 'Bank Receipt',
     ],
   },
 ]
 
 /* ── Billing history ── */
 const billingHistory = ref([
-  { id: 1, type: 'renew',   description: 'Starter plan activated',       date: 'Jun 9, 2026',  amount: 0,     status: 'completed' },
+  { id: 1, type: 'renew',   description: 'Basic plan activated',          date: 'Jun 9, 2026',  amount: 5000,  status: 'completed' },
 ])
 
 /* ── FAQ ── */
 const notes = ref([
   { q: 'When am I charged for an upgrade?',    a: 'Upgrades are charged immediately from your wallet balance. Ensure you have sufficient funds before switching.',                          open: false },
   { q: 'How does downgrading work?',           a: 'Downgrades are queued. Your current plan remains active until it expires, then the new lower plan takes effect on renewal.',                open: false },
-  { q: 'What happens when my plan expires?',   a: 'If auto-renew is off and your plan expires, you fall back to Starter (free). No features are lost permanently — just re-upgrade anytime.', open: false },
+  { q: 'What happens when my plan expires?',   a: 'If auto-renew is off and your plan expires, your account is paused until you renew. No data is lost — just re-activate anytime.',           open: false },
   { q: 'Can I cancel anytime?',                a: 'Yes. Turn off auto-renew and your plan will expire at the end of the current billing period without charging you again.',                    open: false },
 ])
 
 /* ── Computed ── */
-function displayPrice(plan) {
-  if (!plan) return ''
-  if (plan.base === 0) return 'Free'
-  const p = cycle.value === 'annual' ? plan.annualBase * 12 : plan.base
-  return `₦${p.toLocaleString()}`
-}
-
-function annualSaving(plan) {
-  return (plan.base - plan.annualBase) * 12
+function planPrice(plan) {
+  if (!plan) return 0
+  return planCycles.value[plan.id] === 'quarterly' ? plan.quarterlyPrice : plan.price
 }
 
 function isPaidUpgrade(plan) {
   if (!plan) return false
-  return plan.base > 0
+  return plan.price > 0
 }
 
 /* ── Methods ── */
 function switchPlan(plan) {
   if (plan.id === currentPlan.value) return
-  if (plan.id === 'Enterprise') {
-    showToast('info', 'Contact our sales team for Enterprise pricing.')
-    return
-  }
   confirmPlan.value = plan
 }
 
@@ -459,10 +447,10 @@ function confirmSwitch() {
 
   billingHistory.value.unshift({
     id:          Date.now(),
-    type:        plan.base > (plans.find(p => p.id === currentPlan.value)?.base ?? 0) ? 'upgrade' : 'downgrade',
+    type:        plan.price > (plans.find(p => p.id === currentPlan.value)?.price ?? 0) ? 'upgrade' : 'downgrade',
     description: `Switched from ${currentPlan.value} to ${plan.id}`,
     date:        new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-    amount:      cycle.value === 'annual' ? plan.annualBase * 12 : plan.base,
+    amount:      planPrice(plan),
     status:      'completed',
   })
 
@@ -605,7 +593,7 @@ function showToast(type, msg) {
 /* ── Plan cards grid ── */
 .bill-plans-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   align-items: start;
 }
@@ -628,7 +616,7 @@ function showToast(type, msg) {
 
 .bill-plan-popular {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(90deg, #f05025, #16a34a);
+  background: #f05025;
   color: #fff; font-size: 0.6rem; font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.09em;
   padding: 3px 12px; border-radius: 999px; white-space: nowrap;
@@ -657,15 +645,48 @@ function showToast(type, msg) {
   font-size: 0.77rem; color: var(--t2); line-height: 1.4;
 }
 
-/* limits row */
-.bill-plan-limits {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-  padding: 14px; border-radius: 12px;
-  background: rgba(255,255,255,.03); border: 1px solid var(--border-soft);
+/* ── Trial badge ── */
+.bill-plan-trial-badge {
+  position: absolute; top: -12px; left: 20px;
+  display: flex; align-items: center; gap: 5px;
+  background: #f05025; color: #fff;
+  font-size: 0.62rem; font-weight: 800;
+  padding: 3px 11px; border-radius: 999px;
 }
-.bill-plan-limit { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.bill-plan-limit-val { font-size: 0.95rem; font-weight: 800; color: var(--t1); }
-.bill-plan-limit-lbl { font-size: 0.6rem; color: var(--t3); text-transform: uppercase; letter-spacing: 0.06em; text-align: center; }
+.bill-plan-trial-note {
+  font-size: 0.72rem; color: var(--t3); margin: 4px 0 0; line-height: 1.4;
+}
+
+/* ── Per-card cycle toggle ── */
+.bill-card-cycle {
+  display: flex; gap: 4px;
+  background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
+  border-radius: 8px; padding: 3px; width: fit-content;
+}
+.bill-card-cycle-btn {
+  background: none; border: none; border-radius: 6px;
+  padding: 5px 13px; font-size: 0.72rem; font-weight: 600;
+  color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.16s;
+}
+.bill-card-cycle-btn--on {
+  background: #f05025; color: #fff;
+}
+
+/* ── Perks accordion ── */
+.bill-perks {
+  border: 1px solid var(--border-soft); border-radius: 10px;
+  padding: 10px 13px; cursor: pointer; transition: border-color 0.18s;
+}
+.bill-perks:hover { border-color: rgba(240,80,37,.3); }
+.bill-perks__row {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 0.75rem; font-weight: 600; color: var(--t2);
+}
+.bill-perks__count { color: var(--t3); }
+.bill-perks__caret { margin-left: auto; color: var(--t3); transition: transform 0.2s; }
+.bill-perks__body {
+  font-size: 0.72rem; color: var(--t3); margin: 8px 0 0; line-height: 1.55;
+}
 
 /* plan button */
 .bill-plan-btn {
@@ -787,7 +808,7 @@ function showToast(type, msg) {
   font-size: 0.88rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
-.bill-redeem-apply:hover:not(:disabled) { background: #16a34a; }
+.bill-redeem-apply:hover:not(:disabled) { background: #ff6a3d; }
 .bill-redeem-apply:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* confirm */
@@ -819,7 +840,7 @@ function showToast(type, msg) {
   color: #fff; cursor: pointer; font-family: inherit;
   font-size: 0.84rem; font-weight: 800; transition: background 0.2s;
 }
-.bill-confirm-ok:hover { background: #16a34a; }
+.bill-confirm-ok:hover { background: #ff6a3d; }
 
 /* ── Toast ── */
 .toast-up-enter-active, .toast-up-leave-active { transition: all 0.3s ease; }

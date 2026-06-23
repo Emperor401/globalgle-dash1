@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -186,8 +186,8 @@ button, input, textarea, select { font-family: 'Space Grotesk', sans-serif; font
 
 @media (max-width: 768px) {
 
-  /* ── Base font boost ── */
-  html { font-size: 20px; }
+  /* ── Base font scale for mobile ── */
+  html { font-size: 13px; }
 
   /* ── Global card / box padding reduction (all pages) ── */
   .tool-card, .service-card, .gen-card, .cc-card, .cc-pair-card,
@@ -267,7 +267,7 @@ button, input, textarea, select { font-family: 'Space Grotesk', sans-serif; font
 }
 
 @media (max-width: 480px) {
-  html { font-size: 19px; }
+  html { font-size: 12px; }
 
   .tool-card, .service-card, .gen-card, .cc-card, .cc-pair-card,
   .sms-form-card, .sc-form-card, .sc-recent-card,

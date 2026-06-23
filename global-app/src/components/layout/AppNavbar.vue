@@ -475,7 +475,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
    ══════════════════════════════ */
 .navbar {
   position: fixed;
-  top: 0; left: 220px; right: 0;
+  top: 0; left: 260px; right: 0;
   height: 64px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -901,7 +901,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
    RESPONSIVE: show/hide
    ══════════════════════════════ */
 @media (max-width: 1366px) and (min-width: 769px) {
-  .navbar { padding: 0 18px; left: 210px; }
+  .navbar { padding: 0 18px; left: 245px; }
   .navbar__search { width: 280px; }
   .navbar__search:focus-within { width: 320px; }
 }

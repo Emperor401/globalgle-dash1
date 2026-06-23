@@ -1,4 +1,4 @@
-<!-- src/components/layout/AppLayout.vue -->
+﻿<!-- src/components/layout/AppLayout.vue -->
 <template>
   <div class="app-layout">
     <PageLoader />
@@ -32,7 +32,7 @@ import ToastContainer from '../ui/ToastContainer.vue'
 }
 
 .app-layout__main {
-  margin-left: 220px;
+  margin-left: 260px;
   min-height: 100vh;
   position: relative;
 }
@@ -44,7 +44,7 @@ import ToastContainer from '../ui/ToastContainer.vue'
 }
 
 @media (max-width: 1366px) and (min-width: 769px) {
-  .app-layout__main  { margin-left: 210px; }
+  .app-layout__main  { margin-left: 245px; }
   .app-layout__content { padding: 76px 18px 24px; }
 }
 @media (max-width: 768px) {

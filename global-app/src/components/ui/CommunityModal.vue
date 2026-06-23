@@ -153,7 +153,7 @@ onBeforeUnmount(() => {
 }
 .modal-icon {
   width: 56px; height: 56px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), #14a04a);
+  background: var(--accent);
   display: flex; align-items: center; justify-content: center;
   position: relative; z-index: 1;
 }
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
 .btn-join {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; padding: 13px 24px;
-  background: linear-gradient(135deg, var(--accent), #14a04a);
+  background: var(--accent);
   border: none; border-radius: 12px;
   color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700;
   text-decoration: none; cursor: pointer;

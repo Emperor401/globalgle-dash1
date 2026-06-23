@@ -233,7 +233,7 @@ function logout() {
 <style scoped>
 /* ── Shell ── */
 .sidebar {
-  width: 220px;
+  width: 260px;
   height: 100vh;
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
@@ -262,10 +262,10 @@ function logout() {
 
 /* ── Tablet — 769px–1366px (iPad Mini → iPad Pro 13") ── */
 @media (min-width: 769px) and (max-width: 1366px) {
-  .sidebar        { width: 210px; }
-  .sidebar__group { padding: 18px 12px 4px; }
-  .nav-item       { padding: 10px 9px; }
-  .nav-item__label { font-size: 0.82rem; }
+  .sidebar        { width: 245px; }
+  .sidebar__group { padding: 18px 14px 4px; }
+  .nav-item       { padding: 10px 11px; }
+  .nav-item__label { font-size: 0.84rem; }
   .sidebar__nav   { gap: 3px; }
 }
 
@@ -513,7 +513,6 @@ function logout() {
   font-size: 0.845rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.88);
-  flex: 1;
   transition: color 0.2s ease;
 }
 

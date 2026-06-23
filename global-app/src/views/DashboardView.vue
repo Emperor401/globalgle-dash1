@@ -9,7 +9,7 @@
     <div class="hero">
       <p class="hero__lbl">Total Balance</p>
       <div class="hero__row">
-        <h1 class="hero__amt">$260,375<span class="hero__dec">.03</span></h1>
+        <h1 class="hero__amt">₦260,375<span class="hero__dec">.03</span></h1>
         <span class="hero__badge">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
           +24%
@@ -23,7 +23,7 @@
         </span>
         <span class="hero__split-item">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg>
-          USD: $0.00
+          USD: ₦0.00
           <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </span>
       </div>
@@ -34,15 +34,15 @@
           </svg>
           Add Funds
         </button>
-        <button class="ha" @click="router.push('/transactions')">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        <button class="ha" @click="router.push('/customers')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
           </svg>
-          Transfer
+          Mailing
         </button>
-        <button class="ha" @click="router.push('/digital')">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+        <button class="ha ha--green" @click="router.push('/digital')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
           </svg>
           Digital
         </button>
@@ -125,7 +125,7 @@
           </div>
         </div>
         <div class="chart-body" @mouseleave="onChartLeave">
-          <svg ref="chartSvgRef" viewBox="0 0 400 140" preserveAspectRatio="none" class="chart-svg" style="height:160px"
+          <svg ref="chartSvgRef" viewBox="0 0 400 140" preserveAspectRatio="none" class="chart-svg" style="height:120px"
             @mousemove="onChartMove">
             <!-- Red line (spendings) -->
             <path :d="line2Path" fill="none" stroke="rgba(220,38,38,0.85)" stroke-width="2"
@@ -273,11 +273,11 @@
               <span class="snode-amt">260,375</span>
             </div>
             <div class="snode snode--sm">
-              <span class="snode-sym">$</span><span class="snode-lbl">USD</span>
+              <span class="snode-sym">₦</span><span class="snode-lbl">USD</span>
               <span class="snode-amt">0.00</span>
             </div>
             <div class="snode snode--sm">
-              <span class="snode-sym">€</span><span class="snode-lbl">EUR</span>
+              <span class="snode-sym">₦</span><span class="snode-lbl">EUR</span>
               <span class="snode-amt">0.00</span>
             </div>
           </div>
@@ -305,11 +305,11 @@
           <!-- Right nodes -->
           <div class="sankey-col sankey-col--right">
             <div class="snode snode--sm">
-              <span class="snode-sym">$</span><span class="snode-lbl">USD</span>
+              <span class="snode-sym">₦</span><span class="snode-lbl">USD</span>
               <span class="snode-amt">0.00</span>
             </div>
             <div class="snode snode--sm">
-              <span class="snode-sym">€</span><span class="snode-lbl">EUR</span>
+              <span class="snode-sym">₦</span><span class="snode-lbl">EUR</span>
               <span class="snode-amt">0.00</span>
             </div>
             <div class="snode snode--sm">
@@ -499,11 +499,11 @@ const currencies = [
     route: '/wallet',
     spark:'0,22 10,18 20,20 30,15 40,13 50,10 60,7 70,5 80,11',
     area:'M0,22 L10,18 L20,20 L30,15 L40,13 L50,10 L60,7 L70,5 L80,11 L80,28 L0,28 Z' },
-  { code:'USD', sym:'$', amt:'$0.00', chg:'+0.00%', up:true,
+  { code:'USD', sym:'₦', amt:'₦0.00', chg:'+0.00%', up:true,
     route: '/tools/currency',
     spark:'0,18 10,17 20,18 30,18 40,17 50,18 60,18 70,17 80,18',
     area:'M0,18 L10,17 L20,18 L30,18 L40,17 L50,18 L60,18 L70,17 L80,18 L80,28 L0,28 Z' },
-  { code:'EUR', sym:'€', amt:'€0.00', chg:'-0.02%', up:false,
+  { code:'EUR', sym:'₦', amt:'₦0.00', chg:'-0.02%', up:false,
     route: '/tools/currency',
     spark:'0,10 10,12 20,13 30,16 40,17 50,19 60,21 70,23 80,25',
     area:'M0,10 L10,12 L20,13 L30,16 L40,17 L50,19 L60,21 L70,23 L80,25 L80,28 L0,28 Z' },
@@ -528,7 +528,7 @@ const dots = [
 @keyframes up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.75)} }
 
-.dash { display:flex; flex-direction:column; gap:14px; }
+.dash { display:flex; flex-direction:column; gap:10px; }
 
 /* ══════════════════════════════════
    SHARED CARD BASE
@@ -539,11 +539,11 @@ const dots = [
   -webkit-backdrop-filter: blur(60px) saturate(160%) brightness(0.80);
   border: 1px solid rgba(255,255,255,0.16);
   box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 20px 22px;
+  border-radius: 14px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   transition: border-color .22s, background .22s;
 }
 .card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
@@ -579,7 +579,7 @@ const dots = [
 }
 
 .hero__amt {
-  font-size: 2.7rem;
+  font-size: 2.1rem;
   font-weight: 800;
   color: rgba(255,255,255,0.97);
   letter-spacing: -0.04em;
@@ -660,7 +660,7 @@ const dots = [
   color: #000;
   font-weight: 700;
 }
-.ha--green:hover { background: #1db54f; border-color: #1db54f; }
+.ha--green:hover { background: #ff6a3d; border-color: #ff6a3d; }
 
 /* ══════════════════════════════════
    CURRENCY CARDS — separate row
@@ -808,7 +808,7 @@ const dots = [
 .chart-row {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 14px;
+  gap: 10px;
   animation: up .5s cubic-bezier(.4,0,.2,1) .2s both;
 }
 
@@ -831,7 +831,7 @@ const dots = [
 }
 
 .card__val {
-  font-size: 1.7rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: rgba(255,255,255,0.95);
   letter-spacing: -0.03em;
@@ -989,7 +989,7 @@ const dots = [
   display: flex;
   align-items: flex-end;
   gap: 8px;
-  height: 150px;
+  height: 110px;
 }
 
 .bar-col {
@@ -1052,14 +1052,14 @@ const dots = [
 .bot-row {
   display: grid;
   grid-template-columns: 1fr 1fr 0.75fr;
-  gap: 14px;
+  gap: 10px;
   animation: up .5s cubic-bezier(.4,0,.2,1) .28s both;
 }
 
 /* Compact padding for all bottom cards */
 .bot-activity, .bot-sankey, .bot-cashflow {
-  padding: 14px 16px;
-  gap: 10px;
+  padding: 11px 13px;
+  gap: 8px;
 }
 
 .bot-head { display: flex; align-items: flex-start; justify-content: space-between; }
@@ -1107,7 +1107,7 @@ const dots = [
 
 /* ── Sankey (Total Assets) ── */
 .sankey-val {
-  font-size: 1.45rem; font-weight: 800;
+  font-size: 1.15rem; font-weight: 800;
   color: rgba(255,255,255,0.95); letter-spacing: -0.03em; line-height: 1;
 }
 
@@ -1116,9 +1116,9 @@ const dots = [
   display: flex;
   align-items: center;
   gap: 0;
-  min-height: 100px;
-  max-height: 140px;
-  margin-top: 12px;
+  min-height: 95px;
+  max-height: 130px;
+  margin-top: 18px;
 }
 
 .sankey-svg { flex: 1; width: 100%; height: 100%; min-height: 80px; display: block; }
@@ -1150,9 +1150,9 @@ const dots = [
 }
 
 .stat-val {
-  font-size: 1.5rem; font-weight: 800;
+  font-size: 1.2rem; font-weight: 800;
   color: rgba(255,255,255,0.95); letter-spacing: -0.03em; line-height: 1;
-  display: block; margin-top: 4px;
+  display: block; margin-top: 3px;
 }
 .stat-val--neg { color: #f87171; }
 
@@ -1190,37 +1190,64 @@ const dots = [
 }
 
 @media (max-width:768px) {
-  .hero__amt    { font-size: 2rem; }
-  .hero__dec    { font-size: 1.1rem; }
-  .ha           { padding: 9px 16px; font-size: 0.78rem; }
-  .bot-row      { grid-template-columns: 1fr; gap: 10px; }
-  .card         { padding: 16px; }
-  .sankey-wrap  { min-height: 130px; max-height: 160px; margin-top: 8px; }
-  .sankey-svg   { min-height: 120px; }
-  .snode--sm    { min-width: 46px; padding: 4px 6px; }
-  .snode-lbl    { font-size: 0.58rem; }
-  .snode-amt    { font-size: 0.52rem; }
-  .snode-amt2   { font-size: 0.72rem; }
-  .snode--accent { padding: 6px 8px; }
-}
+  .dash         { gap: 8px; }
+  .card         { padding: 10px 12px; border-radius: 12px; gap: 8px; }
+  .hero__amt    { font-size: 1.55rem; }
+  .hero__dec    { font-size: 0.9rem; }
+  .hero__row    { gap: 8px; margin-bottom: 6px; }
+  .hero__split  { gap: 10px; margin-bottom: 10px; }
+  .hero__actions { gap: 6px; }
+  .ha           { padding: 7px 12px; font-size: 0.72rem; gap: 4px; border-radius: 8px; }
+  .card__val    { font-size: 1.05rem; }
 
-@media (max-width:600px) {
-  .hero__amt  { font-size: 1.75rem; }
-  .hero__dec  { font-size: 0.98rem; }
-  .ha         { padding: 8px 14px; font-size: 0.75rem; gap: 5px; }
-  .card       { padding: 14px 14px; }
+  /* currency row — scrollable, smaller cards */
+  .cur-row      { gap: 8px; }
+  .cur          { flex: 0 0 130px; width: 130px; padding: 9px 10px 8px; border-radius: 10px; }
+  .cur__amt     { font-size: 1rem; }
+
+  /* charts stacked */
+  .chart-row    { grid-template-columns: 1fr; gap: 8px; }
+  .chart-svg    { height: 90px !important; }
+  .chart-xlabels span { font-size: 0.5rem; }
+  .bars-wrap    { height: 80px; }
+
+  /* bottom row stacked */
+  .bot-row      { grid-template-columns: 1fr; gap: 8px; }
+  .bot-activity, .bot-sankey, .bot-cashflow { padding: 10px 12px; gap: 6px; }
+
+  /* sankey — bigger on mobile */
+  .sankey-val    { font-size: 1.1rem; }
+  .sankey-wrap   { min-height: 130px; max-height: 170px; margin-top: 14px; }
+  .sankey-svg    { min-height: 110px; }
+  .sankey-col    { gap: 10px; }
+  .snode--sm     { min-width: 58px; padding: 6px 9px; border-radius: 9px; }
+  .snode-sym     { font-size: 0.62rem; }
+  .snode-lbl     { font-size: 0.72rem; }
+  .snode-amt     { font-size: 0.65rem; }
+  .snode-amt2    { font-size: 1rem; }
+  .snode--accent { padding: 10px 13px; border-radius: 10px; }
+
+  /* net cashflow */
+  .stat-val      { font-size: 1rem; }
+  .stat-lbl      { font-size: 0.58rem; }
+  .dot-grid      { gap: 4px; }
+
+  /* activity */
+  .act-icon     { width: 26px; height: 26px; }
+  .act-name     { font-size: 0.7rem; }
+  .act-amt      { font-size: 0.7rem; }
 }
 
 @media (max-width:430px) {
-  .hero__amt  { font-size: 1.5rem; }
-  .hero__dec  { font-size: 0.88rem; }
-  .ha         { padding: 7px 12px; font-size: 0.72rem; }
-}
-
-@media (max-width:360px) {
-  .hero__amt  { font-size: 1.3rem; }
-  .hero__dec  { font-size: 0.8rem; }
-  .card       { padding: 12px 12px; }
+  .hero__amt   { font-size: 1.3rem; }
+  .hero__dec   { font-size: 0.8rem; }
+  .cur         { flex: 0 0 115px; width: 115px; }
+  .card        { padding: 9px 10px; }
+  .sankey-wrap { min-height: 115px; max-height: 150px; }
+  .snode--sm   { min-width: 50px; padding: 5px 7px; }
+  .snode-lbl   { font-size: 0.65rem; }
+  .snode-amt   { font-size: 0.58rem; }
+  .snode-amt2  { font-size: 0.9rem; }
 }
 
 </style>

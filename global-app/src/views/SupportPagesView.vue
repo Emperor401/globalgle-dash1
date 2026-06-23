@@ -824,7 +824,6 @@ function closeForm() {
   width: 18px; height: 18px; border-radius: 50%; background: #fff;
   transition: transform 0.22s ease;
   display: block;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.18) !important;
 }
 .toggle-switch--on .toggle-thumb { transform: translateX(20px); }
 
