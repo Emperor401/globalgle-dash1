@@ -775,7 +775,7 @@ function showToast(type, msg) {
 .bill-redeem-input {
   width: 100%; background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 13px 16px; font-size: 0.92rem; font-weight: 600;
-  color: var(--t1); font-family: 'Poppins', inherit; outline: none;
+  color: var(--t1); font-family: 'Plus Jakarta Sans', inherit; outline: none;
   transition: border-color 0.2s; text-transform: uppercase; letter-spacing: 0.05em;
   box-sizing: border-box;
 }

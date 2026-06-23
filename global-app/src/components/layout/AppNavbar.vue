@@ -516,7 +516,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .search-icon { width: 14px; height: 14px; color: rgba(255,255,255,0.32); flex-shrink: 0; }
 .navbar__search-input {
   background: transparent; border: none; outline: none;
-  font-family: 'Poppins', sans-serif; font-size: 0.8rem;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem;
   color: rgba(255,255,255,0.88); width: 100%;
 }
 .navbar__search-input::placeholder { color: rgba(255,255,255,0.28); }
@@ -533,7 +533,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border-radius: 5px;
   font-size: 0.6rem;
   color: rgba(255,255,255,0.3);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-style: normal;
 }
 .search-clear {
@@ -671,7 +671,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   width: 100%; padding: 9px 10px;
   border-radius: 10px; border: none;
   background: transparent; color: var(--t2);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.8rem; font-weight: 500;
   cursor: pointer; transition: background 0.15s; text-align: left;
 }

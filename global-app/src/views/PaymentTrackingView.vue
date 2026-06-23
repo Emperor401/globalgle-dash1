@@ -656,7 +656,7 @@ function generate() {
   width: 100%; padding: 9px 12px; border-radius: 9px;
   border: 1px solid var(--border-soft);
   background: rgba(255,255,255,0.06); color: var(--t1);
-  font-family: 'Poppins', sans-serif; font-size: 0.82rem;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .fi:focus { outline: none; border-color: #f05025; }
@@ -667,7 +667,7 @@ function generate() {
   width: 100%; padding: 9px 12px; border-radius: 9px;
   border: 1px solid var(--border-soft);
   background: rgba(255,255,255,0.06); color: var(--t1);
-  font-family: 'Poppins', sans-serif; font-size: 0.82rem;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem;
   resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
@@ -716,7 +716,7 @@ function generate() {
 .mode-pill {
   display: flex; align-items: center; gap: 5px; padding: 6px 14px;
   border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06);
-  color: var(--t2); font-family: 'Poppins', sans-serif; font-size: 0.75rem; font-weight: 600;
+  color: var(--t2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s;
 }
 .mode-pill--active { color: #fff; }
@@ -737,7 +737,7 @@ function generate() {
 .subdomain-hint .hl { color: #f05025; font-weight: 500; }
 .slug-row    { display: flex; gap: 8px; }
 .slug-input  { flex: 1; }
-.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1); font-family: 'Poppins', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
+.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
 .slug-domain:focus { outline: none; border-color: #f05025; }
 .slug-note { font-size: 0.72rem; color: var(--t2); margin: 0; }
 .slug-note .hl { color: #f05025; font-weight: 500; }
@@ -772,7 +772,7 @@ function generate() {
 .add-btn {
   font-size: 0.75rem; font-weight: 700; color: #f05025; background: rgba(240, 80, 37,0.1);
   border: 1px solid rgba(240, 80, 37,0.25); border-radius: 8px; padding: 5px 12px;
-  cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.18s; white-space: nowrap;
+  cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: background 0.18s; white-space: nowrap;
 }
 .add-btn:hover { background: rgba(240, 80, 37,0.18); }
 
@@ -785,7 +785,7 @@ function generate() {
 /* Generate button */
 .generate-btn {
   width: 100%; padding: 15px; border-radius: 12px; border: none; color: #fff;
-  font-family: 'Poppins', sans-serif; font-size: 0.92rem; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; font-weight: 700;
   cursor: pointer; transition: filter 0.2s, transform 0.18s;
   display: flex; align-items: center; justify-content: center; gap: 8px;
 }
@@ -935,7 +935,7 @@ function generate() {
 /* Live chat */
 .rp-chat-btn {
   width: 100%; padding: 11px; border-radius: 999px; border: none;
-  color: #fff; font-family: 'Poppins', sans-serif; font-size: 0.82rem; font-weight: 700;
+  color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 700;
   cursor: default; display: flex; align-items: center; justify-content: center; gap: 8px;
 }
 
@@ -949,7 +949,7 @@ function generate() {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  color: #fff; font-family: 'Poppins', sans-serif;
+  color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(0,0,0,0.3);
 }
 .toast-pop-enter-active { transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }

@@ -225,7 +225,7 @@ function onImgError(e) {
 .back-btn {
   display: flex; align-items: center; gap: 6px; padding: 7px 14px;
   border-radius: 8px; border: 1px solid var(--border-soft); background: var(--glass-2);
-  color: var(--t2); font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 600;
+  color: var(--t2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s, color 0.18s; flex-shrink: 0; margin-top: 4px;
 }
 .back-btn:hover { background: var(--glass-hover); color: var(--t1); }
@@ -315,7 +315,7 @@ function onImgError(e) {
 .fi {
   width: 100%; padding: 10px 14px; border-radius: 10px;
   border: 1px solid #e2e8f0; background: #fff;
-  color: #0f172a; font-family: 'Poppins', sans-serif; font-size: 0.82rem;
+  color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .fi:focus { outline: none; border-color: #94a3b8; }
@@ -324,7 +324,7 @@ function onImgError(e) {
 .fs {
   width: 100%; padding: 10px 14px; border-radius: 10px;
   border: 1px solid #e2e8f0; background: #fff;
-  color: #0f172a; font-family: 'Poppins', sans-serif; font-size: 0.82rem;
+  color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem;
   cursor: pointer; transition: border-color 0.18s;
 }
 .fs:focus { outline: none; border-color: #94a3b8; }
@@ -339,7 +339,7 @@ function onImgError(e) {
 /* Generate button */
 .generate-btn {
   width: 100%; padding: 14px; border-radius: 12px; border: none;
-  color: #fff; font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+  color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700;
   cursor: pointer; transition: opacity 0.2s, transform 0.18s;
   display: flex; align-items: center; justify-content: center; gap: 8px;
   filter: brightness(1);
@@ -359,7 +359,7 @@ function onImgError(e) {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #16a34a; color: #fff; font-family: 'Poppins', sans-serif;
+  background: #16a34a; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 

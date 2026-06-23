@@ -812,7 +812,7 @@ function closeAdminLogin() {
 <style scoped>
 .tp-page {
   min-height: 100vh; padding: 32px 28px 60px;
-  background: transparent; font-family: 'Poppins', sans-serif;
+  background: transparent; font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* ── Header ── */
@@ -861,7 +861,7 @@ function closeAdminLogin() {
 .tp-link-btn {
   display: flex; align-items: center; gap: 5px; padding: 5px 12px;
   border: 1px solid #e5e7eb; border-radius: 7px; background: #fff;
-  color: #6b7280; font-family: 'Poppins', sans-serif;
+  color: #6b7280; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.72rem; font-weight: 600; cursor: pointer; text-decoration: none;
   transition: all 0.18s; white-space: nowrap;
 }
@@ -877,7 +877,7 @@ function closeAdminLogin() {
 .tp-action-main {
   display: flex; align-items: center; gap: 6px; padding: 6px 12px;
   border: 1px solid #e5e7eb; border-radius: 8px; background: #fff;
-  color: #374151; font-family: 'Poppins', sans-serif;
+  color: #374151; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
   flex-shrink: 0;
 }
@@ -910,7 +910,7 @@ function closeAdminLogin() {
 .tp-fab__btn {
   display: flex; align-items: center; gap: 8px; padding: 11px 22px;
   background: #f05025; border: none; border-radius: 10px; color: #fff;
-  font-family: 'Poppins', sans-serif; font-size: 0.84rem; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 16px rgba(240, 80, 37,0.35);
 }
 .tp-fab__btn:hover { background: #16a34a; }
@@ -946,14 +946,14 @@ function closeAdminLogin() {
 /* ── Live chat section ── */
 .chat-toggle-hdr {
   display: flex; align-items: center; gap: 8px; background: none; border: none;
-  cursor: pointer; padding: 0; font-family: 'Poppins', sans-serif;
+  cursor: pointer; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.84rem; font-weight: 700; color: #111827;
 }
 .chat-toggle-hdr__arrow { font-size: 0.7rem; color: #6b7280; }
 .chat-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
 .chat-tab {
   padding: 6px 14px; border-radius: 8px; border: 1.5px solid #e5e7eb;
-  background: #fff; color: #374151; font-family: 'Poppins', sans-serif;
+  background: #fff; color: #374151; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
 }
 .chat-tab--active { background: #111827; color: #fff; border-color: #111827; }
@@ -969,7 +969,7 @@ function closeAdminLogin() {
 .modal {
   background: #fff; border-radius: 16px; width: 100%; max-width: 520px;
   max-height: 90vh; display: flex; flex-direction: column; overflow: hidden;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 .modal-head {
   display: flex; align-items: center; justify-content: space-between;
@@ -999,18 +999,18 @@ function closeAdminLogin() {
 .mf-label { display: block; font-size: 0.8rem; font-weight: 700; color: #374151; margin-bottom: 8px; }
 .mf-input {
   width: 100%; padding: 9px 12px; border: 1px solid #e5e7eb; border-radius: 8px;
-  font-family: 'Poppins', sans-serif; font-size: 0.84rem; color: #111827;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; color: #111827;
   background: #fff; outline: none; transition: border-color 0.18s;
 }
 .mf-input:focus { border-color: #f05025; }
 .mf-hint { font-size: 0.74rem; color: #9ca3af; }
 .mf-btn-cancel {
   padding: 9px 20px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 9px;
-  color: #374151; font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer;
+  color: #374151; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer;
 }
 .mf-btn-create {
   padding: 9px 22px; background: #f05025; border: none; border-radius: 9px;
-  color: #fff; font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 700;
+  color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
 }
 .mf-btn-create:hover { background: #16a34a; }
@@ -1036,7 +1036,7 @@ function closeAdminLogin() {
 .signin-toggle { display: flex; gap: 8px; }
 .signin-btn {
   flex: 1; padding: 9px; border: 1.5px solid #e5e7eb; border-radius: 9px;
-  background: #fff; color: #374151; font-family: 'Poppins', sans-serif;
+  background: #fff; color: #374151; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
 }
 .signin-btn--active { border-color: #f05025; color: #f05025; background: rgba(240, 80, 37,0.06); }
@@ -1070,9 +1070,9 @@ function closeAdminLogin() {
 .reach-desc  { font-size: 0.74rem; color: #6b7280; line-height: 1.5; }
 .reach-hint  { font-size: 0.7rem; color: #9ca3af; margin-top: 6px; }
 .subdomain-row    { display: flex; gap: 6px; }
-.subdomain-input  { flex: 1; padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 0.82rem; color: #111827; outline: none; }
+.subdomain-input  { flex: 1; padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; color: #111827; outline: none; }
 .subdomain-input:focus { border-color: #f05025; }
-.subdomain-select { padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 0.8rem; color: #374151; background: #fff; outline: none; }
+.subdomain-select { padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; color: #374151; background: #fff; outline: none; }
 
 /* ── Domain box ── */
 .domain-box { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
@@ -1083,14 +1083,14 @@ function closeAdminLogin() {
 .address-row  { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
 .address-value { font-size: 0.84rem; color: #111827; flex: 1; }
 .address-live  { font-size: 0.68rem; font-weight: 700; color: #f05025; background: rgba(240, 80, 37,0.08); padding: 2px 8px; border-radius: 999px; }
-.address-edit-btn { padding: 4px 12px; border: 1px solid #e5e7eb; border-radius: 7px; background: #fff; color: #374151; font-family: 'Poppins', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
-.address-edit-input { flex: 1; border: 1px solid #f05025; border-radius: 7px; padding: 5px 9px; font-size: 0.84rem; font-family: 'Poppins', sans-serif; outline: none; }
+.address-edit-btn { padding: 4px 12px; border: 1px solid #e5e7eb; border-radius: 7px; background: #fff; color: #374151; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
+.address-edit-input { flex: 1; border: 1px solid #f05025; border-radius: 7px; padding: 5px 9px; font-size: 0.84rem; font-family: 'Plus Jakarta Sans', sans-serif; outline: none; }
 
 /* ── Admin login ── */
 .al-sub { font-size: 0.78rem; color: #6b7280; margin-top: 2px; }
 .al-tabs { display: flex; gap: 8px; padding: 16px 24px 0; margin: 0; }
 .al-tab  {
-  padding: 8px 18px; font-family: 'Poppins', sans-serif; font-size: 0.84rem;
+  padding: 8px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem;
   font-weight: 600; cursor: pointer; border: 1px solid #e5e7eb; border-radius: 8px;
   background: #fff; color: #374151; transition: all 0.18s;
 }
@@ -1102,7 +1102,7 @@ function closeAdminLogin() {
 }
 .al-switch-link {
   display: block; background: none; border: none; padding: 0;
-  font-family: 'Poppins', sans-serif; font-size: 0.82rem;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem;
   font-weight: 700; color: #111827; cursor: pointer; text-align: left;
   text-decoration: underline; text-decoration-color: transparent;
   transition: text-decoration-color 0.18s;
