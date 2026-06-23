@@ -448,8 +448,8 @@ function logout() {
   transition: all 0.22s ease;
   position: relative;
   border: 1px solid transparent;
-  width: calc(100% - 16px);
-  margin: 0 8px;
+  width: calc(100% - 28px);
+  margin: 0 14px;
 }
 
 .nav-item:hover {
@@ -466,7 +466,7 @@ function logout() {
 .nav-item--active::after {
   content: '';
   position: absolute;
-  right: -9px;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 3px;
