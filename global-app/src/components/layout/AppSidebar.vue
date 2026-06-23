@@ -192,7 +192,7 @@
 <script setup>
 import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import whiteLogo from '../../assets/white.jpeg'
+import whiteLogo from '../../assets/orgimg.jpeg'
 import cartnLogo from '../../assets/cartn.png'
 import { useSidebar } from '../../composables/useSidebar.js'
 
