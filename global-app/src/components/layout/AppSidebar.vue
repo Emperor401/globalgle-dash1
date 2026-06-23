@@ -62,7 +62,13 @@
           </div>
           <span class="nav-item__label">Dashboard</span>
         </router-link>
+      </nav>
+    </div>
 
+    <!-- TOOLS -->
+    <div class="sidebar__group">
+      <span class="sidebar__group-label">Tools</span>
+      <nav class="sidebar__nav">
         <router-link to="/customers" class="nav-item" :class="{ 'nav-item--active': $route.path === '/customers' }" @click="closeSidebar">
           <div class="nav-item__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/customers' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -80,13 +86,7 @@
           </div>
           <span class="nav-item__label">Websites</span>
         </router-link>
-      </nav>
-    </div>
 
-    <!-- TOOLS -->
-    <div class="sidebar__group">
-      <span class="sidebar__group-label">Tools</span>
-      <nav class="sidebar__nav">
         <router-link to="/tools" class="nav-item" :class="{ 'nav-item--active': $route.path === '/tools' }" @click="closeSidebar">
           <div class="nav-item__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/tools' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
