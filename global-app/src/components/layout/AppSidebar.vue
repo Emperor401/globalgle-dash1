@@ -23,20 +23,17 @@
       </div>
       <span class="sidebar__logo-name">Globalgle</span>
 
-      <!-- Vaulto badge -->
-      <div class="vaulto-badge">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="8" y1="1"    x2="8"    y2="4.5"  stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="8" y1="11.5" x2="8"    y2="15"   stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="1" y1="8"    x2="4.5"  y2="8"    stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="11.5" y1="8" x2="15"   y2="8"    stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="3"    y1="3"    x2="5.5"  y2="5.5"  stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
-          <line x1="10.5" y1="10.5" x2="13"   y2="13"   stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
-          <line x1="13"   y1="3"    x2="10.5" y2="5.5"  stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
-          <line x1="5.5"  y1="10.5" x2="3"    y2="13"   stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
-          <circle cx="8" cy="8" r="1.8" fill="rgba(255,255,255,0.65)"/>
+      <!-- Toggle / close button -->
+      <button class="vaulto-badge" @click="closeSidebar" aria-label="Close sidebar">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Top row: dark squares (readable on white part of gradient) -->
+          <rect x="0.5" y="0.5" width="5"   height="5"   rx="1.2" fill="rgba(10,10,10,0.75)"/>
+          <rect x="7.5" y="0.5" width="5"   height="5"   rx="1.2" fill="rgba(10,10,10,0.75)"/>
+          <!-- Bottom row: light squares (readable on dark part of gradient) -->
+          <rect x="0.5" y="7.5" width="5"   height="5"   rx="1.2" fill="rgba(255,255,255,0.80)"/>
+          <rect x="7.5" y="7.5" width="5"   height="5"   rx="1.2" fill="rgba(255,255,255,0.80)"/>
         </svg>
-      </div>
+      </button>
 
       <!-- Mobile close button -->
       <button class="sidebar__close-btn" @click="closeSidebar" aria-label="Close menu">
@@ -394,17 +391,31 @@ function logout() {
   min-width: 0;
 }
 
-/* ── Vaulto badge ── */
+/* ── Toggle/close button (gradient box) ── */
 .vaulto-badge {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  background: linear-gradient(135deg, #e2e2e2 0%, #111111 100%);
+  border: none;
+  cursor: pointer;
   flex-shrink: 0;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity  0.18s ease,
+              box-shadow 0.18s ease;
+  outline: none;
+}
+.vaulto-badge:hover {
+  transform: scale(1.10);
+  opacity: 0.92;
+}
+.vaulto-badge:active {
+  transform: scale(0.86) rotate(8deg);
+  opacity: 0.75;
+  transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
 /* ── Section group ── */
