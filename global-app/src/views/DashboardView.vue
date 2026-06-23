@@ -1091,12 +1091,12 @@ const dots = [
 .act-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 
 .act-name {
-  font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.88);
+  font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,1);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.act-date { font-size: 0.62rem; color: rgba(255,255,255,0.28); }
+.act-date { font-size: 0.62rem; color: rgba(255,255,255,0.75); }
 
-.act-amt { font-size: 0.74rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+.act-amt { font-size: 0.74rem; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
 .act-amt--pos { color: rgba(240, 80, 37,0.9); }
 .act-amt--neg { color: rgba(248,113,113,0.9); }
 
