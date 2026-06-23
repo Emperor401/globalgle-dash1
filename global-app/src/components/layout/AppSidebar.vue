@@ -23,26 +23,18 @@
       </div>
       <span class="sidebar__logo-name">Globalgle</span>
 
-      <!-- Vaulto badge icon -->
+      <!-- Vaulto badge -->
       <div class="vaulto-badge">
-        <svg class="vaulto-icon" width="18" height="18" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Main cardinal spokes -->
-          <line x1="11" y1="1"  x2="11" y2="5.5"  stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="11" y1="16.5" x2="11" y2="21" stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="1"  y1="11" x2="5.5"  y2="11" stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="16.5" y1="11" x2="21" y2="11" stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
-          <!-- Diagonal spokes (shorter) -->
-          <line x1="4.1"  y1="4.1"  x2="7.3"  y2="7.3"  stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
-          <line x1="14.7" y1="14.7" x2="17.9" y2="17.9" stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
-          <line x1="17.9" y1="4.1"  x2="14.7" y2="7.3"  stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
-          <line x1="7.3"  y1="14.7" x2="4.1"  y2="17.9" stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
-          <!-- Dot tips on cardinal spokes -->
-          <circle cx="11" cy="1.8"  r="1.4" fill="#f05025"/>
-          <circle cx="11" cy="20.2" r="1.4" fill="#f05025"/>
-          <circle cx="1.8"  cy="11" r="1.4" fill="#f05025"/>
-          <circle cx="20.2" cy="11" r="1.4" fill="#f05025"/>
-          <!-- Center -->
-          <circle cx="11" cy="11" r="2.2" fill="#f05025"/>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="8" y1="1"    x2="8"    y2="4.5"  stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="8" y1="11.5" x2="8"    y2="15"   stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="1" y1="8"    x2="4.5"  y2="8"    stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="11.5" y1="8" x2="15"   y2="8"    stroke="rgba(255,255,255,0.55)" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3"    y1="3"    x2="5.5"  y2="5.5"  stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="10.5" y1="10.5" x2="13"   y2="13"   stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="13"   y1="3"    x2="10.5" y2="5.5"  stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="5.5"  y1="10.5" x2="3"    y2="13"   stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="8" cy="8" r="1.8" fill="rgba(255,255,255,0.65)"/>
         </svg>
       </div>
 
@@ -410,18 +402,9 @@ function logout() {
   width: 30px;
   height: 30px;
   border-radius: 8px;
-  background: rgba(240, 80, 37, 0.12);
-  border: 1px solid rgba(240, 80, 37, 0.30);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   flex-shrink: 0;
-}
-
-.vaulto-icon {
-  animation: vaulto-pulse 3s ease-in-out infinite;
-}
-
-@keyframes vaulto-pulse {
-  0%, 100% { opacity: 1;   transform: scale(1); }
-  50%       { opacity: 0.7; transform: scale(0.92); }
 }
 
 /* ── Section group ── */
