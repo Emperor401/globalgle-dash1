@@ -1059,12 +1059,12 @@ const dots = [
 
 /* Recent Activity — pure black, no glass */
 .bot-activity {
-  background: #000000;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: 1px solid rgba(255,255,255,0.07);
+  background: #000000 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
 }
-.bot-activity:hover { background: #0a0a0a; }
+.bot-activity:hover { background: #0d0d0d !important; }
 
 .bot-head { display: flex; align-items: flex-start; justify-content: space-between; }
 
