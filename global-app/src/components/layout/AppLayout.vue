@@ -4,7 +4,7 @@
     <PageLoader />
     <ToastContainer />
     <AppSidebar />
-    <div class="app-layout__main">
+    <div class="app-layout__main" :class="{ 'app-layout__main--collapsed': !desktopOpen }">
       <AppNavbar />
       <main class="app-layout__content">
         <router-view v-slot="{ Component }">
@@ -22,6 +22,9 @@ import AppSidebar from './AppSidebar.vue'
 import AppNavbar from './AppNavbar.vue'
 import PageLoader from '../ui/PageLoader.vue'
 import ToastContainer from '../ui/ToastContainer.vue'
+import { useSidebar } from '../../composables/useSidebar.js'
+
+const { desktopOpen } = useSidebar()
 </script>
 
 <style scoped>
@@ -35,6 +38,11 @@ import ToastContainer from '../ui/ToastContainer.vue'
   margin-left: 260px;
   min-height: 100vh;
   position: relative;
+  transition: margin-left 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 769px) {
+  .app-layout__main--collapsed { margin-left: 0; }
 }
 
 .app-layout__content {

@@ -4,7 +4,7 @@
   <!-- ═══════════════════════════════════
        DESKTOP NAVBAR  (hidden on mobile)
        ═══════════════════════════════════ -->
-  <header class="navbar desktop-nav">
+  <header class="navbar desktop-nav" :class="{ 'navbar--collapsed': !desktopOpen }">
 
     <!-- Left: Breadcrumb -->
     <div class="navbar__left">
@@ -329,7 +329,7 @@ import { useSidebar } from '../../composables/useSidebar.js'
 
 const route  = useRoute()
 const router = useRouter()
-const { sidebarOpen, toggleSidebar, closeSidebar } = useSidebar()
+const { sidebarOpen, desktopOpen, toggleSidebar, closeSidebar } = useSidebar()
 
 const bottomNavItems = [
   { route: '/',             icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
@@ -476,6 +476,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar {
   position: fixed;
   top: 0; left: 260px; right: 0;
+  transition: left 0.32s cubic-bezier(0.4, 0, 0.2, 1);
   height: 64px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -904,6 +905,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   .navbar { padding: 0 18px; left: 245px; }
   .navbar__search { width: 280px; }
   .navbar__search:focus-within { width: 320px; }
+}
+
+@media (min-width: 769px) {
+  .navbar--collapsed { left: 0; }
 }
 @media (max-width: 1024px) and (min-width: 769px) {
   .navbar__search { width: 240px; }

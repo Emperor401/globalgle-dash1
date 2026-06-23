@@ -10,7 +10,7 @@
     <div v-if="sidebarOpen" class="sidebar-backdrop" @click="closeSidebar"/>
   </Transition>
 
-  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen }" ref="sidebarEl">
+  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen, 'sidebar--desktop-closed': !desktopOpen }" ref="sidebarEl">
 
     <!-- Logo -->
     <div class="sidebar__logo">
@@ -24,7 +24,7 @@
       <span class="sidebar__logo-name">Globalgle</span>
 
       <!-- Toggle / close button -->
-      <button class="vaulto-badge" @click="closeSidebar" aria-label="Close sidebar"></button>
+      <button class="vaulto-badge" @click="handleBadgeClick" aria-label="Toggle sidebar"></button>
 
       <!-- Mobile close button -->
       <button class="sidebar__close-btn" @click="closeSidebar" aria-label="Close menu">
@@ -199,9 +199,17 @@ import whiteLogo from '../../assets/white.jpeg'
 import cartnLogo from '../../assets/cartn.png'
 import { useSidebar } from '../../composables/useSidebar.js'
 
-const { sidebarOpen, closeSidebar } = useSidebar()
+const { sidebarOpen, desktopOpen, closeSidebar, toggleDesktopSidebar } = useSidebar()
 const router = useRouter()
 const route  = useRoute()
+
+function handleBadgeClick() {
+  if (window.innerWidth >= 769) {
+    toggleDesktopSidebar()
+  } else {
+    closeSidebar()
+  }
+}
 
 /* Reset sidebar scroll to top on every route change */
 const scrollEl = ref(null)
@@ -271,6 +279,13 @@ function logout() {
   z-index: 100;
   transition: background 0.35s ease, border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
   overflow: visible;
+}
+
+/* ── Desktop/tablet slide toggle ── */
+@media (min-width: 769px) {
+  .sidebar--desktop-closed {
+    transform: translateX(-100%);
+  }
 }
 
 /* ── Mobile backdrop ── */
