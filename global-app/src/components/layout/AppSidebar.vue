@@ -24,7 +24,12 @@
       <span class="sidebar__logo-name">Globalgle</span>
 
       <!-- Toggle / close button -->
-      <button class="vaulto-badge" @click="handleBadgeClick" aria-label="Toggle sidebar"></button>
+      <button class="vaulto-badge" @click="handleBadgeClick" aria-label="Toggle sidebar">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M9 3v18"/>
+        </svg>
+      </button>
     </div>
 
     <!-- Scrollable nav area -->
