@@ -129,7 +129,7 @@ onBeforeUnmount(() => {
   position: absolute;
   top: -60px; left: 50%; transform: translateX(-50%);
   width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(240, 80, 37,0.18) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
 }
 .modal-timer__fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), rgba(34,197,94,0.4));
+  background: linear-gradient(90deg, var(--accent), rgba(240, 80, 37,0.4));
   border-radius: 0 2px 2px 0;
   transition: width 0.1s linear;
 }

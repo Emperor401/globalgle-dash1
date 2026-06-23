@@ -31,12 +31,12 @@
   --t3: rgba(255, 255, 255, 0.36);
   --t4: rgba(255, 255, 255, 0.18);
 
-  /* Accent — Logo Green */
-  --accent:        #22c55e;
-  --accent-hover:  #4ade80;
-  --accent-deep:   #14532d;
-  --accent-dim:    rgba(34, 197, 94, 0.14);
-  --accent-border: rgba(34, 197, 94, 0.28);
+  /* Accent — Brand Orange */
+  --accent:        #f05025;
+  --accent-hover:  #ff6a3d;
+  --accent-deep:   #7c1500;
+  --accent-dim:    rgba(240, 80, 37, 0.14);
+  --accent-border: rgba(240, 80, 37, 0.28);
 
   /* Success — Bright Green */
   --green:        #4ade80;

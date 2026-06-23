@@ -1,4 +1,4 @@
-﻿<!-- src/views/CustomersView.vue  â†’  Mailing Tools -->
+﻿<!-- src/views/CustomersView.vue  â†'  Mailing Tools -->
 <template>
   <div class="email-page">
 
@@ -13,7 +13,7 @@
       <div v-for="s in services" :key="s.title" class="service-card" @click="$router.push(s.route)">
         <div class="service-card__icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="#22c55e" stroke-width="1.8"
+            stroke="#f05025" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round"
             v-html="s.icon"
           />
@@ -114,15 +114,15 @@ const services = [
 .service-card:hover {
   border-color: var(--accent-border);
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(34, 197, 94, 0.08);
+  box-shadow: 0 8px 28px rgba(240, 80, 37, 0.08);
 }
 
 .service-card__icon {
   width: 46px;
   height: 46px;
   border-radius: 13px;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.18);
+  background: rgba(240, 80, 37, 0.12);
+  border: 1px solid rgba(240, 80, 37, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;

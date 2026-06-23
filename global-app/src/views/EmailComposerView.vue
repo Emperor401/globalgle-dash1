@@ -16,7 +16,7 @@
 
     <div class="composer-layout">
 
-      <!-- â”€â”€ Compose Panel â”€â”€ -->
+      <!-- â"€â"€ Compose Panel â"€â"€ -->
       <div class="glass-panel compose-panel">
         <div class="compose-top">
           <h2 class="compose-heading">New Email</h2>
@@ -91,7 +91,7 @@
         </div>
       </div>
 
-      <!-- â”€â”€ Right Panel â”€â”€ -->
+      <!-- â"€â"€ Right Panel â"€â"€ -->
       <div class="right-col">
 
         <!-- Preview -->
@@ -213,7 +213,7 @@ const toolbar = [
 ]
 
 const drafts = ref([
-  { id:1, subject:'June Savings Offer â€” Earn More',    time:'2h ago',    recipients:'Bulk Â· 94K' },
+  { id:1, subject:'June Savings Offer â€" Earn More',    time:'2h ago',    recipients:'Bulk Â· 94K' },
   { id:2, subject:'Your April Statement is Ready',     time:'Yesterday', recipients:'Bulk Â· 48K' },
   { id:3, subject:'Upgrade Your Plan Today',           time:'Jun 3',     recipients:'Single'     },
 ])

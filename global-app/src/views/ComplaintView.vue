@@ -134,7 +134,7 @@
             <template v-if="submitSuccess">
               <div class="cmp-success">
                 <div class="cmp-success-ring">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f05025"
                     stroke-width="2.5" stroke-linecap="round">
                     <polyline points="20 6 9 17 4 12"/>
                   </svg>
@@ -147,7 +147,7 @@
                 <div class="cmp-success-info">
                   <div class="cmp-sinfo-row">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                      stroke="#22c55e" stroke-width="2" stroke-linecap="round">
+                      stroke="#f05025" stroke-width="2" stroke-linecap="round">
                       <circle cx="12" cy="12" r="10"/>
                       <polyline points="12 6 12 12 16 14"/>
                     </svg>
@@ -485,7 +485,7 @@ function closeTicket(id) {
 .cmp-new-btn {
   display: flex; align-items: center; gap: 7px;
   padding: 10px 20px; border-radius: 12px;
-  background: #22c55e; border: none; color: #fff;
+  background: #f05025; border: none; color: #fff;
   font-size: 0.84rem; font-weight: 800; font-family: inherit;
   cursor: pointer; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;
 }
@@ -505,12 +505,12 @@ function closeTicket(id) {
   font-size: 0.8rem; font-weight: 600; color: var(--t3);
   cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.cmp-tab--active { background: rgba(34,197,94,.12); color: #22c55e; }
+.cmp-tab--active { background: rgba(240, 80, 37,.12); color: #f05025; }
 .cmp-tab-badge {
   background: var(--glass); border-radius: 999px;
   padding: 1px 8px; font-size: 0.68rem; font-weight: 700; color: var(--t3);
 }
-.cmp-tab-badge--active { background: rgba(34,197,94,.15); color: #22c55e; }
+.cmp-tab-badge--active { background: rgba(240, 80, 37,.15); color: #f05025; }
 
 /* ── Reports list ── */
 .cmp-list { display: flex; flex-direction: column; gap: 6px; }
@@ -526,7 +526,7 @@ function closeTicket(id) {
   overflow: hidden; cursor: pointer; transition: border-color 0.2s;
 }
 .cmp-row:hover       { border-color: var(--border); }
-.cmp-row--open       { border-color: rgba(34,197,94,.3); background: rgba(34,197,94,.04); }
+.cmp-row--open       { border-color: rgba(240, 80, 37,.3); background: rgba(240, 80, 37,.04); }
 
 .cmp-row-main {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -536,7 +536,7 @@ function closeTicket(id) {
 .cmp-row-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
 .cmp-cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.cmp-cat-dot--green  { background: #22c55e; }
+.cmp-cat-dot--green  { background: #f05025; }
 .cmp-cat-dot--blue   { background: #60a5fa; }
 .cmp-cat-dot--red    { background: #f87171; }
 .cmp-cat-dot--amber  { background: #f59e0b; }
@@ -553,7 +553,7 @@ function closeTicket(id) {
 .cmp-cat-pill {
   font-size: 0.67rem; font-weight: 700; border-radius: 999px; padding: 2px 9px;
 }
-.cmp-cat-pill--green  { background: rgba(34,197,94,.1);   color: #22c55e;  border: 1px solid rgba(34,197,94,.2);   }
+.cmp-cat-pill--green  { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
 .cmp-cat-pill--blue   { background: rgba(96,165,250,.1);  color: #60a5fa;  border: 1px solid rgba(96,165,250,.2);  }
 .cmp-cat-pill--red    { background: rgba(248,113,113,.1); color: #f87171;  border: 1px solid rgba(248,113,113,.2); }
 .cmp-cat-pill--amber  { background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
@@ -571,7 +571,7 @@ function closeTicket(id) {
   display: flex; align-items: center; gap: 6px;
   font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 999px;
 }
-.cmp-status-badge--open        { background: rgba(34,197,94,.1);   color: #22c55e;  border: 1px solid rgba(34,197,94,.2);   }
+.cmp-status-badge--open        { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
 .cmp-status-badge--in-progress { background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
 .cmp-status-badge--closed      { background: var(--glass); color: var(--t3); border: 1px solid var(--border-soft); }
 
@@ -639,7 +639,7 @@ function closeTicket(id) {
 .cmp-empty-text { font-size: 0.88rem; color: var(--t3); margin: 0; }
 .cmp-first-btn {
   display: flex; align-items: center; gap: 8px;
-  padding: 11px 24px; border-radius: 12px; background: #22c55e; border: none;
+  padding: 11px 24px; border-radius: 12px; background: #f05025; border: none;
   font-size: 0.86rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
@@ -698,13 +698,13 @@ function closeTicket(id) {
   transition: all 0.18s;
 }
 .cmp-cat-card:hover { border-color: var(--border); background: var(--glass-hover); }
-.cmp-cat-card--active { border-color: #22c55e !important; background: rgba(34,197,94,.08) !important; }
+.cmp-cat-card--active { border-color: #f05025 !important; background: rgba(240, 80, 37,.08) !important; }
 
 .cmp-cat-card-icon {
   width: 28px; height: 28px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center; margin-bottom: 2px;
 }
-.cmp-cat-card-icon--green  { background: rgba(34,197,94,.12);   color: #22c55e;  border: 1px solid rgba(34,197,94,.2);   }
+.cmp-cat-card-icon--green  { background: rgba(240, 80, 37,.12);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
 .cmp-cat-card-icon--blue   { background: rgba(96,165,250,.12);  color: #60a5fa;  border: 1px solid rgba(96,165,250,.2);  }
 .cmp-cat-card-icon--red    { background: rgba(248,113,113,.12); color: #f87171;  border: 1px solid rgba(248,113,113,.2); }
 .cmp-cat-card-icon--amber  { background: rgba(245,158,11,.12);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
@@ -742,7 +742,7 @@ function closeTicket(id) {
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s;
 }
-.cmp-input:focus { border-color: rgba(34,197,94,.45); }
+.cmp-input:focus { border-color: rgba(240, 80, 37,.45); }
 .cmp-input::placeholder { color: var(--t4); }
 
 .cmp-textarea-wrap { position: relative; }
@@ -753,7 +753,7 @@ function closeTicket(id) {
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s; box-sizing: border-box;
 }
-.cmp-textarea:focus { border-color: rgba(34,197,94,.45); }
+.cmp-textarea:focus { border-color: rgba(240, 80, 37,.45); }
 .cmp-textarea::placeholder { color: var(--t4); }
 .cmp-textarea-footer {
   display: flex; justify-content: space-between; align-items: center;
@@ -770,16 +770,16 @@ function closeTicket(id) {
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   cursor: pointer; transition: all 0.2s; text-align: center;
 }
-.cmp-drop-zone:hover { border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.04); }
+.cmp-drop-zone:hover { border-color: rgba(240, 80, 37,.35); background: rgba(240, 80, 37,.04); }
 .cmp-drop-text  { font-size: 0.8rem; color: var(--t3); }
-.cmp-drop-link  { color: #22c55e; font-weight: 700; cursor: pointer; }
+.cmp-drop-link  { color: #f05025; font-weight: 700; cursor: pointer; }
 .cmp-drop-hint  { font-size: 0.68rem; color: var(--t4); }
 .cmp-file-list  { display: flex; flex-wrap: wrap; gap: 7px; width: 100%; justify-content: center; }
 .cmp-file-chip {
   display: flex; align-items: center; gap: 6px;
-  background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.08); border: 1px solid rgba(240, 80, 37,.2);
   border-radius: 8px; padding: 5px 10px;
-  font-size: 0.73rem; font-weight: 600; color: #22c55e;
+  font-size: 0.73rem; font-weight: 600; color: #f05025;
 }
 .cmp-file-remove {
   background: none; border: none; color: #f87171; font-size: 0.9rem;
@@ -801,7 +801,7 @@ function closeTicket(id) {
   font-size: 0.78rem; color: var(--t3); background: none; border: none;
   cursor: pointer; font-family: inherit; text-decoration: underline; transition: color 0.2s;
 }
-.cmp-view-link:hover { color: #22c55e; }
+.cmp-view-link:hover { color: #f05025; }
 .cmp-footer-btns { display: flex; gap: 10px; }
 
 .cmp-cancel-btn {
@@ -813,7 +813,7 @@ function closeTicket(id) {
 .cmp-cancel-btn:hover { background: var(--glass-hover); color: var(--t1); }
 
 .cmp-submit-btn {
-  padding: 9px 24px; border-radius: 11px; background: #22c55e; border: none;
+  padding: 9px 24px; border-radius: 11px; background: #f05025; border: none;
   font-size: 0.82rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s;
   display: flex; align-items: center; gap: 8px;
@@ -836,11 +836,11 @@ function closeTicket(id) {
 }
 .cmp-success-ring {
   width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(34,197,94,.1); border: 2px solid rgba(34,197,94,.3);
+  background: rgba(240, 80, 37,.1); border: 2px solid rgba(240, 80, 37,.3);
   display: flex; align-items: center; justify-content: center;
 }
 .cmp-success .cmp-modal-title { font-size: 1.2rem; }
-.cmp-ticket-id { color: #22c55e; font-family: monospace; }
+.cmp-ticket-id { color: #f05025; font-family: monospace; }
 
 .cmp-success-info {
   display: flex; flex-direction: column; gap: 8px; padding: 14px 16px;
@@ -854,7 +854,7 @@ function closeTicket(id) {
 .cmp-sinfo-row strong { color: var(--t2); }
 
 .cmp-done-btn {
-  padding: 11px 40px; border-radius: 12px; background: #22c55e; border: none;
+  padding: 11px 40px; border-radius: 12px; background: #f05025; border: none;
   font-size: 0.88rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s; margin-top: 4px;
 }

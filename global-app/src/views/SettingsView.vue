@@ -35,7 +35,7 @@
           <span>{{ tab.label }}</span>
           <svg v-if="activeTab === tab.id" width="11" height="11" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-            style="margin-left:auto;color:#22c55e">
+            style="margin-left:auto;color:#f05025">
             <polyline points="9 18 15 12 9 6"/>
           </svg>
         </button>
@@ -290,7 +290,7 @@
             </div>
             <Transition name="slide-down">
               <div v-if="twoFA" class="set-2fa-notice">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f05025"
                   stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
@@ -471,7 +471,7 @@
               </button>
             </div>
             <p class="set-card-desc" style="margin-top:10px">
-              Earn <strong style="color:#22c55e">₦500</strong> for each friend who signs up and activates a paid plan using your code.
+              Earn <strong style="color:#f05025">₦500</strong> for each friend who signs up and activates a paid plan using your code.
             </p>
           </div>
 
@@ -578,7 +578,7 @@ const pwStrength = computed(() => {
   if (/[0-9]/.test(pw))        score++
   if (/[^A-Za-z0-9]/.test(pw)) score++
   const labels = ['', 'Weak', 'Fair', 'Good', 'Strong']
-  const colors = ['', '#f87171', '#f59e0b', '#60a5fa', '#22c55e']
+  const colors = ['', '#f87171', '#f59e0b', '#60a5fa', '#f05025']
   return { score, label: labels[score] || '', color: colors[score] || '' }
 })
 
@@ -686,8 +686,8 @@ function copyText(text) {
 }
 .set-nav-item:hover { background: rgba(255,255,255,.04); color: var(--t2); }
 .set-nav-item--active {
-  background: rgba(34,197,94,.09); color: #22c55e;
-  border-left: 2px solid #22c55e;
+  background: rgba(240, 80, 37,.09); color: #f05025;
+  border-left: 2px solid #f05025;
 }
 .set-nav-icon {
   width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
@@ -695,14 +695,14 @@ function copyText(text) {
   display: flex; align-items: center; justify-content: center;
 }
 .set-nav-item--active .set-nav-icon {
-  background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.12); border-color: rgba(240, 80, 37,.2);
 }
 
 /* ── Avatar ── */
 .set-avatar {
   width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
-  background: rgba(34,197,94,.1); border: 2px solid rgba(34,197,94,.3);
-  font-size: 1.15rem; font-weight: 800; color: #22c55e;
+  background: rgba(240, 80, 37,.1); border: 2px solid rgba(240, 80, 37,.3);
+  font-size: 1.15rem; font-weight: 800; color: #f05025;
   display: flex; align-items: center; justify-content: center;
 }
 .set-avatar--sm { width: 36px; height: 36px; font-size: 0.75rem; }
@@ -728,11 +728,11 @@ function copyText(text) {
 
 .set-avatar-edit {
   position: absolute; bottom: 0; right: 0; width: 22px; height: 22px;
-  border-radius: 50%; background: rgba(34,197,94,.2); border: 2px solid rgba(34,197,94,.4);
+  border-radius: 50%; background: rgba(240, 80, 37,.2); border: 2px solid rgba(240, 80, 37,.4);
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; color: #22c55e; transition: background 0.2s;
+  cursor: pointer; color: #f05025; transition: background 0.2s;
 }
-.set-avatar-edit:hover { background: rgba(34,197,94,.35); }
+.set-avatar-edit:hover { background: rgba(240, 80, 37,.35); }
 
 /* ── Profile fields ── */
 .set-content { display: flex; flex-direction: column; gap: 16px; }
@@ -748,7 +748,7 @@ function copyText(text) {
 .set-field-row:first-child { border-radius: 14px 14px 5px 5px; }
 .set-field-row:last-child  { border-radius: 5px 5px 14px 14px; }
 .set-field-row:not(:first-child):not(:last-child) { border-radius: 5px; }
-.set-field-row:hover { border-color: rgba(34,197,94,.22); }
+.set-field-row:hover { border-color: rgba(240, 80, 37,.22); }
 
 .set-field-icon {
   width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0;
@@ -764,20 +764,20 @@ function copyText(text) {
 .set-field-note { font-size: 0.7rem; color: var(--t3); }
 
 .set-inline-input {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(34,197,94,.3);
+  background: rgba(255,255,255,.06); border: 1px solid rgba(240, 80, 37,.3);
   border-radius: 8px; padding: 7px 11px; font-size: 0.87rem;
   color: var(--t1); font-family: inherit; outline: none; width: 100%;
   box-sizing: border-box; transition: border-color 0.2s;
 }
-.set-inline-input:focus { border-color: rgba(34,197,94,.55); }
+.set-inline-input:focus { border-color: rgba(240, 80, 37,.55); }
 
 .set-inline-btns { display: flex; gap: 6px; margin-top: 5px; }
 .set-btn-save {
-  background: rgba(34,197,94,.14); border: 1px solid rgba(34,197,94,.25);
+  background: rgba(240, 80, 37,.14); border: 1px solid rgba(240, 80, 37,.25);
   border-radius: 7px; padding: 5px 13px; font-size: 0.73rem; font-weight: 700;
-  color: #22c55e; cursor: pointer; font-family: inherit; transition: background 0.2s;
+  color: #f05025; cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
-.set-btn-save:hover { background: rgba(34,197,94,.24); }
+.set-btn-save:hover { background: rgba(240, 80, 37,.24); }
 .set-btn-cancel {
   background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
   border-radius: 7px; padding: 5px 13px; font-size: 0.73rem; font-weight: 600;
@@ -791,7 +791,7 @@ function copyText(text) {
   border-radius: 8px; padding: 6px 12px; font-size: 0.74rem; font-weight: 600;
   color: var(--t2); cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.set-action-btn:hover { background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.25); color: #22c55e; }
+.set-action-btn:hover { background: rgba(240, 80, 37,.1); border-color: rgba(240, 80, 37,.25); color: #f05025; }
 
 .set-locked-tag {
   flex-shrink: 0; display: flex; align-items: center; gap: 5px;
@@ -815,7 +815,7 @@ function copyText(text) {
 .set-card-desc  { font-size: 0.77rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .set-count-badge {
   font-size: 0.66rem; font-weight: 700; padding: 3px 9px; border-radius: 999px;
-  background: rgba(34,197,94,.1); color: #22c55e; border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.1); color: #f05025; border: 1px solid rgba(240, 80, 37,.2);
 }
 
 /* ── Security form ── */
@@ -829,7 +829,7 @@ function copyText(text) {
   color: var(--t1); font-family: inherit; outline: none; box-sizing: border-box;
   transition: border-color 0.2s;
 }
-.set-input:focus { border-color: rgba(34,197,94,.4); }
+.set-input:focus { border-color: rgba(240, 80, 37,.4); }
 .set-input--err  { border-color: rgba(248,113,113,.4); }
 
 .set-err { font-size: 0.7rem; color: #f87171; }
@@ -853,7 +853,7 @@ function copyText(text) {
 
 .set-primary-btn {
   padding: 11px 22px; border-radius: 11px;
-  background: #22c55e; border: none;
+  background: #f05025; border: none;
   font-size: 0.84rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
@@ -866,19 +866,19 @@ function copyText(text) {
   background: rgba(255,255,255,.09); border: 1px solid var(--border-soft);
   position: relative; cursor: pointer; transition: all 0.25s;
 }
-.set-toggle--on { background: rgba(34,197,94,.22); border-color: rgba(34,197,94,.38); }
+.set-toggle--on { background: rgba(240, 80, 37,.22); border-color: rgba(240, 80, 37,.38); }
 .set-toggle-knob {
   width: 18px; height: 18px; border-radius: 50%; background: var(--t3);
   position: absolute; top: 2px; left: 2px; transition: transform 0.25s, background 0.25s;
 }
-.set-toggle--on .set-toggle-knob { transform: translateX(18px); background: #22c55e; }
+.set-toggle--on .set-toggle-knob { transform: translateX(18px); background: #f05025; }
 
 .slide-down-enter-active, .slide-down-leave-active { transition: all 0.22s ease; }
 .slide-down-enter-from, .slide-down-leave-to { opacity: 0; transform: translateY(-6px); }
 
 .set-2fa-notice {
   display: flex; gap: 9px; align-items: flex-start;
-  background: rgba(34,197,94,.06); border: 1px solid rgba(34,197,94,.18);
+  background: rgba(240, 80, 37,.06); border: 1px solid rgba(240, 80, 37,.18);
   border-radius: 10px; padding: 12px 14px;
 }
 .set-2fa-notice p { font-size: 0.77rem; color: var(--t2); margin: 0; line-height: 1.5; }
@@ -925,7 +925,7 @@ function copyText(text) {
   font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
   padding: 3px 9px; border-radius: 999px; width: fit-content;
 }
-.set-status-tag--current { background: rgba(34,197,94,.1);   color: #22c55e;  border: 1px solid rgba(34,197,94,.2);  }
+.set-status-tag--current { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);  }
 .set-status-tag--success { background: rgba(96,165,250,.1);  color: #60a5fa;  border: 1px solid rgba(96,165,250,.2); }
 .set-status-tag--blocked { background: rgba(248,113,113,.1); color: #f87171;  border: 1px solid rgba(248,113,113,.2);}
 
@@ -939,8 +939,8 @@ function copyText(text) {
   border: 2px solid var(--border-soft); display: flex; align-items: center;
   justify-content: center; transition: border-color 0.2s;
 }
-.set-radio--on  { border-color: #22c55e; }
-.set-radio-dot  { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+.set-radio--on  { border-color: #f05025; }
+.set-radio-dot  { width: 7px; height: 7px; border-radius: 50%; background: #f05025; }
 .set-smtp-btns  { display: flex; gap: 10px; }
 .set-ghost-btn {
   display: flex; align-items: center; gap: 7px;
@@ -948,7 +948,7 @@ function copyText(text) {
   border-radius: 11px; padding: 10px 16px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.set-ghost-btn:hover { border-color: rgba(34,197,94,.3); color: #22c55e; }
+.set-ghost-btn:hover { border-color: rgba(240, 80, 37,.3); color: #f05025; }
 .set-smtp-btns .set-primary-btn { flex: 1; }
 
 /* ── Referrals ── */
@@ -965,7 +965,7 @@ function copyText(text) {
   width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.set-ref-icon--green { background: rgba(34,197,94,.1);   border: 1px solid rgba(34,197,94,.2);   color: #22c55e;  }
+.set-ref-icon--green { background: rgba(240, 80, 37,.1);   border: 1px solid rgba(240, 80, 37,.2);   color: #f05025;  }
 .set-ref-icon--blue  { background: rgba(96,165,250,.1);  border: 1px solid rgba(96,165,250,.2);  color: #60a5fa;  }
 .set-ref-icon--amber { background: rgba(245,158,11,.1);  border: 1px solid rgba(245,158,11,.2);  color: #f59e0b;  }
 .set-ref-val { font-size: 1.35rem; font-weight: 800; color: var(--t1); line-height: 1; }
@@ -976,15 +976,15 @@ function copyText(text) {
   background: rgba(255,255,255,.04); border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 12px 16px;
 }
-.set-ref-code { flex: 1; font-size: 1.1rem; font-weight: 800; color: #22c55e; letter-spacing: 0.05em; font-family: monospace; }
+.set-ref-code { flex: 1; font-size: 1.1rem; font-weight: 800; color: #f05025; letter-spacing: 0.05em; font-family: monospace; }
 .set-ref-link { flex: 1; font-size: 0.77rem; color: var(--t3); font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .set-copy-btn {
   flex-shrink: 0; display: flex; align-items: center; gap: 6px;
-  background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
   border-radius: 8px; padding: 7px 13px; font-size: 0.75rem; font-weight: 700;
-  color: #22c55e; cursor: pointer; font-family: inherit; transition: background 0.2s;
+  color: #f05025; cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
-.set-copy-btn:hover { background: rgba(34,197,94,.2); }
+.set-copy-btn:hover { background: rgba(240, 80, 37,.2); }
 
 .set-empty-state {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -1000,7 +1000,7 @@ function copyText(text) {
   padding: 12px 20px; border-radius: 13px; font-size: 0.83rem; font-weight: 600;
   z-index: 9999; backdrop-filter: blur(20px); white-space: nowrap;
 }
-.set-toast--success { background: rgba(34,197,94,.18);   border: 1px solid rgba(34,197,94,.3);   color: #22c55e;  }
+.set-toast--success { background: rgba(240, 80, 37,.18);   border: 1px solid rgba(240, 80, 37,.3);   color: #f05025;  }
 .set-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
 
 /* ── Mobile horizontal tab bar ── */
@@ -1017,7 +1017,7 @@ function copyText(text) {
   cursor: pointer; font-family: inherit; transition: all 0.2s; flex-shrink: 0;
 }
 .set-mobile-tab--active {
-  background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.3); color: #22c55e;
+  background: rgba(240, 80, 37,.1); border-color: rgba(240, 80, 37,.3); color: #f05025;
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {

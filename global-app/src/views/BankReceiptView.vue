@@ -9,13 +9,13 @@
         Back
       </button>
       <h1 class="br-title">Bank Receipt</h1>
-      <p class="br-sub">Fill in the details and generate a bank-app-styled receipt â€” download it as a <span class="br-hl">PDF</span> or an <span class="br-hl">image</span>.</p>
+      <p class="br-sub">Fill in the details and generate a bank-app-styled receipt â€" download it as a <span class="br-hl">PDF</span> or an <span class="br-hl">image</span>.</p>
     </div>
 
     <!-- Two-column layout -->
     <div class="br-layout">
 
-      <!-- â”€â”€ LEFT: Form â”€â”€ -->
+      <!-- â"€â"€ LEFT: Form â"€â"€ -->
       <div class="br-form-col">
         <div class="br-card">
 
@@ -135,7 +135,7 @@
         </div>
       </div>
 
-      <!-- â”€â”€ RIGHT: Receipt Preview â”€â”€ -->
+      <!-- â"€â"€ RIGHT: Receipt Preview â"€â"€ -->
       <div class="br-preview-col">
         <div class="br-preview-label">Live Preview</div>
         <div class="br-phone-wrap">
@@ -194,14 +194,14 @@
                 <div class="br-dr">
                   <span class="br-dl">To</span>
                   <div class="br-dv">
-                    <strong>{{ form.toName || 'â€”' }}</strong>
+                    <strong>{{ form.toName || 'â€"' }}</strong>
                     <small>{{ form.toAccount || '' }}</small>
                   </div>
                 </div>
                 <div class="br-dr">
                   <span class="br-dl">From</span>
                   <div class="br-dv">
-                    <strong>{{ form.fromName || 'â€”' }}</strong>
+                    <strong>{{ form.fromName || 'â€"' }}</strong>
                     <small>{{ form.fromAccount || '' }}</small>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ const router = useRouter()
 const receiptEl = ref(null)
 const downloading = ref(null)
 
-/* â”€â”€ Clock â”€â”€ */
+/* â"€â"€ Clock â"€â"€ */
 const clockTime = ref(formatClock())
 function formatClock() {
   const d = new Date()
@@ -259,7 +259,7 @@ function formatClock() {
 }
 setInterval(() => { clockTime.value = formatClock() }, 10000)
 
-/* â”€â”€ Banks â”€â”€ */
+/* â"€â"€ Banks â"€â"€ */
 const banks = [
   { name: 'Chase',          color: '#1565C0', symbol: '+',  legal: 'JPMorgan Chase Bank, N.A. Member FDIC',         sub: 'Equal Housing Lender Â· Â© 2026 JPMorgan Chase & Co.' },
   { name: 'Bank of America',color: '#E31837', symbol: 'â¬¡',  legal: 'Bank of America, N.A. Member FDIC',              sub: 'Equal Housing Lender Â· Â© 2026 Bank of America Corp.' },
@@ -275,7 +275,7 @@ const banks = [
   { name: 'Zelle',          color: '#6C1CD3', symbol: 'Z',  legal: 'ZelleÂ® and the ZelleÂ® related marks are wholly owned by Early Warning Services, LLC', sub: 'Â© 2026 Early Warning Services, LLC' },
 ]
 
-/* â”€â”€ Transaction types â”€â”€ */
+/* â"€â"€ Transaction types â"€â"€ */
 const txTypes = [
   { value: 'transfer-sent',     label: 'Transfer sent' },
   { value: 'transfer-received', label: 'Transfer received' },
@@ -286,7 +286,7 @@ const txTypes = [
   { value: 'purchase',          label: 'Purchase' },
 ]
 
-/* â”€â”€ Form state â”€â”€ */
+/* â"€â"€ Form state â"€â"€ */
 const today = new Date()
 const padded = v => String(v).padStart(2,'0')
 const defaultDate = `${today.getFullYear()}-${padded(today.getMonth()+1)}-${padded(today.getDate())}`
@@ -308,7 +308,7 @@ const form = reactive({
   reference:   'FGIOEDORF3',
 })
 
-/* â”€â”€ Computed â”€â”€ */
+/* â"€â"€ Computed â"€â"€ */
 const activeBank = computed(() => banks.find(b => b.name === form.bank) || banks[0])
 
 const txTitle = computed(() => {
@@ -331,7 +331,7 @@ const formattedDateTime = computed(() => {
 })
 
 const formattedDateOnly = computed(() => {
-  if (!form.date) return 'â€”'
+  if (!form.date) return 'â€"'
   const d = new Date(form.date + 'T00:00:00')
   return d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' })
 })
@@ -355,13 +355,13 @@ const statusClass = computed(() => {
   return 'br-check--success'
 })
 
-/* â”€â”€ Generate reference â”€â”€ */
+/* â"€â"€ Generate reference â"€â"€ */
 function genRef() {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
   form.reference = Array.from({ length: 10 }, () => chars[Math.floor(Math.random() * chars.length)]).join('')
 }
 
-/* â”€â”€ Download helpers â”€â”€ */
+/* â"€â"€ Download helpers â"€â"€ */
 async function captureReceipt() {
   return html2canvas(receiptEl.value, {
     scale: 2,
@@ -401,7 +401,7 @@ async function downloadPDF() {
   margin: 0 auto;
 }
 
-/* â”€â”€ Header â”€â”€ */
+/* â"€â"€ Header â"€â"€ */
 .br-header { margin-top: 14px; }
 
 .br-back {
@@ -430,9 +430,9 @@ async function downloadPDF() {
   letter-spacing: -0.02em;
 }
 .br-sub  { font-size: 0.85rem; color: var(--t1); font-weight: 600; margin: 0 0 24px; }
-.br-hl   { color: #22c55e; font-weight: 600; }
+.br-hl   { color: #f05025; font-weight: 600; }
 
-/* â”€â”€ Layout â”€â”€ */
+/* â"€â"€ Layout â"€â"€ */
 .br-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -440,7 +440,7 @@ async function downloadPDF() {
   align-items: start;
 }
 
-/* â”€â”€ Form Card â”€â”€ */
+/* â"€â"€ Form Card â"€â"€ */
 .br-card {
   background: var(--glass);
   border: 1px solid var(--border);
@@ -481,7 +481,7 @@ async function downloadPDF() {
   width: 100%;
   box-sizing: border-box;
 }
-.br-input:focus { border-color: #22c55e; background: var(--glass-hover); }
+.br-input:focus { border-color: #f05025; background: var(--glass-hover); }
 .br-input::placeholder { color: var(--t4); }
 .br-input[type="date"]::-webkit-calendar-picker-indicator,
 .br-input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.5); cursor: pointer; }
@@ -502,7 +502,7 @@ async function downloadPDF() {
   width: 100%;
   transition: border-color 0.2s;
 }
-.br-select:focus { border-color: #22c55e; }
+.br-select:focus { border-color: #f05025; }
 .br-select-chevron {
   position: absolute;
   right: 11px;
@@ -531,7 +531,7 @@ async function downloadPDF() {
   align-self: flex-end;
   margin-bottom: 1px;
 }
-.br-gen-ref:hover { background: var(--glass-hover); color: #22c55e; }
+.br-gen-ref:hover { background: var(--glass-hover); color: #f05025; }
 
 /* Action buttons */
 .br-actions { display: flex; gap: 12px; margin-top: 4px; }
@@ -553,9 +553,9 @@ async function downloadPDF() {
 .br-btn-pdf:hover:not(:disabled), .br-btn-img:hover:not(:disabled) { transform: translateY(-1px); }
 .br-btn-pdf:disabled, .br-btn-img:disabled { opacity: 0.55; cursor: wait; }
 .br-btn-pdf {
-  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+  background: linear-gradient(135deg, #16a34a 0%, #f05025 100%);
   color: #fff;
-  box-shadow: 0 4px 14px rgba(34,197,94,0.30);
+  box-shadow: 0 4px 14px rgba(240, 80, 37,0.30);
 }
 .br-btn-img {
   background: var(--glass-2);
@@ -563,7 +563,7 @@ async function downloadPDF() {
   color: var(--t1);
 }
 
-/* â”€â”€ Preview â”€â”€ */
+/* â"€â"€ Preview â"€â"€ */
 .br-preview-col {
   position: sticky;
   top: 80px;
@@ -587,7 +587,7 @@ async function downloadPDF() {
   box-shadow: 0 16px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
 }
 
-/* â”€â”€ Receipt â”€â”€ */
+/* â"€â"€ Receipt â"€â"€ */
 .br-receipt {
   background: #fff;
   width: 100%;
@@ -641,7 +641,7 @@ async function downloadPDF() {
   margin-bottom: 14px;
   transition: background 0.3s;
 }
-.br-check--success    { background: #22c55e; }
+.br-check--success    { background: #f05025; }
 .br-check--fail       { background: #ef4444; }
 .br-check--pending    { background: #f59e0b; }
 .br-check--processing { background: #3b82f6; }
@@ -707,7 +707,7 @@ async function downloadPDF() {
 }
 
 
-/* â”€â”€ Responsive â”€â”€ */
+/* â"€â"€ Responsive â"€â"€ */
 @media (max-width: 900px) {
   .br-layout      { grid-template-columns: 1fr; }
   .br-preview-col { position: static; order: -1; }

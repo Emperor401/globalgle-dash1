@@ -50,7 +50,7 @@
           </svg>
         </div>
         <p class="recent-empty__title">No Crypto Mails yet</p>
-        <p class="recent-empty__sub">Pick a provider above and send your first Crypto Mail â€” it will appear here.</p>
+        <p class="recent-empty__sub">Pick a provider above and send your first Crypto Mail â€" it will appear here.</p>
       </div>
       <div v-else class="sent-list">
         <div v-for="m in sentMails" :key="m.id" class="sent-item">
@@ -65,12 +65,12 @@
       </div>
     </div>
 
-    <!-- â”€â”€ Drawer Backdrop â”€â”€ -->
+    <!-- â"€â"€ Drawer Backdrop â"€â"€ -->
     <Transition name="backdrop-fade">
       <div v-if="drawerOpen" class="drawer-backdrop" @click="closeDrawer" />
     </Transition>
 
-    <!-- â”€â”€ Send Drawer â”€â”€ -->
+    <!-- â"€â"€ Send Drawer â"€â"€ -->
     <Transition name="drawer-slide">
       <div v-if="drawerOpen" class="send-drawer">
 
@@ -191,7 +191,7 @@
       </div>
     </Transition>
 
-    <!-- â”€â”€ Success Toast â”€â”€ -->
+    <!-- â"€â"€ Success Toast â"€â"€ -->
     <Transition name="toast-pop">
       <div v-if="showSuccess" class="success-toast">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
@@ -207,7 +207,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-/* â”€â”€ Provider data â”€â”€ */
+/* â"€â"€ Provider data â"€â"€ */
 const gf = d => `https://www.google.com/s2/favicons?domain=${d}&sz=128`
 
 const providers = [
@@ -223,19 +223,19 @@ const providers = [
   { name: 'VALR',           tagline: "VALR, South Africa's Crypto Frontier",         badge: 'AFRICA',       badgeBg: '#0f172a',  badgeColor: '#fff', topColor: '#0f172a',  logo: gf('valr.com') },
   { name: 'Yellow Card',    tagline: 'Yellow Card, Crypto for Emerging Markets',     badge: 'EMERGENCE',    badgeBg: '#1e293b',  badgeColor: '#fff', topColor: '#f59e0b',  logo: gf('yellowcard.io') },
   { name: 'Roqqu',          tagline: 'Roqqu, Crypto for Emerging Markets',           badge: 'EMERGENCE',    badgeBg: '#1e293b',  badgeColor: '#fff', topColor: '#1e293b',  logo: gf('roqqu.com') },
-  { name: 'Bitso',          tagline: "Bitso, Latin America's Crypto Bridge",         badge: 'PROFESSIONAL', badgeBg: '#22c55e',  badgeColor: '#fff', topColor: '#22c55e',  logo: gf('bitso.com') },
+  { name: 'Bitso',          tagline: "Bitso, Latin America's Crypto Bridge",         badge: 'PROFESSIONAL', badgeBg: '#f05025',  badgeColor: '#fff', topColor: '#f05025',  logo: gf('bitso.com') },
   { name: 'Bitget',         tagline: 'Bitget, Crypto Made Accessible',               badge: 'EMERGENCE',    badgeBg: '#1e293b',  badgeColor: '#fff', topColor: '#22d3ee',  logo: gf('bitget.com') },
   { name: 'SuperEx',        tagline: 'SuperEx, Crypto for Emerging Markets',         badge: 'EMERGENCE',    badgeBg: '#1e293b',  badgeColor: '#fff', topColor: '#ef4444',  logo: gf('superex.com') },
   { name: 'XT Wallet',      tagline: 'XT Wallet, Crypto for Emerging Markets',       badge: 'EMERGENCE',    badgeBg: '#1e293b',  badgeColor: '#fff', topColor: '#3b82f6',  logo: gf('xt.com') },
   { name: 'AltCoin Trader', tagline: 'AltCoin Trader, Crypto for Emerging Markets', badge: 'EMERGENCE',    badgeBg: '#1e293b',  badgeColor: '#fff', topColor: '#60a5fa',  logo: gf('altcointrader.co.za') },
   { name: 'Crypto.com',     tagline: 'Crypto at the Speed of Life',                 badge: 'GOLD WINNER',  badgeBg: '#3b82f6',  badgeColor: '#fff', topColor: '#3b82f6',  logo: gf('crypto.com') },
-  { name: 'Cash App',       tagline: 'Cash App, Everyday Crypto',                   badge: 'GOLD WINNER',  badgeBg: '#22c55e',  badgeColor: '#fff', topColor: '#22c55e',  logo: gf('cash.app') },
+  { name: 'Cash App',       tagline: 'Cash App, Everyday Crypto',                   badge: 'GOLD WINNER',  badgeBg: '#f05025',  badgeColor: '#fff', topColor: '#f05025',  logo: gf('cash.app') },
   { name: 'Zelle',          tagline: 'Zelle, Crypto for Emerging Markets',           badge: 'EMERGENCE',    badgeBg: '#8b5cf6',  badgeColor: '#fff', topColor: '#8b5cf6',  logo: gf('zellepay.com') },
   { name: 'Venmo',          tagline: 'Venmo, Crypto for Emerging Markets',           badge: 'EMERGENCE',    badgeBg: '#1e293b',  badgeColor: '#fff', topColor: '#3b82f6',  logo: gf('venmo.com') },
   { name: 'GCash',          tagline: 'GCash, Crypto in Your Wallet',                badge: 'PHP',          badgeBg: '#22d3ee',  badgeColor: '#fff', topColor: '#22d3ee',  logo: gf('gcash.com') },
 ]
 
-/* â”€â”€ Drawer state â”€â”€ */
+/* â"€â"€ Drawer state â"€â"€ */
 const drawerOpen      = ref(false)
 const activeProvider  = ref(null)
 const sending         = ref(false)
@@ -307,7 +307,7 @@ function onImgError(e) {
   gap: 28px;
 }
 
-/* â”€â”€ Header â”€â”€ */
+/* â"€â"€ Header â"€â"€ */
 .cm-header {
   display: flex;
   align-items: flex-start;
@@ -332,14 +332,14 @@ function onImgError(e) {
 .cm-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
 .cm-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
 
-/* â”€â”€ Provider Grid â”€â”€ */
+/* â"€â"€ Provider Grid â"€â"€ */
 .provider-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
-/* â”€â”€ Provider Card â”€â”€ */
+/* â"€â"€ Provider Card â"€â"€ */
 .p-card {
   position: relative;
   display: flex;
@@ -385,7 +385,7 @@ function onImgError(e) {
 .p-card__tag   { font-size: 0.75rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .p-card__cta   { margin-top: auto; font-size: 0.72rem; color: var(--t4); padding-top: 8px; border-top: 1px solid var(--border-soft); width: 100%; text-align: center; }
 
-/* â”€â”€ Recently Sent â”€â”€ */
+/* â"€â"€ Recently Sent â"€â"€ */
 .recent-section { display: flex; flex-direction: column; gap: 14px; }
 .recent-title   { font-size: 1rem; font-weight: 700; color: var(--t1); margin: 0; }
 .recent-empty {
@@ -414,18 +414,18 @@ function onImgError(e) {
 .sent-item__meta { font-size: 0.7rem; color: var(--t3); }
 .sent-item__badge {
   font-size: 0.65rem; font-weight: 700; padding: 3px 9px; border-radius: 999px;
-  background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.28); color: #22c55e;
+  background: rgba(240, 80, 37,0.12); border: 1px solid rgba(240, 80, 37,0.28); color: #f05025;
 }
 .sent-item__time { font-size: 0.7rem; color: var(--t4); white-space: nowrap; }
 
-/* â”€â”€ Drawer Backdrop â”€â”€ */
+/* â"€â"€ Drawer Backdrop â"€â"€ */
 .drawer-backdrop {
   position: fixed; inset: 0; z-index: 300;
   background: rgba(0,0,0,0.5);
   backdrop-filter: blur(4px);
 }
 
-/* â”€â”€ Send Drawer â”€â”€ */
+/* â"€â"€ Send Drawer â"€â"€ */
 .send-drawer {
   position: fixed;
   top: 0; right: 0; bottom: 0;
@@ -525,8 +525,8 @@ function onImgError(e) {
 }
 .type-pill:hover { border-color: var(--accent); color: var(--accent); }
 .type-pill--active {
-  background: rgba(34,197,94,0.12); border-color: rgba(34,197,94,0.4);
-  color: #22c55e;
+  background: rgba(240, 80, 37,0.12); border-color: rgba(240, 80, 37,0.4);
+  color: #f05025;
 }
 
 .form-error {
@@ -552,7 +552,7 @@ function onImgError(e) {
 .drawer-send-btn {
   flex: 2; display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 11px 0; border-radius: 12px; border: none;
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  background: linear-gradient(135deg, #f05025 0%, #16a34a 100%);
   color: #fff; font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem; font-weight: 700; cursor: pointer;
   transition: opacity 0.2s, transform 0.18s;
@@ -570,7 +570,7 @@ function onImgError(e) {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* â”€â”€ Success Toast â”€â”€ */
+/* â"€â"€ Success Toast â"€â"€ */
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px;
@@ -580,7 +580,7 @@ function onImgError(e) {
   box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 
-/* â”€â”€ Animations â”€â”€ */
+/* â"€â"€ Animations â"€â"€ */
 .backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity 0.25s ease; }
 .backdrop-fade-enter-from,   .backdrop-fade-leave-to     { opacity: 0; }
 
@@ -594,7 +594,7 @@ function onImgError(e) {
 .toast-pop-enter-from,
 .toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
 
-/* â”€â”€ Responsive â”€â”€ */
+/* â"€â"€ Responsive â"€â"€ */
 @media (max-width: 1024px) {
   .provider-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
 }
@@ -632,5 +632,5 @@ function onImgError(e) {
   .cm-title      { font-size: 1.1rem; }
 }
 
-/* â”€â”€ Light mode â”€â”€ */
+/* â"€â"€ Light mode â"€â"€ */
 </style>

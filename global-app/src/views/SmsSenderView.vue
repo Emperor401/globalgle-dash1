@@ -13,7 +13,7 @@
     <div class="sms-hdr">
       <div class="sms-hdr__inner">
         <div class="sms-hdr-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f05025"
             stroke-width="2" stroke-linecap="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
@@ -237,7 +237,7 @@
             <span class="sms-preview-stat__lbl">Segments</span>
           </div>
           <div class="sms-preview-stat">
-            <span class="sms-preview-stat__val" style="color:#22c55e">
+            <span class="sms-preview-stat__val" style="color:#f05025">
               {{ estimatedCost !== null ? `₦${estimatedCost}` : '₦0' }}
             </span>
             <span class="sms-preview-stat__lbl">Est. cost</span>
@@ -584,7 +584,7 @@ function sendBulkSMS() {
 .sms-hdr__inner { display: flex; align-items: center; gap: 16px; }
 .sms-hdr-icon {
   width: 52px; height: 52px; border-radius: 16px;
-  background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .sms-hdr-title { font-size: 1.5rem; font-weight: 800; color: var(--t1); margin: 0 0 4px; letter-spacing: -0.02em; }
@@ -624,7 +624,7 @@ function sendBulkSMS() {
   cursor: pointer; font-family: inherit; transition: all 0.18s;
 }
 .sms-tab:hover { color: var(--t1); background: rgba(255,255,255,.05); }
-.sms-tab--active { background: rgba(34,197,94,.12); color: #22c55e; border: 1px solid rgba(34,197,94,.25); }
+.sms-tab--active { background: rgba(240, 80, 37,.12); color: #f05025; border: 1px solid rgba(240, 80, 37,.25); }
 
 /* ── Split layout ── */
 .sms-split {
@@ -652,7 +652,7 @@ function sendBulkSMS() {
 }
 .sms-label-count {
   font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
-  background: rgba(34,197,94,.12); color: #22c55e; border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.12); color: #f05025; border: 1px solid rgba(240, 80, 37,.2);
 }
 
 /* inputs */
@@ -661,7 +661,7 @@ function sendBulkSMS() {
   border-radius: 12px; padding: 12px 16px; font-size: 0.88rem;
   color: var(--t1); font-family: inherit; outline: none; transition: border-color 0.2s;
 }
-.sms-input:focus       { border-color: rgba(34,197,94,.4); }
+.sms-input:focus       { border-color: rgba(240, 80, 37,.4); }
 .sms-input--err        { border-color: rgba(248,113,113,.4); }
 .sms-input--phone      { flex: 1; border-radius: 0 12px 12px 0; border-left: none; }
 .sms-input::placeholder{ color: var(--t3); }
@@ -672,7 +672,7 @@ function sendBulkSMS() {
   color: var(--t1); font-family: inherit; outline: none; resize: none;
   transition: border-color 0.2s; line-height: 1.6;
 }
-.sms-textarea:focus       { border-color: rgba(34,197,94,.4); }
+.sms-textarea:focus       { border-color: rgba(240, 80, 37,.4); }
 .sms-textarea::placeholder{ color: var(--t3); }
 
 .sms-hint {
@@ -698,7 +698,7 @@ function sendBulkSMS() {
   cursor: pointer; user-select: none; flex-shrink: 0;
   transition: border-color 0.2s;
 }
-.sms-country-wrap:hover { border-color: rgba(34,197,94,.3); }
+.sms-country-wrap:hover { border-color: rgba(240, 80, 37,.3); }
 .sms-country-wrap--full { border-radius: 12px; width: 100%; }
 
 .sms-dial-code { font-size: 0.82rem; font-weight: 600; color: var(--t1); white-space: nowrap; }
@@ -719,7 +719,7 @@ function sendBulkSMS() {
   display: flex; align-items: center; gap: 8px; padding: 8px 10px;
   border-radius: 9px; cursor: pointer; transition: background 0.15s;
 }
-.sms-country-item:hover, .sms-country-item.active { background: rgba(34,197,94,.08); }
+.sms-country-item:hover, .sms-country-item.active { background: rgba(240, 80, 37,.08); }
 .sms-country-name { font-size: 0.8rem; color: var(--t1); flex: 1; }
 .sms-country-dial { font-size: 0.75rem; color: var(--t3); }
 
@@ -734,13 +734,13 @@ function sendBulkSMS() {
   position: relative; cursor: pointer; transition: background 0.25s, border-color 0.25s;
   flex-shrink: 0;
 }
-.sms-toggle--on { background: rgba(34,197,94,.25); border-color: rgba(34,197,94,.4); }
+.sms-toggle--on { background: rgba(240, 80, 37,.25); border-color: rgba(240, 80, 37,.4); }
 .sms-toggle-thumb {
   width: 14px; height: 14px; border-radius: 50%;
   background: var(--t3); position: absolute; top: 2px; left: 2px;
   transition: transform 0.25s, background 0.25s;
 }
-.sms-toggle--on .sms-toggle-thumb { transform: translateX(16px); background: #22c55e; }
+.sms-toggle--on .sms-toggle-thumb { transform: translateX(16px); background: #f05025; }
 
 /* schedule fields */
 .slide-down-enter-active, .slide-down-leave-active { transition: all 0.25s ease; }
@@ -762,7 +762,7 @@ function sendBulkSMS() {
 .sms-send-btn {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; padding: 14px; border-radius: 12px;
-  background: #22c55e; border: none;
+  background: #f05025; border: none;
   font-size: 0.88rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
@@ -801,8 +801,8 @@ function sendBulkSMS() {
 }
 .sms-phone-avatar {
   width: 32px; height: 32px; border-radius: 50%;
-  background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.25);
-  font-size: 0.8rem; font-weight: 800; color: #22c55e;
+  background: rgba(240, 80, 37,.15); border: 1px solid rgba(240, 80, 37,.25);
+  font-size: 0.8rem; font-weight: 800; color: #f05025;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -814,7 +814,7 @@ function sendBulkSMS() {
   overflow-y: auto;
 }
 .sms-bubble {
-  background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.12); border: 1px solid rgba(240, 80, 37,.2);
   border-radius: 14px 14px 4px 14px;
   padding: 9px 12px; font-size: 0.72rem; color: var(--t1); line-height: 1.5;
   word-break: break-word; align-self: flex-end; max-width: 90%;
@@ -855,11 +855,11 @@ function sendBulkSMS() {
   padding: 60px 24px; color: var(--t3); font-size: 0.85rem;
 }
 .sms-empty-btn {
-  background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
   border-radius: 10px; padding: 9px 20px; font-size: 0.82rem; font-weight: 700;
-  color: #22c55e; cursor: pointer; font-family: inherit; transition: background 0.2s;
+  color: #f05025; cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
-.sms-empty-btn:hover { background: rgba(34,197,94,.2); }
+.sms-empty-btn:hover { background: rgba(240, 80, 37,.2); }
 
 .sms-history-head {
   display: grid;
@@ -883,13 +883,13 @@ function sendBulkSMS() {
 .sms-h-sender { font-weight: 700; color: var(--t1); }
 .sms-h-phone  { color: var(--t2); font-size: 0.76rem; }
 .sms-h-msg    { color: var(--t3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sms-h-cost   { color: #22c55e; font-weight: 700; }
+.sms-h-cost   { color: #f05025; font-weight: 700; }
 .sms-h-date   { font-size: 0.72rem; color: var(--t3); }
 .sms-h-status {
   font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
   padding: 3px 8px; border-radius: 999px; width: fit-content;
 }
-.sms-h-status--sent     { background: rgba(34,197,94,.12);  color: #22c55e; border: 1px solid rgba(34,197,94,.2); }
+.sms-h-status--sent     { background: rgba(240, 80, 37,.12);  color: #f05025; border: 1px solid rgba(240, 80, 37,.2); }
 .sms-h-status--failed   { background: rgba(248,113,113,.12); color: #f87171; border: 1px solid rgba(248,113,113,.2); }
 .sms-h-status--pending  { background: rgba(251,191,36,.12);  color: #fbbf24; border: 1px solid rgba(251,191,36,.2); }
 
@@ -905,7 +905,7 @@ function sendBulkSMS() {
   backdrop-filter: blur(20px);
 }
 .sms-toast--success {
-  background: rgba(34,197,94,.18); border: 1px solid rgba(34,197,94,.3); color: #22c55e;
+  background: rgba(240, 80, 37,.18); border: 1px solid rgba(240, 80, 37,.3); color: #f05025;
 }
 .sms-toast--error {
   background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171;

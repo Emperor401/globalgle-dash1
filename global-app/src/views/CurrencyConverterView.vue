@@ -12,7 +12,7 @@
     <!-- Header -->
     <div class="cc-header">
       <div class="cc-header-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f05025"
           stroke-width="2" stroke-linecap="round">
           <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
         </svg>
@@ -67,7 +67,7 @@
 
       <!-- Swap -->
       <button class="cc-swap" @click="swapCurrencies" title="Swap">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f05025"
           stroke-width="2.5" stroke-linecap="round">
           <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
         </svg>
@@ -291,8 +291,8 @@ onMounted(async () => {
 }
 .cc-header-icon {
   width: 52px; height: 52px; border-radius: 16px;
-  background: rgba(34,197,94,.12);
-  border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.12);
+  border: 1px solid rgba(240, 80, 37,.2);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -306,7 +306,7 @@ onMounted(async () => {
   font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.06em; padding: 4px 12px; border-radius: 999px;
 }
-.cc-status--live    { background: rgba(34,197,94,.12); color: #22c55e; border: 1px solid rgba(34,197,94,.2); }
+.cc-status--live    { background: rgba(240, 80, 37,.12); color: #f05025; border: 1px solid rgba(240, 80, 37,.2); }
 .cc-status--offline { background: rgba(251,191,36,.12); color: #fbbf24; border: 1px solid rgba(251,191,36,.2); }
 .cc-dot {
   width: 6px; height: 6px; border-radius: 50%; background: currentColor;
@@ -340,13 +340,13 @@ onMounted(async () => {
   border-radius: 12px; padding: 13px 16px; font-size: 1.25rem; font-weight: 700;
   color: var(--t1); font-family: inherit; outline: none; transition: border-color 0.2s;
 }
-.cc-input:focus { border-color: rgba(34,197,94,.4); }
+.cc-input:focus { border-color: rgba(240, 80, 37,.4); }
 .cc-input::-webkit-inner-spin-button { display: none; }
 
 .cc-result-val {
-  flex: 1; background: rgba(34,197,94,.06); border: 1px solid rgba(34,197,94,.15);
+  flex: 1; background: rgba(240, 80, 37,.06); border: 1px solid rgba(240, 80, 37,.15);
   border-radius: 12px; padding: 13px 16px; font-size: 1.25rem; font-weight: 700;
-  color: #22c55e;
+  color: #f05025;
 }
 
 .cc-select-wrap {
@@ -356,7 +356,7 @@ onMounted(async () => {
   border-radius: 12px; padding: 11px 14px; cursor: pointer;
   user-select: none; transition: border-color 0.2s; flex-shrink: 0;
 }
-.cc-select-wrap:hover { border-color: rgba(34,197,94,.3); }
+.cc-select-wrap:hover { border-color: rgba(240, 80, 37,.3); }
 .cc-flag { font-size: 1.2rem; }
 .cc-code { font-size: 0.9rem; font-weight: 700; color: var(--t1); min-width: 36px; }
 
@@ -386,11 +386,11 @@ onMounted(async () => {
 .cc-swap {
   align-self: center;
   width: 40px; height: 40px; border-radius: 50%;
-  background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2);
+  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: background 0.2s, transform 0.2s;
 }
-.cc-swap:hover { background: rgba(34,197,94,.2); transform: rotate(180deg); }
+.cc-swap:hover { background: rgba(240, 80, 37,.2); transform: rotate(180deg); }
 
 .cc-rate-line {
   font-size: 0.8rem; color: var(--t3); margin: 0;
@@ -413,7 +413,7 @@ onMounted(async () => {
 }
 .cc-quick-btn:hover,
 .cc-quick-btn.active {
-  background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.3); color: #22c55e;
+  background: rgba(240, 80, 37,.12); border-color: rgba(240, 80, 37,.3); color: #f05025;
 }
 
 /* popular pairs */
@@ -428,10 +428,10 @@ onMounted(async () => {
   border-radius: 14px; padding: 16px;
   cursor: pointer; transition: border-color 0.2s, transform 0.2s;
 }
-.cc-pair-card:hover { border-color: rgba(34,197,94,.35); transform: translateY(-2px); }
+.cc-pair-card:hover { border-color: rgba(240, 80, 37,.35); transform: translateY(-2px); }
 .cc-pair-flags { font-size: 1.05rem; margin-bottom: 6px; }
 .cc-pair-codes { font-size: 0.82rem; font-weight: 700; color: var(--t1); margin-bottom: 4px; }
-.cc-pair-rate  { font-size: 0.78rem; color: #22c55e; }
+.cc-pair-rate  { font-size: 0.78rem; color: #f05025; }
 
 /* ── Tablet ── */
 @media (max-width: 1024px) and (min-width: 769px) {

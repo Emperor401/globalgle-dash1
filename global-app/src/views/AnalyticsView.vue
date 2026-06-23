@@ -82,8 +82,8 @@ import { useSiteStore } from '../composables/useSiteStore.js'
 
 const router        = useRouter()
 const launching     = ref(null)
-const selectedTheme = ref('#22c55e')
-const themes        = ['#22c55e','#60a5fa','#a78bfa','#f472b6','#fbbf24','#f87171']
+const selectedTheme = ref('#f05025')
+const themes        = ['#f05025','#60a5fa','#a78bfa','#f472b6','#fbbf24','#f87171']
 
 const { totalSites, liveSites, pendingSetup } = useSiteStore()
 
@@ -93,14 +93,14 @@ function openLaunch(s) {
 }
 
 const sites = [
-  { title:'Support Pages',  desc:'Create a branded help & support page.',    badge:'Ready',  badgeColor:'#22c55e', badgeBg:'rgba(34,197,94,0.12)',  badgeBorder:'rgba(34,197,94,0.25)',  iconBg:'rgba(34,197,94,0.12)',  iconColor:'#22c55e', icon:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="#22c55e"/>', route: '/support-pages' },
-  { title:'Online Banking',  desc:'Spin up your own online banking site.',    badge:'Popular',badgeColor:'#60a5fa', badgeBg:'rgba(96,165,250,0.12)', badgeBorder:'rgba(96,165,250,0.25)', iconBg:'rgba(34,197,94,0.12)',  iconColor:'#22c55e', icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>', route: '/online-banking' },
-  { title:'Broker',          desc:'Launch your own trading / broker platform.',badge:'New',   badgeColor:'#fbbf24', badgeBg:'rgba(251,191,36,0.12)', badgeBorder:'rgba(251,191,36,0.25)', iconBg:'rgba(34,197,94,0.12)',  iconColor:'#22c55e', icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>', route: '/broker' },
-  { title:'Tracking Pages',  desc:'Create package tracking pages.',           badge:'Beta',   badgeColor:'#a78bfa', badgeBg:'rgba(167,139,250,0.12)',badgeBorder:'rgba(167,139,250,0.25)',iconBg:'rgba(34,197,94,0.12)',  iconColor:'#22c55e', icon:'<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>', route: '/tracking-pages' },
+  { title:'Support Pages',  desc:'Create a branded help & support page.',    badge:'Ready',  badgeColor:'#f05025', badgeBg:'rgba(240, 80, 37,0.12)',  badgeBorder:'rgba(240, 80, 37,0.25)',  iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="#f05025"/>', route: '/support-pages' },
+  { title:'Online Banking',  desc:'Spin up your own online banking site.',    badge:'Popular',badgeColor:'#60a5fa', badgeBg:'rgba(96,165,250,0.12)', badgeBorder:'rgba(96,165,250,0.25)', iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>', route: '/online-banking' },
+  { title:'Broker',          desc:'Launch your own trading / broker platform.',badge:'New',   badgeColor:'#fbbf24', badgeBg:'rgba(251,191,36,0.12)', badgeBorder:'rgba(251,191,36,0.25)', iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>', route: '/broker' },
+  { title:'Tracking Pages',  desc:'Create package tracking pages.',           badge:'Beta',   badgeColor:'#a78bfa', badgeBg:'rgba(167,139,250,0.12)',badgeBorder:'rgba(167,139,250,0.25)',iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>', route: '/tracking-pages' },
 ]
 
 const stats = computed(() => [
-  { label:'Total Sites',     value: totalSites.value,   color:'#22c55e', dimColor:'rgba(34,197,94,0.12)',   icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
+  { label:'Total Sites',     value: totalSites.value,   color:'#f05025', dimColor:'rgba(240, 80, 37,0.12)',   icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
   { label:'Live Sites',      value: liveSites.value,    color:'#60a5fa', dimColor:'rgba(96,165,250,0.12)',  icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>' },
   { label:'Pending Setup',   value: pendingSetup.value, color:'#fbbf24', dimColor:'rgba(251,191,36,0.12)', icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
   { label:'Monthly Visitors',value:'24.3K',             color:'#a78bfa', dimColor:'rgba(167,139,250,0.12)',icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
@@ -158,8 +158,8 @@ const stats = computed(() => [
 
 .d-status { display:inline-flex; align-items:center; gap:5px; font-size:0.62rem; font-weight:700; padding:2px 8px; border-radius:999px; }
 .d-dot { width:5px; height:5px; border-radius:50%; }
-.d-status--live { color:#22c55e; background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.25); }
-.d-status--live .d-dot { background:#22c55e; }
+.d-status--live { color:#f05025; background:rgba(240, 80, 37,0.12); border:1px solid rgba(240, 80, 37,0.25); }
+.d-status--live .d-dot { background:#f05025; }
 .d-status--staging { color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.28); }
 .d-status--staging .d-dot { background:#fbbf24; }
 

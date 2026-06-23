@@ -18,7 +18,7 @@
       >
         <div class="service-card__icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="#22c55e" stroke-width="1.8"
+            stroke="#f05025" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round"
             v-html="s.icon"
           />
@@ -35,13 +35,13 @@
 const services = [
   {
     title: 'Receipts Tracking',
-    desc:  'A step-by-step receipt with <span class="hl">a status icon</span>, <span class="hl">a progress timeline</span> and <span class="hl">an action button</span> â€” share it with a link.',
+    desc:  'A step-by-step receipt with <span class="hl">a status icon</span>, <span class="hl">a progress timeline</span> and <span class="hl">an action button</span> â€" share it with a link.',
     route: '/tools/transactions-tracker/receipts',
     icon:  '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
   },
   {
     title: 'Payment Tracking',
-    desc:  'A live receipt with <span class="hl">a spinning status</span>, <span class="hl">amounts</span> and <span class="hl">copyable details</span> â€” share it with a link.',
+    desc:  'A live receipt with <span class="hl">a spinning status</span>, <span class="hl">amounts</span> and <span class="hl">copyable details</span> â€" share it with a link.',
     route: '/tools/transactions-tracker/payment',
     icon:  '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
   },
@@ -87,13 +87,13 @@ const services = [
 .service-card:hover {
   border-color: var(--accent-border);
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(34, 197, 94, 0.08);
+  box-shadow: 0 8px 28px rgba(240, 80, 37, 0.08);
 }
 
 .service-card__icon {
   width: 46px; height: 46px; border-radius: 13px;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.18);
+  background: rgba(240, 80, 37, 0.12);
+  border: 1px solid rgba(240, 80, 37, 0.18);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 
@@ -106,9 +106,9 @@ const services = [
 }
 .service-card__desc :deep(.hl) { color: var(--accent); font-weight: 500; }
 
-/* â”€â”€ Responsive â”€â”€ */
+/* â"€â"€ Responsive â"€â"€ */
 
-/* Tablet (601px â€“ 768px): side-by-side still works */
+/* Tablet (601px â€" 768px): side-by-side still works */
 @media (max-width: 768px) and (min-width: 601px) {
   .tt-page       { gap: 22px; }
   .service-grid  { gap: 14px; }

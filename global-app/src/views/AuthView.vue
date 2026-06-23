@@ -1,4 +1,4 @@
-<!-- src/views/AuthView.vue -->
+﻿<!-- src/views/AuthView.vue -->
 <template>
   <div class="auth-page">
 
@@ -27,7 +27,7 @@
 
       <!-- Icon -->
       <div class="auth-icon">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f05025"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="11" width="18" height="11" rx="2"/>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
@@ -144,12 +144,12 @@ function unlock() {
 }
 .auth-orb--1 {
   width: 420px; height: 420px;
-  background: rgba(34,197,94,0.06);
+  background: rgba(240, 80, 37,0.06);
   top: -100px; left: -100px;
 }
 .auth-orb--2 {
   width: 360px; height: 360px;
-  background: rgba(34,197,94,0.04);
+  background: rgba(240, 80, 37,0.04);
   bottom: -80px; right: -80px;
 }
 
@@ -175,17 +175,17 @@ function unlock() {
 .auth-icon {
   width: 64px; height: 64px;
   border-radius: 18px;
-  background: rgba(34,197,94,0.12);
-  border: 1px solid rgba(34,197,94,0.25);
+  background: rgba(240, 80, 37,0.12);
+  border: 1px solid rgba(240, 80, 37,0.25);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 32px rgba(34,197,94,0.15);
+  box-shadow: 0 8px 32px rgba(240, 80, 37,0.15);
 }
 
 /* Titles */
 .auth-titles { text-align: center; display: flex; flex-direction: column; gap: 4px; }
 .auth-title  { font-size: 1.4rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.02em; }
 .auth-sub    { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin: 0; }
-.auth-brand  { color: #22c55e; font-weight: 700; }
+.auth-brand  { color: #f05025; font-weight: 700; }
 
 /* Form */
 .auth-form {
@@ -204,8 +204,8 @@ function unlock() {
   transition: border-color 0.2s, background 0.2s;
 }
 .auth-input-wrap:focus-within {
-  border-color: rgba(34,197,94,0.5);
-  background: rgba(34,197,94,0.04);
+  border-color: rgba(240, 80, 37,0.5);
+  background: rgba(240, 80, 37,0.04);
 }
 .auth-input-wrap--error {
   border-color: rgba(248,113,113,0.5) !important;
@@ -250,7 +250,7 @@ function unlock() {
   padding: 14px;
   border-radius: 12px;
   border: none;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #f05025, #16a34a);
   color: #fff;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
@@ -259,10 +259,10 @@ function unlock() {
   cursor: pointer;
   transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+  box-shadow: 0 4px 20px rgba(240, 80, 37,0.3);
   min-height: 50px;
 }
-.auth-btn:hover  { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(34,197,94,0.4); }
+.auth-btn:hover  { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(240, 80, 37,0.4); }
 .auth-btn:active { transform: translateY(0); }
 .auth-btn--loading { opacity: 0.7; pointer-events: none; }
 
@@ -380,8 +380,8 @@ function unlock() {
   color: #fca5a5;
 }
 .auth-toast--success {
-  background: rgba(34,197,94,0.18);
-  border: 1px solid rgba(34,197,94,0.35);
+  background: rgba(240, 80, 37,0.18);
+  border: 1px solid rgba(240, 80, 37,0.35);
   color: #86efac;
 }
 

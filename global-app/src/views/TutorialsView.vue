@@ -154,7 +154,7 @@
               <div class="tut-learn-block">
                 <div class="tut-learn-hdr">What you'll learn</div>
                 <div v-for="pt in modal.learn" :key="pt" class="tut-learn-item">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22c55e"
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f05025"
                     stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;margin-top:2px">
                     <polyline points="20 6 9 17 4 12"/>
                   </svg>
@@ -272,8 +272,8 @@ function showToast(type, msg) {
   border-radius: 999px; padding: 6px 14px; font-size: 0.76rem; font-weight: 600;
   color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.18s;
 }
-.tut-pill:hover         { color: var(--t1); border-color: rgba(34,197,94,.25); }
-.tut-pill--active       { background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.3); color: #22c55e; }
+.tut-pill:hover         { color: var(--t1); border-color: rgba(240, 80, 37,.25); }
+.tut-pill--active       { background: rgba(240, 80, 37,.12); border-color: rgba(240, 80, 37,.3); color: #f05025; }
 
 .tut-search {
   display: flex; align-items: center; gap: 8px;
@@ -281,7 +281,7 @@ function showToast(type, msg) {
   border-radius: 999px; padding: 7px 15px; color: var(--t3);
   transition: border-color 0.2s; min-width: 180px;
 }
-.tut-search:focus-within { border-color: rgba(34,197,94,.3); color: var(--t2); }
+.tut-search:focus-within { border-color: rgba(240, 80, 37,.3); color: var(--t2); }
 .tut-search-input {
   background: none; border: none; outline: none;
   font-family: inherit; font-size: 0.79rem; color: var(--t1); width: 100%;
@@ -317,11 +317,11 @@ function showToast(type, msg) {
 
 .tut-notify-btn {
   display: flex; align-items: center; gap: 8px; margin-top: 8px;
-  background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25);
+  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.25);
   border-radius: 10px; padding: 10px 22px; font-size: 0.82rem; font-weight: 700;
-  color: #22c55e; cursor: pointer; font-family: inherit; transition: all 0.2s;
+  color: #f05025; cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.tut-notify-btn:hover { background: rgba(34,197,94,.2); border-color: rgba(34,197,94,.4); }
+.tut-notify-btn:hover { background: rgba(240, 80, 37,.2); border-color: rgba(240, 80, 37,.4); }
 
 /* ── Grid ── */
 .tut-grid {
@@ -336,7 +336,7 @@ function showToast(type, msg) {
   overflow: hidden; cursor: pointer; transition: border-color 0.22s, transform 0.22s;
   display: flex; flex-direction: column;
 }
-.tut-card:hover { border-color: rgba(34,197,94,.38); transform: translateY(-3px); }
+.tut-card:hover { border-color: rgba(240, 80, 37,.38); transform: translateY(-3px); }
 /* thumbnail */
 .tut-thumb {
   position: relative; height: 138px; overflow: hidden;
@@ -359,7 +359,7 @@ function showToast(type, msg) {
   transition: background 0.2s, transform 0.2s;
 }
 .tut-card:hover .tut-thumb-play {
-  background: rgba(34,197,94,.5); transform: scale(1.1);
+  background: rgba(240, 80, 37,.5); transform: scale(1.1);
 }
 
 .tut-dur-badge {
@@ -372,7 +372,7 @@ function showToast(type, msg) {
   font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
   padding: 2px 8px; border-radius: 999px;
 }
-.tut-hot--new     { background: rgba(34,197,94,.25);  color: #22c55e;  border: 1px solid rgba(34,197,94,.4);  }
+.tut-hot--new     { background: rgba(240, 80, 37,.25);  color: #f05025;  border: 1px solid rgba(240, 80, 37,.4);  }
 .tut-hot--popular { background: rgba(245,158,11,.25); color: #f59e0b;  border: 1px solid rgba(245,158,11,.4); }
 
 /* card body */
@@ -393,14 +393,14 @@ function showToast(type, msg) {
   color: var(--t2); transition: all 0.2s; margin-top: 3px;
 }
 .tut-card:hover .tut-card-footer {
-  background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.25); color: #22c55e;
+  background: rgba(240, 80, 37,.1); border-color: rgba(240, 80, 37,.25); color: #f05025;
 }
 /* ── Category / diff tags ── */
 .tut-cat-tag {
   font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.07em; padding: 2px 8px; border-radius: 999px;
 }
-.tut-cat--green  { background: rgba(34,197,94,.1);   color: #22c55e;  border: 1px solid rgba(34,197,94,.2);   }
+.tut-cat--green  { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
 .tut-cat--amber  { background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
 .tut-cat--purple { background: rgba(167,139,250,.1); color: #a78bfa;  border: 1px solid rgba(167,139,250,.2); }
 .tut-cat--red    { background: rgba(248,113,113,.1); color: #f87171;  border: 1px solid rgba(248,113,113,.2); }
@@ -410,7 +410,7 @@ function showToast(type, msg) {
   font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.07em; padding: 2px 7px; border-radius: 999px;
 }
-.tut-diff--beginner     { background: rgba(34,197,94,.08);   color: #22c55e;  }
+.tut-diff--beginner     { background: rgba(240, 80, 37,.08);   color: #f05025;  }
 .tut-diff--intermediate { background: rgba(245,158,11,.08);  color: #f59e0b;  }
 .tut-diff--advanced     { background: rgba(248,113,113,.08); color: #f87171;  }
 
@@ -442,14 +442,14 @@ function showToast(type, msg) {
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: transform 0.2s, background 0.2s; z-index: 2;
 }
-.tut-modal-play-btn:hover { background: rgba(34,197,94,.35); border-color: rgba(34,197,94,.55); transform: scale(1.07); }
+.tut-modal-play-btn:hover { background: rgba(240, 80, 37,.35); border-color: rgba(240, 80, 37,.55); transform: scale(1.07); }
 
 .tut-progress-bar {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
   display: flex; align-items: center; gap: 10px; padding: 10px 16px;
   background: linear-gradient(transparent, rgba(0,0,0,.65));
 }
-.tut-progress-fill { height: 4px; border-radius: 2px; background: #22c55e; transition: width 0.15s linear; flex: 1; }
+.tut-progress-fill { height: 4px; border-radius: 2px; background: #f05025; transition: width 0.15s linear; flex: 1; }
 .tut-progress-bar span { font-size: 0.68rem; font-weight: 700; color: rgba(255,255,255,.8); flex-shrink: 0; }
 
 .tut-modal-x {
@@ -493,7 +493,7 @@ function showToast(type, msg) {
   padding: 12px 20px; border-radius: 13px; font-size: 0.83rem; font-weight: 600;
   z-index: 10000; backdrop-filter: blur(20px); white-space: nowrap;
 }
-.tut-toast--success { background: rgba(34,197,94,.18);   border: 1px solid rgba(34,197,94,.3);   color: #22c55e;  }
+.tut-toast--success { background: rgba(240, 80, 37,.18);   border: 1px solid rgba(240, 80, 37,.3);   color: #f05025;  }
 .tut-toast--info    { background: rgba(96,165,250,.18);  border: 1px solid rgba(96,165,250,.3);  color: #60a5fa;  }
 
 @media (max-width: 1024px) and (min-width: 769px) {

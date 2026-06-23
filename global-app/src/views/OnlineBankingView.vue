@@ -1,4 +1,4 @@
-<!-- src/views/OnlineBankingView.vue -->
+﻿<!-- src/views/OnlineBankingView.vue -->
 <template>
   <div class="ob-page">
 
@@ -779,14 +779,14 @@ function deleteSite(id) {
 /* ── Link ── */
 .ob-link {
   display: inline-flex; align-items: center; gap: 5px;
-  color: #22c55e; font-size: 0.82rem; font-weight: 600;
+  color: #f05025; font-size: 0.82rem; font-weight: 600;
   text-decoration: none; transition: opacity 0.18s;
 }
 .ob-link:hover { opacity: 0.75; }
 
 /* ── Status ── */
 .ob-status { font-size: 0.82rem; font-weight: 600; }
-.ob-status--active   { color: #22c55e; }
+.ob-status--active   { color: #f05025; }
 .ob-status--inactive { color: #f87171; }
 
 /* ── Row actions ── */
@@ -822,7 +822,7 @@ function deleteSite(id) {
 .ob-footer-bar { display: flex; justify-content: flex-end; }
 .btn-new {
   display: flex; align-items: center; gap: 7px;
-  padding: 10px 20px; background: #22c55e; border: none;
+  padding: 10px 20px; background: #f05025; border: none;
   border-radius: 10px; color: #fff;
   font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s, transform 0.15s;
@@ -874,7 +874,7 @@ function deleteSite(id) {
 }
 .mf-btn-cancel:hover { background: #e5e7eb; }
 .mf-btn-create {
-  padding: 9px 26px; background: #22c55e; border: none;
+  padding: 9px 26px; background: #f05025; border: none;
   border-radius: 9px; color: #fff;
   font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
@@ -892,7 +892,7 @@ function deleteSite(id) {
   font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s;
 }
-.mf-input:focus { border-color: #22c55e; }
+.mf-input:focus { border-color: #f05025; }
 .mf-input::placeholder { color: #9ca3af; }
 
 .subdomain-row { display: flex; }
@@ -901,7 +901,7 @@ function deleteSite(id) {
   font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s; background: #fff;
 }
-.subdomain-input:focus { border-color: #22c55e; }
+.subdomain-input:focus { border-color: #f05025; }
 .subdomain-input::placeholder { color: #9ca3af; }
 .subdomain-select {
   padding: 10px 12px; border: 1px solid #d1d5db; border-left: none;
@@ -924,7 +924,7 @@ function deleteSite(id) {
   font-size: 0.82rem; color: #9ca3af; cursor: pointer;
   padding: 14px; transition: border-color 0.18s, background 0.18s; position: relative;
 }
-.logo-drop:hover { border-color: #22c55e; background: rgba(34,197,94,0.03); color: #374151; }
+.logo-drop:hover { border-color: #f05025; background: rgba(240, 80, 37,0.03); color: #374151; }
 .logo-file-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
 
 /* ── Admin sign-in toggle ── */
@@ -938,8 +938,8 @@ function deleteSite(id) {
 }
 .signin-btn:first-child { border-right: 1px solid #e5e7eb; }
 .signin-btn--active {
-  background: rgba(34,197,94,0.08); color: #22c55e;
-  border: 1.5px solid #22c55e !important; border-radius: 7px; margin: 3px;
+  background: rgba(240, 80, 37,0.08); color: #f05025;
+  border: 1.5px solid #f05025 !important; border-radius: 7px; margin: 3px;
 }
 
 /* ── Visitor support 2x2 grid ── */
@@ -950,7 +950,7 @@ function deleteSite(id) {
   display: flex; flex-direction: column; gap: 4px;
 }
 .vs-card:hover { border-color: #d1d5db; background: #f9fafb; }
-.vs-card--active { border-color: #22c55e; background: rgba(34,197,94,0.05); }
+.vs-card--active { border-color: #f05025; background: rgba(240, 80, 37,0.05); }
 .vs-card__title { font-size: 0.85rem; font-weight: 700; color: #111827; }
 .vs-card__desc  { font-size: 0.74rem; color: #6b7280; line-height: 1.4; }
 
@@ -961,18 +961,18 @@ function deleteSite(id) {
   padding: 14px 16px; cursor: pointer; transition: border-color 0.18s, background 0.18s;
 }
 .reach-card:hover { border-color: #d1d5db; }
-.reach-card--active { border-color: #22c55e; background: rgba(34,197,94,0.04); }
+.reach-card--active { border-color: #f05025; background: rgba(240, 80, 37,0.04); }
 .reach-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
 .reach-icon {
   width: 26px; height: 26px; border-radius: 6px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(34,197,94,0.12); color: #22c55e;
+  background: rgba(240, 80, 37,0.12); color: #f05025;
 }
 .reach-icon--globe { background: #f3f4f6; color: #6b7280; }
 .reach-title { font-size: 0.88rem; font-weight: 600; color: #111827; }
 .reach-free {
-  font-size: 0.65rem; font-weight: 700; color: #22c55e;
-  background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
+  font-size: 0.65rem; font-weight: 700; color: #f05025;
+  background: rgba(240, 80, 37,0.12); border: 1px solid rgba(240, 80, 37,0.25);
   padding: 1px 7px; border-radius: 999px; margin-left: 4px;
 }
 .reach-desc { font-size: 0.78rem; color: #6b7280; line-height: 1.5; margin: 0; }
@@ -990,11 +990,11 @@ function deleteSite(id) {
   background: none; border: none; border-bottom: 2px solid transparent;
   cursor: pointer; transition: color 0.18s, border-color 0.18s; margin-bottom: -1px;
 }
-.al-tab--active { color: #22c55e; border-bottom-color: #22c55e; }
+.al-tab--active { color: #f05025; border-bottom-color: #f05025; }
 
 /* ── Auth code specific ── */
 .al-tab--active:first-child {
-  background: #22c55e; color: #fff; border-radius: 8px;
+  background: #f05025; color: #fff; border-radius: 8px;
   border-bottom: none; margin-bottom: 0; padding: 8px 18px;
 }
 .al-tab:not(.al-tab--active) {
@@ -1023,12 +1023,12 @@ function deleteSite(id) {
   justify-content: center; cursor: pointer; transition: all 0.18s; flex-shrink: 0;
 }
 .copy-btn:hover { background: #e5e7eb; color: #111827; }
-.copy-btn--copied { background: rgba(34,197,94,0.1) !important; color: #22c55e !important; }
+.copy-btn--copied { background: rgba(240, 80, 37,0.1) !important; color: #f05025 !important; }
 
 /* ── Admin action buttons ── */
 .al-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .al-btn-save {
-  padding: 9px 20px; background: #22c55e; border: none; border-radius: 9px;
+  padding: 9px 20px; background: #f05025; border: none; border-radius: 9px;
   color: #fff; font-family: 'Space Grotesk', sans-serif;
   font-size: 0.83rem; font-weight: 700; cursor: pointer; transition: background 0.2s;
 }
@@ -1061,7 +1061,7 @@ function deleteSite(id) {
   display: flex; flex-direction: column; gap: 6px;
 }
 .domain-box__inner-label { font-size: 0.88rem; font-weight: 700; color: #111827; }
-.domain-box__question    { font-size: 0.78rem; color: #22c55e; font-weight: 600; margin: 0; }
+.domain-box__question    { font-size: 0.78rem; color: #f05025; font-weight: 600; margin: 0; }
 
 /* ── Edit-specific ── */
 .brand-notice {
@@ -1073,7 +1073,7 @@ function deleteSite(id) {
 }
 .address-box__label {
   display: block; padding: 6px 14px; font-size: 0.62rem; font-weight: 700;
-  color: #22c55e; letter-spacing: 0.08em; background: #f9fafb;
+  color: #f05025; letter-spacing: 0.08em; background: #f9fafb;
   border-bottom: 1px solid #e5e7eb;
 }
 .address-row {
@@ -1085,15 +1085,15 @@ function deleteSite(id) {
   font-family: 'Space Grotesk', sans-serif; padding: 0;
 }
 .address-live {
-  font-size: 0.7rem; font-weight: 700; color: #22c55e;
-  background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+  font-size: 0.7rem; font-weight: 700; color: #f05025;
+  background: rgba(240, 80, 37,0.1); border: 1px solid rgba(240, 80, 37,0.25);
   padding: 2px 8px; border-radius: 999px; flex-shrink: 0;
 }
 .address-edit-btn {
   font-size: 0.78rem; font-weight: 600; color: #374151;
   background: none; border: none; cursor: pointer; padding: 0; transition: color 0.15s;
 }
-.address-edit-btn:hover { color: #22c55e; }
+.address-edit-btn:hover { color: #f05025; }
 
 .active-row {
   display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
@@ -1107,7 +1107,7 @@ function deleteSite(id) {
   background: #d1d5db; position: relative; flex-shrink: 0;
   transition: background 0.22s; margin-top: 2px;
 }
-.toggle-switch--on { background: #22c55e; }
+.toggle-switch--on { background: #f05025; }
 .toggle-thumb {
   position: absolute; top: 3px; left: 3px;
   width: 18px; height: 18px; border-radius: 50%; background: #fff;

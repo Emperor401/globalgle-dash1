@@ -1,4 +1,4 @@
-<!-- src/components/ui/ToastContainer.vue -->
+﻿<!-- src/components/ui/ToastContainer.vue -->
 <template>
   <Teleport to="body">
     <div class="toast-stack" aria-live="polite">
@@ -70,11 +70,11 @@ const { toasts, remove } = useToast()
 
 /* Colour variants */
 .toast--success {
-  background: rgba(34, 197, 94, 0.14);
-  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(240, 80, 37, 0.14);
+  border-color: rgba(240, 80, 37, 0.35);
 }
-.toast--success .toast__icon { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
-.toast--success .toast__title { color: #22c55e; }
+.toast--success .toast__icon { background: rgba(240, 80, 37, 0.2); color: #f05025; }
+.toast--success .toast__title { color: #f05025; }
 
 .toast--error {
   background: rgba(248, 113, 113, 0.14);

@@ -10,14 +10,14 @@
       </button>
       <div class="bm-head-text">
         <h1 class="bm-title">Bank Mailer</h1>
-        <p class="bm-sub">Compose one bank transfer â€” we send the debit notice to the sender and the credit notice to the receiver.</p>
+        <p class="bm-sub">Compose one bank transfer â€" we send the debit notice to the sender and the credit notice to the receiver.</p>
       </div>
     </div>
 
     <!-- Two-column layout -->
     <div class="bm-layout">
 
-      <!-- â”€â”€ LEFT: Form card â”€â”€ -->
+      <!-- â"€â"€ LEFT: Form card â"€â"€ -->
       <div class="bm-form-card">
 
         <!-- Preview toggle -->
@@ -26,11 +26,11 @@
           <div class="toggle-btns">
             <button :class="['toggle-btn', preview === 'debit' ? 'toggle-btn--dark' : 'toggle-btn--light']" @click="preview = 'debit'">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              Debit â†’ sender
+              Debit â†' sender
             </button>
             <button :class="['toggle-btn', preview === 'credit' ? 'toggle-btn--dark' : 'toggle-btn--light']" @click="preview = 'credit'">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="7" x2="7" y2="17"/><polyline points="17 17 7 17 7 7"/></svg>
-              Credit â†’ receiver
+              Credit â†' receiver
             </button>
           </div>
         </div>
@@ -75,7 +75,7 @@
 
         <!-- SENDER -->
         <div class="form-section">
-          <p class="section-label">SENDER â€” DEBITED</p>
+          <p class="section-label">SENDER â€" DEBITED</p>
           <div class="two-col">
             <div class="fg">
               <label class="fl">Sender name <span class="req">*</span></label>
@@ -133,7 +133,7 @@
 
         <!-- RECEIVER -->
         <div class="form-section">
-          <p class="section-label">RECEIVER â€” CREDITED</p>
+          <p class="section-label">RECEIVER â€" CREDITED</p>
           <div class="two-col">
             <div class="fg">
               <label class="fl">Receiver name <span class="req">*</span></label>
@@ -222,10 +222,10 @@
 
       </div>
 
-      <!-- â”€â”€ RIGHT: Live Email Preview â”€â”€ -->
+      <!-- â"€â"€ RIGHT: Live Email Preview â"€â"€ -->
       <div class="bm-preview-col">
         <div class="preview-bar">
-          <span class="preview-type-tag">{{ preview === 'debit' ? 'DEBIT EMAIL â€” SENDER' : 'CREDIT EMAIL â€” RECEIVER' }}</span>
+          <span class="preview-type-tag">{{ preview === 'debit' ? 'DEBIT EMAIL â€" SENDER' : 'CREDIT EMAIL â€" RECEIVER' }}</span>
           <span class="preview-subject-txt">Subject: <strong>{{ emailSubject }}</strong></span>
         </div>
         <div class="email-shell">
@@ -271,9 +271,9 @@
             <div class="e-block">
               <div class="e-block-head">{{ isDebit ? 'Withdrawal Beneficiary' : 'Deposit Sender' }}</div>
               <div class="e-block-body">
-                <div class="e-row"><span class="e-row-lbl">Recipient</span><span class="e-row-val">{{ isDebit ? (form.receiverName || 'â€”') : (form.senderName || 'â€”') }}</span></div>
-                <div class="e-row"><span class="e-row-lbl">Account Number</span><span class="e-row-val">{{ isDebit ? (form.receiverAccount || 'â€”') : (form.senderAccount || 'â€”') }}</span></div>
-                <div class="e-row"><span class="e-row-lbl">SWIFT Code</span><span class="e-row-val">{{ form.swift || 'â€”' }}</span></div>
+                <div class="e-row"><span class="e-row-lbl">Recipient</span><span class="e-row-val">{{ isDebit ? (form.receiverName || 'â€"') : (form.senderName || 'â€"') }}</span></div>
+                <div class="e-row"><span class="e-row-lbl">Account Number</span><span class="e-row-val">{{ isDebit ? (form.receiverAccount || 'â€"') : (form.senderAccount || 'â€"') }}</span></div>
+                <div class="e-row"><span class="e-row-lbl">SWIFT Code</span><span class="e-row-val">{{ form.swift || 'â€"' }}</span></div>
               </div>
             </div>
 
@@ -351,12 +351,12 @@ const activeName        = computed(() => isDebit.value ? form.senderName : form.
 
 const emailTitle = computed(() =>
   isDebit.value
-    ? 'Withdrawal Successful â€“ Funds Debited From Your Account'
-    : 'Deposit Successful â€“ Funds Credited To Your Account'
+    ? 'Withdrawal Successful â€" Funds Debited From Your Account'
+    : 'Deposit Successful â€" Funds Credited To Your Account'
 )
 const emailSubject = computed(() => {
   const action = isDebit.value ? 'Withdrawal Successful' : 'Deposit Successful'
-  return form.amount ? `${action} â€” ${formattedAmount.value}` : action
+  return form.amount ? `${action} â€" ${formattedAmount.value}` : action
 })
 const emailBodyHtml = computed(() => {
   const amt = `<strong style="color:#1a56db">${formattedAmount.value}</strong>`
@@ -552,7 +552,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* â”€â”€ RIGHT: Preview column â”€â”€ */
+/* â"€â"€ RIGHT: Preview column â"€â"€ */
 .bm-preview-col {
   position: sticky; top: 24px; display: flex; flex-direction: column;
   border: 1px solid var(--border-soft); border-radius: 20px; overflow: hidden;
@@ -578,7 +578,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
   padding: 28px 28px 20px; max-width: 520px; margin: 0 auto;
 }
 
-/* Email internals â€” always light */
+/* Email internals â€" always light */
 .e-logo-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 4px; }
 .e-logo-box {
   width: 46px; height: 46px; border-radius: 8px; background: #f8fafc;
@@ -622,14 +622,14 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 .toast-pop-enter-from,
 .toast-pop-leave-to     { opacity: 0; transform: translateY(12px) scale(0.95); }
 
-/* â”€â”€ Responsive â”€â”€ */
+/* â"€â"€ Responsive â"€â"€ */
 
-/* Tablet landscape (901px â€“ 1200px) */
+/* Tablet landscape (901px â€" 1200px) */
 @media (max-width: 1200px) {
   .bm-layout { grid-template-columns: 1fr 1fr; gap: 18px; }
 }
 
-/* Tablet portrait (601px â€“ 900px): stack preview below form */
+/* Tablet portrait (601px â€" 900px): stack preview below form */
 @media (max-width: 900px) {
   .bm-page        { gap: 20px; }
   .bm-layout      { grid-template-columns: 1fr; gap: 18px; }

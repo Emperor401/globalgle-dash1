@@ -5,7 +5,7 @@
     <!-- Page Header -->
     <div class="pt-header">
       <div class="pt-icon-box">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f05025" stroke-width="2" stroke-linecap="round">
           <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
         </svg>
       </div>
@@ -38,7 +38,7 @@
                 <label class="color-swatch-wrap" :style="{ background: form.primaryColor }">
                   <input type="color" v-model="form.primaryColor" class="color-native" />
                 </label>
-                <input v-model="form.primaryColor" type="text" class="fi color-hex" @blur="validateHex" placeholder="#22c55e" />
+                <input v-model="form.primaryColor" type="text" class="fi color-hex" @blur="validateHex" placeholder="#f05025" />
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
           <p class="fl" style="margin:0">Your receipt link</p>
           <div class="subdomain-box">
             <div class="subdomain-title-row">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f05025" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
               <span class="subdomain-name">Use our subdomain</span>
               <span class="subdomain-free">free</span>
             </div>
@@ -505,7 +505,7 @@ const defaultDateTime = new Date().toLocaleDateString('en-US', { month:'long', d
 
 const form = reactive({
   serviceName:          '',
-  primaryColor:         '#22c55e',
+  primaryColor:         '#f05025',
   receiptMode:          'dark',
   receiptSlug:          '',
   domain:               '.qst1x.com',
@@ -576,7 +576,7 @@ function handleDrop(e, type) {
 
 function validateHex() {
   if (!/^#[0-9a-fA-F]{6}$/.test(form.primaryColor)) {
-    form.primaryColor = '#22c55e'
+    form.primaryColor = '#f05025'
   }
 }
 
@@ -610,12 +610,12 @@ function generate() {
 .pt-header { display: flex; align-items: center; gap: 14px; }
 .pt-icon-box {
   width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
-  background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3);
+  background: rgba(240, 80, 37,0.15); border: 1px solid rgba(240, 80, 37,0.3);
   display: flex; align-items: center; justify-content: center;
 }
 .pt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
 .pt-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
-.pt-hl    { color: #22c55e; font-weight: 500; }
+.pt-hl    { color: #f05025; font-weight: 500; }
 
 /* Layout */
 .pt-layout {
@@ -638,11 +638,11 @@ function generate() {
 }
 .sec-head     { display: flex; align-items: center; gap: 8px; }
 .sec-head-row { display: flex; align-items: center; justify-content: space-between; }
-.sec-icon     { color: #22c55e; flex-shrink: 0; }
+.sec-icon     { color: #f05025; flex-shrink: 0; }
 .sec-icon--warn { color: #f59e0b; }
 .sec-title    { font-size: 0.9rem; font-weight: 700; color: var(--t1); margin: 0; }
 .sec-desc     { font-size: 0.78rem; color: var(--t2); line-height: 1.6; margin: 0; }
-.sec-desc .hl { color: #22c55e; font-weight: 500; }
+.sec-desc .hl { color: #f05025; font-weight: 500; }
 .sec-divider  { border: none; border-top: 1px solid var(--border-soft); margin: 0; }
 
 /* Fields */
@@ -650,7 +650,7 @@ function generate() {
 .fg       { display: flex; flex-direction: column; gap: 6px; }
 .fl       { font-size: 0.78rem; font-weight: 600; color: var(--t1); }
 .field-hint { font-size: 0.72rem; color: var(--t3); margin-top: 3px; }
-.field-hint .hl { color: #22c55e; }
+.field-hint .hl { color: #f05025; }
 
 .fi {
   width: 100%; padding: 9px 12px; border-radius: 9px;
@@ -659,7 +659,7 @@ function generate() {
   font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem;
   transition: border-color 0.18s; box-sizing: border-box;
 }
-.fi:focus { outline: none; border-color: #22c55e; }
+.fi:focus { outline: none; border-color: #f05025; }
 .fi::placeholder { color: var(--t3); }
 .fs { cursor: pointer; }
 
@@ -671,7 +671,7 @@ function generate() {
   resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
-.fi-area:focus { outline: none; border-color: #22c55e; }
+.fi-area:focus { outline: none; border-color: #f05025; }
 .fi-area::placeholder { color: var(--t3); }
 
 /* Expand transition */
@@ -693,9 +693,9 @@ function generate() {
   border: 1.5px dashed var(--border-soft); border-radius: 10px; padding: 10px;
   font-size: 0.75rem; color: var(--t2); cursor: pointer; transition: border-color 0.18s;
 }
-.logo-drop:hover  { border-color: #22c55e; }
+.logo-drop:hover  { border-color: #f05025; }
 .click-link {
-  background: none; border: none; padding: 0; color: #22c55e;
+  background: none; border: none; padding: 0; color: #f05025;
   font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: inherit;
 }
 
@@ -723,24 +723,24 @@ function generate() {
 
 /* Subdomain */
 .subdomain-box {
-  border: 1.5px solid #22c55e; border-radius: 12px; padding: 14px 16px;
-  background: rgba(34,197,94,0.04); display: flex; flex-direction: column; gap: 10px;
+  border: 1.5px solid #f05025; border-radius: 12px; padding: 14px 16px;
+  background: rgba(240, 80, 37,0.04); display: flex; flex-direction: column; gap: 10px;
 }
 .subdomain-title-row { display: flex; align-items: center; gap: 8px; }
 .subdomain-name { font-size: 0.85rem; font-weight: 700; color: var(--t1); }
 .subdomain-free {
-  font-size: 0.65rem; font-weight: 700; color: #22c55e;
-  background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
+  font-size: 0.65rem; font-weight: 700; color: #f05025;
+  background: rgba(240, 80, 37,0.12); border: 1px solid rgba(240, 80, 37,0.25);
   padding: 2px 8px; border-radius: 999px;
 }
 .subdomain-hint { font-size: 0.75rem; color: var(--t2); margin: 0; }
-.subdomain-hint .hl { color: #22c55e; font-weight: 500; }
+.subdomain-hint .hl { color: #f05025; font-weight: 500; }
 .slug-row    { display: flex; gap: 8px; }
 .slug-input  { flex: 1; }
 .slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1); font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
-.slug-domain:focus { outline: none; border-color: #22c55e; }
+.slug-domain:focus { outline: none; border-color: #f05025; }
 .slug-note { font-size: 0.72rem; color: var(--t2); margin: 0; }
-.slug-note .hl { color: #22c55e; font-weight: 500; }
+.slug-note .hl { color: #f05025; font-weight: 500; }
 
 /* Toggle */
 .toggle-row    { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
@@ -770,11 +770,11 @@ function generate() {
 }
 .remove-btn:hover { background: rgba(239,68,68,0.15); color: #ef4444; border-color: rgba(239,68,68,0.3); }
 .add-btn {
-  font-size: 0.75rem; font-weight: 700; color: #22c55e; background: rgba(34,197,94,0.1);
-  border: 1px solid rgba(34,197,94,0.25); border-radius: 8px; padding: 5px 12px;
+  font-size: 0.75rem; font-weight: 700; color: #f05025; background: rgba(240, 80, 37,0.1);
+  border: 1px solid rgba(240, 80, 37,0.25); border-radius: 8px; padding: 5px 12px;
   cursor: pointer; font-family: 'Space Grotesk', sans-serif; transition: background 0.18s; white-space: nowrap;
 }
-.add-btn:hover { background: rgba(34,197,94,0.18); }
+.add-btn:hover { background: rgba(240, 80, 37,0.18); }
 
 /* Error */
 .form-error {
@@ -808,7 +808,7 @@ function generate() {
 }
 .my-receipts-title  { font-size: 0.9rem; font-weight: 700; color: var(--t1); margin: 0; }
 .my-receipts-empty p { font-size: 0.8rem; color: var(--t2); margin: 0; }
-.my-receipts-empty .hl { color: #22c55e; }
+.my-receipts-empty .hl { color: #f05025; }
 .receipts-list { display: flex; flex-direction: column; gap: 8px; }
 .receipt-item {
   display: flex; align-items: center; gap: 10px; padding: 10px 12px;

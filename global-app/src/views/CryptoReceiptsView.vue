@@ -34,12 +34,12 @@
       </div>
     </div>
 
-    <!-- â”€â”€ Backdrop â”€â”€ -->
+    <!-- â"€â"€ Backdrop â"€â"€ -->
     <Transition name="backdrop-fade">
       <div v-if="modalOpen" class="modal-backdrop" @click="closeModal" />
     </Transition>
 
-    <!-- â”€â”€ Receipt Modal â”€â”€ -->
+    <!-- â"€â"€ Receipt Modal â"€â"€ -->
     <Transition name="modal-pop">
       <div v-if="modalOpen" class="receipt-modal" role="dialog">
 
@@ -117,7 +117,7 @@
           <!-- Sender wallet -->
           <div class="fg">
             <label class="fl">Sender's wallet address</label>
-            <input v-model="form.sender" type="text" placeholder='0x... or bc1... â€” shows as the "From" address on the receipt' class="fi" />
+            <input v-model="form.sender" type="text" placeholder='0x... or bc1... â€" shows as the "From" address on the receipt' class="fi" />
           </div>
 
           <!-- Error -->
@@ -168,7 +168,7 @@ const providers = [
   { name: 'VALR',        tagline: "VALR, South Africa's Crypto Frontier",    badge: 'AFRICA',       badgeBg: '#0f172a', badgeColor: '#fff', topColor: '#0f172a', logo: gf('valr.com')              },
   { name: 'Bitget',      tagline: 'Bitget, Crypto Made Accessible',          badge: 'EMERGENCE',    badgeBg: '#22d3ee', badgeColor: '#fff', topColor: '#22d3ee', logo: gf('bitget.com')            },
   { name: 'Crypto.com',  tagline: 'Crypto at the Speed of Life',             badge: 'GOLD WINNER',  badgeBg: '#3b82f6', badgeColor: '#fff', topColor: '#3b82f6', logo: gf('crypto.com')            },
-  { name: 'Cash App',    tagline: 'Cash App, Everyday Crypto',               badge: 'GOLD WINNER',  badgeBg: '#22c55e', badgeColor: '#fff', topColor: '#22c55e', logo: gf('cash.app')              },
+  { name: 'Cash App',    tagline: 'Cash App, Everyday Crypto',               badge: 'GOLD WINNER',  badgeBg: '#f05025', badgeColor: '#fff', topColor: '#f05025', logo: gf('cash.app')              },
   { name: 'Zelle',       tagline: 'Zelle, Crypto for Emerging Markets',      badge: 'EMERGENCE',    badgeBg: '#8b5cf6', badgeColor: '#fff', topColor: '#8b5cf6', logo: gf('zellepay.com')          },
   { name: 'Venmo',       tagline: 'Venmo, Crypto for Emerging Markets',      badge: 'EMERGENCE',    badgeBg: '#1e293b', badgeColor: '#fff', topColor: '#3b82f6', logo: gf('venmo.com')             },
   { name: 'GCash',       tagline: 'GCash, Crypto in Your Wallet',            badge: 'PHP',          badgeBg: '#22d3ee', badgeColor: '#fff', topColor: '#22d3ee', logo: gf('gcash.com')             },
@@ -300,7 +300,7 @@ function onImgError(e) {
 .modal-head-title { font-size: 1.2rem; font-weight: 800; color: #fff; margin: 0; }
 .modal-head-sub   { font-size: 0.82rem; color: rgba(255,255,255,0.82); margin: 0; }
 
-/* Modal form body â€” always light, like a real document */
+/* Modal form body â€" always light, like a real document */
 .modal-body {
   background: #ffffff;
   padding: 20px 22px 18px;

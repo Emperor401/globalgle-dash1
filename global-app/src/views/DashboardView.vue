@@ -1,4 +1,4 @@
-<!-- src/views/DashboardView.vue -->
+﻿<!-- src/views/DashboardView.vue -->
 <template>
   <div class="dash">
     <CommunityModal />
@@ -17,9 +17,9 @@
       </div>
       <div class="hero__split">
         <span class="hero__split-item">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f05025" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg>
           NGN: ₦260,375
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#f05025" stroke-width="3" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
         </span>
         <span class="hero__split-item">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg>
@@ -65,7 +65,7 @@
         <span class="cur__amt">{{ c.amt }}</span>
         <div class="cur__btm">
           <svg class="cur__spark" viewBox="0 0 80 28" preserveAspectRatio="none">
-            <polyline :points="c.spark" fill="none" :stroke="c.up ? '#22c55e' : '#f87171'"
+            <polyline :points="c.spark" fill="none" :stroke="c.up ? '#f05025' : '#f87171'"
               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span class="cur__chg" :class="c.up ? 'cur__chg--up' : 'cur__chg--dn'">
@@ -655,8 +655,8 @@ const dots = [
 }
 .ha:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
 .ha--green {
-  background: #22c55e;
-  border-color: #22c55e;
+  background: #f05025;
+  border-color: #f05025;
   color: #000;
   font-weight: 700;
 }
@@ -759,7 +759,7 @@ const dots = [
   white-space: nowrap;
   flex-shrink: 0;
 }
-.cur__chg--up { color: #22c55e; }
+.cur__chg--up { color: #f05025; }
 .cur__chg--dn { color: #f87171; }
 
 .cur__sub {
@@ -785,8 +785,8 @@ const dots = [
   transition: all .2s;
 }
 .cur__add:hover {
-  background: rgba(34,197,94,0.04);
-  border-color: rgba(34,197,94,0.3);
+  background: rgba(240, 80, 37,0.04);
+  border-color: rgba(240, 80, 37,0.3);
 }
 
 .cur__add-inner {
@@ -974,7 +974,7 @@ const dots = [
 .see-all {
   font-size: 0.7rem;
   font-weight: 600;
-  color: #22c55e;
+  color: #f05025;
   cursor: pointer;
   background: none;
   border: none;
@@ -1102,7 +1102,7 @@ const dots = [
 .act-date { font-size: 0.62rem; color: rgba(255,255,255,0.28); }
 
 .act-amt { font-size: 0.74rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
-.act-amt--pos { color: rgba(34,197,94,0.9); }
+.act-amt--pos { color: rgba(240, 80, 37,0.9); }
 .act-amt--neg { color: rgba(248,113,113,0.9); }
 
 /* ── Sankey (Total Assets) ── */
