@@ -528,7 +528,7 @@ const dots = [
 @keyframes up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.75)} }
 
-.dash { display:flex; flex-direction:column; gap:10px; }
+.dash { display:flex; flex-direction:column; gap:20px; }
 
 /* ══════════════════════════════════
    SHARED CARD BASE
@@ -1191,7 +1191,7 @@ const dots = [
 }
 
 @media (max-width:768px) {
-  .dash         { gap: 8px; }
+  .dash         { gap: 14px; }
   .card         { padding: 10px 12px; border-radius: 12px; gap: 8px; }
   .hero__amt    { font-size: 1.55rem; }
   .hero__dec    { font-size: 0.9rem; }
