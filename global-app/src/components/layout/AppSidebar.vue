@@ -22,6 +22,30 @@
         />
       </div>
       <span class="sidebar__logo-name">Globalgle</span>
+
+      <!-- Vaulto badge icon -->
+      <div class="vaulto-badge">
+        <svg class="vaulto-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Main cardinal spokes -->
+          <line x1="11" y1="1"  x2="11" y2="5.5"  stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="11" y1="16.5" x2="11" y2="21" stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="1"  y1="11" x2="5.5"  y2="11" stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="16.5" y1="11" x2="21" y2="11" stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- Diagonal spokes (shorter) -->
+          <line x1="4.1"  y1="4.1"  x2="7.3"  y2="7.3"  stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="14.7" y1="14.7" x2="17.9" y2="17.9" stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="17.9" y1="4.1"  x2="14.7" y2="7.3"  stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="7.3"  y1="14.7" x2="4.1"  y2="17.9" stroke="#f05025" stroke-width="1.6" stroke-linecap="round"/>
+          <!-- Dot tips on cardinal spokes -->
+          <circle cx="11" cy="1.8"  r="1.4" fill="#f05025"/>
+          <circle cx="11" cy="20.2" r="1.4" fill="#f05025"/>
+          <circle cx="1.8"  cy="11" r="1.4" fill="#f05025"/>
+          <circle cx="20.2" cy="11" r="1.4" fill="#f05025"/>
+          <!-- Center -->
+          <circle cx="11" cy="11" r="2.2" fill="#f05025"/>
+        </svg>
+      </div>
+
       <!-- Mobile close button -->
       <button class="sidebar__close-btn" @click="closeSidebar" aria-label="Close menu">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -374,6 +398,29 @@ function logout() {
   font-size: 1.1rem;
   color: var(--t1);
   letter-spacing: -0.025em;
+}
+
+/* ── Vaulto badge ── */
+.vaulto-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(240, 80, 37, 0.10);
+  border: 1px solid rgba(240, 80, 37, 0.25);
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.vaulto-icon {
+  animation: vaulto-pulse 3s ease-in-out infinite;
+}
+
+@keyframes vaulto-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(0.92); }
 }
 
 /* ── Section group ── */
