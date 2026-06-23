@@ -102,7 +102,7 @@ const services = [
 }
 
 .service-card__desc {
-  font-size: 0.82rem; color: var(--t3); line-height: 1.6; margin: 0;
+  font-size: 0.82rem; color: rgba(255,255,255,0.80); line-height: 1.6; margin: 0;
 }
 .service-card__desc :deep(.hl) { color: var(--accent); font-weight: 500; }
 

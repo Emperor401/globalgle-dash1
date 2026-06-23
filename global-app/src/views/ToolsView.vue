@@ -139,7 +139,7 @@ const services = [
 
 .service-card__desc {
   font-size: 0.82rem;
-  color: var(--t3);
+  color: rgba(255,255,255,0.80);
   line-height: 1.6;
   margin: 0;
 }
