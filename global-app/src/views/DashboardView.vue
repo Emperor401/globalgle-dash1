@@ -1185,57 +1185,68 @@ const dots = [
 }
 
 @media (max-width:768px) {
-  .dash         { gap: 16px; }
-  .card         { padding: 14px 14px; border-radius: 12px; gap: 10px; }
-  .hero__amt    { font-size: 1.9rem; }
-  .hero__dec    { font-size: 1rem; }
-  .hero__row    { gap: 10px; margin-bottom: 8px; }
-  .hero__split  { gap: 12px; margin-bottom: 12px; }
-  .hero__actions { gap: 8px; }
-  .ha           { padding: 9px 14px; font-size: 0.82rem; gap: 5px; border-radius: 8px; }
-  .card__val    { font-size: 1.2rem; }
+  .dash          { gap: 16px; }
+  .card          { padding: 14px 14px; border-radius: 12px; gap: 10px; }
 
-  /* currency row — scrollable, smaller cards */
-  .cur-row      { gap: 8px; }
-  .cur          { flex: 0 0 130px; width: 130px; padding: 9px 10px 8px; border-radius: 10px; }
-  .cur__amt     { font-size: 1rem; }
+  /* hero */
+  .hero__lbl     { font-size: 1rem; }
+  .hero__amt     { font-size: 2.4rem; }
+  .hero__dec     { font-size: 1.2rem; }
+  .hero__badge   { font-size: 0.9rem; padding: 4px 10px; }
+  .hero__split   { gap: 12px; margin-bottom: 12px; font-size: 0.9rem; }
+  .hero__row     { gap: 10px; margin-bottom: 8px; }
+  .hero__actions { gap: 8px; }
+  .ha            { padding: 10px 16px; font-size: 0.9rem; gap: 5px; border-radius: 8px; }
+
+  /* cards */
+  .card__lbl     { font-size: 0.82rem; }
+  .card__val     { font-size: 1.4rem; }
+
+  /* currency row */
+  .cur-row       { gap: 8px; }
+  .cur           { flex: 0 0 138px; width: 138px; padding: 10px 12px 9px; border-radius: 10px; }
+  .cur__code     { font-size: 0.82rem; }
+  .cur__amt      { font-size: 1.15rem; }
+  .cur__sub      { font-size: 0.72rem; }
+  .cur__chg      { font-size: 0.78rem; }
 
   /* charts stacked */
-  .chart-row    { grid-template-columns: 1fr; gap: 8px; }
-  .chart-svg    { height: 90px !important; }
-  .chart-xlabels span { font-size: 0.5rem; }
-  .bars-wrap    { height: 80px; }
+  .chart-row     { grid-template-columns: 1fr; gap: 8px; }
+  .chart-svg     { height: 90px !important; }
+  .chart-xlabels span { font-size: 0.55rem; }
+  .bars-wrap     { height: 80px; }
 
   /* bottom row stacked */
-  .bot-row      { grid-template-columns: 1fr; gap: 8px; }
+  .bot-row       { grid-template-columns: 1fr; gap: 8px; }
   .bot-activity, .bot-sankey, .bot-cashflow { padding: 10px 12px; gap: 6px; }
 
-  /* sankey — bigger on mobile */
-  .sankey-val    { font-size: 1.1rem; }
+  /* sankey */
+  .sankey-val    { font-size: 1.15rem; }
   .sankey-wrap   { min-height: 130px; max-height: 170px; margin-top: 14px; }
   .sankey-svg    { min-height: 110px; }
   .sankey-col    { gap: 10px; }
   .snode--sm     { min-width: 58px; padding: 6px 9px; border-radius: 9px; }
-  .snode-sym     { font-size: 0.62rem; }
-  .snode-lbl     { font-size: 0.72rem; }
-  .snode-amt     { font-size: 0.65rem; }
-  .snode-amt2    { font-size: 1rem; }
+  .snode-sym     { font-size: 0.65rem; }
+  .snode-lbl     { font-size: 0.75rem; }
+  .snode-amt     { font-size: 0.68rem; }
+  .snode-amt2    { font-size: 1.05rem; }
   .snode--accent { padding: 10px 13px; border-radius: 10px; }
 
   /* net cashflow */
-  .stat-val      { font-size: 1rem; }
-  .stat-lbl      { font-size: 0.58rem; }
+  .stat-val      { font-size: 1.05rem; }
+  .stat-lbl      { font-size: 0.62rem; }
   .dot-grid      { gap: 4px; }
 
   /* activity */
-  .act-icon     { width: 26px; height: 26px; }
-  .act-name     { font-size: 0.7rem; }
-  .act-amt      { font-size: 0.7rem; }
+  .act-icon      { width: 28px; height: 28px; }
+  .act-name      { font-size: 0.85rem; }
+  .act-amt       { font-size: 0.85rem; }
 }
 
 @media (max-width:430px) {
-  .hero__amt   { font-size: 1.65rem; }
-  .hero__dec   { font-size: 0.9rem; }
+  .hero__amt   { font-size: 2.1rem; }
+  .hero__dec   { font-size: 1.1rem; }
+  .ha          { font-size: 0.84rem; padding: 9px 13px; }
   .cur         { flex: 0 0 130px; width: 130px; }
   .card        { padding: 12px 12px; }
   .sankey-wrap { min-height: 115px; max-height: 150px; }
