@@ -328,7 +328,7 @@ function onImgError(e) {
   display: flex; align-items: center; gap: 6px;
   padding: 7px 14px; border-radius: 8px;
   border: 1px solid var(--border-soft); background: var(--glass-2);
-  color: var(--t2); font-family: 'Space Grotesk', sans-serif;
+  color: var(--t2); font-family: 'Poppins', sans-serif;
   font-size: 0.8rem; font-weight: 600; cursor: pointer;
   transition: background 0.18s, color 0.18s; flex-shrink: 0; margin-top: 4px;
 }
@@ -454,20 +454,20 @@ function onImgError(e) {
 .field-input {
   width: 100%; padding: 10px 12px 10px 36px; border-radius: 10px;
   border: 1px solid var(--border-soft); background: var(--glass-2); color: var(--t1);
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; transition: border-color 0.18s; box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; font-size: 0.82rem; transition: border-color 0.18s; box-sizing: border-box;
 }
 .field-input:focus { outline: none; border-color: var(--accent); }
 .field-input::placeholder { color: var(--t4); }
 .field-select {
   width: 100%; padding: 10px 12px; border-radius: 10px;
   border: 1px solid var(--border-soft); background: var(--glass-2); color: var(--t1);
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; cursor: pointer; transition: border-color 0.18s;
+  font-family: 'Poppins', sans-serif; font-size: 0.82rem; cursor: pointer; transition: border-color 0.18s;
 }
 .field-select:focus { outline: none; border-color: var(--accent); }
 .field-textarea {
   width: 100%; padding: 10px 12px; border-radius: 10px;
   border: 1px solid var(--border-soft); background: var(--glass-2); color: var(--t1);
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; resize: none; min-height: 80px;
+  font-family: 'Poppins', sans-serif; font-size: 0.82rem; resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
 .field-textarea:focus { outline: none; border-color: var(--accent); }
@@ -476,7 +476,7 @@ function onImgError(e) {
 .type-pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .type-pill {
   padding: 6px 16px; border-radius: 999px; border: 1px solid var(--border-soft);
-  background: var(--glass-2); color: var(--t3); font-family: 'Space Grotesk', sans-serif;
+  background: var(--glass-2); color: var(--t3); font-family: 'Poppins', sans-serif;
   font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
 }
 .type-pill:hover { border-color: var(--accent); color: var(--accent); }
@@ -495,7 +495,7 @@ function onImgError(e) {
 .drawer-cancel-btn {
   flex: 1; padding: 11px 0; border-radius: 12px;
   border: 1px solid var(--border-soft); background: var(--glass-2);
-  color: var(--t2); font-family: 'Space Grotesk', sans-serif;
+  color: var(--t2); font-family: 'Poppins', sans-serif;
   font-size: 0.82rem; font-weight: 600; cursor: pointer;
   transition: background 0.18s, color 0.18s;
 }
@@ -504,7 +504,7 @@ function onImgError(e) {
   flex: 2; display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 11px 0; border-radius: 12px; border: none;
   background: linear-gradient(135deg, #f05025 0%, #16a34a 100%);
-  color: #fff; font-family: 'Space Grotesk', sans-serif;
+  color: #fff; font-family: 'Poppins', sans-serif;
   font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s, transform 0.18s;
 }
 .drawer-send-btn:hover { opacity: 0.9; transform: translateY(-1px); }
@@ -521,7 +521,7 @@ function onImgError(e) {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #16a34a; color: #fff; font-family: 'Space Grotesk', sans-serif;
+  background: #16a34a; color: #fff; font-family: 'Poppins', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 

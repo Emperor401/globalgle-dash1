@@ -796,7 +796,7 @@ function deleteSite(id) {
 .ob-action {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 5px 10px; border-radius: 7px;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
+  font-family: 'Poppins', sans-serif; font-size: 0.75rem; font-weight: 600;
   cursor: pointer; border: none; background: transparent;
   transition: background 0.15s, color 0.15s; white-space: nowrap;
 }
@@ -824,7 +824,7 @@ function deleteSite(id) {
   display: flex; align-items: center; gap: 7px;
   padding: 10px 20px; background: #f05025; border: none;
   border-radius: 10px; color: #fff;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; font-weight: 700;
+  font-family: 'Poppins', sans-serif; font-size: 0.84rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s, transform 0.15s;
 }
 .btn-new:hover  { background: #16a34a; transform: translateY(-1px); }
@@ -869,14 +869,14 @@ function deleteSite(id) {
 .mf-btn-cancel {
   padding: 9px 22px; background: #f3f4f6; border: 1px solid #e5e7eb;
   border-radius: 9px; color: #374151;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 600;
+  font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s;
 }
 .mf-btn-cancel:hover { background: #e5e7eb; }
 .mf-btn-create {
   padding: 9px 26px; background: #f05025; border: none;
   border-radius: 9px; color: #fff;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 700;
+  font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
 }
 .mf-btn-create:hover { background: #16a34a; }
@@ -889,7 +889,7 @@ function deleteSite(id) {
 .mf-input {
   width: 100%; padding: 10px 13px;
   background: #fff; border: 1px solid #d1d5db; border-radius: 8px;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; color: #111827;
+  font-family: 'Poppins', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s;
 }
 .mf-input:focus { border-color: #f05025; }
@@ -898,7 +898,7 @@ function deleteSite(id) {
 .subdomain-row { display: flex; }
 .subdomain-input {
   flex: 1; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px 0 0 8px;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; color: #111827;
+  font-family: 'Poppins', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s; background: #fff;
 }
 .subdomain-input:focus { border-color: #f05025; }
@@ -906,7 +906,7 @@ function deleteSite(id) {
 .subdomain-select {
   padding: 10px 12px; border: 1px solid #d1d5db; border-left: none;
   border-radius: 0 8px 8px 0; background: #f9fafb;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; color: #374151;
+  font-family: 'Poppins', sans-serif; font-size: 0.82rem; color: #374151;
   outline: none; cursor: pointer;
 }
 
@@ -932,7 +932,7 @@ function deleteSite(id) {
   display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;
 }
 .signin-btn {
-  padding: 10px 14px; font-family: 'Space Grotesk', sans-serif;
+  padding: 10px 14px; font-family: 'Poppins', sans-serif;
   font-size: 0.83rem; font-weight: 600; color: #374151;
   background: #fff; border: none; cursor: pointer; transition: all 0.18s;
 }
@@ -985,7 +985,7 @@ function deleteSite(id) {
   margin: 0 -24px; padding: 0 24px;
 }
 .al-tab {
-  padding: 10px 16px; font-family: 'Space Grotesk', sans-serif;
+  padding: 10px 16px; font-family: 'Poppins', sans-serif;
   font-size: 0.84rem; font-weight: 600; color: #6b7280;
   background: none; border: none; border-bottom: 2px solid transparent;
   cursor: pointer; transition: color 0.18s, border-color 0.18s; margin-bottom: -1px;
@@ -1029,20 +1029,20 @@ function deleteSite(id) {
 .al-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .al-btn-save {
   padding: 9px 20px; background: #f05025; border: none; border-radius: 9px;
-  color: #fff; font-family: 'Space Grotesk', sans-serif;
+  color: #fff; font-family: 'Poppins', sans-serif;
   font-size: 0.83rem; font-weight: 700; cursor: pointer; transition: background 0.2s;
 }
 .al-btn-save:hover { background: #16a34a; }
 .al-btn-gen {
   display: flex; align-items: center; gap: 7px;
   padding: 9px 16px; background: #fff; border: 1.5px solid #e5e7eb;
-  border-radius: 9px; color: #374151; font-family: 'Space Grotesk', sans-serif;
+  border-radius: 9px; color: #374151; font-family: 'Poppins', sans-serif;
   font-size: 0.83rem; font-weight: 600; cursor: pointer; transition: border-color 0.18s, background 0.18s;
 }
 .al-btn-gen:hover { border-color: #d1d5db; background: #f9fafb; }
 .al-btn-switch {
   padding: 9px 18px; background: #fff; border: 1.5px solid #e5e7eb;
-  border-radius: 9px; color: #374151; font-family: 'Space Grotesk', sans-serif;
+  border-radius: 9px; color: #374151; font-family: 'Poppins', sans-serif;
   font-size: 0.83rem; font-weight: 600; cursor: pointer; transition: border-color 0.18s;
 }
 .al-btn-switch:hover { border-color: #d1d5db; background: #f9fafb; }
@@ -1082,7 +1082,7 @@ function deleteSite(id) {
 .address-value { flex: 1; font-size: 0.84rem; color: #111827; font-weight: 500; }
 .address-edit-input {
   flex: 1; font-size: 0.84rem; color: #111827; border: none; outline: none;
-  font-family: 'Space Grotesk', sans-serif; padding: 0;
+  font-family: 'Poppins', sans-serif; padding: 0;
 }
 .address-live {
   font-size: 0.7rem; font-weight: 700; color: #f05025;

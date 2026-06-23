@@ -683,7 +683,7 @@ function closeAdminLogin() {
 /* ── Page layout ── */
 .broker-page {
   min-height: 100vh; padding: 32px 28px 100px;
-  background: transparent; font-family: 'Space Grotesk', sans-serif;
+  background: transparent; font-family: 'Poppins', sans-serif;
   position: relative;
 }
 
@@ -749,7 +749,7 @@ function closeAdminLogin() {
 .broker-fab__btn {
   display: flex; align-items: center; gap: 8px;
   padding: 11px 22px; background: #f05025; border: none; border-radius: 10px;
-  color: #fff; font-family: 'Space Grotesk', sans-serif;
+  color: #fff; font-family: 'Poppins', sans-serif;
   font-size: 0.84rem; font-weight: 700; cursor: pointer;
   transition: background 0.2s; box-shadow: 0 4px 16px rgba(240, 80, 37,0.35);
 }
@@ -765,7 +765,7 @@ function closeAdminLogin() {
 .modal {
   background: #fff; border-radius: 16px; width: 100%; max-width: 520px;
   max-height: 90vh; display: flex; flex-direction: column;
-  overflow: hidden; font-family: 'Space Grotesk', sans-serif;
+  overflow: hidden; font-family: 'Poppins', sans-serif;
 }
 .modal-head {
   display: flex; align-items: center; justify-content: space-between;
@@ -802,7 +802,7 @@ function closeAdminLogin() {
 }
 .mf-input {
   width: 100%; padding: 9px 12px; border: 1px solid #e5e7eb;
-  border-radius: 8px; font-family: 'Space Grotesk', sans-serif;
+  border-radius: 8px; font-family: 'Poppins', sans-serif;
   font-size: 0.84rem; color: #111827; background: #fff;
   outline: none; transition: border-color 0.18s;
 }
@@ -811,12 +811,12 @@ function closeAdminLogin() {
 .mf-hint--green { color: #f05025; }
 .mf-btn-cancel {
   padding: 9px 20px; background: #fff; border: 1.5px solid #e5e7eb;
-  border-radius: 9px; color: #374151; font-family: 'Space Grotesk', sans-serif;
+  border-radius: 9px; color: #374151; font-family: 'Poppins', sans-serif;
   font-size: 0.83rem; font-weight: 600; cursor: pointer;
 }
 .mf-btn-create {
   padding: 9px 22px; background: #f05025; border: none; border-radius: 9px;
-  color: #fff; font-family: 'Space Grotesk', sans-serif;
+  color: #fff; font-family: 'Poppins', sans-serif;
   font-size: 0.83rem; font-weight: 700; cursor: pointer; transition: background 0.2s;
 }
 .mf-btn-create:hover { background: #16a34a; }
@@ -842,7 +842,7 @@ function closeAdminLogin() {
 .signin-toggle { display: flex; gap: 8px; }
 .signin-btn {
   flex: 1; padding: 9px; border: 1.5px solid #e5e7eb; border-radius: 9px;
-  background: #fff; color: #374151; font-family: 'Space Grotesk', sans-serif;
+  background: #fff; color: #374151; font-family: 'Poppins', sans-serif;
   font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
 }
 .signin-btn--active { border-color: #f05025; color: #f05025; background: rgba(240, 80, 37,0.06); }
@@ -877,9 +877,9 @@ function closeAdminLogin() {
 .reach-hint  { font-size: 0.7rem; color: #9ca3af; margin-top: 6px; }
 
 .subdomain-row    { display: flex; gap: 6px; }
-.subdomain-input  { flex: 1; padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; color: #111827; outline: none; }
+.subdomain-input  { flex: 1; padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 0.82rem; color: #111827; outline: none; }
 .subdomain-input:focus { border-color: #f05025; }
-.subdomain-select { padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; color: #374151; background: #fff; outline: none; }
+.subdomain-select { padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 0.8rem; color: #374151; background: #fff; outline: none; }
 
 /* ── Domain box (edit) ── */
 .domain-box { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
@@ -897,14 +897,14 @@ function closeAdminLogin() {
 .address-live  { font-size: 0.68rem; font-weight: 700; color: #f05025; background: rgba(240, 80, 37,0.08); padding: 2px 8px; border-radius: 999px; }
 .address-edit-btn {
   padding: 4px 12px; border: 1px solid #e5e7eb; border-radius: 7px;
-  background: #fff; color: #374151; font-family: 'Space Grotesk', sans-serif;
+  background: #fff; color: #374151; font-family: 'Poppins', sans-serif;
   font-size: 0.75rem; font-weight: 600; cursor: pointer;
 }
-.address-edit-input { flex: 1; border: 1px solid #f05025; border-radius: 7px; padding: 5px 9px; font-size: 0.84rem; font-family: 'Space Grotesk', sans-serif; outline: none; }
+.address-edit-input { flex: 1; border: 1px solid #f05025; border-radius: 7px; padding: 5px 9px; font-size: 0.84rem; font-family: 'Poppins', sans-serif; outline: none; }
 
 /* ── Admin login ── */
 .al-tabs { display: flex; gap: 0; padding: 18px 24px 0; margin: 0; }
-.al-tab  { padding: 8px 18px; font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; font-weight: 600; cursor: pointer; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; color: #374151; transition: all 0.18s; }
+.al-tab  { padding: 8px 18px; font-family: 'Poppins', sans-serif; font-size: 0.84rem; font-weight: 600; cursor: pointer; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; color: #374151; transition: all 0.18s; }
 .al-tab:first-child { margin-right: 8px; }
 .al-tab--active:first-child { background: #f05025; color: #fff; border-color: #f05025; }
 .al-tab--active:not(:first-child) { border-color: #f05025; color: #f05025; }
@@ -918,11 +918,11 @@ function closeAdminLogin() {
 .copy-btn--copied { background: rgba(240, 80, 37,0.1) !important; color: #f05025 !important; }
 
 .al-actions  { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.al-btn-save { padding: 9px 20px; background: #f05025; border: none; border-radius: 9px; color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 700; cursor: pointer; }
+.al-btn-save { padding: 9px 20px; background: #f05025; border: none; border-radius: 9px; color: #fff; font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 700; cursor: pointer; }
 .al-btn-save:hover { background: #16a34a; }
-.al-btn-gen  { display: flex; align-items: center; gap: 7px; padding: 9px 16px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 9px; color: #374151; font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; }
+.al-btn-gen  { display: flex; align-items: center; gap: 7px; padding: 9px 16px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 9px; color: #374151; font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; }
 .al-btn-gen:hover { border-color: #d1d5db; background: #f9fafb; }
-.al-btn-switch { padding: 9px 18px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 9px; color: #374151; font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; }
+.al-btn-switch { padding: 9px 18px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 9px; color: #374151; font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; }
 .al-btn-switch:hover { border-color: #d1d5db; background: #f9fafb; }
 
 /* ── Modal transition ── */

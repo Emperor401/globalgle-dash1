@@ -534,9 +534,7 @@ const dots = [
    SHARED CARD BASE
    ══════════════════════════════════ */
 .card {
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
-  -webkit-backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
+  background: #161616;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
   padding: 14px 16px;
@@ -545,7 +543,7 @@ const dots = [
   gap: 10px;
   transition: border-color .22s, background .22s;
 }
-.card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.10); }
+.card:hover { background: #1c1c1c; border-color: rgba(255,255,255,0.11); }
 
 /* ══════════════════════════════════
    HERO
@@ -645,7 +643,7 @@ const dots = [
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.06);
   color: rgba(255,255,255,0.82);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.81rem;
   font-weight: 600;
   cursor: pointer;
@@ -675,9 +673,7 @@ const dots = [
   width: 200px;
   position: relative;
   overflow: hidden;
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
-  -webkit-backdrop-filter: blur(12px) saturate(120%) brightness(0.60);
+  background: #161616;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
   padding: 12px 14px 10px;
@@ -688,7 +684,7 @@ const dots = [
   cursor: pointer;
 }
 .cur:active { transform: scale(0.98); }
-.cur:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.10); }
+.cur:hover { background: #1c1c1c; border-color: rgba(255,255,255,0.11); }
 
 /* Dot-grid texture overlay like Vaulto */
 .cur__texture {
@@ -793,7 +789,7 @@ const dots = [
   align-items: center;
   gap: 8px;
   color: rgba(255,255,255,0.28);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.65rem;
   font-weight: 500;
   line-height: 1.5;
@@ -849,7 +845,7 @@ const dots = [
   border: 1px solid transparent;
   background: none;
   color: rgba(255,255,255,0.35);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   cursor: pointer;
@@ -895,7 +891,7 @@ const dots = [
   border-radius: 8px;
   border: none;
   background: transparent;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
   color: rgba(255,255,255,0.55);
@@ -957,7 +953,7 @@ const dots = [
   color: rgba(255,255,255,0.3);
   font-size: 0.52rem;
   font-weight: 600;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
   transition: all .18s;
@@ -977,7 +973,7 @@ const dots = [
   cursor: pointer;
   background: none;
   border: none;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding: 0;
   transition: opacity .18s;
 }
@@ -1089,7 +1085,7 @@ const dots = [
 .act-num {
   font-size: 0.6rem; font-weight: 800;
   color: rgba(255,255,255,0.6);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .act-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }

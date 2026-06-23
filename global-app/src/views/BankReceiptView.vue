@@ -418,7 +418,7 @@ async function downloadPDF() {
   cursor: pointer;
   margin-bottom: 18px;
   transition: background 0.18s, color 0.18s;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .br-back:hover { background: var(--glass-hover); color: var(--t1); }
 
@@ -475,7 +475,7 @@ async function downloadPDF() {
   padding: 10px 13px;
   color: var(--t1);
   font-size: 0.86rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   outline: none;
   transition: border-color 0.2s, background 0.2s;
   width: 100%;
@@ -496,7 +496,7 @@ async function downloadPDF() {
   padding: 10px 34px 10px 13px;
   color: var(--t1);
   font-size: 0.86rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   outline: none;
   cursor: pointer;
   width: 100%;
@@ -545,7 +545,7 @@ async function downloadPDF() {
   border-radius: 12px;
   font-size: 0.84rem;
   font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   transition: opacity 0.2s, transform 0.15s;
   border: none;

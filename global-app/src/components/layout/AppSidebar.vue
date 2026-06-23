@@ -554,7 +554,7 @@ function logout() {
   border: 1.5px solid rgba(239, 68, 68, 0.3);
   background: rgba(239, 68, 68, 0.08);
   color: #ef4444;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
@@ -625,7 +625,7 @@ function logout() {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;

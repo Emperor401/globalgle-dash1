@@ -220,7 +220,7 @@ function unlock() {
   border: none;
   outline: none;
   padding: 14px 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.9rem;
   color: #fff;
   letter-spacing: 0.02em;
@@ -252,7 +252,7 @@ function unlock() {
   border: none;
   background: linear-gradient(135deg, #f05025, #d94010);
   color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -365,7 +365,7 @@ function unlock() {
   gap: 10px;
   padding: 13px 20px;
   border-radius: 12px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   white-space: nowrap;

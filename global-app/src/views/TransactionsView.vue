@@ -355,21 +355,21 @@ function exportCSV() {
 .panel-controls { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 
 .date-tabs { display:flex; gap:3px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:9px; padding:3px; }
-.dtab { font-family:'Space Grotesk',sans-serif; font-size:0.72rem; color:var(--t3); background:transparent; border:none; padding:4px 10px; border-radius:6px; cursor:pointer; transition:all 0.2s; }
+.dtab { font-family:'Poppins',sans-serif; font-size:0.72rem; color:var(--t3); background:transparent; border:none; padding:4px 10px; border-radius:6px; cursor:pointer; transition:all 0.2s; }
 .dtab:hover { color:var(--t1); }
 .dtab--active { color:var(--t1) !important; background:var(--glass-hover) !important; font-weight:700; }
 
 .search-box { display:flex; align-items:center; gap:7px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:9px; padding:7px 11px; width:190px; transition:border-color 0.2s; }
 .search-box:focus-within { border-color:var(--accent-border); }
-.search-input { background:none; border:none; outline:none; font-family:'Space Grotesk',sans-serif; font-size:0.8rem; color:var(--t1); width:100%; }
+.search-input { background:none; border:none; outline:none; font-family:'Poppins',sans-serif; font-size:0.8rem; color:var(--t1); width:100%; }
 .search-input::placeholder { color:var(--t4); }
 
 .filter-tabs { display:flex; gap:2px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:9px; padding:3px; }
-.ftab { font-family:'Space Grotesk',sans-serif; font-size:0.74rem; color:var(--t3); background:transparent; border:none; padding:5px 11px; border-radius:6px; cursor:pointer; transition:all 0.2s; }
+.ftab { font-family:'Poppins',sans-serif; font-size:0.74rem; color:var(--t3); background:transparent; border:none; padding:5px 11px; border-radius:6px; cursor:pointer; transition:all 0.2s; }
 .ftab:hover { color:var(--t1); }
 .ftab--active { color:#fff !important; background:var(--accent) !important; font-weight:700; }
 
-.btn-export { display:flex; align-items:center; gap:6px; padding:8px 16px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:9px; color:var(--t2); font-family:'Space Grotesk',sans-serif; font-size:0.78rem; font-weight:600; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
+.btn-export { display:flex; align-items:center; gap:6px; padding:8px 16px; background:var(--glass-2); border:1px solid var(--border-soft); border-radius:9px; color:var(--t2); font-family:'Poppins',sans-serif; font-size:0.78rem; font-weight:600; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
 .btn-export:hover { background:var(--accent-dim); border-color:var(--accent-border); color:var(--accent); }
 
 /* Table */
@@ -419,7 +419,7 @@ function exportCSV() {
   display:flex; align-items:center; gap:8px;
   padding:8px 12px; border-radius:8px; border:none;
   background:transparent; color:var(--t2);
-  font-family:'Space Grotesk',sans-serif; font-size:0.78rem; font-weight:600;
+  font-family:'Poppins',sans-serif; font-size:0.78rem; font-weight:600;
   cursor:pointer; text-align:left; transition:background 0.15s, color 0.15s;
   white-space:nowrap;
 }
@@ -439,7 +439,7 @@ function exportCSV() {
   position:fixed; bottom:100px; left:50%; transform:translateX(-50%);
   z-index:99999; display:flex; align-items:center; gap:8px;
   padding:10px 20px; border-radius:99px;
-  font-family:'Space Grotesk',sans-serif; font-size:0.82rem; font-weight:600;
+  font-family:'Poppins',sans-serif; font-size:0.82rem; font-weight:600;
   white-space:nowrap;
   background:var(--glass); backdrop-filter:blur(20px) saturate(180%);
   border:1px solid var(--border);
@@ -460,7 +460,7 @@ function exportCSV() {
 .page-btn { width:30px; height:30px; border-radius:8px; background:var(--glass-2); border:1px solid var(--border-soft); color:var(--t3); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.2s; }
 .page-btn:disabled { opacity:0.35; cursor:not-allowed; }
 .page-btn:not(:disabled):hover { color:var(--t1); border-color:var(--border); }
-.page-num { width:30px; height:30px; border-radius:8px; background:var(--glass-2); border:1px solid var(--border-soft); color:var(--t3); font-family:'Space Grotesk',sans-serif; font-size:0.78rem; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; }
+.page-num { width:30px; height:30px; border-radius:8px; background:var(--glass-2); border:1px solid var(--border-soft); color:var(--t3); font-family:'Poppins',sans-serif; font-size:0.78rem; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; }
 .page-num:hover { color:var(--t1); }
 .page-num--active { background:var(--accent) !important; border-color:var(--accent) !important; color:#fff !important; font-weight:700; }
 
@@ -482,9 +482,9 @@ function exportCSV() {
 .val--pending { color:#fbbf24; }
 .val--failed { color:#f87171; }
 .detail-actions { display:flex; gap:10px; padding-top:4px; border-top:1px solid var(--border-soft); }
-.btn-receipt { flex:1; padding:9px; background:var(--accent-dim); border:1px solid var(--accent-border); border-radius:9px; color:var(--accent); font-family:'Space Grotesk',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.2s; }
+.btn-receipt { flex:1; padding:9px; background:var(--accent-dim); border:1px solid var(--accent-border); border-radius:9px; color:var(--accent); font-family:'Poppins',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.2s; }
 .btn-receipt:hover { background:var(--accent); color:#fff; }
-.btn-flag { flex:1; padding:9px; background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.25); border-radius:9px; color:#f87171; font-family:'Space Grotesk',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.2s; }
+.btn-flag { flex:1; padding:9px; background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.25); border-radius:9px; color:#f87171; font-family:'Poppins',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all 0.2s; }
 .btn-flag:hover { background:rgba(248,113,113,0.2); }
 
 .modal-enter-active { transition:opacity 0.25s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1); }

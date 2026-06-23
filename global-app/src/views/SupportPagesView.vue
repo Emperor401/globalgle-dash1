@@ -508,7 +508,7 @@ function closeForm() {
   display: flex; align-items: center; gap: 7px;
   padding: 10px 20px; background: #f05025; border: none;
   border-radius: 10px; color: #fff;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; font-weight: 700;
+  font-family: 'Poppins', sans-serif; font-size: 0.84rem; font-weight: 700;
   cursor: pointer; flex-shrink: 0;
   transition: background 0.2s, transform 0.15s;
 }
@@ -550,7 +550,7 @@ function closeForm() {
 .sp-row__actions { display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
 .sp-action {
   display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px;
-  border-radius: 7px; font-family: 'Space Grotesk', sans-serif;
+  border-radius: 7px; font-family: 'Poppins', sans-serif;
   font-size: 0.76rem; font-weight: 600; cursor: pointer;
   border: 1px solid transparent; transition: all 0.18s;
 }
@@ -623,14 +623,14 @@ function closeForm() {
 .mf-btn-cancel {
   padding: 9px 22px; background: #f3f4f6; border: 1px solid #e5e7eb;
   border-radius: 9px; color: #374151;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 600;
+  font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s;
 }
 .mf-btn-cancel:hover { background: #e5e7eb; }
 .mf-btn-create {
   padding: 9px 26px; background: #f05025; border: none;
   border-radius: 9px; color: #fff;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.83rem; font-weight: 700;
+  font-family: 'Poppins', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
 }
 .mf-btn-create:hover { background: #16a34a; }
@@ -651,7 +651,7 @@ function closeForm() {
 .mf-input {
   width: 100%; padding: 10px 13px;
   background: #fff; border: 1px solid #d1d5db; border-radius: 8px;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; color: #111827;
+  font-family: 'Poppins', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s;
 }
 .mf-input:focus { border-color: #f05025; box-shadow: none !important; }
@@ -669,7 +669,7 @@ function closeForm() {
   padding: 8px 10px; border-radius: 8px;
   border: 1.5px solid #e5e7eb; background: #fff;
   cursor: pointer; transition: border-color 0.18s, background 0.18s;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: left;
 }
 .brand-card:hover { border-color: #d1d5db; background: #f9fafb; }
@@ -728,7 +728,7 @@ function closeForm() {
   flex: 1; padding: 9px 12px;
   background: #fff; border: 1px solid #d1d5db;
   border-radius: 8px 0 0 8px;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; color: #111827;
+  font-family: 'Poppins', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s;
 }
 .subdomain-input:focus { border-color: #f05025; }
@@ -736,7 +736,7 @@ function closeForm() {
 .subdomain-select {
   padding: 9px 12px; border: 1px solid #d1d5db; border-left: none;
   border-radius: 0 8px 8px 0; background: #f9fafb;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; color: #374151;
+  font-family: 'Poppins', sans-serif; font-size: 0.82rem; color: #374151;
   outline: none; cursor: pointer;
 }
 .subdomain-hint {
@@ -785,7 +785,7 @@ function closeForm() {
 }
 .address-edit-input {
   flex: 1; font-size: 0.84rem; color: #111827; border: none; outline: none;
-  font-family: 'Space Grotesk', sans-serif; padding: 0;
+  font-family: 'Poppins', sans-serif; padding: 0;
 }
 .address-live {
   font-size: 0.7rem; font-weight: 700; color: #f05025;
