@@ -809,6 +809,7 @@ const dots = [
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 10px;
+  max-width: 860px;
   animation: up .5s cubic-bezier(.4,0,.2,1) .2s both;
 }
 
