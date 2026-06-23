@@ -24,16 +24,7 @@
       <span class="sidebar__logo-name">Globalgle</span>
 
       <!-- Toggle / close button -->
-      <button class="vaulto-badge" @click="closeSidebar" aria-label="Close sidebar">
-        <svg width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Top row: dark squares (readable on white part of gradient) -->
-          <rect x="0.5" y="0.5" width="5"   height="5"   rx="1.2" fill="rgba(10,10,10,0.75)"/>
-          <rect x="7.5" y="0.5" width="5"   height="5"   rx="1.2" fill="rgba(10,10,10,0.75)"/>
-          <!-- Bottom row: light squares (readable on dark part of gradient) -->
-          <rect x="0.5" y="7.5" width="5"   height="5"   rx="1.2" fill="rgba(255,255,255,0.80)"/>
-          <rect x="7.5" y="7.5" width="5"   height="5"   rx="1.2" fill="rgba(255,255,255,0.80)"/>
-        </svg>
-      </button>
+      <button class="vaulto-badge" @click="closeSidebar" aria-label="Close sidebar"></button>
 
       <!-- Mobile close button -->
       <button class="sidebar__close-btn" @click="closeSidebar" aria-label="Close menu">

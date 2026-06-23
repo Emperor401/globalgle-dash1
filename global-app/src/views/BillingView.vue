@@ -559,27 +559,6 @@ function showToast(type, msg) {
 .bill-switch-title { font-size: 1.25rem; font-weight: 800; color: var(--t1); margin: 0 0 6px; letter-spacing: -0.01em; }
 .bill-switch-sub   { font-size: 0.8rem; color: var(--t3); margin: 0; line-height: 1.5; max-width: 520px; }
 
-.bill-switch-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-
-/* billing cycle toggle */
-.bill-cycle-toggle {
-  display: flex; gap: 0;
-  background: var(--glass); border: 1px solid var(--border-soft);
-  border-radius: 10px; padding: 4px;
-  backdrop-filter: blur(20px) saturate(180%);
-}
-.bill-cycle-btn {
-  display: flex; align-items: center; gap: 6px;
-  background: none; border: none; border-radius: 7px;
-  padding: 7px 14px; font-size: 0.78rem; font-weight: 600;
-  color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.18s;
-}
-.bill-cycle-btn--active { background: rgba(240, 80, 37,.12); color: #f05025; border: 1px solid rgba(240, 80, 37,.25); }
-.bill-cycle-save {
-  background: rgba(240, 80, 37,.18); color: #f05025;
-  font-size: 0.58rem; font-weight: 800; padding: 1px 5px; border-radius: 4px;
-}
-
 .bill-redeem-btn {
   display: flex; align-items: center; gap: 7px;
   background: var(--glass); border: 1px solid var(--border-soft);
@@ -869,9 +848,7 @@ function showToast(type, msg) {
   .bill-stat       { padding: 14px 16px; }
   .bill-stat__val  { font-size: 1.2rem; }
   .bill-switch-hdr { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .bill-switch-actions { flex-wrap: wrap; width: 100%; }
-  .bill-cycle-toggle   { flex: 1; }
-  .bill-redeem-btn     { flex: 1; justify-content: center; }
+  .bill-redeem-btn     { width: 100%; justify-content: center; }
   .bill-plans-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .bill-plan-card  { padding: 18px 14px; }
   .bill-plan-price { font-size: 1.4rem; }
