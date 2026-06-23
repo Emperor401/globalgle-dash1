@@ -1185,15 +1185,15 @@ const dots = [
 }
 
 @media (max-width:768px) {
-  .dash         { gap: 14px; }
-  .card         { padding: 10px 12px; border-radius: 12px; gap: 8px; }
-  .hero__amt    { font-size: 1.55rem; }
-  .hero__dec    { font-size: 0.9rem; }
-  .hero__row    { gap: 8px; margin-bottom: 6px; }
-  .hero__split  { gap: 10px; margin-bottom: 10px; }
-  .hero__actions { gap: 6px; }
-  .ha           { padding: 7px 12px; font-size: 0.72rem; gap: 4px; border-radius: 8px; }
-  .card__val    { font-size: 1.05rem; }
+  .dash         { gap: 16px; }
+  .card         { padding: 14px 14px; border-radius: 12px; gap: 10px; }
+  .hero__amt    { font-size: 1.9rem; }
+  .hero__dec    { font-size: 1rem; }
+  .hero__row    { gap: 10px; margin-bottom: 8px; }
+  .hero__split  { gap: 12px; margin-bottom: 12px; }
+  .hero__actions { gap: 8px; }
+  .ha           { padding: 9px 14px; font-size: 0.82rem; gap: 5px; border-radius: 8px; }
+  .card__val    { font-size: 1.2rem; }
 
   /* currency row — scrollable, smaller cards */
   .cur-row      { gap: 8px; }
@@ -1234,10 +1234,10 @@ const dots = [
 }
 
 @media (max-width:430px) {
-  .hero__amt   { font-size: 1.3rem; }
-  .hero__dec   { font-size: 0.8rem; }
-  .cur         { flex: 0 0 115px; width: 115px; }
-  .card        { padding: 9px 10px; }
+  .hero__amt   { font-size: 1.65rem; }
+  .hero__dec   { font-size: 0.9rem; }
+  .cur         { flex: 0 0 130px; width: 130px; }
+  .card        { padding: 12px 12px; }
   .sankey-wrap { min-height: 115px; max-height: 150px; }
   .snode--sm   { min-width: 50px; padding: 5px 7px; }
   .snode-lbl   { font-size: 0.65rem; }

@@ -308,22 +308,6 @@
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════
-       MOBILE BOTTOM NAV
-       ═══════════════════════════════════ -->
-  <nav class="mobile-bottom-nav">
-    <router-link
-      v-for="item in bottomNavItems" :key="item.route"
-      :to="item.route"
-      :class="['bn-item', { 'bn-item--active': isActiveNav(item) }]"
-      @click="closeSidebar"
-    >
-      <svg width="21" height="21" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        v-html="item.icon" />
-    </router-link>
-  </nav>
 
 </template>
 
@@ -337,13 +321,6 @@ const route  = useRoute()
 const router = useRouter()
 const { sidebarOpen, desktopOpen, toggleSidebar, closeSidebar, toggleDesktopSidebar } = useSidebar()
 
-const bottomNavItems = [
-  { route: '/',             icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
-  { route: '/analytics',    icon: '<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>' },
-  { route: '/transactions', icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>' },
-  { route: '/wallet',       icon: '<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>' },
-]
-const isActiveNav = (item) => route.path === item.route
 
 /* ── Page meta ── */
 const pages = {
@@ -874,35 +851,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .notif-footer__clear { color: var(--t2); cursor: pointer; font-weight: 600; transition: color 0.2s; }
 .notif-footer__clear:hover { color: #f87171; }
 
-/* ══════════════════════════════
-   MOBILE BOTTOM NAV
-   ══════════════════════════════ */
-.mobile-bottom-nav {
-  display: none;
-  position: fixed;
-  bottom: 22px; left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-soft);
-  border-radius: 30px;
-  padding: 7px; gap: 6px;
-  align-items: center;
-}
-.bn-item {
-  width: 54px; height: 54px; border-radius: 20px;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none; transition: all 0.22s ease;
-  flex-shrink: 0; color: rgba(255, 255, 255, 0.28); position: relative;
-}
-.bn-item:not(.bn-item--active):hover { color: rgba(255, 255, 255, 0.55); }
-.bn-item--active {
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.90);
-}
 
 /* ══════════════════════════════
    RESPONSIVE: show/hide
@@ -943,8 +891,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   .navbar__search:focus-within { width: 270px; }
 }
 @media (max-width: 768px) {
-  .desktop-nav       { display: none; }
-  .mobile-nav        { display: flex; }
-  .mobile-bottom-nav { display: flex; }
+  .desktop-nav { display: none; }
+  .mobile-nav  { display: flex; }
 }
 </style>

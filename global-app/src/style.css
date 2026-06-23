@@ -94,9 +94,9 @@ html {
 }
 
 /* ── Mobile font scale-down ── */
-@media (max-width: 768px) { html { font-size: 12px; } }
-@media (max-width: 430px) { html { font-size: 11.5px; } }
-@media (max-width: 360px) { html { font-size: 11px; } }
+@media (max-width: 768px) { html { font-size: 14px; } }
+@media (max-width: 430px) { html { font-size: 13.5px; } }
+@media (max-width: 360px) { html { font-size: 13px; } }
 
 html, body {
   min-height: 100vh;
@@ -194,7 +194,7 @@ button, input, textarea, select { font-family: 'Poppins', sans-serif; font-weigh
 @media (max-width: 768px) {
 
   /* ── Base font scale for mobile ── */
-  html { font-size: 13px; }
+  html { font-size: 14px; }
 
   /* ── Global card / box padding reduction (all pages) ── */
   .tool-card, .service-card, .gen-card, .cc-card, .cc-pair-card,
