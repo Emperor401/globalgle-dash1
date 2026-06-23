@@ -25,7 +25,7 @@
 
       <!-- Vaulto badge icon -->
       <div class="vaulto-badge">
-        <svg class="vaulto-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="vaulto-icon" width="18" height="18" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Main cardinal spokes -->
           <line x1="11" y1="1"  x2="11" y2="5.5"  stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
           <line x1="11" y1="16.5" x2="11" y2="21" stroke="#f05025" stroke-width="2.2" stroke-linecap="round"/>
@@ -398,6 +398,8 @@ function logout() {
   font-size: 1.1rem;
   color: var(--t1);
   letter-spacing: -0.025em;
+  flex: 1;
+  min-width: 0;
 }
 
 /* ── Vaulto badge ── */
@@ -405,13 +407,12 @@ function logout() {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
-  background: rgba(240, 80, 37, 0.10);
-  border: 1px solid rgba(240, 80, 37, 0.25);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(240, 80, 37, 0.12);
+  border: 1px solid rgba(240, 80, 37, 0.30);
   flex-shrink: 0;
-  margin-left: 2px;
 }
 
 .vaulto-icon {
