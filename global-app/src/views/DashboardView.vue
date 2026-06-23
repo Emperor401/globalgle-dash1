@@ -1057,6 +1057,15 @@ const dots = [
   gap: 8px;
 }
 
+/* Recent Activity — pure black, no glass */
+.bot-activity {
+  background: #000000;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.bot-activity:hover { background: #0a0a0a; }
+
 .bot-head { display: flex; align-items: flex-start; justify-content: space-between; }
 
 .bot-title { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.88); }
