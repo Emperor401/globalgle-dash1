@@ -569,7 +569,7 @@ function closeForm() {
    MODAL
 ═══════════════════════════════════════════ */
 .modal-backdrop {
-  position: fixed; inset: 0; z-index: 9000;
+  position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   background: rgba(0,0,0,0.45);
   display: flex; align-items: center; justify-content: center;
   padding: 20px;

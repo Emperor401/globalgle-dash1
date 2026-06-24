@@ -649,7 +649,7 @@ function closeTicket(id) {
 }
 
 .cmp-overlay {
-  position: fixed; inset: 0; z-index: 9000;
+  position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .cmp-modal {
@@ -731,7 +731,7 @@ function closeTicket(id) {
 
 /* Input / Textarea */
 .cmp-input {
-  background: var(--modal-input); border: 1px solid var(--modal-border);
+  background: var(--modal-input); border: 1px solid rgba(255,255,255,0.10);
   border-radius: 11px; padding: 11px 14px;
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s;
@@ -742,7 +742,7 @@ function closeTicket(id) {
 .cmp-textarea-wrap { position: relative; }
 .cmp-textarea-wrap--error .cmp-textarea { border-color: rgba(248,113,113,.5); }
 .cmp-textarea {
-  width: 100%; background: var(--modal-input); border: 1px solid var(--modal-border);
+  width: 100%; background: var(--modal-input); border: 1px solid rgba(255,255,255,0.10);
   border-radius: 11px; padding: 11px 14px; resize: none;
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s; box-sizing: border-box;

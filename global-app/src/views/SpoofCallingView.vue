@@ -641,9 +641,9 @@ onBeforeUnmount(() => {
   border-radius: 12px; padding: 10px 14px;
   display: flex; flex-direction: column; gap: 6px;
 }
-.sc-stat__label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--t3); }
-.sc-stat__val   { font-size: 1.5rem; font-weight: 800; color: var(--t1); }
-.sc-stat__note  { font-size: 0.73rem; color: var(--t3); }
+.sc-stat__label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.70); }
+.sc-stat__val   { font-size: 1.5rem; font-weight: 800; color: #ffffff; }
+.sc-stat__note  { font-size: 0.73rem; color: rgba(255,255,255,0.75); font-weight: 600; }
 .sc-link { color: #f05025; cursor: pointer; }
 .sc-link:hover { text-decoration: underline; }
 
@@ -702,7 +702,7 @@ onBeforeUnmount(() => {
 .sc-textarea::placeholder{ color: var(--t3); }
 .sc-textarea--lg         { min-height: 140px; }
 
-.sc-hint { font-size: 0.73rem; color: var(--t3); line-height: 1.4; margin: 0; }
+.sc-hint { font-size: 0.73rem; color: rgba(255,255,255,0.75); font-weight: 600; line-height: 1.4; margin: 0; }
 .sc-char-row {
   display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--t3);
 }
@@ -710,8 +710,8 @@ onBeforeUnmount(() => {
 
 /* section label */
 .sc-section-label {
-  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--t3);
+  font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.70);
 }
 
 /* ── Voices ── */
@@ -736,8 +736,8 @@ onBeforeUnmount(() => {
 .sc-radio-dot  { width: 8px; height: 8px; border-radius: 50%; background: #f05025; }
 
 .sc-voice-info { display: flex; flex-direction: column; gap: 2px; flex: 1; }
-.sc-voice-name { font-size: 0.88rem; font-weight: 700; color: var(--t1); }
-.sc-voice-desc { font-size: 0.72rem; color: var(--t3); }
+.sc-voice-name { font-size: 0.88rem; font-weight: 700; color: #ffffff; }
+.sc-voice-desc { font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 600; }
 
 .sc-play-btn {
   width: 30px; height: 30px; border-radius: 50%;
@@ -860,7 +860,7 @@ onBeforeUnmount(() => {
 .modal-fade-enter-from,  .modal-fade-leave-to     { opacity: 0; }
 
 .sc-call-overlay {
-  position: fixed; inset: 0; z-index: 999;
+  position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .sc-call-modal {

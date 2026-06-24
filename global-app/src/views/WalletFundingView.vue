@@ -389,19 +389,21 @@ function selectCoin(coin) {
 .modal-fade-enter-from,  .modal-fade-leave-to     { opacity: 0; }
 
 .modal-overlay {
-  position: fixed; inset: 0; z-index: 999;
-  background: rgba(0,0,0,.6);
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .modal-box {
-  background: var(--modal-glass);
- 
-  border: 1px solid var(--modal-border);
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 24px;
   padding: 28px;
   width: 100%; max-width: 420px;
   position: relative;
   display: flex; flex-direction: column; gap: 22px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
 }
 .modal-close {
   position: absolute; top: 18px; right: 18px;

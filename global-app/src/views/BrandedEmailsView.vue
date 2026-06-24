@@ -418,7 +418,7 @@ function onImgError(e) {
 
 /* â"€â"€ Drawer Backdrop â"€â"€ */
 .drawer-backdrop {
-  position: fixed; inset: 0; z-index: 300;
+  position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   background: rgba(0,0,0,0.5);
 }
 

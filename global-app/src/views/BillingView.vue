@@ -706,22 +706,29 @@ function showToast(type, msg) {
 .slide-down-enter-from,  .slide-down-leave-to     { opacity: 0; transform: translateY(-6px); }
 
 .bill-overlay {
-  position: fixed; inset: 0; z-index: 999;
+  position: fixed; inset: 0; z-index: 9999;
   display: flex; align-items: center; justify-content: center; padding: 24px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 .bill-modal {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 24px; padding: 28px;
   width: 100%; max-width: 580px; max-height: 88vh; overflow-y: auto;
   display: flex; flex-direction: column; gap: 0;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
 }
 .bill-modal--sm { max-width: 420px; }
 
 .bill-modal-hdr {
   display: flex; justify-content: space-between; align-items: flex-start;
-  margin-bottom: 22px;
+  margin-bottom: 22px; padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.bill-modal-title { font-size: 1.1rem; font-weight: 800; color: var(--t1); margin: 0 0 4px; }
-.bill-modal-sub   { font-size: 0.77rem; color: var(--t3); margin: 0; }
+.bill-modal-title { font-size: 1.1rem; font-weight: 800; color: #ffffff; margin: 0 0 4px; }
+.bill-modal-sub   { font-size: 0.77rem; color: rgba(255,255,255,0.60); font-weight: 600; margin: 0; }
 .bill-modal-close {
   width: 30px; height: 30px; border-radius: 8px;
   background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
@@ -753,9 +760,9 @@ function showToast(type, msg) {
 .bill-hist-icon--downgrade{ background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
 
 .bill-hist-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.bill-hist-desc { font-size: 0.83rem; font-weight: 600; color: var(--t1); }
-.bill-hist-date { font-size: 0.7rem; color: var(--t3); }
-.bill-hist-amount { font-size: 0.85rem; font-weight: 700; color: var(--t1); flex-shrink: 0; }
+.bill-hist-desc { font-size: 0.83rem; font-weight: 700; color: #ffffff; }
+.bill-hist-date { font-size: 0.7rem; color: rgba(255,255,255,0.60); font-weight: 600; }
+.bill-hist-amount { font-size: 0.85rem; font-weight: 800; color: #ffffff; flex-shrink: 0; }
 .bill-hist-amount--free { color: #f05025; }
 .bill-hist-status {
   font-size: 0.65rem; font-weight: 700; text-transform: uppercase;

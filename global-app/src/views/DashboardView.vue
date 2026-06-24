@@ -672,8 +672,11 @@ const dots = [
   width: 200px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #383838 0%, #0f0f0f 100%);
-  border: 1px solid rgba(255,255,255,0.09);
+  background-image: url('../assets/boximg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: 14px 14px 12px;
   display: flex;
@@ -681,7 +684,17 @@ const dots = [
   gap: 8px;
   cursor: pointer;
 }
-.cur:hover { background: linear-gradient(145deg, #383838 0%, #0f0f0f 100%); }
+.cur::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 0;
+}
+.cur > * { position: relative; z-index: 1; }
+.cur:hover { background-image: url('../assets/boximg.jpeg'); }
 .cur:active { transform: scale(0.98); }
 
 

@@ -601,10 +601,10 @@ function sendBulkSMS() {
   display: flex; flex-direction: column; gap: 8px;
 }
 .sms-stat__label {
-  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--t3);
+  font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.70);
 }
-.sms-stat__val     { font-size: 1.4rem; font-weight: 800; color: var(--t1); }
+.sms-stat__val     { font-size: 1.4rem; font-weight: 800; color: #ffffff; }
 .sms-stat__val--sm { font-size: 1rem; }
 
 /* ── Tab bar ── */
@@ -673,16 +673,16 @@ function sendBulkSMS() {
 .sms-textarea::placeholder{ color: var(--t3); }
 
 .sms-hint {
-  font-size: 0.73rem; color: var(--t3); line-height: 1.4;
+  font-size: 0.73rem; color: rgba(255,255,255,0.75); font-weight: 600; line-height: 1.4;
   display: flex; align-items: center; gap: 4px;
 }
 .sms-hint--err { color: #f87171; }
 
 .sms-char-row {
   display: flex; justify-content: space-between; align-items: center;
-  font-size: 0.72rem; color: var(--t3);
+  font-size: 0.72rem; color: rgba(255,255,255,0.70); font-weight: 600;
 }
-.sms-char-info { color: var(--t3); font-style: italic; }
+.sms-char-info { color: rgba(255,255,255,0.65); font-style: italic; font-weight: 600; }
 
 /* phone input row */
 .sms-phone-row { display: flex; }

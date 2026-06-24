@@ -18,7 +18,7 @@
         {{ toast.message }}
       </div>
     </Transition>
- ever 
+
     <!-- Background orbs -->
     <div class="auth-orb auth-orb--1" />
     <div class="auth-orb auth-orb--2" />

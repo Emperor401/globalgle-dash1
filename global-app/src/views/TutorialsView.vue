@@ -417,13 +417,13 @@ function showToast(type, msg) {
 .modal-fade-enter-from, .modal-fade-leave-to       { opacity: 0; transform: scale(0.96); }
 
 .tut-modal-overlay {
-  position: fixed; inset: 0; z-index: 9999;
+  position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .tut-modal {
   width: 100%; max-width: 620px; max-height: 88vh; overflow-y: auto;
-  background: var(--modal-glass);
-  border: 1px solid var(--modal-border); border-radius: 24px;
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.10); border-radius: 24px;
   scrollbar-width: none;
 }
 .tut-modal::-webkit-scrollbar { display: none; }
