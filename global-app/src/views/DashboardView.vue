@@ -54,7 +54,7 @@
          CURRENCY CARDS (separate row)
          ════════════════════════════════════ -->
     <div class="cur-row">
-      <div v-for="c in currencies" :key="c.code" class="cur" @click="router.push(c.route)" role="button" tabindex="0" @keydown.enter="router.push(c.route)">
+      <div v-for="c in currencies" :key="c.code" :class="['cur', `cur--${c.code.toLowerCase()}`]" @click="router.push(c.route)" role="button" tabindex="0" @keydown.enter="router.push(c.route)">
         <div class="cur__top">
           <div class="cur__ico-wrap">
             <span class="cur__ico">{{ c.sym }}</span>
@@ -671,7 +671,7 @@ const dots = [
   width: 200px;
   position: relative;
   overflow: hidden;
-  background-image: url('../assets/boximg.jpeg');
+  background-image: url('../assets/rigbox.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -693,7 +693,14 @@ const dots = [
   z-index: 0;
 }
 .cur > * { position: relative; z-index: 1; }
-.cur:hover { background-image: url('../assets/boximg.jpeg'); }
+.cur:hover { background-image: url('../assets/rigbox.jpeg'); }
+.cur--usd {
+  background-image: url('../assets/leftbox.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cur--usd:hover { background-image: url('../assets/leftbox.jpeg'); }
 .cur:active { transform: scale(0.98); }
 
 
