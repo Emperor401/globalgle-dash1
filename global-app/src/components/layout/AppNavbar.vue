@@ -740,8 +740,8 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border: 2px solid var(--bg);
 }
 .mn-greeting-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-.mn-greet-line { font-size: 0.68rem; color: rgba(255,255,255,0.65); font-weight: 600; white-space: nowrap; }
-.mn-name { font-size: 0.88rem; font-weight: 800; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mn-greet-line { font-size: 0.80rem; color: #ffffff; font-weight: 700; white-space: nowrap; }
+.mn-name { font-size: 1.05rem; font-weight: 800; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .mn-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .mn-icon-btn {

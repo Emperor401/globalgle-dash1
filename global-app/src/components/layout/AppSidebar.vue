@@ -10,7 +10,7 @@
     <div v-if="sidebarOpen" class="sidebar-backdrop" @click="closeSidebar"/>
   </Transition>
 
-  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen, 'sidebar--desktop-closed': !desktopOpen }" ref="sidebarEl">
+  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen, 'sidebar--desktop-closed': !desktopOpen }" :style="{ backgroundImage: `url(${sidebarBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }" ref="sidebarEl">
 
     <!-- Logo -->
     <div class="sidebar__logo">
@@ -194,6 +194,7 @@ import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import whiteLogo from '../../assets/orgimg.jpeg'
 import cartnLogo from '../../assets/cartn.png'
+import sidebarBg from '../../assets/sidebarimg.jpeg'
 import { useSidebar } from '../../composables/useSidebar.js'
 
 const { sidebarOpen, desktopOpen, closeSidebar, toggleDesktopSidebar } = useSidebar()
@@ -267,9 +268,9 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.045);
+  background: transparent;
   border-right: 1px solid rgba(255,255,255,0.07);
-  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.06);
+  box-shadow: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -338,18 +339,23 @@ function logout() {
     transform: translateX(-100%);
     z-index: 100;
     width: 260px;
-    background: rgba(255, 255, 255, 0.045);
+    background: transparent;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
   .sidebar--open { transform: translateX(0); }
   .vaulto-badge  { display: none; }
 
   /* Compact nav on mobile */
-  .sidebar__logo  { padding: 14px 16px 12px; }
-  .sidebar__group { padding: 12px 10px 4px; }
-  .nav-item       { padding: 7px 8px; }
-  .nav-item__label { font-size: 0.8rem; }
-  .nav-item__icon  { width: 26px; height: 26px; border-radius: 7px; }
+  .sidebar__logo  { padding: 14px 16px 12px; background: transparent; }
+  .sidebar__group { padding: 12px 10px 4px; background: transparent; }
+  .nav-item       { padding: 9px 8px; background: transparent !important; }
+  .nav-item:hover { background: transparent !important; }
+  .nav-item--active { background: transparent !important; }
+  .nav-item__label { font-size: 1.1rem !important; font-weight: 700 !important; }
+  .nav-item__icon  { width: 28px; height: 28px; border-radius: 7px; background: transparent !important; }
+  .sidebar__group-label { font-size: 0.82rem !important; letter-spacing: 0.08em; }
+  .nav-item__badge { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .sidebar__scroll { background: transparent; }
 
   /* Compact upgrade card */
   .sidebar__upgrade {
@@ -357,7 +363,11 @@ function logout() {
     padding: 12px 13px;
     margin: 0 10px 12px;
     border-radius: 14px;
+    background: transparent !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
+  .sidebar__logout { background: transparent !important; }
   .upgrade__body   { padding-right: 76px; }
   .upgrade__label  { font-size: 0.68rem; }
   .upgrade__title  { font-size: 0.95rem; }
