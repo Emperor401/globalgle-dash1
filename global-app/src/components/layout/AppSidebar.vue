@@ -267,7 +267,7 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: url('../assets/sidebarimg.jpeg') center / cover no-repeat #0a0a0a;
+  background: rgba(255, 255, 255, 0.045);
   border-right: 1px solid rgba(255,255,255,0.07);
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.06);
   position: fixed;
@@ -338,7 +338,7 @@ function logout() {
     transform: translateX(-100%);
     z-index: 100;
     width: 260px;
-    background: url('../assets/sidebarimg.jpeg') center / cover no-repeat;
+    background: rgba(255, 255, 255, 0.045);
     border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
   .sidebar--open { transform: translateX(0); }
