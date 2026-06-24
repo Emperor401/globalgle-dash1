@@ -21,8 +21,6 @@
   --glass:        rgba(255, 255, 255, 0.03);
   --glass-2:      rgba(255, 255, 255, 0.02);
   --glass-hover:  rgba(255, 255, 255, 0.05);
-  --glass-filter: blur(20px) saturate(180%);
-
   /* Modal glass — more opaque so modals are visible over dark overlays */
   --modal-glass:  rgba(255, 255, 255, 0.085);
   --modal-input:  rgba(255, 255, 255, 0.060);
@@ -60,15 +58,6 @@
   --yellow-dim:    rgba(251, 191, 36, 0.12);
   --yellow-border: rgba(251, 191, 36, 0.25);
 
-  /* Purple — Light Violet */
-  --purple:        #c4b5fd;
-  --purple-deep:   #5b21b6;
-  --purple-dim:    rgba(196, 181, 253, 0.12);
-  --purple-border: rgba(196, 181, 253, 0.25);
-
-  /* Dropdown / Popover */
-  --dropdown-bg:     rgba(10, 11, 26, 0.88);
-  --dropdown-border: rgba(255, 255, 255, 0.1);
 }
 
 /* ══════════════════════════════════════════════

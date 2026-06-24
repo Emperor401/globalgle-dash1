@@ -748,11 +748,11 @@ function deleteSite(id) {
   letter-spacing: -0.03em; margin: 0;
 }
 .ob-header__sub {
-  font-size: 0.82rem; color: var(--t3); margin: 0;
+  font-size: 0.82rem; color: #ffffff; font-weight: 700; margin: 0;
   max-width: 600px; line-height: 1.55;
 }
 .ob-header__count {
-  font-size: 0.78rem; font-weight: 600; color: var(--t3);
+  font-size: 0.82rem; font-weight: 800; color: #ffffff;
   white-space: nowrap; padding-top: 6px;
 }
 
@@ -764,17 +764,17 @@ function deleteSite(id) {
 .ob-table { width: 100%; border-collapse: collapse; }
 .ob-table thead tr { border-bottom: 1px solid var(--border-soft); }
 .ob-table th {
-  padding: 12px 20px; font-size: 0.65rem; font-weight: 700;
-  color: var(--t3); text-transform: uppercase; letter-spacing: 0.08em; text-align: left;
+  padding: 12px 20px; font-size: 0.65rem; font-weight: 800;
+  color: #ffffff; text-transform: uppercase; letter-spacing: 0.08em; text-align: left;
 }
-.ob-table td { padding: 16px 20px; font-size: 0.84rem; color: var(--t2); vertical-align: middle; }
+.ob-table td { padding: 16px 20px; font-size: 0.84rem; color: #ffffff; font-weight: 600; vertical-align: middle; }
 .ob-row { border-bottom: 1px solid var(--border-soft); transition: background 0.15s; }
 .ob-row:last-child { border-bottom: none; }
 .ob-row:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
 
 .ob-row__site { display: flex; flex-direction: column; gap: 3px; }
 .ob-site-name { font-weight: 700; color: var(--t1); font-size: 0.88rem; }
-.ob-site-currency { font-size: 0.72rem; color: var(--t3); }
+.ob-site-currency { font-size: 0.72rem; color: rgba(255,255,255,0.70); font-weight: 600; }
 
 /* ── Link ── */
 .ob-link {
@@ -800,14 +800,14 @@ function deleteSite(id) {
   cursor: pointer; border: none; background: transparent;
   transition: background 0.15s, color 0.15s; white-space: nowrap;
 }
-.ob-action--deactivate { color: var(--t2); }
-.ob-action--deactivate:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
-.ob-action--edit { color: var(--t2); }
-.ob-action--edit:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
-.ob-action--admin { color: var(--t2); }
-.ob-action--admin:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
-.ob-action--login { color: var(--t2); }
-.ob-action--login:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
+.ob-action--deactivate { color: #ffffff; font-weight: 700; }
+.ob-action--deactivate:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
+.ob-action--edit { color: #ffffff; font-weight: 700; }
+.ob-action--edit:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
+.ob-action--admin { color: #ffffff; font-weight: 700; }
+.ob-action--admin:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
+.ob-action--login { color: #ffffff; font-weight: 700; }
+.ob-action--login:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
 .ob-action--delete { color: #f87171; }
 .ob-action--delete:hover { background: rgba(248,113,113,0.1); }
 

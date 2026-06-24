@@ -524,7 +524,7 @@ const dots = [
 
 <style scoped>
 /* ── entry animation ── */
-@keyframes up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+@keyframes up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.75)} }
 
 .dash { display:flex; flex-direction:column; gap:20px; }
@@ -555,7 +555,7 @@ const dots = [
   display: flex;
   flex-direction: column;
   gap: 0;
-  animation: up .5s cubic-bezier(.4,0,.2,1) .05s both;
+  animation: up .85s cubic-bezier(.4,0,.2,1) .1s both;
 }
 
 .hero__lbl {
@@ -619,9 +619,8 @@ const dots = [
   align-items: center;
   gap: 5px;
   font-size: 0.88rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
   font-weight: 500;
+  color: rgba(255,255,255,0.85);
 }
 
 /* Action buttons */
@@ -664,7 +663,7 @@ const dots = [
 .cur-row {
   display: flex;
   gap: 12px;
-  animation: up .5s cubic-bezier(.4,0,.2,1) .12s both;
+  animation: up .85s cubic-bezier(.4,0,.2,1) .28s both;
 }
 
 .cur {
@@ -805,7 +804,7 @@ const dots = [
   grid-template-columns: 1.4fr 1fr;
   gap: 10px;
   max-width: 860px;
-  animation: up .5s cubic-bezier(.4,0,.2,1) .2s both;
+  animation: up .85s cubic-bezier(.4,0,.2,1) .45s both;
 }
 
 .chart-main {
@@ -1011,6 +1010,7 @@ const dots = [
   align-items: center;
   gap: 5px;
   height: 100%;
+  cursor: pointer;
 }
 
 .bar-track {
@@ -1024,7 +1024,6 @@ const dots = [
 }
 
 /* bar grows from bottom */
-.bar-col { cursor: pointer; }
 .bar-fill {
   position: absolute;
   bottom: 0;
@@ -1065,7 +1064,7 @@ const dots = [
   display: grid;
   grid-template-columns: 1fr 1fr 0.75fr;
   gap: 10px;
-  animation: up .5s cubic-bezier(.4,0,.2,1) .28s both;
+  animation: up .85s cubic-bezier(.4,0,.2,1) .62s both;
 }
 
 /* Compact padding for all bottom cards */

@@ -433,7 +433,7 @@
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from '../composables/useToast.js'
-const { success: toastSuccess, error: toastError } = useToast()
+const { error: toastError } = useToast()
 
 const router = useRouter()
 

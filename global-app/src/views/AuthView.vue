@@ -42,7 +42,7 @@
 
       <!-- Form -->
       <form class="auth-form" @submit.prevent="unlock">
-        <div class="auth-input-wrap" :class="{ 'auth-input-wrap--error': error }">
+        <div class="auth-input-wrap">
           <svg class="auth-input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <rect x="3" y="11" width="18" height="11" rx="2"/>
@@ -55,7 +55,7 @@
             placeholder="Enter access code"
             autocomplete="current-password"
             autofocus
-            @input="error = false"
+            @input="() => {}"
           />
           <button type="button" class="auth-eye" @click="showPass = !showPass" tabindex="-1">
             <svg v-if="!showPass" width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -207,11 +207,6 @@ function unlock() {
   border-color: rgba(240, 80, 37,0.5);
   background: rgba(240, 80, 37,0.04);
 }
-.auth-input-wrap--error {
-  border-color: rgba(248,113,113,0.5) !important;
-  background: rgba(248,113,113,0.04) !important;
-}
-
 .auth-input-icon { color: rgba(255,255,255,0.3); flex-shrink: 0; }
 
 .auth-input {
@@ -233,16 +228,6 @@ function unlock() {
   padding: 0; flex-shrink: 0; transition: color 0.2s;
 }
 .auth-eye:hover { color: rgba(255,255,255,0.7); }
-
-/* Error */
-.auth-error {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 0.78rem; color: #f87171; margin: 0;
-  padding: 8px 12px;
-  background: rgba(248,113,113,0.08);
-  border: 1px solid rgba(248,113,113,0.2);
-  border-radius: 8px;
-}
 
 /* Button */
 .auth-btn {
@@ -364,26 +349,27 @@ function unlock() {
   align-items: center;
   gap: 10px;
   padding: 13px 20px;
-  border-radius: 12px;
+  border-radius: 16px;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.83rem;
+  font-weight: 700;
   white-space: nowrap;
+  background: linear-gradient(160deg, #1e1e1e 0%, #111111 100%);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: #ffffff;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.65), 0 2px 8px rgba(0,0,0,0.4);
   pointer-events: none;
 }
 .auth-toast--error {
-  background: rgba(239,68,68,0.18);
-  border: 1px solid rgba(239,68,68,0.35);
-  color: #fca5a5;
+  border-left: 3px solid #f87171;
 }
+.auth-toast--error svg { color: #f87171; }
 .auth-toast--success {
-  background: rgba(240, 80, 37,0.18);
-  border: 1px solid rgba(240, 80, 37,0.35);
-  color: #86efac;
+  border-left: 3px solid #f05025;
 }
+.auth-toast--success svg { color: #f05025; }
 
 /* Toast transition */
 .toast-slide-enter-active { transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1); }

@@ -534,7 +534,7 @@ const activeTab = ref('profile')
 const profile = ref({
   fullName: 'EMPREROR SOLOS',
   username: '@refrer',
-  email:    'emprerorsolos@gmail.com',
+  email:    'globalgle@gmail.com',
   telegram: '@emperor373',
   phone:    '',
 })
@@ -681,9 +681,9 @@ function copyText(text) {
   display: flex; align-items: center; gap: 10px;
   width: 100%; background: none; border: none; cursor: pointer;
   padding: 10px 12px; font-family: inherit; font-size: 0.82rem;
-  font-weight: 600; color: var(--t3); transition: all 0.18s; text-align: left;
+  font-weight: 700; color: #ffffff; transition: all 0.18s; text-align: left;
 }
-.set-nav-item:hover { background: rgba(255,255,255,.04); color: var(--t2); }
+.set-nav-item:hover { background: rgba(255,255,255,.04); color: #ffffff; }
 .set-nav-item--active {
   background: rgba(240, 80, 37,.09); color: #f05025;
   border-left: 2px solid #f05025;
