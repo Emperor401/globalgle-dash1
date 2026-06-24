@@ -512,12 +512,12 @@ function closeForm() {
   cursor: pointer; flex-shrink: 0;
   transition: background 0.2s, transform 0.15s;
 }
-.btn-new:hover  { background: #16a34a; transform: translateY(-1px); }
+.btn-new:hover  { background: #cc4118; transform: translateY(-1px); }
 .btn-new:active { transform: translateY(0); }
 
 /* ── Table card ── */
 .sp-table-card {
-  background: var(--glass); border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
   border-radius: 14px; overflow: hidden;
 }
 .sp-table { width: 100%; border-collapse: collapse; }
@@ -529,7 +529,7 @@ function closeForm() {
 .sp-table td { padding: 16px 20px; font-size: 0.84rem; color: var(--t2); vertical-align: middle; }
 .sp-row { border-bottom: 1px solid var(--border-soft); transition: background 0.15s; }
 .sp-row:last-child { border-bottom: none; }
-.sp-row:hover { background: var(--glass-hover); }
+.sp-row:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
 .sp-row__title { font-weight: 700; color: var(--t1); }
 .sp-row__template { color: var(--t2); font-size: 0.82rem; }
 
@@ -555,7 +555,7 @@ function closeForm() {
   border: 1px solid transparent; transition: all 0.18s;
 }
 .sp-action--edit   { color: var(--t2); background: transparent; border-color: var(--border-soft); }
-.sp-action--edit:hover { color: var(--t1); border-color: var(--border); background: var(--glass-2); }
+.sp-action--edit:hover { color: var(--t1); border-color: var(--border); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
 .sp-action--delete { color: #f87171; background: transparent; }
 .sp-action--delete:hover { background: rgba(248,113,113,.1); border-color: rgba(248,113,113,.25); }
 
@@ -571,7 +571,6 @@ function closeForm() {
 .modal-backdrop {
   position: fixed; inset: 0; z-index: 9000;
   background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   display: flex; align-items: center; justify-content: center;
   padding: 20px;
 }
@@ -633,7 +632,7 @@ function closeForm() {
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
 }
-.mf-btn-create:hover { background: #16a34a; }
+.mf-btn-create:hover { background: #cc4118; }
 
 /* ── Form sections ── */
 .mf-section { padding: 20px 24px; border-bottom: 1px solid #f3f4f6; }

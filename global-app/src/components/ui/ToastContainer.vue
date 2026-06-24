@@ -61,7 +61,6 @@ const { toasts, remove } = useToast()
   padding: 14px 16px;
   border-radius: 14px;
   border: 1px solid transparent;
-  backdrop-filter: blur(20px) saturate(180%);
   pointer-events: all;
   box-shadow: 0 8px 32px rgba(0,0,0,0.22);
   position: relative;

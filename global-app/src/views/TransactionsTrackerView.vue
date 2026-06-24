@@ -72,9 +72,7 @@ const services = [
 
 /* Card */
 .service-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 18px 18px;

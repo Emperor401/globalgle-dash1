@@ -197,7 +197,7 @@ button, input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; 
   html { font-size: 14px; }
 
   /* ── Global card / box padding reduction (all pages) ── */
-  .tool-card, .service-card, .gen-card, .cc-card, .cc-pair-card,
+  .tool-card, .service-card, .site-card, .gen-card, .cc-card, .cc-pair-card,
   .sms-form-card, .sc-form-card, .sc-recent-card, .sms-history,
   .sms-preview-stats, .sms-tab-bar, .sc-tab-bar,
   .w-stat, .w-txn-section, .w-auto-row,
@@ -294,7 +294,7 @@ button, input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; 
 }
 
 /* ══════════════════════════════════════════════
-   GLOBAL GLASSMORPHISM — applies to ALL card
+   GLOBAL CARD GRADIENT — applies to ALL card
    class names used across the entire app
    ══════════════════════════════════════════════ */
 .card,
@@ -324,12 +324,9 @@ button, input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; 
 .cmp-cat-card,
 .promo-card,
 .be-card {
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(155deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.06) 100%) !important;
-  background-size: 14px 14px, 100% 100% !important;
-  backdrop-filter: blur(20px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  background: linear-gradient(160deg, #232323 0%, #0a0a0a 100%) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
   box-shadow: none !important;
 }

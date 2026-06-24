@@ -314,8 +314,7 @@ onMounted(async () => {
 
 /* converter card */
 .cc-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
  
   border: 1px solid var(--border-soft);
   border-radius: 14px;
@@ -363,7 +362,6 @@ onMounted(async () => {
 /* dropdown */
 .cc-drop {
   position: absolute; top: calc(100% + 8px); left: 0; min-width: 210px;
-  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--modal-border);
   border-radius: 14px; padding: 8px; z-index: 100;
   max-height: 240px; overflow-y: auto;
@@ -421,8 +419,7 @@ onMounted(async () => {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
 }
 .cc-pair-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
  
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 16px;

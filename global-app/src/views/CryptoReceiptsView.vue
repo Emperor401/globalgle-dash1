@@ -224,11 +224,11 @@ function onImgError(e) {
 .cr-header   { display: flex; align-items: flex-start; gap: 16px; }
 .back-btn {
   display: flex; align-items: center; gap: 6px; padding: 7px 14px;
-  border-radius: 8px; border: 1px solid var(--border-soft); background: var(--glass-2);
+  border-radius: 8px; border: 1px solid var(--border-soft); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   color: var(--t2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s, color 0.18s; flex-shrink: 0; margin-top: 4px;
 }
-.back-btn:hover { background: var(--glass-hover); color: var(--t1); }
+.back-btn:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
 .cr-head-text { display: flex; flex-direction: column; gap: 4px; }
 .cr-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
 .cr-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
@@ -240,8 +240,6 @@ function onImgError(e) {
 .p-card {
   position: relative; display: flex; flex-direction: column; align-items: center;
   gap: 10px; padding: 0 18px 18px; border-radius: 16px;
-  background: var(--glass); backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); cursor: pointer; overflow: hidden; text-align: center;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -256,7 +254,6 @@ function onImgError(e) {
 .p-card__cta  { margin-top: auto; font-size: 0.72rem; color: var(--t4); padding-top: 8px; border-top: 1px solid var(--border-soft); width: 100%; text-align: center; }
 
 /* Backdrop */
-.modal-backdrop { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); }
 
 /* Modal */
 .receipt-modal {
@@ -359,7 +356,7 @@ function onImgError(e) {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #16a34a; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #f05025; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 

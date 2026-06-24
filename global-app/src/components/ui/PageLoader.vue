@@ -27,7 +27,6 @@ const { loading } = useLoader()
   align-items: center;
   justify-content: center;
   background: rgba(12, 13, 31, 0.45);
-  backdrop-filter: blur(4px);
  
 }
 

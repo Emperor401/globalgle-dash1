@@ -657,8 +657,7 @@ function copyText(text) {
 
 /* ── Sub-nav ── */
 .set-subnav {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
  
   border: 1px solid var(--border-soft);
   border-radius: 18px;
@@ -709,8 +708,7 @@ function copyText(text) {
 
 /* ── ID card ── */
 .set-id-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 12px 14px; display: flex; align-items: center; gap: 14px;
   position: relative;
@@ -740,8 +738,7 @@ function copyText(text) {
 
 .set-field-row {
   display: flex; align-items: center; gap: 14px;
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   padding: 15px 18px; transition: border-color 0.2s;
 }
@@ -757,11 +754,11 @@ function copyText(text) {
 }
 .set-field-body { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .set-field-label {
-  font-size: 0.61rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--t3);
+  font-size: 0.61rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.70);
 }
-.set-field-val  { font-size: 0.88rem; font-weight: 600; color: var(--t1); }
-.set-field-note { font-size: 0.7rem; color: var(--t3); }
+.set-field-val  { font-size: 0.88rem; font-weight: 700; color: #ffffff; }
+.set-field-note { font-size: 0.7rem; color: rgba(255,255,255,0.65); font-weight: 600; }
 
 .set-inline-input {
   background: rgba(255,255,255,.06); border: 1px solid rgba(240, 80, 37,.3);
@@ -802,8 +799,7 @@ function copyText(text) {
 
 /* ── Cards ── */
 .set-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 10px;
@@ -857,7 +853,7 @@ function copyText(text) {
   font-size: 0.84rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
-.set-primary-btn:hover:not(:disabled) { background: #16a34a; }
+.set-primary-btn:hover:not(:disabled) { background: #cc4118; }
 .set-primary-btn:disabled { opacity: 0.38; cursor: not-allowed; }
 
 /* Toggle */
@@ -906,8 +902,8 @@ function copyText(text) {
 .set-login-head {
   display: grid; grid-template-columns: 175px 1fr 110px 125px 85px;
   gap: 12px; padding: 8px 0 10px;
-  font-size: 0.61rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.09em; color: var(--t3);
+  font-size: 0.61rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.09em; color: rgba(255,255,255,0.70);
   border-bottom: 1px solid var(--border-soft);
 }
 .set-login-row {
@@ -916,10 +912,10 @@ function copyText(text) {
   border-bottom: 1px solid var(--border-soft);
 }
 .set-login-row:last-child { border-bottom: none; }
-.set-login-date  { font-size: 0.75rem; color: var(--t3); }
-.set-login-device{ font-size: 0.8rem; font-weight: 600; color: var(--t1); display: flex; align-items: center; gap: 6px; }
-.set-login-loc   { font-size: 0.77rem; color: var(--t2); }
-.set-login-ip    { font-size: 0.72rem; color: var(--t3); font-family: monospace; }
+.set-login-date  { font-size: 0.75rem; color: #ffffff; font-weight: 700; }
+.set-login-device{ font-size: 0.8rem; font-weight: 700; color: #ffffff; display: flex; align-items: center; gap: 6px; }
+.set-login-loc   { font-size: 0.77rem; color: #ffffff; font-weight: 700; }
+.set-login-ip    { font-size: 0.72rem; color: rgba(255,255,255,0.80); font-weight: 700; font-family: monospace; }
 
 .set-status-tag {
   font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
@@ -956,8 +952,7 @@ function copyText(text) {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .set-ref-stat {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft); border-radius: 16px;
   padding: 17px; display: flex; align-items: center; gap: 14px;
 }
@@ -998,7 +993,6 @@ function copyText(text) {
   position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 9px;
   padding: 12px 20px; border-radius: 13px; font-size: 0.83rem; font-weight: 600;
-  z-index: 9999; backdrop-filter: blur(20px); white-space: nowrap;
 }
 .set-toast--success { background: rgba(240, 80, 37,.18);   border: 1px solid rgba(240, 80, 37,.3);   color: #f05025;  }
 .set-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
@@ -1013,7 +1007,7 @@ function copyText(text) {
 .set-mobile-tab {
   display: flex; align-items: center; gap: 6px; white-space: nowrap;
   padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border-soft);
-  background: var(--glass); font-size: 0.78rem; font-weight: 600; color: var(--t3);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); font-size: 0.78rem; font-weight: 600; color: var(--t3);
   cursor: pointer; font-family: inherit; transition: all 0.2s; flex-shrink: 0;
 }
 .set-mobile-tab--active {

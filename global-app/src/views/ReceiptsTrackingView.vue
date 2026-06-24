@@ -607,8 +607,7 @@ function generate() {
 
 /* Section card */
 .sec-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px;
   padding: 16px 18px;
@@ -771,7 +770,6 @@ function generate() {
 
 /* My receipts */
 .my-receipts-card {
-  background: var(--glass); backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 18px 22px; display: flex; flex-direction: column; gap: 12px;
 }
@@ -902,7 +900,7 @@ function generate() {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #16a34a; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #f05025; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 .toast-pop-enter-active { transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }

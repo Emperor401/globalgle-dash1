@@ -276,21 +276,10 @@ function showToast(type, msg) {
 }
 .help-hero-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, #071a0f 0%, #0a2318 30%, #0d1f2d 70%, #080d1a 100%);
+  background: linear-gradient(160deg, #232323 0%, #0a0a0a 100%);
 }
-.help-hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(240, 80, 37,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(240, 80, 37,.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-/* radial glow */
-.help-hero::after {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(240, 80, 37,.12) 0%, transparent 65%);
-  pointer-events: none;
-}
+.help-hero-grid { display: none; }
+.help-hero::after { display: none; }
 .help-hero-content {
   position: relative; z-index: 1;
   display: flex; flex-direction: column; align-items: center; gap: 14px;
@@ -299,7 +288,7 @@ function showToast(type, msg) {
 .help-hero-title {
   font-size: 2rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.025em;
 }
-.help-hero-sub { font-size: 0.87rem; color: rgba(255,255,255,.5); margin: 0; }
+.help-hero-sub { font-size: 0.87rem; color: #ffffff; font-weight: 700; margin: 0; }
 
 .help-hero-search {
   display: flex; align-items: center; gap: 10px;
@@ -319,15 +308,14 @@ function showToast(type, msg) {
   font-size: 0.84rem; font-weight: 800; color: #fff; cursor: pointer;
   font-family: inherit; transition: background 0.2s; flex-shrink: 0;
 }
-.help-search-btn:hover { background: #16a34a; }
+.help-search-btn:hover { background: #cc4118; }
 
 /* ── Category cards ── */
 .help-cats {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
 }
 .help-cat {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft); border-radius: 16px;
   padding: 18px 14px; display: flex; flex-direction: column;
   align-items: center; gap: 8px; text-align: center;
@@ -362,8 +350,7 @@ function showToast(type, msg) {
 
 /* ── FAQ Panel ── */
 .help-faq {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 14px 16px; display: flex; flex-direction: column; gap: 12px;
 }
@@ -417,7 +404,7 @@ function showToast(type, msg) {
 
 .help-faq-answer {
   padding: 0 18px 16px 18px;
-  font-size: 0.82rem; line-height: 1.7; color: var(--t3);
+  font-size: 0.82rem; line-height: 1.7; color: #ffffff; font-weight: 700;
 }
 
 .accordion-enter-active, .accordion-leave-active {
@@ -442,8 +429,7 @@ function showToast(type, msg) {
 .help-right { display: flex; flex-direction: column; gap: 14px; }
 
 .help-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
 }
@@ -491,7 +477,7 @@ function showToast(type, msg) {
   font-size: 0.8rem; font-weight: 800; color: #fff; cursor: pointer;
   font-family: inherit; transition: background 0.2s;
 }
-.help-primary-btn:hover { background: #16a34a; }
+.help-primary-btn:hover { background: #cc4118; }
 
 .help-ghost-btn {
   flex: 1; padding: 9px; border-radius: 10px;
@@ -551,7 +537,6 @@ function showToast(type, msg) {
   position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 9px;
   padding: 12px 20px; border-radius: 13px; font-size: 0.83rem; font-weight: 600;
-  z-index: 9999; backdrop-filter: blur(20px); white-space: nowrap;
 }
 .help-toast--success { background: rgba(240, 80, 37,.18);  border: 1px solid rgba(240, 80, 37,.3);  color: #f05025; }
 .help-toast--info    { background: rgba(96,165,250,.18); border: 1px solid rgba(96,165,250,.3); color: #60a5fa; }

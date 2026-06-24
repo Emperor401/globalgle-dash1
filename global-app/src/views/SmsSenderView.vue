@@ -595,8 +595,7 @@ function sendBulkSMS() {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .sms-stat {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 10px 14px;
   display: flex; flex-direction: column; gap: 8px;
@@ -611,8 +610,7 @@ function sendBulkSMS() {
 /* ── Tab bar ── */
 .sms-tab-bar {
   display: flex; gap: 4px;
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 5px; width: fit-content;
 }
@@ -636,8 +634,7 @@ function sendBulkSMS() {
 
 /* ── Form Card ── */
 .sms-form-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 20px;
@@ -766,7 +763,7 @@ function sendBulkSMS() {
   font-size: 0.88rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
-.sms-send-btn:hover:not(:disabled) { background: #16a34a; }
+.sms-send-btn:hover:not(:disabled) { background: #cc4118; }
 .sms-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* ── Phone Preview ── */
@@ -830,8 +827,7 @@ function sendBulkSMS() {
 /* preview stats */
 .sms-preview-stats {
   display: flex; gap: 14px; justify-content: center;
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 18px;
   width: 100%; box-sizing: border-box;
@@ -845,8 +841,7 @@ function sendBulkSMS() {
 
 /* ── History ── */
 .sms-history {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }
@@ -902,7 +897,6 @@ function sendBulkSMS() {
   display: flex; align-items: center; gap: 10px;
   padding: 13px 22px; border-radius: 14px;
   font-size: 0.84rem; font-weight: 600; z-index: 9999;
-  backdrop-filter: blur(20px);
 }
 .sms-toast--success {
   background: rgba(240, 80, 37,.18); border: 1px solid rgba(240, 80, 37,.3); color: #f05025;

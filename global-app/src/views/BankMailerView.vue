@@ -419,11 +419,11 @@ function sendEmails() {
 .bm-page-head { display: flex; align-items: flex-start; gap: 16px; }
 .back-btn {
   display: flex; align-items: center; gap: 6px; padding: 7px 14px;
-  border-radius: 8px; border: 1px solid var(--border-soft); background: var(--glass-2);
+  border-radius: 8px; border: 1px solid var(--border-soft); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   color: var(--t2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s, color 0.18s; flex-shrink: 0; margin-top: 4px;
 }
-.back-btn:hover { background: var(--glass-hover); color: var(--t1); }
+.back-btn:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
 .bm-head-text { display: flex; flex-direction: column; gap: 4px; }
 .bm-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
 .bm-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
@@ -438,9 +438,7 @@ function sendEmails() {
 
 /* Form card */
 .bm-form-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   padding: 18px;
@@ -459,7 +457,7 @@ function sendEmails() {
   cursor: pointer; transition: all 0.18s; border: 1px solid transparent;
 }
 .toggle-btn--dark  { background: #0f172a; color: #fff; border-color: #0f172a; }
-.toggle-btn--light { background: var(--glass-2); color: var(--t2); border-color: var(--border-soft); }
+.toggle-btn--light { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t2); border-color: var(--border-soft); }
 .toggle-btn--light:hover { border-color: var(--border); color: var(--t1); }
 
 /* Form sections */
@@ -483,7 +481,7 @@ function sendEmails() {
 
 .fi {
   padding: 9px 12px; border-radius: 9px; border: 1px solid var(--border-soft);
-  background: var(--glass-2); color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif;
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.82rem; transition: border-color 0.18s; box-sizing: border-box; width: 100%;
 }
 .fi:focus { outline: none; border-color: var(--accent); }
@@ -492,7 +490,7 @@ function sendEmails() {
 
 .fs {
   padding: 9px 12px; border-radius: 9px; border: 1px solid var(--border-soft);
-  background: var(--glass-2); color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif;
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.82rem; cursor: pointer; transition: border-color 0.18s; width: 100%;
 }
 .fs:focus { outline: none; border-color: var(--accent); }
@@ -501,7 +499,7 @@ function sendEmails() {
 .logo-row { display: flex; gap: 10px; align-items: stretch; }
 .logo-preview-box {
   width: 68px; height: 68px; flex-shrink: 0; border-radius: 12px;
-  border: 1px solid var(--border-soft); background: var(--glass-2);
+  border: 1px solid var(--border-soft); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   display: flex; align-items: center; justify-content: center; overflow: hidden; color: var(--t4);
 }
 .logo-preview-img { width: 100%; height: 100%; object-fit: contain; }
@@ -560,7 +558,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 }
 .preview-bar {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 11px 18px; background: var(--glass-2); border-bottom: 1px solid var(--border-soft);
+  padding: 11px 18px; background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border-bottom: 1px solid var(--border-soft);
   flex-shrink: 0; gap: 12px;
 }
 .preview-type-tag {
@@ -613,7 +611,7 @@ details[open] .optional-arrow { transform: rotate(90deg); }
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #16a34a; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #f05025; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 

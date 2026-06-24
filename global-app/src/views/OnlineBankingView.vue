@@ -758,7 +758,7 @@ function deleteSite(id) {
 
 /* ── Table card ── */
 .ob-table-card {
-  background: var(--glass); border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
   border-radius: 14px; overflow: hidden;
 }
 .ob-table { width: 100%; border-collapse: collapse; }
@@ -770,7 +770,7 @@ function deleteSite(id) {
 .ob-table td { padding: 16px 20px; font-size: 0.84rem; color: var(--t2); vertical-align: middle; }
 .ob-row { border-bottom: 1px solid var(--border-soft); transition: background 0.15s; }
 .ob-row:last-child { border-bottom: none; }
-.ob-row:hover { background: var(--glass-hover); }
+.ob-row:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
 
 .ob-row__site { display: flex; flex-direction: column; gap: 3px; }
 .ob-site-name { font-weight: 700; color: var(--t1); font-size: 0.88rem; }
@@ -801,13 +801,13 @@ function deleteSite(id) {
   transition: background 0.15s, color 0.15s; white-space: nowrap;
 }
 .ob-action--deactivate { color: var(--t2); }
-.ob-action--deactivate:hover { background: var(--glass-2); color: var(--t1); }
+.ob-action--deactivate:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
 .ob-action--edit { color: var(--t2); }
-.ob-action--edit:hover { background: var(--glass-2); color: var(--t1); }
+.ob-action--edit:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
 .ob-action--admin { color: var(--t2); }
-.ob-action--admin:hover { background: var(--glass-2); color: var(--t1); }
+.ob-action--admin:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
 .ob-action--login { color: var(--t2); }
-.ob-action--login:hover { background: var(--glass-2); color: var(--t1); }
+.ob-action--login:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
 .ob-action--delete { color: #f87171; }
 .ob-action--delete:hover { background: rgba(248,113,113,0.1); }
 
@@ -827,7 +827,7 @@ function deleteSite(id) {
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s, transform 0.15s;
 }
-.btn-new:hover  { background: #16a34a; transform: translateY(-1px); }
+.btn-new:hover  { background: #cc4118; transform: translateY(-1px); }
 .btn-new:active { transform: translateY(0); }
 
 /* ═══════════════════════════════════════════
@@ -836,7 +836,6 @@ function deleteSite(id) {
 .modal-backdrop {
   position: fixed; inset: 0; z-index: 9000;
   background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   display: flex; align-items: center; justify-content: center; padding: 20px;
 }
 .modal {
@@ -879,7 +878,7 @@ function deleteSite(id) {
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
 }
-.mf-btn-create:hover { background: #16a34a; }
+.mf-btn-create:hover { background: #cc4118; }
 
 /* ── Form fields ── */
 .mf-section { padding: 18px 24px; border-bottom: 1px solid #f3f4f6; }
@@ -1032,7 +1031,7 @@ function deleteSite(id) {
   color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.83rem; font-weight: 700; cursor: pointer; transition: background 0.2s;
 }
-.al-btn-save:hover { background: #16a34a; }
+.al-btn-save:hover { background: #cc4118; }
 .al-btn-gen {
   display: flex; align-items: center; gap: 7px;
   padding: 9px 16px; background: #fff; border: 1.5px solid #e5e7eb;

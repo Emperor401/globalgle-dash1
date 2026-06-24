@@ -753,12 +753,11 @@ function closeAdminLogin() {
   font-size: 0.84rem; font-weight: 700; cursor: pointer;
   transition: background 0.2s; box-shadow: 0 4px 16px rgba(240, 80, 37,0.35);
 }
-.broker-fab__btn:hover { background: #16a34a; }
+.broker-fab__btn:hover { background: #cc4118; }
 
 /* ── Modal shared ── */
 .modal-backdrop {
   position: fixed; inset: 0; background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   display: flex; align-items: center; justify-content: center;
   z-index: 1000; padding: 16px;
 }
@@ -819,7 +818,7 @@ function closeAdminLogin() {
   color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.83rem; font-weight: 700; cursor: pointer; transition: background 0.2s;
 }
-.mf-btn-create:hover { background: #16a34a; }
+.mf-btn-create:hover { background: #cc4118; }
 
 /* ── Logo upload ── */
 .logo-row { display: flex; gap: 12px; align-items: stretch; }
@@ -919,7 +918,7 @@ function closeAdminLogin() {
 
 .al-actions  { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .al-btn-save { padding: 9px 20px; background: #f05025; border: none; border-radius: 9px; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 700; cursor: pointer; }
-.al-btn-save:hover { background: #16a34a; }
+.al-btn-save:hover { background: #cc4118; }
 .al-btn-gen  { display: flex; align-items: center; gap: 7px; padding: 9px 16px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 9px; color: #374151; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; }
 .al-btn-gen:hover { border-color: #d1d5db; background: #f9fafb; }
 .al-btn-switch { padding: 9px 18px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 9px; color: #374151; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; }

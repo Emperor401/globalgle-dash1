@@ -541,11 +541,10 @@ function showToast(type, msg) {
 
 .w-switch-btn {
   display: flex; align-items: center; gap: 7px;
-  background: var(--glass); border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 10px 18px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
-  backdrop-filter: blur(20px) saturate(180%);
 }
 .w-switch-btn:hover { border-color: rgba(240, 80, 37,.35); color: var(--t1); }
 
@@ -556,15 +555,14 @@ function showToast(type, msg) {
   font-weight: 700; color: #fff; cursor: pointer;
   font-family: inherit; transition: background 0.2s;
 }
-.w-add-btn:hover { background: #16a34a; }
+.w-add-btn:hover { background: #cc4118; }
 
 /* ── Stats ── */
 .w-stats {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
 .w-stat {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 12px 14px;
   display: flex; flex-direction: column; gap: 6px;
@@ -594,8 +592,7 @@ function showToast(type, msg) {
 
 /* ── Auto deposit row ── */
 .w-auto-row {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 16px; padding: 16px 20px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -619,8 +616,7 @@ function showToast(type, msg) {
 
 /* ── Transactions ── */
 .w-txn-section {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }
@@ -711,11 +707,9 @@ function showToast(type, msg) {
 
 .w-overlay {
   position: fixed; inset: 0; z-index: 999;
-  background: rgba(0,0,0,.65); backdrop-filter: blur(8px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .w-modal {
-  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 24px; padding: 28px;
   width: 100%; max-width: 460px;
   display: flex; flex-direction: column; gap: 0;
@@ -834,7 +828,7 @@ function showToast(type, msg) {
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
   margin-top: 4px;
 }
-.w-confirm-btn:hover:not(:disabled) { background: #16a34a; }
+.w-confirm-btn:hover:not(:disabled) { background: #cc4118; }
 .w-confirm-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* switch plan */
@@ -879,7 +873,6 @@ function showToast(type, msg) {
   display: flex; align-items: center; gap: 10px;
   padding: 13px 22px; border-radius: 14px;
   font-size: 0.84rem; font-weight: 600; z-index: 9999;
-  backdrop-filter: blur(20px); white-space: nowrap;
 }
 .w-toast--success { background: rgba(240, 80, 37,.18);  border: 1px solid rgba(240, 80, 37,.3);  color: #f05025;  }
 .w-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }

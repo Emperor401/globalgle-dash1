@@ -496,11 +496,10 @@ function showToast(type, msg) {
 
 .bill-hist-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
-  background: var(--glass); border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 10px 18px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
-  backdrop-filter: blur(20px) saturate(180%);
 }
 .bill-hist-btn:hover { border-color: rgba(240, 80, 37,.35); color: var(--t1); }
 
@@ -509,8 +508,7 @@ function showToast(type, msg) {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
 }
 .bill-stat {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 12px 14px;
   display: flex; flex-direction: column; gap: 6px;
@@ -519,8 +517,8 @@ function showToast(type, msg) {
   display: flex; justify-content: space-between; align-items: center;
 }
 .bill-stat__label {
-  font-size: 0.63rem; font-weight: 700;
-  letter-spacing: 0.04em; color: var(--t3);
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.04em; color: #ffffff;
 }
 .bill-stat-icon {
   width: 32px; height: 32px; border-radius: 9px;
@@ -534,7 +532,7 @@ function showToast(type, msg) {
 
 .bill-stat__val         { font-size: 1.5rem; font-weight: 800; color: var(--t1); line-height: 1; }
 .bill-stat__val--warn   { color: #f87171; }
-.bill-stat__note        { font-size: 0.7rem; color: var(--t3); }
+.bill-stat__note        { font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 700; }
 .bill-stat__note--warn  { color: #f59e0b; font-weight: 600; }
 
 /* toggle */
@@ -557,15 +555,14 @@ function showToast(type, msg) {
   justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
 .bill-switch-title { font-size: 1.25rem; font-weight: 800; color: var(--t1); margin: 0 0 6px; letter-spacing: -0.01em; }
-.bill-switch-sub   { font-size: 0.8rem; color: var(--t3); margin: 0; line-height: 1.5; max-width: 520px; }
+.bill-switch-sub   { font-size: 0.82rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.5; max-width: 520px; }
 
 .bill-redeem-btn {
   display: flex; align-items: center; gap: 7px;
-  background: var(--glass); border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 9px 16px; font-size: 0.8rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
-  backdrop-filter: blur(20px) saturate(180%);
 }
 .bill-redeem-btn:hover { border-color: rgba(240, 80, 37,.35); color: var(--t1); }
 
@@ -578,8 +575,7 @@ function showToast(type, msg) {
 }
 
 .bill-plan-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 12px;
@@ -603,12 +599,12 @@ function showToast(type, msg) {
 
 .bill-plan-head { display: flex; flex-direction: column; gap: 6px; }
 .bill-plan-name {
-  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.09em; color: var(--t3);
+  font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.09em; color: #ffffff;
 }
 .bill-plan-price-wrap { display: flex; align-items: baseline; gap: 3px; }
 .bill-plan-price  { font-size: 1.7rem; font-weight: 800; color: var(--t1); line-height: 1; }
-.bill-plan-period { font-size: 0.8rem; color: var(--t3); }
+.bill-plan-period { font-size: 0.8rem; color: rgba(255,255,255,0.75); font-weight: 700; }
 .bill-plan-saving {
   font-size: 0.68rem; font-weight: 700; color: #f05025;
   background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
@@ -621,7 +617,7 @@ function showToast(type, msg) {
 }
 .bill-plan-features li {
   display: flex; align-items: flex-start; gap: 8px;
-  font-size: 0.77rem; color: var(--t2); line-height: 1.4;
+  font-size: 0.77rem; color: #ffffff; font-weight: 700; line-height: 1.4;
 }
 
 /* ── Trial badge ── */
@@ -659,12 +655,12 @@ function showToast(type, msg) {
 .bill-perks:hover { border-color: rgba(240,80,37,.3); }
 .bill-perks__row {
   display: flex; align-items: center; gap: 7px;
-  font-size: 0.75rem; font-weight: 600; color: var(--t2);
+  font-size: 0.75rem; font-weight: 700; color: #ffffff;
 }
-.bill-perks__count { color: var(--t3); }
-.bill-perks__caret { margin-left: auto; color: var(--t3); transition: transform 0.2s; }
+.bill-perks__count { color: rgba(255,255,255,0.75); font-weight: 700; }
+.bill-perks__caret { margin-left: auto; color: rgba(255,255,255,0.75); transition: transform 0.2s; }
 .bill-perks__body {
-  font-size: 0.72rem; color: var(--t3); margin: 8px 0 0; line-height: 1.55;
+  font-size: 0.75rem; color: #ffffff; font-weight: 700; margin: 8px 0 0; line-height: 1.55;
 }
 
 /* plan button */
@@ -685,8 +681,7 @@ function showToast(type, msg) {
 
 /* ── FAQ ── */
 .bill-notes {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }
@@ -701,7 +696,7 @@ function showToast(type, msg) {
   font-size: 0.84rem; font-weight: 600; color: var(--t1);
 }
 .bill-note-a {
-  font-size: 0.78rem; color: var(--t3); margin: 10px 0 0; line-height: 1.6;
+  font-size: 0.82rem; color: #ffffff; font-weight: 700; margin: 10px 0 0; line-height: 1.6;
 }
 
 /* ── Modals ── */
@@ -712,11 +707,9 @@ function showToast(type, msg) {
 
 .bill-overlay {
   position: fixed; inset: 0; z-index: 999;
-  background: rgba(0,0,0,.65); backdrop-filter: blur(8px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .bill-modal {
-  background: var(--modal-glass); backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--modal-border);
   border-radius: 24px; padding: 28px;
   width: 100%; max-width: 580px; max-height: 88vh; overflow-y: auto;
   display: flex; flex-direction: column; gap: 0;
@@ -829,7 +822,6 @@ function showToast(type, msg) {
   display: flex; align-items: center; gap: 10px;
   padding: 13px 22px; border-radius: 14px;
   font-size: 0.84rem; font-weight: 600; z-index: 9999;
-  backdrop-filter: blur(20px); white-space: nowrap;
 }
 .bill-toast--success { background: rgba(240, 80, 37,.18);  border: 1px solid rgba(240, 80, 37,.3);  color: #f05025;  }
 .bill-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }

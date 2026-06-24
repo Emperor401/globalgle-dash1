@@ -290,8 +290,7 @@ function showToast(type, msg) {
 
 /* ── Empty state ── */
 .tut-empty-container {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1.5px dashed var(--border-soft); border-radius: 20px;
   padding: 48px 24px; display: flex; flex-direction: column;
   align-items: center; text-align: center; gap: 10px;
@@ -305,10 +304,10 @@ function showToast(type, msg) {
 
 .tut-empty-title { font-size: 1.05rem; font-weight: 800; color: var(--t1); margin: 0; }
 .tut-empty-sub {
-  font-size: 0.82rem; color: var(--t2); margin: 0; line-height: 1.6; max-width: 420px;
+  font-size: 0.82rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.6; max-width: 420px;
   display: flex; flex-direction: column; gap: 6px;
 }
-.tut-empty-hint { font-size: 0.73rem; color: var(--t2); }
+.tut-empty-hint { font-size: 0.73rem; color: #ffffff; font-weight: 700; }
 .tut-empty-hint code {
   background: rgba(255,255,255,.08); border: 1px solid var(--border-soft);
   border-radius: 5px; padding: 1px 7px; font-size: 0.72rem; color: var(--t1);
@@ -330,8 +329,7 @@ function showToast(type, msg) {
 
 /* ── Card ── */
 .tut-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
   border: 1px solid var(--border-soft); border-radius: 14px;
   overflow: hidden; cursor: pointer; transition: border-color 0.22s, transform 0.22s;
   display: flex; flex-direction: column;
@@ -420,13 +418,11 @@ function showToast(type, msg) {
 
 .tut-modal-overlay {
   position: fixed; inset: 0; z-index: 9999;
-  background: rgba(0,0,0,.75); backdrop-filter: blur(12px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .tut-modal {
   width: 100%; max-width: 620px; max-height: 88vh; overflow-y: auto;
   background: var(--modal-glass);
-  backdrop-filter: blur(32px) saturate(200%);
   border: 1px solid var(--modal-border); border-radius: 24px;
   scrollbar-width: none;
 }
@@ -491,7 +487,6 @@ function showToast(type, msg) {
   position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 9px;
   padding: 12px 20px; border-radius: 13px; font-size: 0.83rem; font-weight: 600;
-  z-index: 10000; backdrop-filter: blur(20px); white-space: nowrap;
 }
 .tut-toast--success { background: rgba(240, 80, 37,.18);   border: 1px solid rgba(240, 80, 37,.3);   color: #f05025;  }
 .tut-toast--info    { background: rgba(96,165,250,.18);  border: 1px solid rgba(96,165,250,.3);  color: #60a5fa;  }

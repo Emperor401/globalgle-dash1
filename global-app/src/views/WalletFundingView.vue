@@ -252,18 +252,16 @@ function selectCoin(coin) {
 /* history btn */
 .wf-history-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
-  background: var(--glass); border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 9px 16px; font-size: 0.82rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: border-color 0.2s, color 0.2s;
-  backdrop-filter: blur(20px) saturate(180%);
 }
 .wf-history-btn:hover { border-color: rgba(240, 80, 37,.35); color: var(--t1); }
 
 /* plan card */
 .wf-plan-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
  
   border: 1px solid var(--border-soft);
   border-radius: 14px;
@@ -307,7 +305,7 @@ function selectCoin(coin) {
   font-weight: 700; color: #fff; cursor: pointer;
   font-family: inherit; transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
-.wf-fund-btn:hover { background: #16a34a; border-color: #16a34a; transform: translateY(-1px); }
+.wf-fund-btn:hover { background: #cc4118; border-color: #cc4118; transform: translateY(-1px); }
 
 /* section label */
 .wf-section-label {
@@ -323,8 +321,7 @@ function selectCoin(coin) {
 }
 
 .wf-card {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
  
   border: 1px solid var(--border-soft);
   border-radius: 18px;
@@ -366,8 +363,7 @@ function selectCoin(coin) {
 
 /* how it works */
 .wf-howto {
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
  
   border: 1px solid var(--border-soft);
   border-radius: 20px;
@@ -395,12 +391,10 @@ function selectCoin(coin) {
 .modal-overlay {
   position: fixed; inset: 0; z-index: 999;
   background: rgba(0,0,0,.6);
-  backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .modal-box {
   background: var(--modal-glass);
-  backdrop-filter: blur(24px) saturate(180%);
  
   border: 1px solid var(--modal-border);
   border-radius: 24px;

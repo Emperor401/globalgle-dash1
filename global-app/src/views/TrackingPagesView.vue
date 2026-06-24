@@ -913,7 +913,7 @@ function closeAdminLogin() {
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 16px rgba(240, 80, 37,0.35);
 }
-.tp-fab__btn:hover { background: #16a34a; }
+.tp-fab__btn:hover { background: #cc4118; }
 
 /* ── Live preview banner ── */
 .tpl-preview {
@@ -963,7 +963,6 @@ function closeAdminLogin() {
 /* ── Modal shared ── */
 .modal-backdrop {
   position: fixed; inset: 0; background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 16px;
 }
 .modal {
@@ -1013,7 +1012,7 @@ function closeAdminLogin() {
   color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
 }
-.mf-btn-create:hover { background: #16a34a; }
+.mf-btn-create:hover { background: #cc4118; }
 
 /* ── Logo upload ── */
 .logo-row { display: flex; gap: 12px; align-items: stretch; }
