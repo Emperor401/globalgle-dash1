@@ -267,14 +267,17 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.045);
-  border-right: 1px solid var(--border-soft);
+  background-image: url('../assets/sidebarimg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-right: 1px solid rgba(255,255,255,0.07);
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.06);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  transition: background 0.35s ease, border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
+  transition: border-color 0.35s ease, transform 0.32s cubic-bezier(0.4,0,0.2,1);
   overflow: visible;
 }
 
@@ -338,7 +341,9 @@ function logout() {
     transform: translateX(-100%);
     z-index: 100;
     width: 260px;
-    background: url('/bg2.png') center / cover no-repeat;
+    background-image: url('../assets/sidebarimg.jpeg');
+    background-size: cover;
+    background-position: center;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
   .sidebar--open { transform: translateX(0); }
@@ -374,6 +379,8 @@ function logout() {
   min-height: 0;
   padding-bottom: 4px;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar__scroll::-webkit-scrollbar { width: 3px; }
@@ -388,6 +395,8 @@ function logout() {
   padding: 20px 20px 18px;
   border-bottom: 1px solid var(--border-soft);
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar__logo-icon {
@@ -558,6 +567,8 @@ function logout() {
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 .sidebar__logout:hover {
@@ -570,6 +581,7 @@ function logout() {
 /* ── Upgrade CTA ── */
 .sidebar__upgrade {
   position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
