@@ -1265,7 +1265,7 @@ const dots = [
 
   /* currency row */
   .cur-row       { gap: 8px; }
-  .cur           { flex: 0 0 138px; width: 138px; padding: 10px 12px 9px; border-radius: 10px; }
+  .cur           { flex: 0 0 185px; width: 185px; padding: 14px 16px 12px; border-radius: 12px; }
   .cur__code     { font-size: 0.82rem; }
   .cur__amt      { font-size: 1.15rem; }
   .cur__sub      { font-size: 0.72rem; }
@@ -1308,7 +1308,7 @@ const dots = [
   .hero__amt   { font-size: 2.1rem; }
   .hero__dec   { font-size: 1.1rem; }
   .ha          { font-size: 0.84rem; padding: 9px 13px; }
-  .cur         { flex: 0 0 130px; width: 130px; }
+  .cur         { flex: 0 0 168px; width: 168px; }
   .card        { padding: 12px 12px; }
   .sankey-wrap { min-height: 115px; max-height: 150px; }
   .snode--sm   { min-width: 50px; padding: 5px 7px; }

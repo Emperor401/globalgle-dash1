@@ -694,10 +694,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mobile-nav {
   display: none;
   position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 90;
-  background: var(--glass);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--border-soft);
+  background: linear-gradient(90deg, #080808 0%, #141414 50%, #0e0e0e 100%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
   align-items: center; justify-content: space-between;
   padding: 0 16px; gap: 12px;
   transition: background 0.35s ease;
@@ -740,8 +740,8 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   border: 2px solid var(--bg);
 }
 .mn-greeting-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-.mn-greet-line { font-size: 0.68rem; color: var(--t3); font-weight: 500; white-space: nowrap; }
-.mn-name { font-size: 0.88rem; font-weight: 800; color: var(--t1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mn-greet-line { font-size: 0.68rem; color: rgba(255,255,255,0.65); font-weight: 600; white-space: nowrap; }
+.mn-name { font-size: 0.88rem; font-weight: 800; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .mn-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .mn-icon-btn {
