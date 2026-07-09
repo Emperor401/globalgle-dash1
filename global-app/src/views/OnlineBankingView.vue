@@ -14,99 +14,45 @@
       <span class="ob-header__count">{{ sites.filter(s => s.status === 'active').length }}/∞ active</span>
     </div>
 
-    <!-- Table card -->
-    <div class="ob-table-card">
-      <table class="ob-table">
-        <thead>
-          <tr>
-            <th>Site</th>
-            <th>Public Link</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-if="sites.length === 0">
-            <td colspan="4" class="ob-empty">
-              <div class="ob-empty__inner">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/>
-                  <path d="M3 9h18"/><path d="M9 21V9"/>
-                </svg>
-                <span>No banking sites yet. Create your first one.</span>
-              </div>
-            </td>
-          </tr>
-          <tr v-for="site in sites" :key="site.id" class="ob-row">
-            <td class="ob-row__site">
-              <span class="ob-site-name">{{ site.name }}</span>
-              <span class="ob-site-currency">{{ site.currency }}</span>
-            </td>
-            <td>
-              <a :href="site.url" target="_blank" class="ob-link">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-                {{ site.domain }}
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
-            </td>
-            <td>
-              <span class="ob-status" :class="`ob-status--${site.status}`">{{ site.status }}</span>
-            </td>
-            <td class="ob-row__actions">
-              <button class="ob-action ob-action--deactivate" @click="toggleStatus(site)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <path d="M18.36 6.64A9 9 0 1 1 5.64 6.64"/><line x1="12" y1="2" x2="12" y2="12"/>
-                </svg>
-                {{ site.status === 'active' ? 'Deactivate' : 'Activate' }}
-              </button>
-              <button class="ob-action ob-action--edit" @click="openEdit(site)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-                Edit
-              </button>
-              <button class="ob-action ob-action--admin" @click="copyAdminLink(site)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-                </svg>
-                Admin link
-              </button>
-              <button class="ob-action ob-action--login" @click="adminLogin(site)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
-                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-                </svg>
-                Admin login
-              </button>
-              <button class="ob-action ob-action--delete" @click="deleteSite(site.id)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <polyline points="3 6 5 6 21 6"/>
-                  <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
-                  <path d="M10 11v6"/><path d="M14 11v6"/>
-                  <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Sites grid -->
+    <div v-if="sites.length === 0" class="ob-empty-card">
+      <div class="ob-empty__inner">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18"/><path d="M9 21V9"/>
+        </svg>
+        <span>No banking sites yet. Create your first one.</span>
+      </div>
+    </div>
+
+    <div v-else class="ob-grid">
+      <div v-for="site in sites" :key="site.id" class="ob-card">
+        <div class="ob-card__top">
+          <div class="ob-card__site">
+            <span class="ob-site-name">{{ site.name }}</span>
+            <span class="ob-site-currency">{{ site.currency }}</span>
+          </div>
+          <ActionsMenu :items="rowActions(site)" />
+        </div>
+
+        <a :href="site.url" target="_blank" class="ob-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="ob-link__text">{{ site.domain }}</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+
+        <span class="ob-status" :class="`ob-status--${site.status}`">{{ site.status }}</span>
+      </div>
     </div>
 
     <!-- New banking site button -->
@@ -534,6 +480,7 @@
 import { ref, reactive } from 'vue'
 import { useToast } from '../composables/useToast.js'
 import { useSiteStore } from '../composables/useSiteStore.js'
+import ActionsMenu from '../components/ui/ActionsMenu.vue'
 
 const { success, error: toastError, info } = useToast()
 const { store } = useSiteStore()
@@ -729,6 +676,38 @@ function deleteSite(id) {
   if (i !== -1) sites.splice(i, 1)
   success('Site deleted', `"${site?.name}" has been permanently removed.`)
 }
+
+/* ── Row actions dropdown ── */
+function rowActions(site) {
+  return [
+    {
+      label: site.status === 'active' ? 'Deactivate' : 'Activate',
+      icon: '<path d="M18.36 6.64A9 9 0 1 1 5.64 6.64"/><line x1="12" y1="2" x2="12" y2="12"/>',
+      onClick: () => toggleStatus(site),
+    },
+    {
+      label: 'Edit',
+      icon: '<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>',
+      onClick: () => openEdit(site),
+    },
+    {
+      label: 'Admin link',
+      icon: '<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>',
+      onClick: () => copyAdminLink(site),
+    },
+    {
+      label: 'Admin login',
+      icon: '<polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>',
+      onClick: () => adminLogin(site),
+    },
+    {
+      label: 'Delete',
+      icon: '<polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>',
+      onClick: () => deleteSite(site.id),
+      variant: 'danger',
+    },
+  ]
+}
 </script>
 
 <style scoped>
@@ -756,63 +735,46 @@ function deleteSite(id) {
   white-space: nowrap; padding-top: 6px;
 }
 
-/* ── Table card ── */
-.ob-table-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
-  border-radius: 14px; overflow: hidden;
+/* ── Sites grid ── */
+.ob-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
 }
-.ob-table { width: 100%; border-collapse: collapse; }
-.ob-table thead tr { border-bottom: 1px solid var(--border-soft); }
-.ob-table th {
-  padding: 12px 20px; font-size: 0.65rem; font-weight: 800;
-  color: #ffffff; text-transform: uppercase; letter-spacing: 0.08em; text-align: left;
+.ob-card {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 10px;
 }
-.ob-table td { padding: 16px 20px; font-size: 0.84rem; color: #ffffff; font-weight: 600; vertical-align: middle; }
-.ob-row { border-bottom: 1px solid var(--border-soft); transition: background 0.15s; }
-.ob-row:last-child { border-bottom: none; }
-.ob-row:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
 
-.ob-row__site { display: flex; flex-direction: column; gap: 3px; }
-.ob-site-name { font-weight: 700; color: var(--t1); font-size: 0.88rem; }
+.ob-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.ob-card__site { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ob-site-name { font-weight: 700; color: var(--t1); font-size: 0.92rem; }
 .ob-site-currency { font-size: 0.72rem; color: rgba(255,255,255,0.70); font-weight: 600; }
 
 /* ── Link ── */
 .ob-link {
-  display: inline-flex; align-items: center; gap: 5px;
+  display: inline-flex; align-items: center; gap: 5px; min-width: 0;
   color: #f05025; font-size: 0.82rem; font-weight: 600;
   text-decoration: none; transition: opacity 0.18s;
 }
 .ob-link:hover { opacity: 0.75; }
+.ob-link__text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ── Status ── */
 .ob-status { font-size: 0.82rem; font-weight: 600; }
 .ob-status--active   { color: #f05025; }
 .ob-status--inactive { color: #f87171; }
 
-/* ── Row actions ── */
-.ob-row__actions {
-  display: flex; align-items: center; gap: 2px; justify-content: flex-end; flex-wrap: wrap;
-}
-.ob-action {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 5px 10px; border-radius: 7px;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 600;
-  cursor: pointer; border: none; background: transparent;
-  transition: background 0.15s, color 0.15s; white-space: nowrap;
-}
-.ob-action--deactivate { color: #ffffff; font-weight: 700; }
-.ob-action--deactivate:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
-.ob-action--edit { color: #ffffff; font-weight: 700; }
-.ob-action--edit:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
-.ob-action--admin { color: #ffffff; font-weight: 700; }
-.ob-action--admin:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
-.ob-action--login { color: #ffffff; font-weight: 700; }
-.ob-action--login:hover { background: rgba(255,255,255,0.08); color: #ffffff; }
-.ob-action--delete { color: #f87171; }
-.ob-action--delete:hover { background: rgba(248,113,113,0.1); }
-
 /* ── Empty ── */
-.ob-empty { text-align: center; padding: 48px 20px !important; }
+.ob-empty-card {
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  border: 1px solid var(--border-soft); border-radius: 16px;
+  display: flex; justify-content: center; padding: 48px 20px;
+}
 .ob-empty__inner {
   display: inline-flex; flex-direction: column; align-items: center;
   gap: 12px; color: var(--t3); font-size: 0.84rem;
@@ -1123,24 +1085,13 @@ function deleteSite(id) {
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .ob-header { flex-direction: column; }
-  .ob-table th:nth-child(2), .ob-table td:nth-child(2) { display: none; }
-  .ob-row__actions { gap: 1px; }
-  .ob-action { padding: 4px 7px; font-size: 0.7rem; }
-}
-@media (max-width: 540px) {
-  .ob-action span { display: none; }
+  .ob-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
 
 /* ── Light mode ── */
-[data-theme="light"] .ob-table-card { background: #fff; border-color: #e5e7eb; }
-[data-theme="light"] .ob-table thead tr { border-color: #e5e7eb; }
-[data-theme="light"] .ob-table th { color: #9ca3af; }
-[data-theme="light"] .ob-table td { color: #374151; }
-[data-theme="light"] .ob-row { border-color: #f3f4f6; }
-[data-theme="light"] .ob-row:hover { background: #f9fafb; }
+[data-theme="light"] .ob-card { background: #fff; border-color: #e5e7eb; }
+[data-theme="light"] .ob-empty-card { background: #fff; border-color: #e5e7eb; }
 [data-theme="light"] .ob-site-name { color: #111827; }
-[data-theme="light"] .ob-action { color: #6b7280; }
-[data-theme="light"] .ob-action:not(.ob-action--delete):hover { background: #f3f4f6; color: #111827; }
 [data-theme="light"] .ob-header__title { color: #111827; }
 [data-theme="light"] .ob-header__sub { color: #6b7280; }
 [data-theme="light"] .ob-empty__inner { color: #9ca3af; }

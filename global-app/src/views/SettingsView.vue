@@ -2,224 +2,89 @@
 <template>
   <div class="set-page">
 
-    <!-- Mobile horizontal tab bar -->
-    <div class="set-mobile-tabs">
-      <button v-for="tab in tabs" :key="tab.id"
-        :class="['set-mobile-tab', { 'set-mobile-tab--active': activeTab === tab.id }]"
-        @click="activeTab = tab.id">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" v-html="tab.icon"/>
-        <span>{{ tab.label }}</span>
-      </button>
-    </div>
-
-    <div class="set-layout">
-
-      <!-- ── Left sub-nav ── -->
-      <nav class="set-subnav set-left">
-        <div class="set-subnav-user">
-          <div class="set-avatar set-avatar--sm">{{ initials }}</div>
-          <div>
-            <div class="set-subnav-name">{{ profile.fullName }}</div>
-            <div class="set-subnav-role">User account</div>
-          </div>
-        </div>
-        <div class="set-subnav-divider"/>
-        <button v-for="tab in tabs" :key="tab.id"
-          :class="['set-nav-item', { 'set-nav-item--active': activeTab === tab.id }]"
-          @click="activeTab = tab.id">
-          <div class="set-nav-icon">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" v-html="tab.icon"/>
-          </div>
-          <span>{{ tab.label }}</span>
-          <svg v-if="activeTab === tab.id" width="11" height="11" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-            style="margin-left:auto;color:#f05025">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </button>
-      </nav>
-
-      <!-- ── Content ── -->
-      <div class="set-content">
+    <div class="set-content">
 
         <!-- ══════════ PROFILE ══════════ -->
         <template v-if="activeTab === 'profile'">
 
-          <!-- User identity card -->
-          <div class="set-id-card">
-            <div class="set-id-avatar-wrap">
-              <div class="set-avatar">{{ initials }}</div>
-              <label class="set-avatar-edit" title="Change photo">
-                <input type="file" accept="image/*" style="display:none" @change="showToast('success','Avatar updated.')"/>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5" stroke-linecap="round">
-                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-              </label>
+          <!-- Overview: avatar + full name -->
+          <div class="set-card set-ov-card">
+            <div class="set-card-hdr">
+              <div class="set-card-title">Overview</div>
+              <SettingsTabMenu :tabs="tabs" current-id="profile" @select="id => activeTab = id" />
             </div>
-            <div class="set-id-body">
-              <div class="set-id-name">{{ profile.fullName }}</div>
-              <div class="set-id-handle">{{ profile.username }}</div>
-              <div class="set-id-role">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-                </svg>
-                User
+
+            <div class="set-ov-body">
+
+              <!-- Avatar -->
+              <div class="set-ov-row">
+                <label class="set-label">Avatar</label>
+                <div class="set-ov-avatar-row">
+                  <div class="set-avatar set-avatar--md">{{ initials }}</div>
+                  <div class="set-ov-avatar-actions">
+                    <label class="set-upload-btn">
+                      <input type="file" accept="image/*" style="display:none" @change="showToast('success','Avatar updated.')"/>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                      </svg>
+                      Update image
+                    </label>
+                    <span class="set-field-note">Maximum file size is 1MB.</span>
+                  </div>
+                </div>
               </div>
+
+              <!-- Full name -->
+              <div class="set-ov-row">
+                <label class="set-label" for="prof-fullname">Full name</label>
+                <input id="prof-fullname" v-model="form.fullName" class="set-input" />
+              </div>
+
+            </div>
+
+            <div class="set-card-footer">
+              <button class="set-primary-btn" @click="saveOverview">Save</button>
             </div>
           </div>
 
-          <!-- Info rows -->
-          <div class="set-fields">
+          <!-- Contact Info: username + email + telegram + phone -->
+          <div class="set-card set-ov-card">
+            <div class="set-card-title">Contact Info</div>
 
-            <!-- Full Name -->
-            <div class="set-field-row">
-              <div class="set-field-icon">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-                </svg>
-              </div>
-              <div class="set-field-body">
-                <span class="set-field-label">FULL NAME</span>
-                <template v-if="editing.fullName">
-                  <input v-model="editVals.fullName" class="set-inline-input"
-                    @keydown.enter="saveField('fullName')"
-                    @keydown.esc="editing.fullName = false" />
-                  <div class="set-inline-btns">
-                    <button class="set-btn-save" @click="saveField('fullName')">Save</button>
-                    <button class="set-btn-cancel" @click="editing.fullName = false">Cancel</button>
-                  </div>
-                </template>
-                <span v-else class="set-field-val">{{ profile.fullName }}</span>
-              </div>
-              <button v-if="!editing.fullName" class="set-action-btn" @click="startEdit('fullName')">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5" stroke-linecap="round">
-                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-                Edit
-              </button>
-            </div>
+            <div class="set-ov-body">
 
-            <!-- Username -->
-            <div class="set-field-row">
-              <div class="set-field-icon">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round">
-                  <circle cx="12" cy="12" r="4"/>
-                  <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/>
-                </svg>
-              </div>
-              <div class="set-field-body">
-                <span class="set-field-label">USERNAME</span>
-                <span class="set-field-val">{{ profile.username }}</span>
+              <!-- Username -->
+              <div class="set-ov-row">
+                <label class="set-label" for="prof-username">Username</label>
+                <input id="prof-username" :value="form.username" class="set-input" disabled />
                 <span class="set-field-note">Usernames are locked once set.</span>
               </div>
-              <div class="set-locked-tag">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5" stroke-linecap="round">
-                  <rect x="3" y="11" width="18" height="11" rx="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-                Locked
+
+              <!-- Email -->
+              <div class="set-ov-row">
+                <label class="set-label" for="prof-email">Email</label>
+                <input id="prof-email" v-model="form.email" type="email" class="set-input" />
               </div>
+
+              <!-- Telegram -->
+              <div class="set-ov-row">
+                <label class="set-label" for="prof-telegram">Telegram</label>
+                <input id="prof-telegram" v-model="form.telegram" class="set-input" placeholder="@username" />
+              </div>
+
+              <!-- Phone -->
+              <div class="set-ov-row">
+                <label class="set-label" for="prof-phone">Phone</label>
+                <input id="prof-phone" v-model="form.phone" class="set-input" placeholder="+2348012345678" />
+              </div>
+
             </div>
 
-            <!-- Email -->
-            <div class="set-field-row">
-              <div class="set-field-icon">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div class="set-field-body">
-                <span class="set-field-label">EMAIL</span>
-                <template v-if="editing.email">
-                  <input v-model="editVals.email" class="set-inline-input" type="email"
-                    @keydown.enter="saveField('email')"
-                    @keydown.esc="editing.email = false" />
-                  <div class="set-inline-btns">
-                    <button class="set-btn-save" @click="saveField('email')">Save</button>
-                    <button class="set-btn-cancel" @click="editing.email = false">Cancel</button>
-                  </div>
-                </template>
-                <span v-else class="set-field-val">{{ profile.email }}</span>
-              </div>
-              <button v-if="!editing.email" class="set-action-btn" @click="startEdit('email')">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5" stroke-linecap="round">
-                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-                Change
-              </button>
+            <div class="set-card-footer">
+              <button class="set-primary-btn" @click="saveContactInfo">Save</button>
             </div>
-
-            <!-- Telegram -->
-            <div class="set-field-row">
-              <div class="set-field-icon">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
-              </div>
-              <div class="set-field-body">
-                <span class="set-field-label">TELEGRAM</span>
-                <template v-if="editing.telegram">
-                  <input v-model="editVals.telegram" class="set-inline-input" placeholder="@username"
-                    @keydown.enter="saveField('telegram')"
-                    @keydown.esc="editing.telegram = false" />
-                  <div class="set-inline-btns">
-                    <button class="set-btn-save" @click="saveField('telegram')">Save</button>
-                    <button class="set-btn-cancel" @click="editing.telegram = false">Cancel</button>
-                  </div>
-                </template>
-                <span v-else class="set-field-val">{{ profile.telegram || 'Not set' }}</span>
-              </div>
-              <button v-if="!editing.telegram" class="set-action-btn" @click="startEdit('telegram')">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5" stroke-linecap="round">
-                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-                Change
-              </button>
-            </div>
-
-            <!-- Phone -->
-            <div class="set-field-row">
-              <div class="set-field-icon">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-              </div>
-              <div class="set-field-body">
-                <span class="set-field-label">PHONE</span>
-                <template v-if="editing.phone">
-                  <input v-model="editVals.phone" class="set-inline-input" placeholder="+2348012345678"
-                    @keydown.enter="saveField('phone')"
-                    @keydown.esc="editing.phone = false" />
-                  <div class="set-inline-btns">
-                    <button class="set-btn-save" @click="saveField('phone')">Save</button>
-                    <button class="set-btn-cancel" @click="editing.phone = false">Cancel</button>
-                  </div>
-                </template>
-                <span v-else class="set-field-val">{{ profile.phone || 'Not set' }}</span>
-              </div>
-              <button v-if="!editing.phone" class="set-action-btn" @click="startEdit('phone')">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2.5" stroke-linecap="round">
-                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-                Change
-              </button>
-            </div>
-
           </div>
         </template>
 
@@ -227,7 +92,10 @@
         <template v-else-if="activeTab === 'security'">
 
           <div class="set-card">
-            <div class="set-card-title">Change Password</div>
+            <div class="set-card-hdr">
+              <div class="set-card-title">Change Password</div>
+              <SettingsTabMenu :tabs="tabs" current-id="security" @select="id => activeTab = id" />
+            </div>
             <div class="set-sec-form">
               <div class="set-fgroup">
                 <label class="set-label">Current password</label>
@@ -328,7 +196,10 @@
           <div class="set-card">
             <div class="set-card-hdr">
               <div class="set-card-title">Login History</div>
-              <span class="set-count-badge">{{ loginHistory.length }} sessions</span>
+              <div class="set-card-hdr-right">
+                <span class="set-count-badge">{{ loginHistory.length }} sessions</span>
+                <SettingsTabMenu :tabs="tabs" current-id="login" @select="id => activeTab = id" />
+              </div>
             </div>
             <div class="set-login-table">
               <div class="set-login-head">
@@ -356,7 +227,10 @@
         <!-- ══════════ MY SMTP ══════════ -->
         <template v-else-if="activeTab === 'smtp'">
           <div class="set-card">
-            <div class="set-card-title">My SMTP</div>
+            <div class="set-card-hdr">
+              <div class="set-card-title">My SMTP</div>
+              <SettingsTabMenu :tabs="tabs" current-id="smtp" @select="id => activeTab = id" />
+            </div>
             <p class="set-card-desc">
               Configure a custom SMTP server to send emails from your own domain.
               Leave blank to use Globalgle's default sending infrastructure.
@@ -446,7 +320,10 @@
           </div>
 
           <div class="set-card">
-            <div class="set-card-title">Your Referral Code</div>
+            <div class="set-card-hdr">
+              <div class="set-card-title">Your Referral Code</div>
+              <SettingsTabMenu :tabs="tabs" current-id="referrals" @select="id => activeTab = id" />
+            </div>
             <div class="set-ref-row">
               <div class="set-ref-code">{{ referralCode }}</div>
               <button class="set-copy-btn" @click="copyText(referralCode)">
@@ -492,7 +369,6 @@
           </div>
         </template>
 
-      </div>
     </div>
 
     <!-- Toast -->
@@ -518,6 +394,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useToast } from '../composables/useToast.js'
+import SettingsTabMenu from '../components/settings/SettingsTabMenu.vue'
 const { success: toastSuccess, error: toastError } = useToast()
 
 /* ── Tabs ── */
@@ -532,37 +409,37 @@ const activeTab = ref('profile')
 
 /* ── Profile ── */
 const profile = ref({
-  fullName: 'EMPREROR SOLOS',
+  fullName: 'Globalgle',
   username: '@refrer',
   email:    'globalgle@gmail.com',
-  telegram: '@emperor373',
-  phone:    '',
+  telegram: '@global',
+  phone:    '08000000000',
 })
 
 const initials = computed(() =>
   profile.value.fullName.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase()
 )
 
-const editing  = ref({ fullName: false, email: false, telegram: false, phone: false })
-const editVals = ref({ ...profile.value })
+const form = ref({ ...profile.value })
 
-function startEdit(field) {
-  editing.value[field]  = true
-  editVals.value[field] = profile.value[field]
-}
-function saveField(field) {
-  const val = editVals.value[field]?.toString().trim()
-  if (!val) {
-    toastError('Field required', 'This field cannot be empty.')
+function saveOverview() {
+  const fullName = form.value.fullName?.toString().trim()
+  if (!fullName) {
+    toastError('Full name required', 'This field cannot be empty.')
     return
   }
-  if (field === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+  profile.value = { ...profile.value, fullName }
+  toastSuccess('Profile updated', 'Your changes have been saved.')
+}
+
+function saveContactInfo() {
+  const email = form.value.email?.toString().trim()
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     toastError('Invalid email', 'Please enter a valid email address.')
     return
   }
-  profile.value[field] = editVals.value[field]
-  editing.value[field] = false
-  toastSuccess('Profile updated', 'Your changes have been saved.')
+  profile.value = { ...profile.value, email, telegram: form.value.telegram, phone: form.value.phone }
+  toastSuccess('Contact info updated', 'Your changes have been saved.')
 }
 
 /* ── Security ── */
@@ -647,56 +524,6 @@ function copyText(text) {
   padding: 0;
 }
 
-/* ── Layout ── */
-.set-layout {
-  display: grid;
-  grid-template-columns: 218px 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-/* ── Sub-nav ── */
-.set-subnav {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
- 
-  border: 1px solid var(--border-soft);
-  border-radius: 18px;
-  overflow: hidden;
-  position: sticky;
-  top: 90px;
-}
-
-.set-subnav-user {
-  display: flex; align-items: center; gap: 11px;
-  padding: 16px 14px 14px;
-}
-.set-subnav-name {
-  font-size: 0.78rem; font-weight: 800; color: var(--t1);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px;
-}
-.set-subnav-role { font-size: 0.65rem; color: var(--t3); margin-top: 1px; }
-.set-subnav-divider { height: 1px; background: var(--border-soft); }
-
-.set-nav-item {
-  display: flex; align-items: center; gap: 10px;
-  width: 100%; background: none; border: none; cursor: pointer;
-  padding: 10px 12px; font-family: inherit; font-size: 0.82rem;
-  font-weight: 700; color: #ffffff; transition: all 0.18s; text-align: left;
-}
-.set-nav-item:hover { background: rgba(255,255,255,.04); color: #ffffff; }
-.set-nav-item--active {
-  background: rgba(240, 80, 37,.09); color: #f05025;
-  border-left: 2px solid #f05025;
-}
-.set-nav-icon {
-  width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
-  background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
-  display: flex; align-items: center; justify-content: center;
-}
-.set-nav-item--active .set-nav-icon {
-  background: rgba(240, 80, 37,.12); border-color: rgba(240, 80, 37,.2);
-}
-
 /* ── Avatar ── */
 .set-avatar {
   width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
@@ -704,97 +531,31 @@ function copyText(text) {
   font-size: 1.15rem; font-weight: 800; color: #f05025;
   display: flex; align-items: center; justify-content: center;
 }
-.set-avatar--sm { width: 36px; height: 36px; font-size: 0.75rem; }
 
-/* ── ID card ── */
-.set-id-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
-  border: 1px solid var(--border-soft); border-radius: 14px;
-  padding: 12px 14px; display: flex; align-items: center; gap: 14px;
-  position: relative;
-}
-.set-id-avatar-wrap { position: relative; }
-.set-id-body { display: flex; flex-direction: column; gap: 3px; }
-.set-id-name  { font-size: 1.1rem; font-weight: 800; color: var(--t1); letter-spacing: -0.01em; }
-.set-id-handle{ font-size: 0.78rem; color: var(--t3); }
-.set-id-role {
-  display: inline-flex; align-items: center; gap: 5px; margin-top: 3px;
-  font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--t3); background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
-  border-radius: 6px; padding: 2px 8px; width: fit-content;
-}
-
-.set-avatar-edit {
-  position: absolute; bottom: 0; right: 0; width: 22px; height: 22px;
-  border-radius: 50%; background: rgba(240, 80, 37,.2); border: 2px solid rgba(240, 80, 37,.4);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; color: #f05025; transition: background 0.2s;
-}
-.set-avatar-edit:hover { background: rgba(240, 80, 37,.35); }
-
-/* ── Profile fields ── */
+/* ── Overview card (profile) ── */
 .set-content { display: flex; flex-direction: column; gap: 16px; }
-.set-fields   { display: flex; flex-direction: column; gap: 3px; }
 
-.set-field-row {
-  display: flex; align-items: center; gap: 14px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
-  border: 1px solid var(--border-soft);
-  padding: 15px 18px; transition: border-color 0.2s;
-}
-.set-field-row:first-child { border-radius: 14px 14px 5px 5px; }
-.set-field-row:last-child  { border-radius: 5px 5px 14px 14px; }
-.set-field-row:not(:first-child):not(:last-child) { border-radius: 5px; }
-.set-field-row:hover { border-color: rgba(240, 80, 37,.22); }
+.set-ov-card    { padding: 18px 20px 16px; gap: 14px; }
+.set-ov-body    { display: flex; flex-direction: column; gap: 20px; }
+.set-ov-row     { display: flex; flex-direction: column; gap: 7px; }
 
-.set-field-icon {
-  width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0;
-  background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
-  display: flex; align-items: center; justify-content: center; color: var(--t3);
+.set-ov-avatar-row     { display: flex; align-items: center; gap: 14px; }
+.set-ov-avatar-actions { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; }
+.set-avatar--md { width: 48px; height: 48px; font-size: 0.95rem; }
+
+.set-upload-btn {
+  display: flex; align-items: center; gap: 7px; cursor: pointer;
+  background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
+  border-radius: 9px; padding: 7px 13px; font-size: 0.78rem;
+  font-weight: 600; color: var(--t2); transition: all 0.2s;
 }
-.set-field-body { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.set-field-label {
-  font-size: 0.61rem; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.1em; color: rgba(255,255,255,0.70);
-}
-.set-field-val  { font-size: 0.88rem; font-weight: 700; color: #ffffff; }
+.set-upload-btn:hover { border-color: rgba(240, 80, 37,.3); color: #f05025; }
+
 .set-field-note { font-size: 0.7rem; color: rgba(255,255,255,0.65); font-weight: 600; }
 
-.set-inline-input {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(240, 80, 37,.3);
-  border-radius: 8px; padding: 7px 11px; font-size: 0.87rem;
-  color: var(--t1); font-family: inherit; outline: none; width: 100%;
-  box-sizing: border-box; transition: border-color 0.2s;
-}
-.set-inline-input:focus { border-color: rgba(240, 80, 37,.55); }
-
-.set-inline-btns { display: flex; gap: 6px; margin-top: 5px; }
-.set-btn-save {
-  background: rgba(240, 80, 37,.14); border: 1px solid rgba(240, 80, 37,.25);
-  border-radius: 7px; padding: 5px 13px; font-size: 0.73rem; font-weight: 700;
-  color: #f05025; cursor: pointer; font-family: inherit; transition: background 0.2s;
-}
-.set-btn-save:hover { background: rgba(240, 80, 37,.24); }
-.set-btn-cancel {
-  background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
-  border-radius: 7px; padding: 5px 13px; font-size: 0.73rem; font-weight: 600;
-  color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.2s;
-}
-.set-btn-cancel:hover { color: var(--t1); }
-
-.set-action-btn {
-  flex-shrink: 0; display: flex; align-items: center; gap: 5px;
-  background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
-  border-radius: 8px; padding: 6px 12px; font-size: 0.74rem; font-weight: 600;
-  color: var(--t2); cursor: pointer; font-family: inherit; transition: all 0.2s;
-}
-.set-action-btn:hover { background: rgba(240, 80, 37,.1); border-color: rgba(240, 80, 37,.25); color: #f05025; }
-
-.set-locked-tag {
-  flex-shrink: 0; display: flex; align-items: center; gap: 5px;
-  font-size: 0.68rem; font-weight: 700; color: var(--t3);
-  background: rgba(255,255,255,.04); border: 1px solid var(--border-soft);
-  border-radius: 7px; padding: 5px 10px;
+.set-card-footer {
+  display: flex; padding-top: 14px; margin-top: 2px;
+  border-top: 1px solid var(--border-soft);
 }
 
 /* ── Cards ── */
@@ -806,7 +567,8 @@ function copyText(text) {
 }
 .set-card--red { border-color: rgba(248,113,113,.2); background: rgba(248,113,113,.03); }
 
-.set-card-hdr   { display: flex; justify-content: space-between; align-items: flex-start; }
+.set-card-hdr   { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.set-card-hdr-right { display: flex; align-items: center; gap: 10px; }
 .set-card-title { font-size: 0.9rem; font-weight: 700; color: var(--t1); }
 .set-card-desc  { font-size: 0.77rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .set-count-badge {
@@ -827,6 +589,7 @@ function copyText(text) {
 }
 .set-input:focus { border-color: rgba(240, 80, 37,.4); }
 .set-input--err  { border-color: rgba(248,113,113,.4); }
+.set-input:disabled { opacity: 0.55; cursor: not-allowed; }
 
 .set-err { font-size: 0.7rem; color: #f87171; }
 
@@ -997,43 +760,14 @@ function copyText(text) {
 .set-toast--success { background: rgba(240, 80, 37,.18);   border: 1px solid rgba(240, 80, 37,.3);   color: #f05025;  }
 .set-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
 
-/* ── Mobile horizontal tab bar ── */
-.set-mobile-tabs {
-  display: none;
-  overflow-x: auto; gap: 6px; padding: 0 0 12px;
-  scrollbar-width: none;
-}
-.set-mobile-tabs::-webkit-scrollbar { display: none; }
-.set-mobile-tab {
-  display: flex; align-items: center; gap: 6px; white-space: nowrap;
-  padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border-soft);
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); font-size: 0.78rem; font-weight: 600; color: var(--t3);
-  cursor: pointer; font-family: inherit; transition: all 0.2s; flex-shrink: 0;
-}
-.set-mobile-tab--active {
-  background: rgba(240, 80, 37,.1); border-color: rgba(240, 80, 37,.3); color: #f05025;
-}
-
 @media (max-width: 1024px) and (min-width: 769px) {
-  .set-layout      { grid-template-columns: 200px 1fr; }
   .set-ref-stats   { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 768px) {
-  .set-layout      { grid-template-columns: 1fr; }
-  .set-left        { display: none; }
-  .set-mobile-tabs { display: flex; }
-
-  /* ID card */
-  .set-id-card     { padding: 16px 18px; gap: 14px; }
-  .set-avatar      { width: 52px; height: 52px; font-size: 1rem; }
-  .set-id-name     { font-size: 0.95rem; }
-
-  /* Field rows */
-  .set-field-row   { padding: 12px 14px; gap: 10px; }
-  .set-field-icon  { width: 28px; height: 28px; border-radius: 7px; }
-  .set-action-btn  { padding: 5px 10px; font-size: 0.7rem; }
-  .set-locked-tag  { padding: 4px 8px; font-size: 0.64rem; }
+  /* Overview card */
+  .set-ov-card     { padding: 16px 18px; }
+  .set-avatar--md  { width: 44px; height: 44px; font-size: 0.9rem; }
 
   /* Cards */
   .set-card        { padding: 18px; gap: 12px; }
@@ -1067,16 +801,7 @@ function copyText(text) {
 }
 
 @media (max-width: 480px) {
-  .set-mobile-tabs  { gap: 5px; }
-  .set-mobile-tab   { padding: 7px 11px; font-size: 0.74rem; }
-  .set-mobile-tab svg { display: none; }
-
-  .set-id-card      { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .set-id-avatar-wrap { align-self: center; }
-
-  .set-field-row    { padding: 11px 12px; gap: 8px; }
-  .set-field-icon   { display: none; }
-  .set-field-val    { font-size: 0.82rem; }
+  .set-ov-avatar-row { flex-direction: column; align-items: flex-start; gap: 10px; }
 
   .set-ref-stats    { grid-template-columns: 1fr; }
   .set-ref-stat     { padding: 14px; }
