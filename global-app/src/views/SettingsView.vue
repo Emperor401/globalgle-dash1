@@ -20,10 +20,13 @@
               <div class="set-ov-row">
                 <label class="set-label">Avatar</label>
                 <div class="set-ov-avatar-row">
-                  <div class="set-avatar set-avatar--md">{{ initials }}</div>
+                  <div class="set-avatar set-avatar--md">
+                    <img v-if="avatarUrl" :src="avatarUrl" alt="Avatar" class="set-avatar-img" />
+                    <template v-else>{{ initials }}</template>
+                  </div>
                   <div class="set-ov-avatar-actions">
                     <label class="set-upload-btn">
-                      <input type="file" accept="image/*" style="display:none" @change="showToast('success','Avatar updated.')"/>
+                      <input type="file" accept="image/*" style="display:none" @change="onAvatarChange"/>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2.5" stroke-linecap="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -420,6 +423,23 @@ const initials = computed(() =>
   profile.value.fullName.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase()
 )
 
+const avatarUrl = ref(null)
+const MAX_AVATAR_BYTES = 1024 * 1024
+
+function onAvatarChange(e) {
+  const file = e.target.files?.[0]
+  if (!file) return
+  if (file.size > MAX_AVATAR_BYTES) {
+    toastError('File too large', 'Please choose an image under 1MB.')
+    e.target.value = ''
+    return
+  }
+  if (avatarUrl.value) URL.revokeObjectURL(avatarUrl.value)
+  avatarUrl.value = URL.createObjectURL(file)
+  toastSuccess('Avatar updated', 'Your new photo has been saved.')
+  e.target.value = ''
+}
+
 const form = ref({ ...profile.value })
 
 function saveOverview() {
@@ -530,7 +550,9 @@ function copyText(text) {
   background: rgba(240, 80, 37,.1); border: 2px solid rgba(240, 80, 37,.3);
   font-size: 1.15rem; font-weight: 800; color: #f05025;
   display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
 }
+.set-avatar-img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ── Overview card (profile) ── */
 .set-content { display: flex; flex-direction: column; gap: 16px; }
