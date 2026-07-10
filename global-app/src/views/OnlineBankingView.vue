@@ -792,9 +792,12 @@ function rowActions(site) {
 .ob-link__text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ── Status ── */
-.ob-status { font-size: 0.82rem; font-weight: 600; flex-shrink: 0; }
-.ob-status--active   { color: #f05025; }
-.ob-status--inactive { color: #f87171; }
+.ob-status {
+  font-size: 0.78rem; font-weight: 600; flex-shrink: 0;
+  padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+}
+.ob-status--active   { color: #f05025;  background: rgba(240, 80, 37,.12);  border-color: rgba(240, 80, 37,.22); }
+.ob-status--inactive { color: #f87171; background: rgba(248,113,113,.12); border-color: rgba(248,113,113,.22); }
 
 /* ── Empty ── */
 .ob-empty-card {

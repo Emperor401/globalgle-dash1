@@ -20,79 +20,52 @@
       </button>
     </div>
 
-    <!-- Table card -->
-    <div class="sp-table-card">
-      <table class="sp-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Template</th>
-            <th>Status</th>
-            <th>Public Link</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-if="pages.length === 0">
-            <td colspan="5" class="sp-empty">
-              <div class="sp-empty__inner">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                  <circle cx="12" cy="17" r="0.5" fill="currentColor"/>
-                </svg>
-                <span>No support pages yet. Create your first one.</span>
-              </div>
-            </td>
-          </tr>
-          <tr v-for="page in pages" :key="page.id" class="sp-row">
-            <td class="sp-row__title">{{ page.title }}</td>
-            <td class="sp-row__template">{{ brandLabel(page.template) }}</td>
-            <td>
-              <span class="sp-status" :class="`sp-status--${page.status}`">
-                {{ page.status }}
-              </span>
-            </td>
-            <td>
-              <a :href="page.url" target="_blank" class="sp-link">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-                Open
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
-            </td>
-            <td class="sp-row__actions">
-              <button class="sp-action sp-action--edit" @click="editPage(page)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-                Edit
-              </button>
-              <button class="sp-action sp-action--delete" @click="deletePage(page.id)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <polyline points="3 6 5 6 21 6"/>
-                  <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
-                  <path d="M10 11v6"/><path d="M14 11v6"/>
-                  <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Support pages grid -->
+    <div v-if="pages.length === 0" class="sp-empty-card">
+      <div class="sp-empty__inner">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <circle cx="12" cy="17" r="0.5" fill="currentColor"/>
+        </svg>
+        <span>No support pages yet. Create your first one.</span>
+      </div>
+    </div>
+
+    <div v-else class="sp-grid">
+      <div v-for="page in pages" :key="page.id" class="sp-card">
+        <div class="sp-card__top">
+          <div class="sp-card__title-group">
+            <span class="sp-card__name">{{ page.title }}</span>
+            <span class="sp-card__template">{{ brandLabel(page.template) }}</span>
+          </div>
+          <ActionsMenu :items="pageActions(page)" />
+        </div>
+
+        <div class="sp-card__showcase">
+          <img :src="supportImg" alt="Support" class="sp-card__showcase-img" />
+        </div>
+
+        <div class="sp-card__bottom">
+          <a :href="page.url" target="_blank" class="sp-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Open
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+
+          <span class="sp-status" :class="`sp-status--${page.status}`">{{ page.status }}</span>
+        </div>
+      </div>
     </div>
 
     <!-- ══════════════════════════════════════
@@ -345,6 +318,8 @@
 import { ref, reactive } from 'vue'
 import { useToast } from '../composables/useToast.js'
 import { useSiteStore } from '../composables/useSiteStore.js'
+import ActionsMenu from '../components/ui/ActionsMenu.vue'
+import supportImg from '../assets/support.png'
 
 const { success, error: toastError } = useToast()
 const { store } = useSiteStore()
@@ -407,6 +382,22 @@ const supportOptions = [
 
 function brandLabel(val) {
   return brands.find(b => b.value === val)?.label ?? val
+}
+
+function pageActions(page) {
+  return [
+    {
+      label: 'Edit',
+      icon: '<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>',
+      onClick: () => editPage(page),
+    },
+    {
+      label: 'Delete',
+      icon: '<polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>',
+      onClick: () => deletePage(page.id),
+      variant: 'danger',
+    },
+  ]
 }
 
 function editPage(page) {
@@ -515,23 +506,44 @@ function closeForm() {
 .btn-new:hover  { background: #cc4118; transform: translateY(-1px); }
 .btn-new:active { transform: translateY(0); }
 
-/* ── Table card ── */
-.sp-table-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
-  border-radius: 14px; overflow: hidden;
+/* ── Support pages grid ── */
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
 }
-.sp-table { width: 100%; border-collapse: collapse; }
-.sp-table thead tr { border-bottom: 1px solid var(--border-soft); }
-.sp-table th {
-  padding: 12px 20px; font-size: 0.65rem; font-weight: 700;
-  color: var(--t3); text-transform: uppercase; letter-spacing: 0.08em; text-align: left;
+.sp-card {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 10px;
 }
-.sp-table td { padding: 16px 20px; font-size: 0.84rem; color: var(--t2); vertical-align: middle; }
-.sp-row { border-bottom: 1px solid var(--border-soft); transition: background 0.15s; }
-.sp-row:last-child { border-bottom: none; }
-.sp-row:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
-.sp-row__title { font-weight: 700; color: var(--t1); }
-.sp-row__template { color: var(--t2); font-size: 0.82rem; }
+
+.sp-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.sp-card__title-group { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.sp-card__name { font-weight: 700; color: var(--t1); font-size: 0.92rem; }
+.sp-card__template { font-size: 0.72rem; color: rgba(255,255,255,0.70); font-weight: 600; }
+
+/* ── Showcase (brand preview) ── */
+.sp-card__showcase {
+  flex: 1; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border-soft);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+.sp-card__showcase-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* ── Bottom row: link + status ── */
+.sp-card__bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 
 .sp-status {
   display: inline-flex; align-items: center; gap: 5px;
@@ -547,19 +559,11 @@ function closeForm() {
 }
 .sp-link:hover { opacity: 0.75; }
 
-.sp-row__actions { display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
-.sp-action {
-  display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px;
-  border-radius: 7px; font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.76rem; font-weight: 600; cursor: pointer;
-  border: 1px solid transparent; transition: all 0.18s;
+.sp-empty-card {
+  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  border: 1px solid var(--border-soft); border-radius: 16px;
+  display: flex; justify-content: center; padding: 48px 20px;
 }
-.sp-action--edit   { color: var(--t2); background: transparent; border-color: var(--border-soft); }
-.sp-action--edit:hover { color: var(--t1); border-color: var(--border); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
-.sp-action--delete { color: #f87171; background: transparent; }
-.sp-action--delete:hover { background: rgba(248,113,113,.1); border-color: rgba(248,113,113,.25); }
-
-.sp-empty { text-align: center; padding: 48px 20px !important; }
 .sp-empty__inner {
   display: inline-flex; flex-direction: column; align-items: center;
   gap: 12px; color: var(--t3); font-size: 0.84rem;
@@ -836,29 +840,21 @@ function closeForm() {
 @media (max-width: 768px) {
   .sp-header { flex-direction: column; align-items: flex-start; }
   .btn-new { width: 100%; justify-content: center; }
-  .sp-table th, .sp-table td { padding: 12px 14px; }
-  .sp-table th:nth-child(2), .sp-table td:nth-child(2) { display: none; }
+  .sp-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
   .brand-grid { grid-template-columns: repeat(3, 1fr); }
   .support-options { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .sp-header__title { font-size: 1.3rem; }
-  .sp-table th:nth-child(3), .sp-table td:nth-child(3) { display: none; }
   .brand-grid { grid-template-columns: repeat(2, 1fr); }
   .modal { max-height: 95vh; border-radius: 14px; }
   .modal-backdrop { padding: 10px; align-items: flex-end; }
 }
 
-/* ── Light mode table overrides (already light modal) ── */
-[data-theme="light"] .sp-table-card { background: #fff; border-color: #e5e7eb; }
-[data-theme="light"] .sp-table thead tr { border-color: #e5e7eb; }
-[data-theme="light"] .sp-table th { color: #9ca3af; }
-[data-theme="light"] .sp-table td { color: #374151; }
-[data-theme="light"] .sp-row { border-color: #f3f4f6; }
-[data-theme="light"] .sp-row:hover { background: #f9fafb; }
-[data-theme="light"] .sp-row__title { color: #111827; }
-[data-theme="light"] .sp-action--edit { color: #6b7280; border-color: #e5e7eb; }
-[data-theme="light"] .sp-action--edit:hover { color: #111827; background: #f3f4f6; }
+/* ── Light mode overrides (already light modal) ── */
+[data-theme="light"] .sp-card { background: #fff; border-color: #e5e7eb; }
+[data-theme="light"] .sp-empty-card { background: #fff; border-color: #e5e7eb; }
+[data-theme="light"] .sp-card__name { color: #111827; }
 [data-theme="light"] .sp-header__title { color: #111827; }
 [data-theme="light"] .sp-header__sub { color: #6b7280; }
 [data-theme="light"] .sp-empty__inner { color: #9ca3af; }
