@@ -213,7 +213,6 @@ const kpis = [
 // Date filter helpers — today is treated as the reference point
 function parseTxnDate(str) { return new Date(str) }
 const now = new Date()
-const todayStr = now.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' })
 
 const filteredTransactions = computed(() => {
   let list = txnData

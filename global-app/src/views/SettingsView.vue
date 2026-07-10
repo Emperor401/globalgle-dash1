@@ -2,6 +2,15 @@
 <template>
   <div class="set-page">
 
+    <!-- Tab bar -->
+    <div class="set-tabbar">
+      <button v-for="tab in tabs" :key="tab.id"
+        :class="['set-tabbar-item', { 'set-tabbar-item--active': activeTab === tab.id }]"
+        @click="activeTab = tab.id">
+        {{ tab.label }}
+      </button>
+    </div>
+
     <div class="set-content">
 
         <!-- ══════════ PROFILE ══════════ -->
@@ -9,10 +18,7 @@
 
           <!-- Overview: avatar + full name -->
           <div class="set-card set-ov-card">
-            <div class="set-card-hdr">
-              <div class="set-card-title">Overview</div>
-              <SettingsTabMenu :tabs="tabs" current-id="profile" @select="id => activeTab = id" />
-            </div>
+            <div class="set-card-title">Overview</div>
 
             <div class="set-ov-body">
 
@@ -95,10 +101,7 @@
         <template v-else-if="activeTab === 'security'">
 
           <div class="set-card">
-            <div class="set-card-hdr">
-              <div class="set-card-title">Change Password</div>
-              <SettingsTabMenu :tabs="tabs" current-id="security" @select="id => activeTab = id" />
-            </div>
+            <div class="set-card-title">Change Password</div>
             <div class="set-sec-form">
               <div class="set-fgroup">
                 <label class="set-label">Current password</label>
@@ -199,10 +202,7 @@
           <div class="set-card">
             <div class="set-card-hdr">
               <div class="set-card-title">Login History</div>
-              <div class="set-card-hdr-right">
-                <span class="set-count-badge">{{ loginHistory.length }} sessions</span>
-                <SettingsTabMenu :tabs="tabs" current-id="login" @select="id => activeTab = id" />
-              </div>
+              <span class="set-count-badge">{{ loginHistory.length }} sessions</span>
             </div>
             <div class="set-login-table">
               <div class="set-login-head">
@@ -230,10 +230,7 @@
         <!-- ══════════ MY SMTP ══════════ -->
         <template v-else-if="activeTab === 'smtp'">
           <div class="set-card">
-            <div class="set-card-hdr">
-              <div class="set-card-title">My SMTP</div>
-              <SettingsTabMenu :tabs="tabs" current-id="smtp" @select="id => activeTab = id" />
-            </div>
+            <div class="set-card-title">My SMTP</div>
             <p class="set-card-desc">
               Configure a custom SMTP server to send emails from your own domain.
               Leave blank to use Globalgle's default sending infrastructure.
@@ -323,10 +320,7 @@
           </div>
 
           <div class="set-card">
-            <div class="set-card-hdr">
-              <div class="set-card-title">Your Referral Code</div>
-              <SettingsTabMenu :tabs="tabs" current-id="referrals" @select="id => activeTab = id" />
-            </div>
+            <div class="set-card-title">Your Referral Code</div>
             <div class="set-ref-row">
               <div class="set-ref-code">{{ referralCode }}</div>
               <button class="set-copy-btn" @click="copyText(referralCode)">
@@ -397,16 +391,15 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useToast } from '../composables/useToast.js'
-import SettingsTabMenu from '../components/settings/SettingsTabMenu.vue'
 const { success: toastSuccess, error: toastError } = useToast()
 
 /* ── Tabs ── */
 const tabs = [
-  { id: 'profile',  label: 'Profile',       icon: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' },
-  { id: 'security', label: 'Security',      icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
-  { id: 'login',    label: 'Login history', icon: '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>' },
-  { id: 'smtp',     label: 'My SMTP',       icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  { id: 'referrals',label: 'Referrals',     icon: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>' },
+  { id: 'profile',  label: 'Profile' },
+  { id: 'security', label: 'Security' },
+  { id: 'login',    label: 'Login history' },
+  { id: 'smtp',     label: 'My SMTP' },
+  { id: 'referrals',label: 'Referrals' },
 ]
 const activeTab = ref('profile')
 
@@ -544,6 +537,22 @@ function copyText(text) {
   padding: 0;
 }
 
+/* ── Tab bar ── */
+.set-tabbar {
+  display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+  padding-bottom: 14px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.set-tabbar-item {
+  background: none; border: none; border-radius: 8px;
+  padding: 7px 14px; font-family: inherit; font-size: 0.83rem; font-weight: 600;
+  color: var(--t3); cursor: pointer; transition: all 0.18s;
+}
+.set-tabbar-item:hover { color: var(--t1); }
+.set-tabbar-item--active {
+  background: rgba(255,255,255,.07); color: var(--t1);
+}
+
 /* ── Avatar ── */
 .set-avatar {
   width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
@@ -590,7 +599,6 @@ function copyText(text) {
 .set-card--red { border-color: rgba(248,113,113,.2); background: rgba(248,113,113,.03); }
 
 .set-card-hdr   { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-.set-card-hdr-right { display: flex; align-items: center; gap: 10px; }
 .set-card-title { font-size: 0.9rem; font-weight: 700; color: var(--t1); }
 .set-card-desc  { font-size: 0.77rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .set-count-badge {

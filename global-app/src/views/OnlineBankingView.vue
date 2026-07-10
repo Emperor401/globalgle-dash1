@@ -36,22 +36,28 @@
           <ActionsMenu :items="rowActions(site)" />
         </div>
 
-        <a :href="site.url" target="_blank" class="ob-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          </svg>
-          <span class="ob-link__text">{{ site.domain }}</span>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-          </svg>
-        </a>
+        <div class="ob-card__showcase">
+          <img :src="brandLogo" alt="Globalgle" class="ob-card__showcase-img" />
+        </div>
 
-        <span class="ob-status" :class="`ob-status--${site.status}`">{{ site.status }}</span>
+        <div class="ob-card__bottom">
+          <a :href="site.url" target="_blank" class="ob-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span class="ob-link__text">{{ site.domain }}</span>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+
+          <span class="ob-status" :class="`ob-status--${site.status}`">{{ site.status }}</span>
+        </div>
       </div>
     </div>
 
@@ -478,6 +484,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import brandLogo from '../assets/online.png'
 import { useToast } from '../composables/useToast.js'
 import { useSiteStore } from '../composables/useSiteStore.js'
 import ActionsMenu from '../components/ui/ActionsMenu.vue'
@@ -755,6 +762,26 @@ function rowActions(site) {
 .ob-site-name { font-weight: 700; color: var(--t1); font-size: 0.92rem; }
 .ob-site-currency { font-size: 0.72rem; color: rgba(255,255,255,0.70); font-weight: 600; }
 
+/* ── Showcase (branding preview) ── */
+.ob-card__showcase {
+  flex: 1; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(to bottom, rgba(255,255,255,.03) 0%, rgba(255,255,255,.03) 65%, rgba(255,255,255,0) 100%);
+  border: 1px solid var(--border-soft);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+.ob-card__showcase-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* ── Bottom row: link + status ── */
+.ob-card__bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
 /* ── Link ── */
 .ob-link {
   display: inline-flex; align-items: center; gap: 5px; min-width: 0;
@@ -765,7 +792,7 @@ function rowActions(site) {
 .ob-link__text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ── Status ── */
-.ob-status { font-size: 0.82rem; font-weight: 600; }
+.ob-status { font-size: 0.82rem; font-weight: 600; flex-shrink: 0; }
 .ob-status--active   { color: #f05025; }
 .ob-status--inactive { color: #f87171; }
 
@@ -1090,6 +1117,7 @@ function rowActions(site) {
 
 /* ── Light mode ── */
 [data-theme="light"] .ob-card { background: #fff; border-color: #e5e7eb; }
+[data-theme="light"] .ob-card__showcase { background: linear-gradient(to bottom, #f9fafb 0%, #f9fafb 65%, rgba(249,250,251,0) 100%); border-color: #e5e7eb; }
 [data-theme="light"] .ob-empty-card { background: #fff; border-color: #e5e7eb; }
 [data-theme="light"] .ob-site-name { color: #111827; }
 [data-theme="light"] .ob-header__title { color: #111827; }

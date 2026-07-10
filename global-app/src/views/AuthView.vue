@@ -55,7 +55,6 @@
             placeholder="Enter access code"
             autocomplete="current-password"
             autofocus
-            @input="() => {}"
           />
           <button type="button" class="auth-eye" @click="showPass = !showPass" tabindex="-1">
             <svg v-if="!showPass" width="15" height="15" viewBox="0 0 24 24" fill="none"
