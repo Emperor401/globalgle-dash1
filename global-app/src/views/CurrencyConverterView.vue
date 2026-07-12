@@ -314,7 +314,7 @@ onMounted(async () => {
 
 /* converter card */
 .cc-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
  
   border: 1px solid var(--border-soft);
   border-radius: 14px;
@@ -419,7 +419,7 @@ onMounted(async () => {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
 }
 .cc-pair-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
  
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 16px;

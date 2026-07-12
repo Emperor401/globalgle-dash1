@@ -408,7 +408,7 @@ async function downloadPDF() {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   color: var(--t2);
   padding: 7px 14px;
@@ -420,7 +420,7 @@ async function downloadPDF() {
   transition: background 0.18s, color 0.18s;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
-.br-back:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
+.br-back:hover { background: #000000; color: var(--t1); }
 
 .br-title {
   font-size: 1.55rem;
@@ -442,7 +442,7 @@ async function downloadPDF() {
 
 /* â"€â"€ Form Card â"€â"€ */
 .br-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 18px;
@@ -468,7 +468,7 @@ async function downloadPDF() {
 }
 
 .br-input {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   padding: 10px 13px;
@@ -480,7 +480,7 @@ async function downloadPDF() {
   width: 100%;
   box-sizing: border-box;
 }
-.br-input:focus { border-color: #f05025; background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
+.br-input:focus { border-color: #f05025; background: #000000; }
 .br-input::placeholder { color: var(--t4); }
 .br-input[type="date"]::-webkit-calendar-picker-indicator,
 .br-input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.5); cursor: pointer; }
@@ -489,7 +489,7 @@ async function downloadPDF() {
 .br-select-wrap { position: relative; }
 .br-select {
   appearance: none;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   padding: 10px 34px 10px 13px;
@@ -521,7 +521,7 @@ async function downloadPDF() {
   width: 38px;
   height: 38px;
   flex-shrink: 0;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   color: var(--t2);
@@ -530,7 +530,7 @@ async function downloadPDF() {
   align-self: flex-end;
   margin-bottom: 1px;
 }
-.br-gen-ref:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: #f05025; }
+.br-gen-ref:hover { background: #000000; color: #f05025; }
 
 /* Action buttons */
 .br-actions { display: flex; gap: 12px; margin-top: 4px; }
@@ -557,7 +557,7 @@ async function downloadPDF() {
   box-shadow: 0 4px 14px rgba(240, 80, 37,0.30);
 }
 .br-btn-img {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border) !important;
   color: var(--t1);
 }

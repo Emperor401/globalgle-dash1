@@ -624,7 +624,7 @@ onBeforeUnmount(() => {
 
 .sc-refresh-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 9px 16px; font-size: 0.82rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: border-color 0.2s, color 0.2s;
@@ -636,7 +636,7 @@ onBeforeUnmount(() => {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .sc-stat {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 10px 14px;
   display: flex; flex-direction: column; gap: 6px;
@@ -650,7 +650,7 @@ onBeforeUnmount(() => {
 /* ── Tabs ── */
 .sc-tab-bar {
   display: flex; gap: 4px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 5px; width: fit-content;
 }
@@ -668,7 +668,7 @@ onBeforeUnmount(() => {
 
 /* ── Form card ── */
 .sc-form-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 20px;
@@ -806,7 +806,7 @@ onBeforeUnmount(() => {
 
 /* ── Recent calls ── */
 .sc-recent-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }

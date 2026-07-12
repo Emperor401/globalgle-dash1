@@ -607,7 +607,7 @@ function generate() {
 
 /* Section card */
 .sec-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px;
   padding: 16px 18px;

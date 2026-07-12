@@ -496,7 +496,7 @@ function showToast(type, msg) {
 
 .bill-hist-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 10px 18px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
@@ -508,7 +508,7 @@ function showToast(type, msg) {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
 }
 .bill-stat {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 12px 14px;
   display: flex; flex-direction: column; gap: 6px;
@@ -559,7 +559,7 @@ function showToast(type, msg) {
 
 .bill-redeem-btn {
   display: flex; align-items: center; gap: 7px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 9px 16px; font-size: 0.8rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
@@ -575,7 +575,7 @@ function showToast(type, msg) {
 }
 
 .bill-plan-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 12px;
@@ -681,7 +681,7 @@ function showToast(type, msg) {
 
 /* ── FAQ ── */
 .bill-notes {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }

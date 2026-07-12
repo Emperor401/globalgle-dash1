@@ -10,7 +10,7 @@
     <div v-if="sidebarOpen" class="sidebar-backdrop" @click="closeSidebar"/>
   </Transition>
 
-  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen, 'sidebar--desktop-closed': !desktopOpen }" :style="{ backgroundImage: `url(${sidebarBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }" ref="sidebarEl">
+  <aside class="sidebar" :class="{ 'sidebar--open': sidebarOpen, 'sidebar--desktop-closed': !desktopOpen }" ref="sidebarEl">
 
     <!-- Logo -->
     <div class="sidebar__logo">
@@ -194,7 +194,6 @@ import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import whiteLogo from '../../assets/orgimg.jpeg'
 import cartnLogo from '../../assets/cartn.png'
-import sidebarBg from '../../assets/sidebarimg.jpeg'
 import { useSidebar } from '../../composables/useSidebar.js'
 
 const { sidebarOpen, desktopOpen, closeSidebar, toggleDesktopSidebar } = useSidebar()
@@ -268,7 +267,7 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: transparent;
+  background: #000000;
   border-right: 1px solid rgba(255,255,255,0.07);
   box-shadow: none;
   position: fixed;

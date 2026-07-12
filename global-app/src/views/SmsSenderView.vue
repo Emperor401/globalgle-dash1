@@ -595,7 +595,7 @@ function sendBulkSMS() {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .sms-stat {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 10px 14px;
   display: flex; flex-direction: column; gap: 8px;
@@ -610,7 +610,7 @@ function sendBulkSMS() {
 /* ── Tab bar ── */
 .sms-tab-bar {
   display: flex; gap: 4px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 5px; width: fit-content;
 }
@@ -634,7 +634,7 @@ function sendBulkSMS() {
 
 /* ── Form Card ── */
 .sms-form-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 20px;
@@ -827,7 +827,7 @@ function sendBulkSMS() {
 /* preview stats */
 .sms-preview-stats {
   display: flex; gap: 14px; justify-content: center;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 18px;
   width: 100%; box-sizing: border-box;
@@ -841,7 +841,7 @@ function sendBulkSMS() {
 
 /* ── History ── */
 .sms-history {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }

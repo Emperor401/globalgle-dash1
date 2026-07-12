@@ -541,7 +541,7 @@ function showToast(type, msg) {
 
 .w-switch-btn {
   display: flex; align-items: center; gap: 7px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 10px 18px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
@@ -562,7 +562,7 @@ function showToast(type, msg) {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
 .w-stat {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 12px 14px;
   display: flex; flex-direction: column; gap: 6px;
@@ -592,7 +592,7 @@ function showToast(type, msg) {
 
 /* ── Auto deposit row ── */
 .w-auto-row {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 16px; padding: 16px 20px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -616,7 +616,7 @@ function showToast(type, msg) {
 
 /* ── Transactions ── */
 .w-txn-section {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }

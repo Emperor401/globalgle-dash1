@@ -14,71 +14,45 @@
           <path d="M9 3v18"/>
         </svg>
       </button>
-      <div class="breadcrumb">
-        <span class="breadcrumb__parent">{{ pageTitle }}</span>
-        <span class="breadcrumb__sep">/</span>
-        <span class="breadcrumb__current">{{ pageSubtitle || 'Home' }}</span>
-      </div>
+      <span class="navbar__page-title">{{ pageTitle }}</span>
     </div>
 
-    <!-- Center: Command search -->
-    <div class="navbar__center" ref="searchWrapRef">
-      <div class="navbar__search" :class="{ 'navbar__search--open': showResults }">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input
-          v-model="searchQuery"
-          type="text"
-          placeholder="Search or type a command..."
-          class="navbar__search-input"
-          @keydown.down.prevent="moveDown"
-          @keydown.up.prevent="moveUp"
-          @keydown.enter.prevent="selectActive"
-          @keydown.escape="closeSearch"
-          @focus="searchFocused = true"
-        />
-        <div v-if="!searchQuery" class="search-hint">
-          <kbd class="search-key">⌘</kbd>
-          <kbd class="search-key">Space</kbd>
-        </div>
-        <button v-else class="search-clear" @click="closeSearch">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Results dropdown -->
-      <Transition name="search-drop">
-        <div v-if="showResults" class="search-results">
-          <div v-if="filteredCommands.length === 0" class="search-no-results">
-            No results for "{{ searchQuery }}"
-          </div>
-          <div
-            v-for="(cmd, i) in filteredCommands"
-            :key="cmd.path"
-            class="search-result-item"
-            :class="{ 'search-result-item--active': i === activeIndex }"
-            @mouseenter="activeIndex = i"
-            @click="navigateTo(cmd.path)"
-          >
-            <div class="sri-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" v-html="cmd.icon" />
-            </div>
-            <div class="sri-text">
-              <span class="sri-name">{{ cmd.name }}</span>
-              <span class="sri-desc">{{ cmd.desc }}</span>
-            </div>
-            <svg class="sri-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </div>
-      </Transition>
-    </div>
-
-    <!-- Right: notifications, theme, profile -->
+    <!-- Right: activity, notifications, profile -->
     <div class="navbar__right">
+
+      <!-- Recent activity -->
+      <div class="navbar__icon-btn" @click.stop="toggleActivity" ref="activityBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
+        </svg>
+
+        <Transition name="notif-drop">
+          <div v-if="showActivity" class="notif-dropdown" @click.stop>
+            <div class="notif-dropdown__header">
+              <div class="notif-header-left">
+                <span class="notif-dropdown__title">Recent Activity</span>
+              </div>
+            </div>
+            <div class="notif-list">
+              <div v-if="recentActivity.length === 0" class="notif-empty">
+                <p>No recent activity.</p>
+              </div>
+              <div v-for="a in recentActivity" :key="a.id" class="notif-item">
+                <div class="notif-icon ni--info">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
+                  </svg>
+                </div>
+                <div class="notif-item__content">
+                  <p class="notif-item__title">{{ a.action }}</p>
+                  <span class="notif-item__time">{{ a.time }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Transition>
+      </div>
 
       <!-- Notifications -->
       <div class="navbar__icon-btn" @click.stop="toggleNotifications" ref="notifBtn">
@@ -152,24 +126,12 @@
         </Transition>
       </div>
 
-      <!-- Profile chip -->
-      <div class="navbar__profile-chip" ref="profileChipRef" @click.stop="toggleProfileDrop">
-        <img
-          src="https://api.dicebear.com/7.x/notionists/svg?seed=Daniel"
-          alt="Daniel"
-          class="navbar__profile-avatar"
-        />
-        <div class="navbar__profile-info">
-          <span class="navbar__profile-name">Daniel</span>
-          <span class="navbar__profile-user">globalgle@gmail.com</span>
-        </div>
-        <button class="navbar__profile-dots" :class="{ 'navbar__profile-dots--active': profileDropOpen }" aria-label="Profile menu">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-            <circle cx="5"  cy="12" r="2.2"/>
-            <circle cx="12" cy="12" r="2.2"/>
-            <circle cx="19" cy="12" r="2.2"/>
-          </svg>
-        </button>
+      <!-- Profile -->
+      <div class="navbar__icon-btn" ref="profileChipRef" @click.stop="toggleProfileDrop" aria-label="Profile menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
 
         <Transition name="profile-chip-drop">
           <div v-if="profileDropOpen" class="navbar__profile-dropdown" @click.stop>
@@ -352,65 +314,17 @@ const pages = {
 
 const currentPage    = computed(() => pages[route.path] ?? { title: 'Globalgle', subtitle: 'Banking Dashboard' })
 const pageTitle      = computed(() => currentPage.value.title)
-const pageSubtitle   = computed(() => currentPage.value.subtitle)
 
-/* ── Command palette ── */
-const searchQuery   = ref('')
-const searchFocused = ref(false)
-const activeIndex   = ref(0)
-const searchWrapRef = ref(null)
-
-const allCommands = [
-  { name: 'Dashboard',          desc: 'Overview & balance',             path: '/',                                    icon: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>' },
-  { name: 'Mailing',            desc: 'Customer emails',                path: '/customers',                           icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  { name: 'Websites / Analytics',desc: 'Website analytics',             path: '/analytics',                           icon: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
-  { name: 'Transactions',       desc: 'View all transactions',          path: '/transactions',                        icon: '<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>' },
-  { name: 'Digital',            desc: 'Digital tools',                  path: '/digital',                             icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>' },
-  { name: 'Generator / Tools',  desc: 'Generate receipts & documents',  path: '/tools',                               icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
-  { name: 'Currency Converter', desc: 'Live exchange rates',            path: '/tools/currency',                      icon: '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
-  { name: 'Wallet',             desc: 'My wallet & balance',            path: '/wallet',                              icon: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 12h2"/><path d="M2 10h20"/>' },
-  { name: 'Wallet Funding',     desc: 'Crypto wallet top-ups',          path: '/tools/wallet-funding',                icon: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>' },
-  { name: 'SMS Sender',         desc: 'Send bulk SMS messages',         path: '/tools/sms-sender',                    icon: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>' },
-  { name: 'Spoof Calling',      desc: 'Place calls with chosen caller', path: '/tools/spoof-calling',                 icon: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>' },
-  { name: 'Crypto Receipts',    desc: 'Generate branded crypto receipt',path: '/tools/crypto-receipts',               icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>' },
-  { name: 'Branded Emails',     desc: 'Send bank-branded emails',       path: '/email-services/branded-emails',       icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
-  { name: 'Branded Bills',      desc: 'Send branded bill receipts',     path: '/email-services/branded-bills',        icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>' },
-  { name: 'Bank Mailer',        desc: 'Send bank notification emails',  path: '/email-services/bank-mailer',          icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>' },
-  { name: 'Billing & Plans',    desc: 'Manage your subscription',       path: '/billing',                             icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/>' },
-  { name: 'Settings',           desc: 'Account & preferences',          path: '/settings',                            icon: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>' },
-  { name: 'Help & Support',     desc: 'Get help and FAQs',              path: '/help',                                icon: '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>' },
-  { name: 'Tutorials',          desc: 'Learn how to use Globalgle',     path: '/tutorials',                           icon: '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>' },
-  { name: 'Complaint',          desc: 'Submit a complaint or report',   path: '/complaint',                           icon: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>' },
-]
-
-const filteredCommands = computed(() => {
-  if (!searchQuery.value.trim()) return []
-  const q = searchQuery.value.toLowerCase()
-  return allCommands.filter(c =>
-    c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q)
-  ).slice(0, 6)
-})
-
-const showResults = computed(() => searchFocused.value && searchQuery.value.trim().length > 0)
-
-function navigateTo(path) {
-  router.push(path)
-  closeSearch()
-}
-function closeSearch() {
-  searchQuery.value = ''
-  searchFocused.value = false
-  activeIndex.value = 0
-}
-function moveDown() {
-  if (filteredCommands.value.length) activeIndex.value = (activeIndex.value + 1) % filteredCommands.value.length
-}
-function moveUp() {
-  if (filteredCommands.value.length) activeIndex.value = (activeIndex.value - 1 + filteredCommands.value.length) % filteredCommands.value.length
-}
-function selectActive() {
-  if (filteredCommands.value[activeIndex.value]) navigateTo(filteredCommands.value[activeIndex.value].path)
-}
+/* ── Recent activity ── */
+const showActivity = ref(false)
+const activityBtn  = ref(null)
+const recentActivity = ref([
+  { id: 1, action: 'Signed in from Chrome · Windows', time: '2 min ago' },
+  { id: 2, action: 'Updated profile avatar',           time: '1 hr ago' },
+  { id: 3, action: 'Created new banking site',         time: 'Yesterday' },
+  { id: 4, action: 'Changed account password',         time: '2 days ago' },
+])
+const toggleActivity = () => { showActivity.value = !showActivity.value }
 
 /* ── Shared state ── */
 const showNotifications = ref(false)
@@ -446,7 +360,7 @@ const handleOutsideClick = (e) => {
   const clickedMobileBtn  = mobileNotifBtn.value?.contains(e.target)
   if (!clickedNotifBtn && !clickedMobileBtn) showNotifications.value = false
   if (!profileChipRef.value?.contains(e.target)) profileDropOpen.value = false
-  if (!searchWrapRef.value?.contains(e.target)) { searchFocused.value = false }
+  if (!activityBtn.value?.contains(e.target)) showActivity.value = false
 }
 onMounted(()       => document.addEventListener('click', handleOutsideClick))
 onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
@@ -461,9 +375,9 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   top: 0; left: 260px; right: 0;
   transition: left 0.32s cubic-bezier(0.4, 0, 0.2, 1);
   height: 64px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 22px;
   background: linear-gradient(90deg, #080808 0%, #141414 50%, #0e0e0e 100%);
   backdrop-filter: blur(24px) saturate(160%);
@@ -474,129 +388,9 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 
 .navbar__left   { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.navbar__center { display: flex; align-items: center; justify-content: center; }
 .navbar__right  { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
 
-.breadcrumb { display: flex; align-items: center; gap: 7px; }
-.breadcrumb__parent  { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.50); }
-.breadcrumb__sep     { font-size: 0.82rem; color: rgba(255,255,255,0.30); }
-.breadcrumb__current { font-size: 0.82rem; font-weight: 800; color: #ffffff; }
-
-.navbar__search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
-  padding: 9px 14px;
-  width: 340px;
-  box-shadow: none;
-  transition: all 0.25s ease;
-}
-.navbar__search::before {
-  content: '';
-  position: absolute;
-  inset: -60px;
-  background: url('/bg2.png') center / cover no-repeat;
-  filter: blur(60px) saturate(180%) brightness(0.35);
-  z-index: -1;
-  border-radius: inherit;
-}
-.navbar__search:focus-within {
-  border-color: rgba(255, 255, 255, 0.24);
-  width: 380px;
-}
-.navbar__search:focus-within::before {
-  filter: blur(60px) saturate(200%) brightness(0.30);
-}
-.search-icon { width: 14px; height: 14px; color: rgba(255,255,255,0.70); flex-shrink: 0; }
-.navbar__search-input {
-  background: transparent; border: none; outline: none;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem;
-  color: #ffffff; width: 100%; font-weight: 600;
-}
-.navbar__search-input::placeholder { color: rgba(255,255,255,0.70); font-weight: 500; }
-.search-hint {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  flex-shrink: 0;
-}
-.search-key {
-  padding: 2px 6px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.20);
-  border-radius: 5px;
-  font-size: 0.6rem;
-  color: rgba(255,255,255,0.75);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-style: normal;
-}
-.search-clear {
-  background: none; border: none; cursor: pointer; padding: 2px;
-  color: rgba(255,255,255,0.4); display: flex; align-items: center;
-  flex-shrink: 0; border-radius: 4px;
-  transition: color 0.15s;
-}
-.search-clear:hover { color: rgba(255,255,255,0.8); }
-
-/* ── Search results dropdown ── */
-.navbar__center { position: relative; }
-
-.search-results {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 420px;
-  background: linear-gradient(160deg, #141414 0%, #0a0a0a 100%);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 14px;
-  overflow: hidden;
-  z-index: 999;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
-}
-.search-no-results {
-  padding: 20px 16px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.55);
-  font-weight: 600;
-}
-.search-result-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  cursor: pointer;
-  transition: background 0.15s;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.search-result-item:last-child { border-bottom: none; }
-.search-result-item:hover,
-.search-result-item--active { background: rgba(255,255,255,0.07); }
-
-.sri-icon {
-  width: 30px; height: 30px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px;
-  color: #ffffff;
-}
-.sri-text { flex: 1; min-width: 0; }
-.sri-name { display: block; font-size: 0.82rem; font-weight: 700; color: #ffffff; }
-.sri-desc { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.65); font-weight: 500; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sri-arrow { color: rgba(255,255,255,0.45); flex-shrink: 0; }
-.search-result-item--active .sri-arrow { color: #ffffff; }
-
-/* ── Dropdown transition ── */
-.search-drop-enter-active, .search-drop-leave-active { transition: opacity 0.18s ease, transform 0.18s ease; }
-.search-drop-enter-from, .search-drop-leave-to { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+.navbar__page-title { font-size: 0.86rem; font-weight: 600; color: rgba(255,255,255,0.85); }
 
 .navbar__icon-btn {
   position: relative; width: 40px; height: 40px;
@@ -614,39 +408,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   display: flex; align-items: center; justify-content: center;
   border: 2px solid var(--bg); padding: 0 3px;
 }
-
-.navbar__profile-chip {
-  position: relative;
-  display: flex; align-items: center; gap: 9px;
-  padding: 4px;
-  background: transparent; border: none;
-  flex-shrink: 0;
-  cursor: pointer;
-  user-select: none;
-}
-.navbar__profile-chip:hover { opacity: 1; }
-.navbar__profile-avatar {
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-}
-.navbar__profile-info { display: flex; flex-direction: column; gap: 1px; }
-.navbar__profile-name { font-size: 0.78rem; font-weight: 800; color: #ffffff; line-height: 1; }
-.navbar__profile-user { font-size: 0.65rem; font-weight: 700; color: #ffffff; line-height: 1; }
-
-.navbar__profile-dots {
-  width: 28px; height: 28px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 50%; border: none;
-  background: transparent; color: #ffffff;
-  cursor: pointer; flex-shrink: 0;
-  transition: background 0.18s, color 0.18s, transform 0.18s;
-}
-.navbar__profile-dots:hover,
-.navbar__profile-dots--active { background: rgba(255,255,255,0.1); color: #ffffff; }
-.navbar__profile-dots--active { transform: rotate(90deg); }
 
 .navbar__profile-dropdown {
   position: absolute;
@@ -769,21 +530,11 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .notif-dropdown {
   position: absolute; top: calc(100% + 12px); right: 0;
   width: 340px;
-  background: rgba(8, 8, 18, 0.45);
+  background: #000000;
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 18px;
   overflow: hidden;
   z-index: 200;
-  isolation: isolate;
-}
-.notif-dropdown::before {
-  content: '';
-  position: absolute;
-  inset: -60px;
-  background: url('/bg2.png') center / cover no-repeat;
-  filter: blur(60px) saturate(180%) brightness(0.28);
-  z-index: -1;
-  pointer-events: none;
 }
 .notif-dropdown--mobile {
   position: fixed;
@@ -859,8 +610,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
    ══════════════════════════════ */
 @media (max-width: 1366px) and (min-width: 769px) {
   .navbar { padding: 0 18px; left: 245px; }
-  .navbar__search { width: 280px; }
-  .navbar__search:focus-within { width: 320px; }
 }
 
 @media (min-width: 769px) {
@@ -887,10 +636,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
     margin-right: 12px;
     outline: none;
   }
-}
-@media (max-width: 1024px) and (min-width: 769px) {
-  .navbar__search { width: 240px; }
-  .navbar__search:focus-within { width: 270px; }
 }
 @media (max-width: 768px) {
   .desktop-nav { display: none; }

@@ -494,7 +494,7 @@ function closeTicket(id) {
 /* ── Tabs ── */
 .cmp-tabs {
   display: flex; gap: 4px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 5px; width: fit-content;
 }
@@ -506,7 +506,7 @@ function closeTicket(id) {
 }
 .cmp-tab--active { background: rgba(240, 80, 37,.12); color: #f05025; }
 .cmp-tab-badge {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border-radius: 999px;
+  background: #000000; border-radius: 999px;
   padding: 1px 8px; font-size: 0.68rem; font-weight: 700; color: var(--t3);
 }
 .cmp-tab-badge--active { background: rgba(240, 80, 37,.15); color: #f05025; }
@@ -519,7 +519,7 @@ function closeTicket(id) {
 .list-fade-enter-from   { opacity: 0; transform: translateY(-10px); }
 
 .cmp-row {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft); border-radius: 12px;
   overflow: hidden; cursor: pointer; transition: border-color 0.2s;
 }
@@ -571,7 +571,7 @@ function closeTicket(id) {
 }
 .cmp-status-badge--open        { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
 .cmp-status-badge--in-progress { background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
-.cmp-status-badge--closed      { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t3); border: 1px solid var(--border-soft); }
+.cmp-status-badge--closed      { background: #000000; color: var(--t3); border: 1px solid var(--border-soft); }
 
 .cmp-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .cmp-chevron { color: var(--t3); transition: transform 0.25s ease; flex-shrink: 0; }
@@ -597,7 +597,7 @@ function closeTicket(id) {
 .cmp-detail-msg { display: flex; flex-direction: column; gap: 6px; }
 .cmp-detail-body {
   font-size: 0.82rem; color: var(--t3); line-height: 1.7;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 12px 14px; margin: 0;
 }
 .cmp-detail-actions { display: flex; gap: 10px; }
@@ -612,7 +612,7 @@ function closeTicket(id) {
 .cmp-empty-filter {
   padding: 32px; text-align: center;
   font-size: 0.82rem; color: var(--t3);
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft); border-radius: 16px;
 }
 
@@ -621,14 +621,14 @@ function closeTicket(id) {
   flex: 1; display: flex; align-items: center; justify-content: center;
 }
 .cmp-empty {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px dashed var(--border); border-radius: 22px;
   padding: 64px 80px; display: flex; flex-direction: column;
   align-items: center; gap: 14px; text-align: center;
 }
 .cmp-empty-icon {
   width: 72px; height: 72px; border-radius: 20px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   display: flex; align-items: center; justify-content: center; color: var(--t4);
 }
 .cmp-empty-svg { color: var(--t4); }
@@ -668,11 +668,11 @@ function closeTicket(id) {
 .cmp-modal-sub   { font-size: 0.8rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .cmp-modal-close {
   width: 30px; height: 30px; border-radius: 8px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; color: var(--t2); flex-shrink: 0; transition: background 0.2s;
 }
-.cmp-modal-close:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
+.cmp-modal-close:hover { background: #000000; color: var(--t1); }
 
 /* Modal body */
 .cmp-modal-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 18px; }
@@ -687,11 +687,11 @@ function closeTicket(id) {
 .cmp-cat-card {
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
   padding: 12px 12px 10px; border-radius: 12px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   cursor: pointer; font-family: inherit; text-align: left;
   transition: all 0.18s;
 }
-.cmp-cat-card:hover { border-color: var(--border); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
+.cmp-cat-card:hover { border-color: var(--border); background: #000000; }
 .cmp-cat-card--active { border-color: #f05025 !important; background: rgba(240, 80, 37,.08) !important; }
 
 .cmp-cat-card-icon {
@@ -713,7 +713,7 @@ function closeTicket(id) {
 .cmp-pri-btn {
   display: flex; align-items: center; gap: 7px;
   padding: 7px 16px; border-radius: 10px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   font-size: 0.78rem; font-weight: 700; color: var(--t3);
   cursor: pointer; font-family: inherit; transition: all 0.18s;
 }
@@ -724,7 +724,7 @@ function closeTicket(id) {
 .cmp-pri-dot--high     { background: #f59e0b; }
 .cmp-pri-dot--critical { background: #f87171; }
 
-.cmp-pri-btn--active.cmp-pri-btn--low      { border-color: var(--border); color: var(--t1); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); }
+.cmp-pri-btn--active.cmp-pri-btn--low      { border-color: var(--border); color: var(--t1); background: #000000; }
 .cmp-pri-btn--active.cmp-pri-btn--medium   { border-color: rgba(96,165,250,.4);   color: #60a5fa;  background: rgba(96,165,250,.1);   }
 .cmp-pri-btn--active.cmp-pri-btn--high     { border-color: rgba(245,158,11,.4);   color: #f59e0b;  background: rgba(245,158,11,.1);   }
 .cmp-pri-btn--active.cmp-pri-btn--critical { border-color: rgba(248,113,113,.4);  color: #f87171;  background: rgba(248,113,113,.1);  }
@@ -759,7 +759,7 @@ function closeTicket(id) {
 
 /* Drop zone */
 .cmp-drop-zone {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px dashed var(--border);
+  background: #000000; border: 1px dashed var(--border);
   border-radius: 12px; padding: 22px 16px;
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   cursor: pointer; transition: all 0.2s; text-align: center;
@@ -780,7 +780,7 @@ function closeTicket(id) {
   cursor: pointer; line-height: 1; padding: 0; margin-left: 2px;
 }
 .cmp-add-more {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px dashed var(--border);
+  background: #000000; border: 1px dashed var(--border);
   border-radius: 8px; padding: 5px 10px; font-size: 0.73rem; font-weight: 600;
   color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
@@ -800,11 +800,11 @@ function closeTicket(id) {
 
 .cmp-cancel-btn {
   padding: 9px 20px; border-radius: 11px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   font-size: 0.82rem; font-weight: 700; color: var(--t2);
   cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.cmp-cancel-btn:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
+.cmp-cancel-btn:hover { background: #000000; color: var(--t1); }
 
 .cmp-submit-btn {
   padding: 9px 24px; border-radius: 11px; background: #f05025; border: none;
@@ -838,7 +838,7 @@ function closeTicket(id) {
 
 .cmp-success-info {
   display: flex; flex-direction: column; gap: 8px; padding: 14px 16px;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   border-radius: 12px; width: 100%; max-width: 340px;
 }
 .cmp-sinfo-row {

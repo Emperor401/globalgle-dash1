@@ -290,7 +290,7 @@ function showToast(type, msg) {
 
 /* ── Empty state ── */
 .tut-empty-container {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1.5px dashed var(--border-soft); border-radius: 20px;
   padding: 48px 24px; display: flex; flex-direction: column;
   align-items: center; text-align: center; gap: 10px;
@@ -329,7 +329,7 @@ function showToast(type, msg) {
 
 /* ── Card ── */
 .tut-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft); border-radius: 14px;
   overflow: hidden; cursor: pointer; transition: border-color 0.22s, transform 0.22s;
   display: flex; flex-direction: column;

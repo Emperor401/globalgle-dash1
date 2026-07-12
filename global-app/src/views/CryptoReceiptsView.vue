@@ -224,11 +224,11 @@ function onImgError(e) {
 .cr-header   { display: flex; align-items: flex-start; gap: 16px; }
 .back-btn {
   display: flex; align-items: center; gap: 6px; padding: 7px 14px;
-  border-radius: 8px; border: 1px solid var(--border-soft); background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  border-radius: 8px; border: 1px solid var(--border-soft); background: #000000;
   color: var(--t2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s, color 0.18s; flex-shrink: 0; margin-top: 4px;
 }
-.back-btn:hover { background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); color: var(--t1); }
+.back-btn:hover { background: #000000; color: var(--t1); }
 .cr-head-text { display: flex; flex-direction: column; gap: 4px; }
 .cr-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
 .cr-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }

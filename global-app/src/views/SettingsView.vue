@@ -591,7 +591,7 @@ function copyText(text) {
 
 /* ── Cards ── */
 .set-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 10px;
@@ -745,7 +745,7 @@ function copyText(text) {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .set-ref-stat {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft); border-radius: 16px;
   padding: 17px; display: flex; align-items: center; gap: 14px;
 }

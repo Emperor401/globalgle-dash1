@@ -750,7 +750,7 @@ function rowActions(site) {
 }
 .ob-card {
   aspect-ratio: 1 / 1;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 18px;
@@ -801,7 +801,7 @@ function rowActions(site) {
 
 /* ── Empty ── */
 .ob-empty-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
   border: 1px solid var(--border-soft); border-radius: 16px;
   display: flex; justify-content: center; padding: 48px 20px;
 }

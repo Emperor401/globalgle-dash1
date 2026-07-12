@@ -103,16 +103,12 @@ body {
 
 #bg-layer {
   position: fixed;
-  top: -60px;
-  left: -60px;
-  right: -60px;
-  bottom: -60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: -1;
-  background-image: url("/bg2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(40px) saturate(160%) brightness(0.75);
+  background: #000000;
   pointer-events: none;
 }
 

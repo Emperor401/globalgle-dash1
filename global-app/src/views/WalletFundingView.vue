@@ -252,7 +252,7 @@ function selectCoin(coin) {
 /* history btn */
 .wf-history-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%); border: 1px solid var(--border-soft);
+  background: #000000; border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 9px 16px; font-size: 0.82rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: border-color 0.2s, color 0.2s;
@@ -261,7 +261,7 @@ function selectCoin(coin) {
 
 /* plan card */
 .wf-plan-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
  
   border: 1px solid var(--border-soft);
   border-radius: 14px;
@@ -321,7 +321,7 @@ function selectCoin(coin) {
 }
 
 .wf-card {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
  
   border: 1px solid var(--border-soft);
   border-radius: 18px;
@@ -363,7 +363,7 @@ function selectCoin(coin) {
 
 /* how it works */
 .wf-howto {
-  background: linear-gradient(145deg, #4a4a4a 0%, #080808 100%);
+  background: #000000;
  
   border: 1px solid var(--border-soft);
   border-radius: 20px;
