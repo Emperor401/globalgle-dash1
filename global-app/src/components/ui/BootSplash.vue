@@ -97,9 +97,9 @@ onMounted(() => {
 
 .boot-splash__pct {
   margin-top: -8px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--t4);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
   letter-spacing: 0.03em;
   font-variant-numeric: tabular-nums;
   animation: boot-name-in 0.6s ease 0.25s both;
