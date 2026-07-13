@@ -292,13 +292,13 @@ function importData()     { success('Import ready', 'Select a file to import you
 
 /* ── Stat cards ── */
 const stats = [
-  { label: 'Total Revenue this month', value: '$21,219.24' },
-  { label: 'Total Saving',             value: '$14,376.26' },
-  { label: 'Taxes to be paid',         value: '$4,667.02'  },
+  { label: 'Total Revenue this month', value: '₦21,219.24' },
+  { label: 'Total Saving',             value: '₦14,376.26' },
+  { label: 'Taxes to be paid',         value: '₦4,667.02'  },
 ]
 
 /* ── AI spending limits ── */
-const spendingTotal = '$4,815.23'
+const spendingTotal = '₦4,815.23'
 const spendingCategories = [
   { label: 'Shopping',      pct: 27, color: 'var(--accent)' },
   { label: 'Subscriptions', pct: 35, color: 'var(--icon-stroke)' },
@@ -310,7 +310,7 @@ const cardHolder = 'John Carter'
 const cardExpiry = '02/30'
 
 /* ── Available balance ── */
-const availableBalance = '$102,175.96'
+const availableBalance = '₦102,175.96'
 function requestFunds()  { success('Request sent', 'Your funding request has been submitted.') }
 function transferFunds() { router.push('/wallet') }
 
