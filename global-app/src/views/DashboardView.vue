@@ -672,6 +672,9 @@ const filteredPayments = computed(() => {
   .dash-toolbar { flex-direction: column; align-items: stretch; }
   .balance-card__hdr { flex-direction: column; }
 
+  /* Available Balance shows above Spending Limits on mobile */
+  .dash-mid .balance-card { order: -1; }
+
   /* Stat cards become a swipeable slider on mobile */
   .dash-stats {
     display: flex;

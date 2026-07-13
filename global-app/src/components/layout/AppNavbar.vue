@@ -8,6 +8,12 @@
 
     <!-- Left: Breadcrumb -->
     <div class="navbar__left">
+      <button v-if="!desktopOpen" class="navbar__sidebar-toggle" @click="toggleDesktopSidebar" aria-label="Open sidebar">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="13 17 18 12 13 7"/>
+          <polyline points="6 17 11 12 6 7"/>
+        </svg>
+      </button>
       <span class="navbar__page-title">{{ pageTitle }}</span>
     </div>
 
@@ -253,7 +259,7 @@ import { useTheme } from '../../composables/useTheme.js'
 
 const route  = useRoute()
 const router = useRouter()
-const { sidebarOpen, desktopOpen, toggleSidebar } = useSidebar()
+const { sidebarOpen, desktopOpen, toggleSidebar, toggleDesktopSidebar } = useSidebar()
 const { theme, toggleTheme } = useTheme()
 
 
@@ -343,6 +349,22 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar__right  { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
 
 .navbar__page-title { font-size: 0.86rem; font-weight: 600; color: var(--t1); }
+
+.navbar__sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--glass-hover);
+  border: 1px solid var(--border-soft);
+  color: var(--icon-stroke);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.navbar__sidebar-toggle:hover { color: var(--t1); background: var(--glass); }
 
 .navbar__icon-btn {
   position: relative; width: 40px; height: 40px;

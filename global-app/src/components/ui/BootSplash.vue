@@ -2,50 +2,33 @@
 <template>
   <Transition name="boot-fade">
     <div v-if="visible" class="boot-splash">
-      <div class="boot-splash__mark">
-        <span
-          v-for="(ch, i) in letters"
-          :key="i"
-          class="boot-splash__letter"
-          :style="{ animationDelay: `${i * 0.035}s` }"
-        >{{ ch }}</span>
+      <div class="boot-splash__wrap">
+        <div class="boot-splash__ring"></div>
+        <img :src="logoSrc" alt="Globalgle" class="boot-splash__mark" />
       </div>
-      <div class="boot-splash__pct">{{ pct }}%</div>
-      <div class="boot-splash__bar">
-        <div class="boot-splash__bar-fill" :style="{ width: pct + '%' }" />
-      </div>
+      <span class="boot-splash__name">Globalgle</span>
     </div>
   </Transition>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useBootSplash } from '../../composables/useBootSplash.js'
+import { useTheme } from '../../composables/useTheme.js'
+import darkLogo from '../../assets/orgimg.jpeg'
+import lightLogo from '../../assets/whitelogo.png'
 
 const { finishBooting } = useBootSplash()
+const { theme } = useTheme()
+const logoSrc = computed(() => theme.value === 'light' ? lightLogo : darkLogo)
 
 const visible = ref(true)
-const pct = ref(0)
-const letters = 'Globalgle'.split('')
 
 onMounted(() => {
-  const duration = 2600
-  const start = performance.now()
-
-  function tick(now) {
-    const linear = Math.min((now - start) / duration, 1)
-    const eased = 1 - Math.pow(1 - linear, 2)
-    pct.value = Math.round(eased * 100)
-    if (linear < 1) {
-      requestAnimationFrame(tick)
-    } else {
-      setTimeout(() => {
-        visible.value = false
-        finishBooting()
-      }, 350)
-    }
-  }
-  requestAnimationFrame(tick)
+  setTimeout(() => {
+    visible.value = false
+    finishBooting()
+  }, 3000)
 })
 </script>
 
@@ -62,48 +45,54 @@ onMounted(() => {
   background: var(--bg);
 }
 
-.boot-splash__mark {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.boot-splash__wrap {
+  position: relative;
+  width: 76px;
+  height: 76px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.boot-splash__letter {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: boot-letter-in 0.5s ease both;
+.boot-splash__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px solid var(--border-soft);
+  border-top-color: var(--accent);
+  animation: boot-spin 1s linear infinite;
 }
 
-@keyframes boot-letter-in {
-  from { opacity: 0; transform: translateY(8px); }
+.boot-splash__mark {
+  position: relative;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: boot-breathe 1.8s ease-in-out infinite;
+}
+
+.boot-splash__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--t2);
+  animation: boot-name-in 0.6s ease 0.15s both;
+}
+
+@keyframes boot-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes boot-name-in {
+  from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.boot-splash__pct {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--t3);
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-}
-
-.boot-splash__bar {
-  width: 140px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--border-soft);
-  overflow: hidden;
-}
-
-.boot-splash__bar-fill {
-  height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
-  transition: width 0.05s linear;
+@keyframes boot-breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(0.92); opacity: 0.8; }
 }
 
 .boot-fade-enter-active { transition: opacity 0.2s ease; }
