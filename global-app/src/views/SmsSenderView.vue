@@ -13,7 +13,7 @@
     <div class="sms-hdr">
       <div class="sms-hdr__inner">
         <div class="sms-hdr-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
             stroke-width="2" stroke-linecap="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
@@ -237,7 +237,7 @@
             <span class="sms-preview-stat__lbl">Segments</span>
           </div>
           <div class="sms-preview-stat">
-            <span class="sms-preview-stat__val" style="color:#f05025">
+            <span class="sms-preview-stat__val" style="color:var(--accent)">
               {{ estimatedCost !== null ? `₦${estimatedCost}` : '₦0' }}
             </span>
             <span class="sms-preview-stat__lbl">Est. cost</span>
@@ -584,7 +584,7 @@ function sendBulkSMS() {
 .sms-hdr__inner { display: flex; align-items: center; gap: 16px; }
 .sms-hdr-icon {
   width: 52px; height: 52px; border-radius: 16px;
-  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .sms-hdr-title { font-size: 1.5rem; font-weight: 800; color: var(--t1); margin: 0 0 4px; letter-spacing: -0.02em; }
@@ -595,22 +595,22 @@ function sendBulkSMS() {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .sms-stat {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 10px 14px;
   display: flex; flex-direction: column; gap: 8px;
 }
 .sms-stat__label {
   font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.1em; color: rgba(255,255,255,0.70);
+  letter-spacing: 0.1em; color: var(--t2);
 }
-.sms-stat__val     { font-size: 1.4rem; font-weight: 800; color: #ffffff; }
+.sms-stat__val     { font-size: 1.4rem; font-weight: 800; color: var(--t1); }
 .sms-stat__val--sm { font-size: 1rem; }
 
 /* ── Tab bar ── */
 .sms-tab-bar {
   display: flex; gap: 4px;
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 5px; width: fit-content;
 }
@@ -621,8 +621,8 @@ function sendBulkSMS() {
   font-size: 0.82rem; font-weight: 600; color: var(--t3);
   cursor: pointer; font-family: inherit; transition: all 0.18s;
 }
-.sms-tab:hover { color: var(--t1); background: rgba(255,255,255,.05); }
-.sms-tab--active { background: rgba(240, 80, 37,.12); color: #f05025; border: 1px solid rgba(240, 80, 37,.25); }
+.sms-tab:hover { color: var(--t1); background: var(--glass-hover); }
+.sms-tab--active { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12); color: var(--accent); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.25); }
 
 /* ── Split layout ── */
 .sms-split {
@@ -634,7 +634,7 @@ function sendBulkSMS() {
 
 /* ── Form Card ── */
 .sms-form-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 20px;
@@ -649,7 +649,7 @@ function sendBulkSMS() {
 }
 .sms-label-count {
   font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
-  background: rgba(240, 80, 37,.12); color: #f05025; border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12); color: var(--accent); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
 }
 
 /* inputs */
@@ -658,7 +658,7 @@ function sendBulkSMS() {
   border-radius: 12px; padding: 12px 16px; font-size: 0.88rem;
   color: var(--t1); font-family: inherit; outline: none; transition: border-color 0.2s;
 }
-.sms-input:focus       { border-color: rgba(240, 80, 37,.4); }
+.sms-input:focus       { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.4); }
 .sms-input--err        { border-color: rgba(248,113,113,.4); }
 .sms-input--phone      { flex: 1; border-radius: 0 12px 12px 0; border-left: none; }
 .sms-input::placeholder{ color: var(--t3); }
@@ -669,7 +669,7 @@ function sendBulkSMS() {
   color: var(--t1); font-family: inherit; outline: none; resize: none;
   transition: border-color 0.2s; line-height: 1.6;
 }
-.sms-textarea:focus       { border-color: rgba(240, 80, 37,.4); }
+.sms-textarea:focus       { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.4); }
 .sms-textarea::placeholder{ color: var(--t3); }
 
 .sms-hint {
@@ -695,7 +695,7 @@ function sendBulkSMS() {
   cursor: pointer; user-select: none; flex-shrink: 0;
   transition: border-color 0.2s;
 }
-.sms-country-wrap:hover { border-color: rgba(240, 80, 37,.3); }
+.sms-country-wrap:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3); }
 .sms-country-wrap--full { border-radius: 12px; width: 100%; }
 
 .sms-dial-code { font-size: 0.82rem; font-weight: 600; color: var(--t1); white-space: nowrap; }
@@ -716,7 +716,7 @@ function sendBulkSMS() {
   display: flex; align-items: center; gap: 8px; padding: 8px 10px;
   border-radius: 9px; cursor: pointer; transition: background 0.15s;
 }
-.sms-country-item:hover, .sms-country-item.active { background: rgba(240, 80, 37,.08); }
+.sms-country-item:hover, .sms-country-item.active { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.08); }
 .sms-country-name { font-size: 0.8rem; color: var(--t1); flex: 1; }
 .sms-country-dial { font-size: 0.75rem; color: var(--t3); }
 
@@ -731,13 +731,13 @@ function sendBulkSMS() {
   position: relative; cursor: pointer; transition: background 0.25s, border-color 0.25s;
   flex-shrink: 0;
 }
-.sms-toggle--on { background: rgba(240, 80, 37,.25); border-color: rgba(240, 80, 37,.4); }
+.sms-toggle--on { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.25); border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.4); }
 .sms-toggle-thumb {
   width: 14px; height: 14px; border-radius: 50%;
   background: var(--t3); position: absolute; top: 2px; left: 2px;
   transition: transform 0.25s, background 0.25s;
 }
-.sms-toggle--on .sms-toggle-thumb { transform: translateX(16px); background: #f05025; }
+.sms-toggle--on .sms-toggle-thumb { transform: translateX(16px); background: var(--accent); }
 
 /* schedule fields */
 .slide-down-enter-active, .slide-down-leave-active { transition: all 0.25s ease; }
@@ -759,11 +759,11 @@ function sendBulkSMS() {
 .sms-send-btn {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; padding: 14px; border-radius: 12px;
-  background: #f05025; border: none;
+  background: var(--accent); border: none;
   font-size: 0.88rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
-.sms-send-btn:hover:not(:disabled) { background: #cc4118; }
+.sms-send-btn:hover:not(:disabled) { background: var(--accent-press); }
 .sms-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* ── Phone Preview ── */
@@ -775,7 +775,7 @@ function sendBulkSMS() {
   font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--t3);
 }
-.sms-phone-wrap { width: 220px; }
+.sms-phone-wrap { width: 100%; max-width: 220px; }
 
 .sms-phone-frame {
   width: 220px; height: 420px; border-radius: 36px;
@@ -798,8 +798,8 @@ function sendBulkSMS() {
 }
 .sms-phone-avatar {
   width: 32px; height: 32px; border-radius: 50%;
-  background: rgba(240, 80, 37,.15); border: 1px solid rgba(240, 80, 37,.25);
-  font-size: 0.8rem; font-weight: 800; color: #f05025;
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.15); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.25);
+  font-size: 0.8rem; font-weight: 800; color: var(--accent);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -811,7 +811,7 @@ function sendBulkSMS() {
   overflow-y: auto;
 }
 .sms-bubble {
-  background: rgba(240, 80, 37,.12); border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   border-radius: 14px 14px 4px 14px;
   padding: 9px 12px; font-size: 0.72rem; color: var(--t1); line-height: 1.5;
   word-break: break-word; align-self: flex-end; max-width: 90%;
@@ -827,7 +827,7 @@ function sendBulkSMS() {
 /* preview stats */
 .sms-preview-stats {
   display: flex; gap: 14px; justify-content: center;
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 18px;
   width: 100%; box-sizing: border-box;
@@ -841,7 +841,7 @@ function sendBulkSMS() {
 
 /* ── History ── */
 .sms-history {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }
@@ -850,11 +850,11 @@ function sendBulkSMS() {
   padding: 60px 24px; color: var(--t3); font-size: 0.85rem;
 }
 .sms-empty-btn {
-  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   border-radius: 10px; padding: 9px 20px; font-size: 0.82rem; font-weight: 700;
-  color: #f05025; cursor: pointer; font-family: inherit; transition: background 0.2s;
+  color: var(--accent); cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
-.sms-empty-btn:hover { background: rgba(240, 80, 37,.2); }
+.sms-empty-btn:hover { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2); }
 
 .sms-history-head {
   display: grid;
@@ -878,13 +878,13 @@ function sendBulkSMS() {
 .sms-h-sender { font-weight: 700; color: var(--t1); }
 .sms-h-phone  { color: var(--t2); font-size: 0.76rem; }
 .sms-h-msg    { color: var(--t3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sms-h-cost   { color: #f05025; font-weight: 700; }
+.sms-h-cost   { color: var(--accent); font-weight: 700; }
 .sms-h-date   { font-size: 0.72rem; color: var(--t3); }
 .sms-h-status {
   font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
   padding: 3px 8px; border-radius: 999px; width: fit-content;
 }
-.sms-h-status--sent     { background: rgba(240, 80, 37,.12);  color: #f05025; border: 1px solid rgba(240, 80, 37,.2); }
+.sms-h-status--sent     { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12);  color: var(--accent); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2); }
 .sms-h-status--failed   { background: rgba(248,113,113,.12); color: #f87171; border: 1px solid rgba(248,113,113,.2); }
 .sms-h-status--pending  { background: rgba(251,191,36,.12);  color: #fbbf24; border: 1px solid rgba(251,191,36,.2); }
 
@@ -899,7 +899,7 @@ function sendBulkSMS() {
   font-size: 0.84rem; font-weight: 600; z-index: 9999;
 }
 .sms-toast--success {
-  background: rgba(240, 80, 37,.18); border: 1px solid rgba(240, 80, 37,.3); color: #f05025;
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.18); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3); color: var(--accent);
 }
 .sms-toast--error {
   background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171;
@@ -907,7 +907,7 @@ function sendBulkSMS() {
 
 @media (max-width: 1024px) and (min-width: 769px) {
   .sms-stats         { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .sms-split         { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .sms-split         { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
 }
 @media (max-width: 768px) {
   .sms-page          { padding: 0; gap: 16px; }

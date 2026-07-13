@@ -408,7 +408,7 @@ async function downloadPDF() {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   color: var(--t2);
   padding: 7px 14px;
@@ -420,7 +420,7 @@ async function downloadPDF() {
   transition: background 0.18s, color 0.18s;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
-.br-back:hover { background: #000000; color: var(--t1); }
+.br-back:hover { background: var(--bg); color: var(--t1); }
 
 .br-title {
   font-size: 1.55rem;
@@ -430,7 +430,7 @@ async function downloadPDF() {
   letter-spacing: -0.02em;
 }
 .br-sub  { font-size: 0.85rem; color: var(--t1); font-weight: 600; margin: 0 0 24px; }
-.br-hl   { color: #f05025; font-weight: 600; }
+.br-hl   { color: var(--accent); font-weight: 600; }
 
 /* â"€â"€ Layout â"€â"€ */
 .br-layout {
@@ -442,7 +442,7 @@ async function downloadPDF() {
 
 /* â"€â"€ Form Card â"€â"€ */
 .br-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 18px;
@@ -468,7 +468,7 @@ async function downloadPDF() {
 }
 
 .br-input {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   padding: 10px 13px;
@@ -480,7 +480,7 @@ async function downloadPDF() {
   width: 100%;
   box-sizing: border-box;
 }
-.br-input:focus { border-color: #f05025; background: #000000; }
+.br-input:focus { border-color: var(--accent); background: var(--bg); }
 .br-input::placeholder { color: var(--t4); }
 .br-input[type="date"]::-webkit-calendar-picker-indicator,
 .br-input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.5); cursor: pointer; }
@@ -489,7 +489,7 @@ async function downloadPDF() {
 .br-select-wrap { position: relative; }
 .br-select {
   appearance: none;
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   padding: 10px 34px 10px 13px;
@@ -501,7 +501,7 @@ async function downloadPDF() {
   width: 100%;
   transition: border-color 0.2s;
 }
-.br-select:focus { border-color: #f05025; }
+.br-select:focus { border-color: var(--accent); }
 .br-select-chevron {
   position: absolute;
   right: 11px;
@@ -521,7 +521,7 @@ async function downloadPDF() {
   width: 38px;
   height: 38px;
   flex-shrink: 0;
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   color: var(--t2);
@@ -530,7 +530,7 @@ async function downloadPDF() {
   align-self: flex-end;
   margin-bottom: 1px;
 }
-.br-gen-ref:hover { background: #000000; color: #f05025; }
+.br-gen-ref:hover { background: var(--bg); color: var(--accent); }
 
 /* Action buttons */
 .br-actions { display: flex; gap: 12px; margin-top: 4px; }
@@ -552,12 +552,12 @@ async function downloadPDF() {
 .br-btn-pdf:hover:not(:disabled), .br-btn-img:hover:not(:disabled) { transform: translateY(-1px); }
 .br-btn-pdf:disabled, .br-btn-img:disabled { opacity: 0.55; cursor: wait; }
 .br-btn-pdf {
-  background: linear-gradient(135deg, #cc4118 0%, #f05025 100%);
+  background: linear-gradient(135deg, var(--accent-press) 0%, var(--accent) 100%);
   color: #fff;
-  box-shadow: 0 4px 14px rgba(240, 80, 37,0.30);
+  box-shadow: 0 4px 14px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.30);
 }
 .br-btn-img {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border) !important;
   color: var(--t1);
 }
@@ -640,7 +640,7 @@ async function downloadPDF() {
   margin-bottom: 14px;
   transition: background 0.3s;
 }
-.br-check--success    { background: #f05025; }
+.br-check--success    { background: var(--accent); }
 .br-check--fail       { background: #ef4444; }
 .br-check--pending    { background: #f59e0b; }
 .br-check--processing { background: #3b82f6; }

@@ -5,8 +5,8 @@
 /* ── Sidebar rail indicator glow ── */
 .nav-indicator {
   box-shadow:
-    0 0 2px 1px rgba(255, 255, 255, 0.80),
-    0 0 6px 2px rgba(255, 255, 255, 0.30) !important;
+    0 0 2px 1px var(--t1),
+    0 0 6px 2px var(--border) !important;
 }
 
 /* ══════════════════════════════════════════════
@@ -36,12 +36,20 @@
   --t3: rgba(255, 255, 255, 0.36);
   --t4: rgba(255, 255, 255, 0.18);
 
-  /* Accent — Brand Orange */
+  /* Accent — Brand Orange (dark mode only; light mode swaps this to black) */
   --accent:        #f05025;
   --accent-hover:  #ff6a3d;
+  --accent-press:  #cc4118;
   --accent-deep:   #7c1500;
   --accent-dim:    rgba(240, 80, 37, 0.14);
   --accent-border: rgba(240, 80, 37, 0.28);
+  --accent-grad-1: #ff8a4c;
+  --accent-grad-2: #f05025;
+  --accent-grad-3: #b82e0c;
+  /* channel triplet so rgba(var(--accent-r),var(--accent-g),var(--accent-b),X) calls stay theme-aware */
+  --accent-r: 240;
+  --accent-g: 80;
+  --accent-b: 37;
 
   /* Success — Bright Green */
   --green:        #4ade80;
@@ -58,6 +66,73 @@
   --yellow-dim:    rgba(251, 191, 36, 0.12);
   --yellow-border: rgba(251, 191, 36, 0.25);
 
+  /* Chrome surfaces used by hardcoded gradients/backgrounds */
+  --surface:        #000000;
+  --surface-raised: #141414;
+  --surface-sunken: #080808;
+  --icon-stroke:     rgba(255, 255, 255, 0.85);
+  --icon-stroke-soft: rgba(255, 255, 255, 0.62);
+}
+
+:root[data-theme="light"] {
+  /* Background — clean white */
+  --bg: #ffffff;
+
+  /* Glass surfaces */
+  --glass:        rgba(0, 0, 0, 0.03);
+  --glass-2:      rgba(0, 0, 0, 0.02);
+  --glass-hover:  rgba(0, 0, 0, 0.045);
+  --modal-glass:  rgba(0, 0, 0, 0.035);
+  --modal-input:  rgba(0, 0, 0, 0.030);
+  --modal-border: rgba(0, 0, 0, 0.110);
+
+  /* Borders */
+  --border:      rgba(0, 0, 0, 0.10);
+  --border-soft: rgba(0, 0, 0, 0.07);
+
+  /* Text — light-mode opacities run higher than their dark-mode counterparts
+     because low-opacity dark text on a white surface loses legibility much
+     faster than the equivalent light text on a black surface. */
+  --t1: rgba(0, 0, 0, 0.90);
+  --t2: rgba(0, 0, 0, 0.64);
+  --t3: rgba(0, 0, 0, 0.48);
+  --t4: rgba(0, 0, 0, 0.32);
+
+  /* Chrome surfaces used by hardcoded gradients/backgrounds */
+  --surface:        #ffffff;
+  --surface-raised: #f7f7f8;
+  --surface-sunken: #f2f2f4;
+  --icon-stroke:     rgba(0, 0, 0, 0.72);
+  --icon-stroke-soft: rgba(0, 0, 0, 0.55);
+
+  /* Accent — swapped to black in light mode, no orange */
+  --accent:        #000000;
+  --accent-hover:  #333333;
+  --accent-press:  #1a1a1a;
+  --accent-deep:   #000000;
+  --accent-dim:    rgba(0, 0, 0, 0.08);
+  --accent-border: rgba(0, 0, 0, 0.22);
+  --accent-grad-1: #333333;
+  --accent-grad-2: #000000;
+  --accent-grad-3: #000000;
+  --accent-r: 0;
+  --accent-g: 0;
+  --accent-b: 0;
+}
+
+/* ══════════════════════════════════════════════
+   THEME SWITCH TRANSITION
+   Applied only for a brief window while the theme
+   toggles, so ordinary hover/interaction transitions
+   elsewhere aren't slowed down permanently.
+   ══════════════════════════════════════════════ */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition: background-color 0.16s ease-out, border-color 0.16s ease-out,
+    color 0.16s ease-out, fill 0.16s ease-out, stroke 0.16s ease-out,
+    box-shadow 0.16s ease-out !important;
 }
 
 /* ══════════════════════════════════════════════
@@ -76,6 +151,8 @@ html {
   font-size: 15px;
   background-color: #020203;
 }
+
+:root[data-theme="light"] { background-color: #ffffff; }
 
 /* ── Tablet font boost ── */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -108,7 +185,7 @@ body {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: #000000;
+  background: var(--bg);
   pointer-events: none;
 }
 
@@ -279,8 +356,8 @@ button, input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; 
 }
 
 /* ══════════════════════════════════════════════
-   GLOBAL CARD GRADIENT — applies to ALL card
-   class names used across the entire app
+   GLOBAL CARD BACKGROUND — pure black, applies to
+   ALL card class names used across the entire app
    ══════════════════════════════════════════════ */
 .card,
 .site-card,
@@ -309,9 +386,9 @@ button, input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; 
 .cmp-cat-card,
 .promo-card,
 .be-card {
-  background: linear-gradient(160deg, #232323 0%, #0a0a0a 100%) !important;
+  background: var(--bg) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid var(--border) !important;
   box-shadow: none !important;
 }

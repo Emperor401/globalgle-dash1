@@ -321,7 +321,7 @@ const quickStats = [
 
 /* Preview */
 .side-title { font-size:0.88rem; font-weight:700; color:var(--t1); margin:0 0 14px; }
-.email-preview { background:rgba(255,255,255,0.04); border:1px solid var(--border-soft); border-radius:12px; padding:16px; }
+.email-preview { background:var(--glass); border:1px solid var(--border-soft); border-radius:12px; padding:16px; }
 .ep-header { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
 .ep-logo { width:26px; height:26px; border-radius:7px; background:var(--accent); color:#fff; font-size:0.75rem; font-weight:900; display:flex; align-items:center; justify-content:center; }
 .ep-brand { font-size:0.8rem; font-weight:700; color:var(--t1); }
@@ -350,6 +350,7 @@ const quickStats = [
 .slide-enter-from, .slide-leave-to { opacity:0; transform:translateY(-8px); }
 @media (max-width: 1024px) and (min-width: 769px) {
   .ec-split { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .composer-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -357,6 +358,7 @@ const quickStats = [
   .ec-split  { grid-template-columns: 1fr; gap: 12px; }
   .ec-overlay { padding: 12px; align-items: flex-end; }
   .ec-modal  { max-width: 100%; border-radius: 22px 22px 0 0; }
+  .composer-layout { grid-template-columns: 1fr; }
 }
 
 </style>

@@ -86,7 +86,7 @@ const services = [
 
 /* Card */
 .service-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 18px 18px;
@@ -113,7 +113,7 @@ const services = [
 }
 
 .service-card__desc {
-  font-size: 0.82rem; color: rgba(255,255,255,0.80); line-height: 1.6; margin: 0;
+  font-size: 0.82rem; color: var(--t2); line-height: 1.6; margin: 0;
 }
 .service-card__desc :deep(.hl) { color: var(--accent); font-weight: 500; }
 

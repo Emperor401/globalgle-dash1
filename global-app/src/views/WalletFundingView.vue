@@ -13,7 +13,7 @@
     <div class="wf-header">
       <div class="wf-header__left">
         <div class="wf-header-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
             stroke-width="2" stroke-linecap="round">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
@@ -49,7 +49,7 @@
           Pure pay-as-you-go on this plan — every request comes out of your wallet balance.
         </p>
         <div class="wf-discount-alert">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
             stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
             <line x1="12" y1="9" x2="12" y2="13"/>
@@ -235,8 +235,8 @@ function selectCoin(coin) {
 .wf-header__left { display: flex; align-items: flex-start; gap: 16px; }
 .wf-header-icon {
   width: 52px; height: 52px; border-radius: 16px;
-  background: rgba(240, 80, 37,.1);
-  border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);
+  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -246,22 +246,22 @@ function selectCoin(coin) {
   font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.08em; padding: 3px 9px; border-radius: 999px;
 }
-.wf-badge--web3 { background: rgba(240, 80, 37,.15); color: #f05025; border: 1px solid rgba(240, 80, 37,.25); }
+.wf-badge--web3 { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.15); color: var(--accent); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.25); }
 .wf-sub { font-size: 0.83rem; color: var(--t1); font-weight: 600; margin: 0; line-height: 1.5; max-width: 520px; }
 
 /* history btn */
 .wf-history-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 9px 16px; font-size: 0.82rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: border-color 0.2s, color 0.2s;
 }
-.wf-history-btn:hover { border-color: rgba(240, 80, 37,.35); color: var(--t1); }
+.wf-history-btn:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.35); color: var(--t1); }
 
 /* plan card */
 .wf-plan-card {
-  background: #000000;
+  background: var(--bg);
  
   border: 1px solid var(--border-soft);
   border-radius: 14px;
@@ -283,14 +283,14 @@ function selectCoin(coin) {
 
 .wf-discount-alert {
   display: flex; gap: 10px; align-items: flex-start;
-  background: rgba(240, 80, 37,.08);
-  border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.08);
+  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   border-radius: 12px; padding: 12px 14px;
 }
 .wf-discount-alert p {
   font-size: 0.78rem; color: var(--t2); margin: 0; line-height: 1.5;
 }
-.wf-discount-alert strong { color: #f05025; }
+.wf-discount-alert strong { color: var(--accent); }
 
 .wf-plan-right {
   display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
@@ -300,12 +300,12 @@ function selectCoin(coin) {
 .wf-balance-val   { font-size: 1.5rem; font-weight: 800; color: var(--t1); }
 .wf-fund-btn {
   display: flex; align-items: center; gap: 6px;
-  background: #f05025; border: 1px solid #f05025;
+  background: var(--accent); border: 1px solid var(--accent);
   border-radius: 10px; padding: 9px 18px; font-size: 0.82rem;
   font-weight: 700; color: #fff; cursor: pointer;
   font-family: inherit; transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
-.wf-fund-btn:hover { background: #cc4118; border-color: #cc4118; transform: translateY(-1px); }
+.wf-fund-btn:hover { background: var(--accent-press); border-color: var(--accent-press); transform: translateY(-1px); }
 
 /* section label */
 .wf-section-label {
@@ -316,12 +316,12 @@ function selectCoin(coin) {
 /* provider grid */
 .wf-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
 .wf-card {
-  background: #000000;
+  background: var(--bg);
  
   border: 1px solid var(--border-soft);
   border-radius: 18px;
@@ -333,7 +333,7 @@ function selectCoin(coin) {
   transition: border-color 0.22s, transform 0.22s;
 }
 .wf-card:hover {
-  border-color: rgba(240, 80, 37,.35);
+  border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.35);
   transform: translateY(-2px);
 }
 
@@ -351,7 +351,7 @@ function selectCoin(coin) {
 .wf-card-tags  { display: flex; gap: 4px; flex-wrap: wrap; flex-shrink: 0; }
 .wf-coin-tag {
   font-size: 0.62rem; font-weight: 700; padding: 2px 6px;
-  background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
+  background: var(--modal-input); border: 1px solid var(--border-soft);
   border-radius: 6px; color: var(--t2);
 }
 
@@ -359,11 +359,11 @@ function selectCoin(coin) {
   color: var(--t3); flex-shrink: 0;
   transition: color 0.2s, transform 0.2s;
 }
-.wf-card:hover .wf-card-arrow { color: #f05025; transform: translateX(3px); }
+.wf-card:hover .wf-card-arrow { color: var(--accent); transform: translateX(3px); }
 
 /* how it works */
 .wf-howto {
-  background: #000000;
+  background: var(--bg);
  
   border: 1px solid var(--border-soft);
   border-radius: 20px;
@@ -377,8 +377,8 @@ function selectCoin(coin) {
 .wf-step        { display: flex; gap: 12px; align-items: flex-start; }
 .wf-step-num {
   width: 26px; height: 26px; border-radius: 8px; flex-shrink: 0;
-  background: rgba(240, 80, 37,.12); border: 1px solid rgba(240, 80, 37,.2);
-  font-size: 0.75rem; font-weight: 800; color: #f05025;
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
+  font-size: 0.75rem; font-weight: 800; color: var(--accent);
   display: flex; align-items: center; justify-content: center;
 }
 .wf-step-title { font-size: 0.82rem; font-weight: 700; color: var(--t1); margin-bottom: 4px; }
@@ -396,8 +396,8 @@ function selectCoin(coin) {
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .modal-box {
-  background: #141414;
-  border: 1px solid rgba(255,255,255,0.10);
+  background: var(--surface-raised);
+  border: 1px solid var(--modal-border);
   border-radius: 24px;
   padding: 28px;
   width: 100%; max-width: 420px;
@@ -408,7 +408,7 @@ function selectCoin(coin) {
 .modal-close {
   position: absolute; top: 18px; right: 18px;
   width: 30px; height: 30px; border-radius: 8px;
-  background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
+  background: var(--modal-input); border: 1px solid var(--border-soft);
   color: var(--t2); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: background 0.15s;
@@ -426,12 +426,12 @@ function selectCoin(coin) {
 .modal-coins { display: flex; flex-direction: column; gap: 10px; }
 .modal-coin-row {
   display: flex; align-items: center; gap: 12px;
-  background: rgba(255,255,255,.04); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
 }
 .modal-coin-icon {
   width: 36px; height: 36px; border-radius: 10px;
-  background: rgba(255,255,255,.07);
+  background: var(--modal-input);
   font-size: 1rem; font-weight: 800;
   display: flex; align-items: center; justify-content: center;
   color: var(--t1); flex-shrink: 0;
@@ -439,13 +439,13 @@ function selectCoin(coin) {
 .modal-coin-name    { font-size: 0.85rem; font-weight: 700; color: var(--t1); }
 .modal-coin-network { font-size: 0.72rem; color: var(--t3); }
 .modal-fund-btn {
-  margin-left: auto; background: rgba(240, 80, 37,.1);
-  border: 1px solid rgba(240, 80, 37,.2); border-radius: 9px;
-  padding: 8px 14px; font-size: 0.76rem; font-weight: 700; color: #f05025;
+  margin-left: auto; background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);
+  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2); border-radius: 9px;
+  padding: 8px 14px; font-size: 0.76rem; font-weight: 700; color: var(--accent);
   cursor: pointer; font-family: inherit; white-space: nowrap;
   transition: background 0.2s;
 }
-.modal-fund-btn:hover { background: rgba(240, 80, 37,.2); }
+.modal-fund-btn:hover { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2); }
 
 .modal-note {
   font-size: 0.74rem; color: var(--t3); margin: 0;
@@ -456,8 +456,8 @@ function selectCoin(coin) {
 /* ── Tablet ── */
 @media (max-width: 1024px) and (min-width: 769px) {
   .wf-page        { gap: 20px; }
-  .wf-grid        { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .wf-howto-grid  { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .wf-grid        { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .wf-howto-grid  { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
   .wf-plan-card   { padding: 14px 16px; }
   .wf-howto       { padding: 14px 16px; }
 }

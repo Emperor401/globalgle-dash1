@@ -20,7 +20,7 @@
       >
         <div class="service-card__icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="#f05025" stroke-width="1.8"
+            stroke="var(--accent)" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round"
             v-html="s.icon"
           />
@@ -100,7 +100,7 @@ const services = [
 
 /* Card */
 .service-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 18px 18px;
@@ -113,15 +113,15 @@ const services = [
 .service-card:hover {
   border-color: var(--accent-border);
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(240, 80, 37, 0.08);
+  box-shadow: 0 8px 28px rgba(var(--accent-r),var(--accent-g),var(--accent-b), 0.08);
 }
 
 .service-card__icon {
   width: 46px;
   height: 46px;
   border-radius: 13px;
-  background: rgba(240, 80, 37, 0.12);
-  border: 1px solid rgba(240, 80, 37, 0.18);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b), 0.12);
+  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b), 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,7 +137,7 @@ const services = [
 
 .service-card__desc {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.80);
+  color: var(--t2);
   line-height: 1.6;
   margin: 0;
 }

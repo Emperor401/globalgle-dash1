@@ -16,7 +16,7 @@
     <div class="sidebar__logo">
       <div class="sidebar__logo-icon">
         <img
-          :src="whiteLogo"
+          :src="logoSrc"
           alt="Globalgle logo"
           class="logo-img"
         />
@@ -25,9 +25,9 @@
 
       <!-- Toggle / close button -->
       <button class="vaulto-badge" @click="handleBadgeClick" aria-label="Toggle sidebar">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <path d="M9 3v18"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="11 17 6 12 11 7"/>
+          <polyline points="18 17 13 12 18 7"/>
         </svg>
       </button>
     </div>
@@ -41,7 +41,7 @@
       <nav class="sidebar__nav">
         <router-link to="/" class="nav-item" :class="{ 'nav-item--active': $route.path === '/' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/>
             </svg>
           </div>
@@ -56,7 +56,7 @@
       <nav class="sidebar__nav">
         <router-link to="/customers" class="nav-item" :class="{ 'nav-item--active': $route.path === '/customers' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/customers' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
             </svg>
           </div>
@@ -65,7 +65,7 @@
 
         <router-link to="/analytics" class="nav-item" :class="{ 'nav-item--active': $route.path === '/analytics' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/analytics' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
           </div>
@@ -74,7 +74,7 @@
 
         <router-link to="/tools" class="nav-item" :class="{ 'nav-item--active': $route.path === '/tools' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/tools' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
             </svg>
           </div>
@@ -84,7 +84,7 @@
 
         <router-link to="/digital" class="nav-item" :class="{ 'nav-item--active': $route.path === '/digital' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/digital' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
             </svg>
           </div>
@@ -100,7 +100,7 @@
       <nav class="sidebar__nav">
         <router-link to="/wallet" class="nav-item" :class="{ 'nav-item--active': $route.path === '/wallet' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/wallet' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 12h2"/><path d="M2 10h20"/>
             </svg>
           </div>
@@ -110,7 +110,7 @@
 
         <router-link to="/billing" class="nav-item" :class="{ 'nav-item--active': $route.path === '/billing' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/billing' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/>
             </svg>
           </div>
@@ -119,7 +119,7 @@
 
         <router-link to="/tutorials" class="nav-item" :class="{ 'nav-item--active': $route.path === '/tutorials' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/tutorials' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>
             </svg>
           </div>
@@ -134,7 +134,7 @@
       <nav class="sidebar__nav">
         <router-link to="/settings" class="nav-item" :class="{ 'nav-item--active': $route.path === '/settings' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/settings' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
             </svg>
           </div>
@@ -143,7 +143,7 @@
 
         <router-link to="/help" class="nav-item" :class="{ 'nav-item--active': $route.path === '/help' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/help' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
           </div>
@@ -152,7 +152,7 @@
 
         <router-link to="/complaint" class="nav-item" :class="{ 'nav-item--active': $route.path === '/complaint' }" @click="closeSidebar">
           <div class="nav-item__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" :stroke="$route.path === '/complaint' ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.85)'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
             </svg>
           </div>
@@ -162,13 +162,23 @@
     </div>
 
       <!-- Upgrade CTA -->
-      <div class="sidebar__upgrade" @click="goUpgrade">
-        <div class="upgrade__body">
-          <p class="upgrade__label">Upgrade to</p>
-          <p class="upgrade__title">Premium!</p>
-          <button class="upgrade__btn" @click.stop="goUpgrade">Upgrade</button>
+      <div class="sidebar__upgrade">
+        <div class="upgrade__header">
+          <span class="upgrade__icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+            </svg>
+          </span>
+          <p class="upgrade__title">Upgrade Pro!</p>
         </div>
-        <img :src="cartnLogo" class="upgrade__deco-img" aria-hidden="true" />
+        <p class="upgrade__desc">Upgrade to Pro and elevate your experience today</p>
+        <div class="upgrade__actions">
+          <button class="upgrade__btn" @click.stop="goUpgrade">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            Upgrade
+          </button>
+          <a class="upgrade__learn" @click.stop="goUpgrade">Learn more</a>
+        </div>
       </div>
 
       <!-- Logout button -->
@@ -190,13 +200,16 @@
 </template>
 
 <script setup>
-import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import whiteLogo from '../../assets/orgimg.jpeg'
-import cartnLogo from '../../assets/cartn.png'
+import darkLogo from '../../assets/orgimg.jpeg'
+import lightLogo from '../../assets/whitelogo.png'
 import { useSidebar } from '../../composables/useSidebar.js'
+import { useTheme } from '../../composables/useTheme.js'
 
 const { sidebarOpen, desktopOpen, closeSidebar, toggleDesktopSidebar } = useSidebar()
+const { theme } = useTheme()
+const logoSrc = computed(() => theme.value === 'light' ? lightLogo : darkLogo)
 const router = useRouter()
 const route  = useRoute()
 
@@ -267,8 +280,8 @@ function logout() {
   height: 100dvh; /* dynamic viewport — fixes iOS Safari address-bar clipping */
   display: flex;
   flex-direction: column;
-  background: #000000;
-  border-right: 1px solid rgba(255,255,255,0.07);
+  background: var(--bg);
+  border-right: 1px solid var(--border-soft);
   box-shadow: none;
   position: fixed;
   top: 0;
@@ -338,8 +351,8 @@ function logout() {
     transform: translateX(-100%);
     z-index: 100;
     width: 260px;
-    background: transparent;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bg);
+    border-right: 1px solid var(--border-soft);
   }
   .sidebar--open { transform: translateX(0); }
   .vaulto-badge  { display: none; }
@@ -409,8 +422,8 @@ function logout() {
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  background: #000;
+  border: 2px solid var(--border-soft);
+  background: var(--surface);
 }
 
 .logo-img {
@@ -436,10 +449,9 @@ function logout() {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #e2e2e2 0%, #111111 100%);
+  width: 26px;
+  height: 26px;
+  background: transparent;
   border: none;
   cursor: pointer;
   flex-shrink: 0;
@@ -452,21 +464,6 @@ function logout() {
   padding: 24px 4px 8px;
   flex-shrink: 0;
   position: relative;
-}
-
-.sidebar__group + .sidebar__group::before {
-  content: '';
-  display: block;
-  height: 1px;
-  margin: 0 6px 24px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 10%,
-    rgba(255, 255, 255, 0.55) 50%,
-    rgba(255, 255, 255, 0.08) 90%,
-    transparent 100%
-  );
 }
 
 .sidebar__group-label {
@@ -502,14 +499,14 @@ function logout() {
 }
 
 .nav-item:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%);
-  border-color: rgba(255,255,255,0.10);
+  background: var(--glass);
+  border-color: var(--border-soft);
 }
 
 .nav-item--active {
-  background: linear-gradient(135deg, rgba(0,0,0,0.18) 0%, rgba(255,255,255,0.11) 100%);
-  border-color: rgba(255,255,255,0.14);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 8px rgba(0,0,0,0.25);
+  background: var(--glass-hover);
+  border-color: var(--border);
+  box-shadow: inset 0 1px 0 var(--border), 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .nav-indicator {
@@ -517,7 +514,7 @@ function logout() {
   right: 1px;
   width: 2px;
   border-radius: 999px;
-  background: #ffffff;
+  background: var(--t1);
   pointer-events: none;
   z-index: 200;
 }
@@ -529,26 +526,24 @@ function logout() {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: var(--t1);
 }
 
 .nav-item__label {
   font-size: 0.845rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--t1);
   transition: color 0.2s ease;
 }
-
-.nav-item--active .nav-item__label,
-.nav-item:hover .nav-item__label { color: var(--t1); }
 
 .nav-item__badge {
   font-size: 0.62rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.80);
-  background: rgba(255, 255, 255, 0.07);
+  color: var(--t1);
+  background: var(--glass-hover);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border);
   padding: 2px 7px;
   border-radius: 999px;
   flex-shrink: 0;
@@ -586,83 +581,90 @@ function logout() {
 .sidebar__upgrade {
   position: relative;
   z-index: 1;
+  margin: 0 14px 18px;
+  padding: 16px 16px 14px;
+  border-radius: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.upgrade__header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 0 14px 18px;
-  padding: 22px 18px 22px 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  cursor: pointer;
-  overflow: visible;
-  flex-shrink: 0;
-  min-height: 132px;
-  transition: background 0.25s ease, border-color 0.25s ease;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-right: 16px;
 }
 
-.sidebar__upgrade:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.24);
-}
-
-.upgrade__body {
+.upgrade__icon {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  z-index: 1;
-  padding-right: 88px;
-}
-
-.upgrade__label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
-  margin: 0;
-  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-grad-1) 0%, var(--accent) 55%, var(--accent-grad-3) 100%);
+  box-shadow: 0 3px 10px rgba(var(--accent-r),var(--accent-g),var(--accent-b), 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
 }
 
 .upgrade__title {
-  font-size: 1.18rem;
+  font-size: 0.92rem;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--t1);
   margin: 0;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+}
+
+.upgrade__desc {
+  font-size: 0.76rem;
+  color: var(--t2);
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0 0 14px;
+}
+
+.upgrade__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .upgrade__btn {
-  margin-top: 14px;
-  align-self: flex-start;
-  padding: 7px 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(180deg, var(--accent-grad-1) 0%, var(--accent) 50%, var(--accent-grad-3) 100%);
+  box-shadow: 0 4px 16px rgba(var(--accent-r),var(--accent-g),var(--accent-b), 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  border: none;
   color: #fff;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .upgrade__btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 6px 20px rgba(var(--accent-r),var(--accent-g),var(--accent-b), 0.55);
   transform: translateY(-1px);
 }
 
-.upgrade__deco-img {
-  position: absolute;
-  right: -9%;
-  bottom: 8px;
-  width: 108px;
-  height: 110px;
-  object-fit: contain;
-  pointer-events: none;
-  z-index: 2;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+.upgrade__learn {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.upgrade__learn:hover {
+  text-decoration: underline;
 }
 
 

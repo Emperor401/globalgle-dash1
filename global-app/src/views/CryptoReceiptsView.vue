@@ -224,11 +224,11 @@ function onImgError(e) {
 .cr-header   { display: flex; align-items: flex-start; gap: 16px; }
 .back-btn {
   display: flex; align-items: center; gap: 6px; padding: 7px 14px;
-  border-radius: 8px; border: 1px solid var(--border-soft); background: #000000;
+  border-radius: 8px; border: 1px solid var(--border-soft); background: var(--bg);
   color: var(--t2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
   cursor: pointer; transition: background 0.18s, color 0.18s; flex-shrink: 0; margin-top: 4px;
 }
-.back-btn:hover { background: #000000; color: var(--t1); }
+.back-btn:hover { background: var(--bg); color: var(--t1); }
 .cr-head-text { display: flex; flex-direction: column; gap: 4px; }
 .cr-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); letter-spacing: -0.025em; margin: 0; }
 .cr-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
@@ -246,7 +246,7 @@ function onImgError(e) {
 .p-card:hover { transform: translateY(-4px); border-color: var(--border); box-shadow: 0 10px 32px rgba(0,0,0,0.25); }
 .p-card__top-bar { height: 5px; background: var(--accent-top); flex-shrink: 0; align-self: stretch; margin-left: -18px; width: calc(100% + 36px); margin-bottom: 6px; }
 .p-card__badge { display: inline-flex; align-items: center; justify-content: center; padding: 4px 12px; border-radius: 999px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; flex-shrink: 0; }
-.p-card__logo-wrap { width: 68px; height: 68px; border-radius: 18px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+.p-card__logo-wrap { width: 68px; height: 68px; border-radius: 18px; background: var(--glass-hover); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
 .p-card__logo { width: 52px; height: 52px; object-fit: contain; border-radius: 10px; image-rendering: -webkit-optimize-contrast; }
 .p-card__logo-fallback { font-size: 1rem; font-weight: 800; color: var(--t2); }
 .p-card__name { font-size: 0.92rem; font-weight: 700; color: var(--t1); margin: 0; }
@@ -356,7 +356,7 @@ function onImgError(e) {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #f05025; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--accent); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 

@@ -93,14 +93,14 @@ function openLaunch(s) {
 }
 
 const sites = [
-  { title:'Support Pages',  desc:'Create a branded help & support page.',    badge:'Ready',  badgeColor:'#f05025', badgeBg:'rgba(240, 80, 37,0.12)',  badgeBorder:'rgba(240, 80, 37,0.25)',  iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="#f05025"/>', route: '/support-pages' },
-  { title:'Online Banking',  desc:'Spin up your own online banking site.',    badge:'Popular',badgeColor:'#60a5fa', badgeBg:'rgba(96,165,250,0.12)', badgeBorder:'rgba(96,165,250,0.25)', iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>', route: '/online-banking' },
-  { title:'Broker',          desc:'Launch your own trading / broker platform.',badge:'New',   badgeColor:'#fbbf24', badgeBg:'rgba(251,191,36,0.12)', badgeBorder:'rgba(251,191,36,0.25)', iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>', route: '/broker' },
-  { title:'Tracking Pages',  desc:'Create package tracking pages.',           badge:'Beta',   badgeColor:'#a78bfa', badgeBg:'rgba(167,139,250,0.12)',badgeBorder:'rgba(167,139,250,0.25)',iconBg:'rgba(240, 80, 37,0.12)',  iconColor:'#f05025', icon:'<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>', route: '/tracking-pages' },
+  { title:'Support Pages',  desc:'Create a branded help & support page.',    badge:'Ready',  badgeColor:'var(--accent)', badgeBg:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12)',  badgeBorder:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25)',  iconBg:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12)',  iconColor:'var(--accent)', icon:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="var(--accent)"/>', route: '/support-pages' },
+  { title:'Online Banking',  desc:'Spin up your own online banking site.',    badge:'Popular',badgeColor:'#60a5fa', badgeBg:'rgba(96,165,250,0.12)', badgeBorder:'rgba(96,165,250,0.25)', iconBg:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12)',  iconColor:'var(--accent)', icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>', route: '/online-banking' },
+  { title:'Broker',          desc:'Launch your own trading / broker platform.',badge:'New',   badgeColor:'#fbbf24', badgeBg:'rgba(251,191,36,0.12)', badgeBorder:'rgba(251,191,36,0.25)', iconBg:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12)',  iconColor:'var(--accent)', icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>', route: '/broker' },
+  { title:'Tracking Pages',  desc:'Create package tracking pages.',           badge:'Beta',   badgeColor:'#a78bfa', badgeBg:'rgba(167,139,250,0.12)',badgeBorder:'rgba(167,139,250,0.25)',iconBg:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12)',  iconColor:'var(--accent)', icon:'<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>', route: '/tracking-pages' },
 ]
 
 const stats = computed(() => [
-  { label:'Total Sites',     value: totalSites.value,   color:'#f05025', dimColor:'rgba(240, 80, 37,0.12)',   icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
+  { label:'Total Sites',     value: totalSites.value,   color:'var(--accent)', dimColor:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12)',   icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>' },
   { label:'Live Sites',      value: liveSites.value,    color:'#60a5fa', dimColor:'rgba(96,165,250,0.12)',  icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>' },
   { label:'Pending Setup',   value: pendingSetup.value, color:'#fbbf24', dimColor:'rgba(251,191,36,0.12)', icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
   { label:'Monthly Visitors',value:'24.3K',             color:'#a78bfa', dimColor:'rgba(167,139,250,0.12)',icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
@@ -126,7 +126,7 @@ const stats = computed(() => [
   cursor: pointer;
   transition: transform 0.18s ease, border-color 0.2s ease;
 }
-.site-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+.site-card:hover { border-color: var(--t4); transform: translateY(-3px); }
 .site-card__icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .site-card__title { font-size:1rem; font-weight:700; color:var(--t1); margin:0; }
 .site-card__desc  { font-size:0.8rem; color:var(--accent); line-height:1.55; margin:0; flex:1; }
@@ -138,7 +138,7 @@ const stats = computed(() => [
 .stat-chip__icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .stat-chip__body { display:flex; flex-direction:column; gap:3px; }
 .stat-chip__val   { font-size:1.1rem; font-weight:800; }
-.stat-chip__label { font-size:0.72rem; font-weight:600; color:rgba(255,255,255,0.60); }
+.stat-chip__label { font-size:0.72rem; font-weight:600; color:var(--t2); }
 
 /* Deployed panel */
 .panel-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:18px; }
@@ -165,8 +165,8 @@ const stats = computed(() => [
 
 .d-status { display:inline-flex; align-items:center; gap:5px; font-size:0.62rem; font-weight:700; padding:2px 8px; border-radius:999px; }
 .d-dot { width:5px; height:5px; border-radius:50%; }
-.d-status--live { color:#f05025; background:rgba(240, 80, 37,0.12); border:1px solid rgba(240, 80, 37,0.25); }
-.d-status--live .d-dot { background:#f05025; }
+.d-status--live { color:var(--accent); background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12); border:1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25); }
+.d-status--live .d-dot { background:var(--accent); }
 .d-status--staging { color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.28); }
 .d-status--staging .d-dot { background:#fbbf24; }
 

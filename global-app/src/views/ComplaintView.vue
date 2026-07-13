@@ -134,7 +134,7 @@
             <template v-if="submitSuccess">
               <div class="cmp-success">
                 <div class="cmp-success-ring">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
                     stroke-width="2.5" stroke-linecap="round">
                     <polyline points="20 6 9 17 4 12"/>
                   </svg>
@@ -147,7 +147,7 @@
                 <div class="cmp-success-info">
                   <div class="cmp-sinfo-row">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                      stroke="#f05025" stroke-width="2" stroke-linecap="round">
+                      stroke="var(--accent)" stroke-width="2" stroke-linecap="round">
                       <circle cx="12" cy="12" r="10"/>
                       <polyline points="12 6 12 12 16 14"/>
                     </svg>
@@ -251,7 +251,7 @@
                       style="display:none" @change="handleFiles"/>
                     <template v-if="form.files.length === 0">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round">
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                         <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
                       </svg>
@@ -485,16 +485,16 @@ function closeTicket(id) {
 .cmp-new-btn {
   display: flex; align-items: center; gap: 7px;
   padding: 10px 20px; border-radius: 12px;
-  background: #f05025; border: none; color: #fff;
+  background: var(--accent); border: none; color: #fff;
   font-size: 0.84rem; font-weight: 800; font-family: inherit;
   cursor: pointer; transition: background 0.2s; white-space: nowrap; flex-shrink: 0;
 }
-.cmp-new-btn:hover { background: #cc4118; }
+.cmp-new-btn:hover { background: var(--accent-press); }
 
 /* ── Tabs ── */
 .cmp-tabs {
   display: flex; gap: 4px;
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft); border-radius: 14px;
   padding: 5px; width: fit-content;
 }
@@ -504,12 +504,12 @@ function closeTicket(id) {
   font-size: 0.8rem; font-weight: 600; color: var(--t3);
   cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.cmp-tab--active { background: rgba(240, 80, 37,.12); color: #f05025; }
+.cmp-tab--active { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12); color: var(--accent); }
 .cmp-tab-badge {
-  background: #000000; border-radius: 999px;
+  background: var(--bg); border-radius: 999px;
   padding: 1px 8px; font-size: 0.68rem; font-weight: 700; color: var(--t3);
 }
-.cmp-tab-badge--active { background: rgba(240, 80, 37,.15); color: #f05025; }
+.cmp-tab-badge--active { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.15); color: var(--accent); }
 
 /* ── Reports list ── */
 .cmp-list { display: flex; flex-direction: column; gap: 6px; }
@@ -519,12 +519,12 @@ function closeTicket(id) {
 .list-fade-enter-from   { opacity: 0; transform: translateY(-10px); }
 
 .cmp-row {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft); border-radius: 12px;
   overflow: hidden; cursor: pointer; transition: border-color 0.2s;
 }
 .cmp-row:hover       { border-color: var(--border); }
-.cmp-row--open       { border-color: rgba(240, 80, 37,.3); background: rgba(240, 80, 37,.04); }
+.cmp-row--open       { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.04); }
 
 .cmp-row-main {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -534,7 +534,7 @@ function closeTicket(id) {
 .cmp-row-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
 .cmp-cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.cmp-cat-dot--green  { background: #f05025; }
+.cmp-cat-dot--green  { background: var(--accent); }
 .cmp-cat-dot--blue   { background: #60a5fa; }
 .cmp-cat-dot--red    { background: #f87171; }
 .cmp-cat-dot--amber  { background: #f59e0b; }
@@ -551,7 +551,7 @@ function closeTicket(id) {
 .cmp-cat-pill {
   font-size: 0.67rem; font-weight: 700; border-radius: 999px; padding: 2px 9px;
 }
-.cmp-cat-pill--green  { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
+.cmp-cat-pill--green  { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);   color: var(--accent);  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);   }
 .cmp-cat-pill--blue   { background: rgba(96,165,250,.1);  color: #60a5fa;  border: 1px solid rgba(96,165,250,.2);  }
 .cmp-cat-pill--red    { background: rgba(248,113,113,.1); color: #f87171;  border: 1px solid rgba(248,113,113,.2); }
 .cmp-cat-pill--amber  { background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
@@ -560,7 +560,7 @@ function closeTicket(id) {
 .cmp-pri-pill {
   font-size: 0.67rem; font-weight: 700; border-radius: 999px; padding: 2px 9px;
 }
-.cmp-pri-pill--low      { background: rgba(255,255,255,.06); color: var(--t3); border: 1px solid var(--border-soft); }
+.cmp-pri-pill--low      { background: var(--glass-hover); color: var(--t3); border: 1px solid var(--border-soft); }
 .cmp-pri-pill--medium   { background: rgba(96,165,250,.1);   color: #60a5fa;  border: 1px solid rgba(96,165,250,.2);  }
 .cmp-pri-pill--high     { background: rgba(245,158,11,.1);   color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
 .cmp-pri-pill--critical { background: rgba(248,113,113,.1);  color: #f87171;  border: 1px solid rgba(248,113,113,.2); }
@@ -569,9 +569,9 @@ function closeTicket(id) {
   display: flex; align-items: center; gap: 6px;
   font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 999px;
 }
-.cmp-status-badge--open        { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
+.cmp-status-badge--open        { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);   color: var(--accent);  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);   }
 .cmp-status-badge--in-progress { background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
-.cmp-status-badge--closed      { background: #000000; color: var(--t3); border: 1px solid var(--border-soft); }
+.cmp-status-badge--closed      { background: var(--bg); color: var(--t3); border: 1px solid var(--border-soft); }
 
 .cmp-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .cmp-chevron { color: var(--t3); transition: transform 0.25s ease; flex-shrink: 0; }
@@ -597,7 +597,7 @@ function closeTicket(id) {
 .cmp-detail-msg { display: flex; flex-direction: column; gap: 6px; }
 .cmp-detail-body {
   font-size: 0.82rem; color: var(--t3); line-height: 1.7;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 12px 14px; margin: 0;
 }
 .cmp-detail-actions { display: flex; gap: 10px; }
@@ -612,7 +612,7 @@ function closeTicket(id) {
 .cmp-empty-filter {
   padding: 32px; text-align: center;
   font-size: 0.82rem; color: var(--t3);
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft); border-radius: 16px;
 }
 
@@ -621,25 +621,25 @@ function closeTicket(id) {
   flex: 1; display: flex; align-items: center; justify-content: center;
 }
 .cmp-empty {
-  background: #000000;
+  background: var(--bg);
   border: 1px dashed var(--border); border-radius: 22px;
   padding: 64px 80px; display: flex; flex-direction: column;
   align-items: center; gap: 14px; text-align: center;
 }
 .cmp-empty-icon {
   width: 72px; height: 72px; border-radius: 20px;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   display: flex; align-items: center; justify-content: center; color: var(--t4);
 }
 .cmp-empty-svg { color: var(--t4); }
-.cmp-empty-text { font-size: 0.88rem; color: #ffffff; font-weight: 700; margin: 0; }
+.cmp-empty-text { font-size: 0.88rem; color: var(--t1); font-weight: 700; margin: 0; }
 .cmp-first-btn {
   display: flex; align-items: center; gap: 8px;
-  padding: 11px 24px; border-radius: 12px; background: #f05025; border: none;
+  padding: 11px 24px; border-radius: 12px; background: var(--accent); border: none;
   font-size: 0.86rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
-.cmp-first-btn:hover { background: #cc4118; }
+.cmp-first-btn:hover { background: var(--accent-press); }
 
 /* ── Modal overlay ── */
 .modal-fade-enter-active, .modal-fade-leave-active { transition: all 0.25s ease; }
@@ -668,11 +668,11 @@ function closeTicket(id) {
 .cmp-modal-sub   { font-size: 0.8rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .cmp-modal-close {
   width: 30px; height: 30px; border-radius: 8px;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; color: var(--t2); flex-shrink: 0; transition: background 0.2s;
 }
-.cmp-modal-close:hover { background: #000000; color: var(--t1); }
+.cmp-modal-close:hover { background: var(--bg); color: var(--t1); }
 
 /* Modal body */
 .cmp-modal-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 18px; }
@@ -687,18 +687,18 @@ function closeTicket(id) {
 .cmp-cat-card {
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
   padding: 12px 12px 10px; border-radius: 12px;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   cursor: pointer; font-family: inherit; text-align: left;
   transition: all 0.18s;
 }
-.cmp-cat-card:hover { border-color: var(--border); background: #000000; }
-.cmp-cat-card--active { border-color: #f05025 !important; background: rgba(240, 80, 37,.08) !important; }
+.cmp-cat-card:hover { border-color: var(--border); background: var(--bg); }
+.cmp-cat-card--active { border-color: var(--accent) !important; background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.08) !important; }
 
 .cmp-cat-card-icon {
   width: 28px; height: 28px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center; margin-bottom: 2px;
 }
-.cmp-cat-card-icon--green  { background: rgba(240, 80, 37,.12);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
+.cmp-cat-card-icon--green  { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12);   color: var(--accent);  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);   }
 .cmp-cat-card-icon--blue   { background: rgba(96,165,250,.12);  color: #60a5fa;  border: 1px solid rgba(96,165,250,.2);  }
 .cmp-cat-card-icon--red    { background: rgba(248,113,113,.12); color: #f87171;  border: 1px solid rgba(248,113,113,.2); }
 .cmp-cat-card-icon--amber  { background: rgba(245,158,11,.12);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
@@ -713,7 +713,7 @@ function closeTicket(id) {
 .cmp-pri-btn {
   display: flex; align-items: center; gap: 7px;
   padding: 7px 16px; border-radius: 10px;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   font-size: 0.78rem; font-weight: 700; color: var(--t3);
   cursor: pointer; font-family: inherit; transition: all 0.18s;
 }
@@ -724,30 +724,30 @@ function closeTicket(id) {
 .cmp-pri-dot--high     { background: #f59e0b; }
 .cmp-pri-dot--critical { background: #f87171; }
 
-.cmp-pri-btn--active.cmp-pri-btn--low      { border-color: var(--border); color: var(--t1); background: #000000; }
+.cmp-pri-btn--active.cmp-pri-btn--low      { border-color: var(--border); color: var(--t1); background: var(--bg); }
 .cmp-pri-btn--active.cmp-pri-btn--medium   { border-color: rgba(96,165,250,.4);   color: #60a5fa;  background: rgba(96,165,250,.1);   }
 .cmp-pri-btn--active.cmp-pri-btn--high     { border-color: rgba(245,158,11,.4);   color: #f59e0b;  background: rgba(245,158,11,.1);   }
 .cmp-pri-btn--active.cmp-pri-btn--critical { border-color: rgba(248,113,113,.4);  color: #f87171;  background: rgba(248,113,113,.1);  }
 
 /* Input / Textarea */
 .cmp-input {
-  background: var(--modal-input); border: 1px solid rgba(255,255,255,0.10);
+  background: var(--modal-input); border: 1px solid var(--modal-border);
   border-radius: 11px; padding: 11px 14px;
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s;
 }
-.cmp-input:focus { border-color: rgba(240, 80, 37,.45); }
+.cmp-input:focus { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.45); }
 .cmp-input::placeholder { color: var(--t4); }
 
 .cmp-textarea-wrap { position: relative; }
 .cmp-textarea-wrap--error .cmp-textarea { border-color: rgba(248,113,113,.5); }
 .cmp-textarea {
-  width: 100%; background: var(--modal-input); border: 1px solid rgba(255,255,255,0.10);
+  width: 100%; background: var(--modal-input); border: 1px solid var(--modal-border);
   border-radius: 11px; padding: 11px 14px; resize: none;
   font-family: inherit; font-size: 0.84rem; color: var(--t1);
   outline: none; transition: border-color 0.2s; box-sizing: border-box;
 }
-.cmp-textarea:focus { border-color: rgba(240, 80, 37,.45); }
+.cmp-textarea:focus { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.45); }
 .cmp-textarea::placeholder { color: var(--t4); }
 .cmp-textarea-footer {
   display: flex; justify-content: space-between; align-items: center;
@@ -759,28 +759,29 @@ function closeTicket(id) {
 
 /* Drop zone */
 .cmp-drop-zone {
-  background: #000000; border: 1px dashed var(--border);
+  background: var(--bg); border: 1px dashed var(--border);
   border-radius: 12px; padding: 22px 16px;
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   cursor: pointer; transition: all 0.2s; text-align: center;
 }
-.cmp-drop-zone:hover { border-color: rgba(240, 80, 37,.35); background: rgba(240, 80, 37,.04); }
+.cmp-drop-zone:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.35); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.04); }
+.cmp-drop-zone svg { color: var(--t4); }
 .cmp-drop-text  { font-size: 0.8rem; color: var(--t3); }
-.cmp-drop-link  { color: #f05025; font-weight: 700; cursor: pointer; }
+.cmp-drop-link  { color: var(--accent); font-weight: 700; cursor: pointer; }
 .cmp-drop-hint  { font-size: 0.68rem; color: var(--t4); }
 .cmp-file-list  { display: flex; flex-wrap: wrap; gap: 7px; width: 100%; justify-content: center; }
 .cmp-file-chip {
   display: flex; align-items: center; gap: 6px;
-  background: rgba(240, 80, 37,.08); border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.08); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   border-radius: 8px; padding: 5px 10px;
-  font-size: 0.73rem; font-weight: 600; color: #f05025;
+  font-size: 0.73rem; font-weight: 600; color: var(--accent);
 }
 .cmp-file-remove {
   background: none; border: none; color: #f87171; font-size: 0.9rem;
   cursor: pointer; line-height: 1; padding: 0; margin-left: 2px;
 }
 .cmp-add-more {
-  background: #000000; border: 1px dashed var(--border);
+  background: var(--bg); border: 1px dashed var(--border);
   border-radius: 8px; padding: 5px 10px; font-size: 0.73rem; font-weight: 600;
   color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
@@ -795,26 +796,26 @@ function closeTicket(id) {
   font-size: 0.78rem; color: var(--t3); background: none; border: none;
   cursor: pointer; font-family: inherit; text-decoration: underline; transition: color 0.2s;
 }
-.cmp-view-link:hover { color: #f05025; }
+.cmp-view-link:hover { color: var(--accent); }
 .cmp-footer-btns { display: flex; gap: 10px; }
 
 .cmp-cancel-btn {
   padding: 9px 20px; border-radius: 11px;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   font-size: 0.82rem; font-weight: 700; color: var(--t2);
   cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.cmp-cancel-btn:hover { background: #000000; color: var(--t1); }
+.cmp-cancel-btn:hover { background: var(--bg); color: var(--t1); }
 
 .cmp-submit-btn {
-  padding: 9px 24px; border-radius: 11px; background: #f05025; border: none;
+  padding: 9px 24px; border-radius: 11px; background: var(--accent); border: none;
   font-size: 0.82rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s;
   display: flex; align-items: center; gap: 8px;
 }
-.cmp-submit-btn:hover:not(:disabled) { background: #cc4118; }
+.cmp-submit-btn:hover:not(:disabled) { background: var(--accent-press); }
 .cmp-submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
-.cmp-submit-btn--loading { background: #cc4118; }
+.cmp-submit-btn--loading { background: var(--accent-press); }
 
 .cmp-spinner {
   width: 13px; height: 13px; border-radius: 50%;
@@ -830,15 +831,15 @@ function closeTicket(id) {
 }
 .cmp-success-ring {
   width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(240, 80, 37,.1); border: 2px solid rgba(240, 80, 37,.3);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 2px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3);
   display: flex; align-items: center; justify-content: center;
 }
 .cmp-success .cmp-modal-title { font-size: 1.2rem; }
-.cmp-ticket-id { color: #f05025; font-family: monospace; }
+.cmp-ticket-id { color: var(--accent); font-family: monospace; }
 
 .cmp-success-info {
   display: flex; flex-direction: column; gap: 8px; padding: 14px 16px;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   border-radius: 12px; width: 100%; max-width: 340px;
 }
 .cmp-sinfo-row {
@@ -848,11 +849,11 @@ function closeTicket(id) {
 .cmp-sinfo-row strong { color: var(--t2); }
 
 .cmp-done-btn {
-  padding: 11px 40px; border-radius: 12px; background: #f05025; border: none;
+  padding: 11px 40px; border-radius: 12px; background: var(--accent); border: none;
   font-size: 0.88rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s; margin-top: 4px;
 }
-.cmp-done-btn:hover { background: #cc4118; }
+.cmp-done-btn:hover { background: var(--accent-press); }
 
 /* ── Tablet ── */
 @media (max-width: 1024px) and (min-width: 769px) {

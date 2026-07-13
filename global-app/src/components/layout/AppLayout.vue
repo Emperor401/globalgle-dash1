@@ -1,6 +1,7 @@
 ﻿<!-- src/components/layout/AppLayout.vue -->
 <template>
   <div class="app-layout">
+    <BootSplash />
     <PageLoader />
     <ToastContainer />
     <AppSidebar />
@@ -21,6 +22,7 @@
 import AppSidebar from './AppSidebar.vue'
 import AppNavbar from './AppNavbar.vue'
 import PageLoader from '../ui/PageLoader.vue'
+import BootSplash from '../ui/BootSplash.vue'
 import ToastContainer from '../ui/ToastContainer.vue'
 import { useSidebar } from '../../composables/useSidebar.js'
 

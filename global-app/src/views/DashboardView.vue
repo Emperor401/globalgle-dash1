@@ -6,7 +6,7 @@
     <!-- ════════════════════════════════════
          TOOLBAR
          ════════════════════════════════════ -->
-    <div class="dash-toolbar">
+    <div class="dash-toolbar" :class="{ 'cascade-play': cascadeReady }">
       <div class="dash-toolbar__left">
         <button class="dtb-btn" @click="generateReport">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -36,7 +36,7 @@
          STAT CARDS
          ════════════════════════════════════ -->
     <div class="dash-stats">
-      <div v-for="s in stats" :key="s.label" class="stat-card">
+      <div v-for="s in stats" :key="s.label" class="stat-card" :class="{ 'cascade-play': cascadeReady }">
         <span class="stat-card__lbl">{{ s.label }}</span>
         <span class="stat-card__val">{{ s.value }}</span>
         <span class="stat-card__sub">
@@ -54,7 +54,7 @@
     <div class="dash-mid">
 
       <!-- AI-Generated Spending Limits -->
-      <div class="mid-card spend-card">
+      <div class="mid-card spend-card" :class="{ 'cascade-play': cascadeReady }">
         <div class="spend-card__hdr">
           <span class="spend-card__ico">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -108,7 +108,7 @@
       </div>
 
       <!-- Available Balance -->
-      <div class="mid-card balance-card">
+      <div class="mid-card balance-card" :class="{ 'cascade-play': cascadeReady }">
         <div class="balance-card__hdr">
           <div>
             <span class="balance-card__lbl">Available Balance</span>
@@ -156,9 +156,9 @@
 
           <!-- Line view -->
           <svg v-else class="balance-line" viewBox="0 0 400 140" preserveAspectRatio="none">
-            <path :d="balanceLinePath" fill="none" stroke="#f05025" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path :d="balanceLinePath" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <circle v-for="(p, i) in balanceLinePoints" :key="i" :cx="p[0]" :cy="p[1]" r="3"
-              :fill="balanceBars[i].active ? '#f05025' : 'rgba(255,255,255,0.4)'"/>
+              :fill="balanceBars[i].active ? 'var(--accent)' : 'var(--t3)'"/>
           </svg>
 
           <div class="balance-chart__xlabels">
@@ -178,7 +178,7 @@
     <!-- ════════════════════════════════════
          TRANSACTIONS TABLE
          ════════════════════════════════════ -->
-    <div class="pay-table-card">
+    <div class="pay-table-card" :class="{ 'cascade-play': cascadeReady }">
       <div class="pay-toolbar">
         <div class="pay-toolbar__left">
           <div class="pay-search">
@@ -266,13 +266,23 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from '../composables/useToast.js'
+import { useBootSplash } from '../composables/useBootSplash.js'
 import CommunityModal from '../components/ui/CommunityModal.vue'
 
 const router = useRouter()
 const { success } = useToast()
+
+/* ── Cascade entrance: wait for the boot splash to actually start
+     revealing the page before playing the card fade-up, so the
+     animation is visible instead of finishing hidden behind it ── */
+const { booting } = useBootSplash()
+const cascadeReady = ref(!booting.value)
+watch(booting, (isBooting) => {
+  if (!isBooting) cascadeReady.value = true
+})
 
 /* ── Toolbar ── */
 const globalSearch = ref('')
@@ -290,10 +300,10 @@ const stats = [
 /* ── AI spending limits ── */
 const spendingTotal = '$4,815.23'
 const spendingCategories = [
-  { label: 'Shopping',      pct: 27, color: '#f05025' },
-  { label: 'Subscriptions', pct: 35, color: 'rgba(255,255,255,0.85)' },
-  { label: 'Dining Out',    pct: 18, color: '#d9884f' },
-  { label: 'Other',         pct: 20, color: 'rgba(255,255,255,0.30)' },
+  { label: 'Shopping',      pct: 27, color: 'var(--accent)' },
+  { label: 'Subscriptions', pct: 35, color: 'var(--icon-stroke)' },
+  { label: 'Dining Out',    pct: 18, color: 'var(--t2)' },
+  { label: 'Other',         pct: 20, color: 'var(--t3)' },
 ]
 const cardNumber = '3455 4562 7710 3507'
 const cardHolder = 'John Carter'
@@ -364,6 +374,46 @@ const filteredPayments = computed(() => {
 .dash { display: flex; flex-direction: column; gap: 18px; }
 
 /* ══════════════════════════════════
+   ENTRANCE — cascading fade-up
+   ══════════════════════════════════ */
+@keyframes dashFadeUp {
+  from { opacity: 0; transform: translateY(26px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dash-toolbar,
+.dash-stats .stat-card,
+.dash-mid .mid-card,
+.pay-table-card {
+  opacity: 0;
+}
+
+.dash-toolbar.cascade-play,
+.dash-stats .stat-card.cascade-play,
+.dash-mid .mid-card.cascade-play,
+.pay-table-card.cascade-play {
+  animation: dashFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.dash-toolbar.cascade-play                       { animation-delay: 0.05s; }
+.dash-stats .stat-card.cascade-play:nth-child(1) { animation-delay: 0.12s; }
+.dash-stats .stat-card.cascade-play:nth-child(2) { animation-delay: 0.20s; }
+.dash-stats .stat-card.cascade-play:nth-child(3) { animation-delay: 0.28s; }
+.dash-mid .mid-card.cascade-play:nth-child(1)    { animation-delay: 0.36s; }
+.dash-mid .mid-card.cascade-play:nth-child(2)    { animation-delay: 0.44s; }
+.pay-table-card.cascade-play                     { animation-delay: 0.52s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dash-toolbar,
+  .dash-stats .stat-card,
+  .dash-mid .mid-card,
+  .pay-table-card {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ══════════════════════════════════
    TOOLBAR
    ══════════════════════════════════ */
 .dash-toolbar {
@@ -375,16 +425,16 @@ const filteredPayments = computed(() => {
 .dtb-btn {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 9px 16px; border-radius: 10px;
-  background: rgba(255,255,255,0.05); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   color: var(--t2); font-family: inherit; font-size: 0.8rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s;
 }
-.dtb-btn:hover { color: var(--t1); border-color: rgba(240, 80, 37,0.3); background: rgba(240, 80, 37,0.08); }
+.dtb-btn:hover { color: var(--t1); border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08); }
 
 .dtb-search {
   display: flex; align-items: center; gap: 8px;
   padding: 9px 14px; border-radius: 10px; min-width: 220px;
-  background: rgba(255,255,255,0.04); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   color: var(--t3);
 }
 .dtb-search input {
@@ -399,8 +449,8 @@ const filteredPayments = computed(() => {
 .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 
 .stat-card {
-  background: #000000;
-  border: 1px solid rgba(255,255,255,0.18); border-radius: 14px;
+  background: var(--bg);
+  border: 1px solid var(--t4); border-radius: 14px;
   padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;
 }
 .stat-card__lbl { font-size: 0.78rem; font-weight: 600; color: var(--t3); }
@@ -416,8 +466,8 @@ const filteredPayments = computed(() => {
 .dash-mid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 14px; align-items: stretch; }
 
 .mid-card {
-  background: #000000;
-  border: 1px solid rgba(255,255,255,0.18); border-radius: 16px;
+  background: var(--bg);
+  border: 1px solid var(--t4); border-radius: 16px;
   padding: 18px; display: flex; flex-direction: column;
 }
 
@@ -425,14 +475,14 @@ const filteredPayments = computed(() => {
 .spend-card__hdr { display: flex; align-items: center; gap: 8px; }
 .spend-card__ico {
   width: 24px; height: 24px; border-radius: 7px; flex-shrink: 0;
-  background: rgba(240, 80, 37,0.12); color: #f05025;
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12); color: var(--accent);
   display: flex; align-items: center; justify-content: center;
 }
 .spend-card__title { font-size: 0.8rem; font-weight: 700; color: var(--t2); }
 .spend-card__val { font-size: 1.55rem; font-weight: 800; color: var(--t1); letter-spacing: -0.03em; margin-top: 10px; }
 .spend-card__label { font-size: 0.76rem; color: var(--t3); font-weight: 600; margin-top: 4px; margin-bottom: 12px; }
 
-.spend-bar { display: flex; width: 100%; height: 8px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,0.06); }
+.spend-bar { display: flex; width: 100%; height: 8px; border-radius: 999px; overflow: hidden; background: var(--glass); }
 .spend-bar__seg { height: 100%; }
 
 .spend-legend {
@@ -446,7 +496,7 @@ const filteredPayments = computed(() => {
 .pay-card {
   margin-top: auto;
   background: linear-gradient(135deg, #241209 0%, #050505 70%, #000 100%);
-  border: 1px solid rgba(240, 80, 37,0.18);
+  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.18);
   border-radius: 14px; padding: 16px 18px;
   display: flex; flex-direction: column; gap: 14px;
   position: relative; overflow: hidden;
@@ -454,7 +504,7 @@ const filteredPayments = computed(() => {
 .pay-card::after {
   content: ''; position: absolute; top: -40%; right: -20%;
   width: 220px; height: 220px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(240, 80, 37,0.16) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.16) 0%, transparent 70%);
   pointer-events: none;
 }
 .pay-card__top { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
@@ -483,14 +533,14 @@ const filteredPayments = computed(() => {
 .bal-ghost:hover { color: var(--t1); }
 .bal-primary {
   display: inline-flex; align-items: center; gap: 6px;
-  background: #f05025; border: none; border-radius: 999px;
+  background: var(--accent); border: none; border-radius: 999px;
   color: #fff; font-family: inherit; font-size: 0.8rem; font-weight: 700;
   padding: 8px 16px; cursor: pointer; transition: background 0.18s;
 }
-.bal-primary:hover { background: #cc4118; }
+.bal-primary:hover { background: var(--accent-press); }
 .bal-more {
   width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0;
-  background: rgba(255,255,255,0.05); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   color: var(--t3); display: flex; align-items: center; justify-content: center;
   cursor: pointer; transition: all 0.18s;
 }
@@ -498,7 +548,7 @@ const filteredPayments = computed(() => {
 
 .view-toggle {
   display: inline-flex; align-items: center; gap: 2px;
-  background: rgba(255,255,255,0.05); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   border-radius: 9px; padding: 3px; margin-top: 16px; width: fit-content;
 }
 .vt-btn {
@@ -506,7 +556,7 @@ const filteredPayments = computed(() => {
   padding: 6px 14px; font-family: inherit; font-size: 0.76rem; font-weight: 600;
   color: var(--t3); cursor: pointer; transition: all 0.18s;
 }
-.vt-btn--on { background: rgba(255,255,255,0.1); color: var(--t1); }
+.vt-btn--on { background: var(--glass-hover); color: var(--t1); }
 
 .balance-chart { position: relative; margin-top: 18px; height: 150px; display: flex; flex-direction: column; }
 .balance-chart__grid {
@@ -524,10 +574,10 @@ const filteredPayments = computed(() => {
 .bbar-track { width: 100%; height: 100%; display: flex; align-items: flex-end; }
 .bbar-fill {
   width: 100%; border-radius: 6px 6px 0 0;
-  background: rgba(255,255,255,0.12);
+  background: var(--glass-hover);
   transition: height 0.4s cubic-bezier(.4,0,.2,1);
 }
-.bbar-fill--active { background: #f05025; }
+.bbar-fill--active { background: var(--accent); }
 
 .balance-line { flex: 1; width: 100%; overflow: visible; }
 
@@ -545,8 +595,8 @@ const filteredPayments = computed(() => {
    TRANSACTIONS TABLE
    ══════════════════════════════════ */
 .pay-table-card {
-  background: #000000;
-  border: 1px solid rgba(255,255,255,0.18); border-radius: 16px;
+  background: var(--bg);
+  border: 1px solid var(--t4); border-radius: 16px;
   padding: 16px 18px; display: flex; flex-direction: column; gap: 14px;
 }
 
@@ -556,7 +606,7 @@ const filteredPayments = computed(() => {
 .pay-search {
   display: flex; align-items: center; gap: 7px;
   padding: 8px 12px; border-radius: 9px; min-width: 190px;
-  background: rgba(255,255,255,0.04); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   color: var(--t3);
 }
 .pay-search input {
@@ -568,11 +618,11 @@ const filteredPayments = computed(() => {
 .pt-filter, .pt-action {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 13px; border-radius: 9px;
-  background: rgba(255,255,255,0.04); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   color: var(--t2); font-family: inherit; font-size: 0.76rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s;
 }
-.pt-filter:hover, .pt-action:hover { color: var(--t1); border-color: rgba(240, 80, 37,0.3); background: rgba(240, 80, 37,0.08); }
+.pt-filter:hover, .pt-action:hover { color: var(--t1); border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08); }
 
 .pay-table-wrap { overflow-x: auto; }
 .pay-table { width: 100%; border-collapse: collapse; min-width: 720px; }
@@ -596,7 +646,7 @@ const filteredPayments = computed(() => {
 
 .pay-method {
   display: inline-flex; padding: 4px 11px; border-radius: 999px;
-  background: rgba(255,255,255,0.06); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   font-size: 0.7rem; font-weight: 600; color: var(--t2); white-space: nowrap;
 }
 
@@ -620,7 +670,24 @@ const filteredPayments = computed(() => {
 }
 @media (max-width: 640px) {
   .dash-toolbar { flex-direction: column; align-items: stretch; }
-  .dash-stats   { grid-template-columns: 1fr; }
   .balance-card__hdr { flex-direction: column; }
+
+  /* Stat cards become a swipeable slider on mobile */
+  .dash-stats {
+    display: flex;
+    grid-template-columns: unset;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .dash-stats::-webkit-scrollbar { display: none; }
+
+  .dash-stats .stat-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
 }
 </style>

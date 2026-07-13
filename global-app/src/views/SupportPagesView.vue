@@ -497,13 +497,13 @@ function closeForm() {
 }
 .btn-new {
   display: flex; align-items: center; gap: 7px;
-  padding: 10px 20px; background: #f05025; border: none;
+  padding: 10px 20px; background: var(--accent); border: none;
   border-radius: 10px; color: #fff;
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; font-weight: 700;
   cursor: pointer; flex-shrink: 0;
   transition: background 0.2s, transform 0.15s;
 }
-.btn-new:hover  { background: #cc4118; transform: translateY(-1px); }
+.btn-new:hover  { background: var(--accent-press); transform: translateY(-1px); }
 .btn-new:active { transform: translateY(0); }
 
 /* ── Support pages grid ── */
@@ -514,7 +514,7 @@ function closeForm() {
 }
 .sp-card {
   aspect-ratio: 1 / 1;
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 18px;
@@ -524,7 +524,7 @@ function closeForm() {
 .sp-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
 .sp-card__title-group { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .sp-card__name { font-weight: 700; color: var(--t1); font-size: 0.92rem; }
-.sp-card__template { font-size: 0.72rem; color: rgba(255,255,255,0.70); font-weight: 600; }
+.sp-card__template { font-size: 0.72rem; color: var(--t2); font-weight: 600; }
 
 /* ── Showcase (brand preview) ── */
 .sp-card__showcase {
@@ -549,18 +549,18 @@ function closeForm() {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
 }
-.sp-status--active { color: #f05025; background: rgba(240, 80, 37,.12); border: 1px solid rgba(240, 80, 37,.25); }
+.sp-status--active { color: var(--accent); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.12); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.25); }
 .sp-status--draft  { color: #fbbf24; background: rgba(251,191,36,.12); border: 1px solid rgba(251,191,36,.28); }
 
 .sp-link {
   display: inline-flex; align-items: center; gap: 5px;
-  color: #f05025; font-size: 0.82rem; font-weight: 600;
+  color: var(--accent); font-size: 0.82rem; font-weight: 600;
   text-decoration: none; transition: opacity 0.18s;
 }
 .sp-link:hover { opacity: 0.75; }
 
 .sp-empty-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft); border-radius: 16px;
   display: flex; justify-content: center; padding: 48px 20px;
 }
@@ -631,12 +631,12 @@ function closeForm() {
 }
 .mf-btn-cancel:hover { background: #e5e7eb; }
 .mf-btn-create {
-  padding: 9px 26px; background: #f05025; border: none;
+  padding: 9px 26px; background: var(--accent); border: none;
   border-radius: 9px; color: #fff;
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.83rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s;
 }
-.mf-btn-create:hover { background: #cc4118; }
+.mf-btn-create:hover { background: var(--accent-press); }
 
 /* ── Form sections ── */
 .mf-section { padding: 20px 24px; border-bottom: 1px solid #f3f4f6; }
@@ -657,7 +657,7 @@ function closeForm() {
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s;
 }
-.mf-input:focus { border-color: #f05025; box-shadow: none !important; }
+.mf-input:focus { border-color: var(--accent); box-shadow: none !important; }
 .mf-input::placeholder { color: #9ca3af; }
 .mf-textarea { resize: vertical; min-height: 100px; line-height: 1.55; }
 
@@ -676,7 +676,7 @@ function closeForm() {
   text-align: left;
 }
 .brand-card:hover { border-color: #d1d5db; background: #f9fafb; }
-.brand-card--active { border-color: #f05025; background: rgba(240, 80, 37,0.05); }
+.brand-card--active { border-color: var(--accent); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.05); }
 
 .brand-icon {
   width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
@@ -703,7 +703,7 @@ function closeForm() {
   padding: 14px 16px; cursor: pointer; transition: border-color 0.18s, background 0.18s;
 }
 .reach-card:hover { border-color: #d1d5db; }
-.reach-card--active { border-color: #f05025; background: rgba(240, 80, 37,0.04); }
+.reach-card--active { border-color: var(--accent); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.04); }
 
 .reach-card__top {
   display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
@@ -715,12 +715,12 @@ function closeForm() {
   width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.reach-icon--star  { background: rgba(240, 80, 37,0.12); color: #f05025; }
+.reach-icon--star  { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12); color: var(--accent); }
 .reach-icon--globe { background: #f3f4f6; color: #6b7280; }
 
 .reach-free-badge {
-  font-size: 0.65rem; font-weight: 700; color: #f05025;
-  background: rgba(240, 80, 37,0.12); border: 1px solid rgba(240, 80, 37,0.25);
+  font-size: 0.65rem; font-weight: 700; color: var(--accent);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25);
   padding: 1px 7px; border-radius: 999px; margin-left: 6px;
 }
 
@@ -734,7 +734,7 @@ function closeForm() {
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; color: #111827;
   outline: none; transition: border-color 0.18s;
 }
-.subdomain-input:focus { border-color: #f05025; }
+.subdomain-input:focus { border-color: var(--accent); }
 .subdomain-input::placeholder { color: #9ca3af; }
 .subdomain-select {
   padding: 9px 12px; border: 1px solid #d1d5db; border-left: none;
@@ -758,7 +758,7 @@ function closeForm() {
   transition: border-color 0.18s, background 0.18s;
 }
 .support-card:hover { border-color: #d1d5db; background: #f9fafb; }
-.support-card--active { border-color: #f05025; background: rgba(240, 80, 37,0.05); }
+.support-card--active { border-color: var(--accent); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.05); }
 .support-card__title { font-size: 0.85rem; font-weight: 700; color: #111827; }
 .support-card__desc  { font-size: 0.73rem; color: #6b7280; line-height: 1.4; }
 
@@ -776,7 +776,7 @@ function closeForm() {
 }
 .address-box__label {
   display: block; padding: 7px 14px; font-size: 0.62rem; font-weight: 700;
-  color: #f05025; letter-spacing: 0.08em; background: #f9fafb;
+  color: var(--accent); letter-spacing: 0.08em; background: #f9fafb;
   border-bottom: 1px solid #e5e7eb;
 }
 .address-row {
@@ -791,8 +791,8 @@ function closeForm() {
   font-family: 'Plus Jakarta Sans', sans-serif; padding: 0;
 }
 .address-live {
-  font-size: 0.7rem; font-weight: 700; color: #f05025;
-  background: rgba(240, 80, 37,0.1); border: 1px solid rgba(240, 80, 37,0.25);
+  font-size: 0.7rem; font-weight: 700; color: var(--accent);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25);
   padding: 2px 8px; border-radius: 999px; flex-shrink: 0;
 }
 .address-edit-btn {
@@ -800,7 +800,7 @@ function closeForm() {
   background: none; border: none; cursor: pointer; flex-shrink: 0;
   padding: 0; transition: color 0.15s;
 }
-.address-edit-btn:hover { color: #f05025; }
+.address-edit-btn:hover { color: var(--accent); }
 
 /* ── Active toggle (edit mode) ── */
 .active-row {
@@ -821,7 +821,7 @@ function closeForm() {
   background: #d1d5db; position: relative; flex-shrink: 0;
   transition: background 0.22s ease; margin-top: 2px;
 }
-.toggle-switch--on { background: #f05025; }
+.toggle-switch--on { background: var(--accent); }
 .toggle-thumb {
   position: absolute; top: 3px; left: 3px;
   width: 18px; height: 18px; border-radius: 50%; background: #fff;
@@ -850,12 +850,5 @@ function closeForm() {
   .modal { max-height: 95vh; border-radius: 14px; }
   .modal-backdrop { padding: 10px; align-items: flex-end; }
 }
-
-/* ── Light mode overrides (already light modal) ── */
-[data-theme="light"] .sp-card { background: #fff; border-color: #e5e7eb; }
-[data-theme="light"] .sp-empty-card { background: #fff; border-color: #e5e7eb; }
-[data-theme="light"] .sp-card__name { color: #111827; }
-[data-theme="light"] .sp-header__title { color: #111827; }
-[data-theme="light"] .sp-header__sub { color: #6b7280; }
 [data-theme="light"] .sp-empty__inner { color: #9ca3af; }
 </style>

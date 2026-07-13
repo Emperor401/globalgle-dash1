@@ -12,7 +12,7 @@
           <span class="kpi-card__label">{{ k.label }}</span>
           <span class="kpi-card__value">{{ k.value }}</span>
         </div>
-        <span class="kpi-card__trend" :style="{ color: k.up ? '#f05025' : '#f87171' }">
+        <span class="kpi-card__trend" :style="{ color: k.up ? 'var(--accent)' : '#f87171' }">
           {{ k.up ? '↑' : '↓' }} {{ k.pct }}
         </span>
       </div>
@@ -87,7 +87,7 @@
               <td>
                 <div class="row-acts">
                   <button class="act-btn act-btn--view" title="View" @click="viewing = t">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f05025" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                   </button>
                   <div class="more-wrap">
                     <button class="act-btn act-btn--more" title="More" @click.stop="toggleMenu(t.id)">
@@ -204,7 +204,7 @@ function showToast(message, type = 'success') {
 }
 
 const kpis = [
-  { label:'Total Volume',  value:'$24,850', pct:'8.2%', up:true,  color:'#f05025', iconBg:'rgba(240, 80, 37,0.18)',   border:'rgba(240, 80, 37,0.30)',   bg:'rgba(240, 80, 37,0.07)',   icon:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
+  { label:'Total Volume',  value:'$24,850', pct:'8.2%', up:true,  color:'var(--accent)', iconBg:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.18)',   border:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.30)',   bg:'rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.07)',   icon:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' },
   { label:'Completed',     value:'6',       pct:'2.1%', up:true,  color:'#60a5fa', iconBg:'rgba(96,165,250,0.18)',  border:'rgba(96,165,250,0.30)',  bg:'rgba(96,165,250,0.07)',  icon:'<polyline points="20 6 9 17 4 12"/>' },
   { label:'Failed',        value:'1',       pct:'0.5%', up:false, color:'#f87171', iconBg:'rgba(248,113,113,0.18)', border:'rgba(248,113,113,0.30)', bg:'rgba(248,113,113,0.07)', icon:'<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>' },
   { label:'Pending',       value:'1',       pct:'1.3%', up:false, color:'#fbbf24', iconBg:'rgba(251,191,36,0.18)',  border:'rgba(251,191,36,0.30)',  bg:'rgba(251,191,36,0.07)',  icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>' },
@@ -344,11 +344,11 @@ function exportCSV() {
   cursor: default;
   transition: transform 0.18s ease, border-color 0.2s ease;
 }
-.kpi-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.18) !important; }
+.kpi-card:hover { transform: translateY(-2px); border-color: var(--t4) !important; }
 .kpi-card__icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .kpi-card__body { flex:1; display:flex; flex-direction:column; gap:4px; }
-.kpi-card__label { font-size:0.72rem; font-weight:700; color:rgba(255,255,255,0.70); }
-.kpi-card__value { font-size:1.25rem; font-weight:800; color:#ffffff; letter-spacing:-0.02em; }
+.kpi-card__label { font-size:0.72rem; font-weight:700; color:var(--t2); }
+.kpi-card__value { font-size:1.25rem; font-weight:800; color:var(--t1); letter-spacing:-0.02em; }
 .kpi-card__trend { font-size:0.72rem; font-weight:700; flex-shrink:0; }
 
 /* Panel */
@@ -385,7 +385,7 @@ function exportCSV() {
 .table-wrap { overflow-x:auto; }
 .txn-table { width:100%; border-collapse:collapse; }
 .txn-table thead tr { border-bottom:1px solid var(--border-soft); }
-.txn-table th { font-size:0.67rem; font-weight:800; color:rgba(255,255,255,0.65); text-transform:uppercase; letter-spacing:0.08em; padding:12px 16px; text-align:left; white-space:nowrap; }
+.txn-table th { font-size:0.67rem; font-weight:800; color:var(--t2); text-transform:uppercase; letter-spacing:0.08em; padding:12px 16px; text-align:left; white-space:nowrap; }
 .txn-row { border-bottom:1px solid var(--border-soft); transition:background 0.18s; }
 .txn-row:last-child { border-bottom:none; }
 .txn-row:hover { background:var(--glass-2); }
@@ -394,17 +394,17 @@ function exportCSV() {
 .txn-id { display:inline-block; padding:3px 9px; background:var(--accent-dim); border:1px solid var(--accent-border); border-radius:6px; color:var(--accent); font-size:0.72rem; font-weight:700; white-space:nowrap; }
 .cust-cell { display:flex; align-items:center; gap:10px; }
 .cust-avatar { width:34px; height:34px; border-radius:9px; object-fit:cover; border:1px solid var(--border-soft); flex-shrink:0; }
-.cust-name { font-size:0.82rem; font-weight:700; color:#ffffff; white-space:nowrap; }
-.txn-type { font-size:0.78rem; color:rgba(255,255,255,0.75); font-weight:600; }
+.cust-name { font-size:0.82rem; font-weight:700; color:var(--t1); white-space:nowrap; }
+.txn-type { font-size:0.78rem; color:var(--t2); font-weight:600; }
 .txn-amount { font-size:0.88rem; font-weight:800; white-space:nowrap; }
-.txn-amount--pos { color:#f05025; }
+.txn-amount--pos { color:var(--accent); }
 .txn-amount--neg { color:#f87171; }
-.txn-date { font-size:0.75rem; color:rgba(255,255,255,0.65); font-weight:600; white-space:nowrap; }
+.txn-date { font-size:0.75rem; color:var(--t2); font-weight:600; white-space:nowrap; }
 
 .status-badge { display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; font-weight:700; padding:4px 10px; border-radius:999px; white-space:nowrap; }
 .s-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-.status-badge--completed { color:#f05025; background:rgba(240, 80, 37,0.12); border:1px solid rgba(240, 80, 37,0.25); }
-.status-badge--completed .s-dot { background:#f05025; }
+.status-badge--completed { color:var(--accent); background:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12); border:1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25); }
+.status-badge--completed .s-dot { background:var(--accent); }
 .status-badge--pending { color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.28); }
 .status-badge--pending .s-dot { background:#fbbf24; }
 .status-badge--failed { color:#f87171; background:rgba(248,113,113,0.12); border:1px solid rgba(248,113,113,0.28); }
@@ -451,7 +451,7 @@ function exportCSV() {
   white-space:nowrap;
   border:1px solid var(--border);
 }
-.txn-toast--success { color:#f05025; border-color:rgba(240, 80, 37,0.35); }
+.txn-toast--success { color:var(--accent); border-color:rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.35); }
 .txn-toast--flag    { color:#f87171; border-color:rgba(248,113,113,0.35); }
 .toast-slide-enter-active { transition:opacity 0.22s ease, transform 0.22s cubic-bezier(0.34,1.56,0.64,1); }
 .toast-slide-leave-active { transition:opacity 0.18s ease, transform 0.18s ease; }
@@ -481,9 +481,9 @@ function exportCSV() {
 .detail-item__label { font-size:0.65rem; font-weight:700; color:var(--t4); text-transform:uppercase; letter-spacing:0.07em; }
 .detail-item__val { font-size:0.88rem; font-weight:700; color:var(--t1); }
 .val--id { color:var(--accent); }
-.val--pos { color:#f05025; }
+.val--pos { color:var(--accent); }
 .val--neg { color:#f87171; }
-.val--completed { color:#f05025; }
+.val--completed { color:var(--accent); }
 .val--pending { color:#fbbf24; }
 .val--failed { color:#f87171; }
 .detail-actions { display:flex; gap:10px; padding-top:4px; border-top:1px solid var(--border-soft); }

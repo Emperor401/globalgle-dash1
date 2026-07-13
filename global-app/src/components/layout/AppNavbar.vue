@@ -6,53 +6,26 @@
        ═══════════════════════════════════ -->
   <header class="navbar desktop-nav" :class="{ 'navbar--collapsed': !desktopOpen }">
 
-    <!-- Left: Sidebar toggle + Breadcrumb -->
+    <!-- Left: Breadcrumb -->
     <div class="navbar__left">
-      <button v-if="!desktopOpen" class="navbar__sidebar-toggle" @click="toggleDesktopSidebar" aria-label="Open sidebar">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <path d="M9 3v18"/>
-        </svg>
-      </button>
       <span class="navbar__page-title">{{ pageTitle }}</span>
     </div>
 
     <!-- Right: activity, notifications, profile -->
     <div class="navbar__right">
 
-      <!-- Recent activity -->
-      <div class="navbar__icon-btn" @click.stop="toggleActivity" ref="activityBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      <!-- Theme toggle -->
+      <button class="navbar__icon-btn" @click.stop="toggleTheme" :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'">
+        <svg v-if="theme === 'dark'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
         </svg>
-
-        <Transition name="notif-drop">
-          <div v-if="showActivity" class="notif-dropdown" @click.stop>
-            <div class="notif-dropdown__header">
-              <div class="notif-header-left">
-                <span class="notif-dropdown__title">Recent Activity</span>
-              </div>
-            </div>
-            <div class="notif-list">
-              <div v-if="recentActivity.length === 0" class="notif-empty">
-                <p>No recent activity.</p>
-              </div>
-              <div v-for="a in recentActivity" :key="a.id" class="notif-item">
-                <div class="notif-icon ni--info">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                    <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
-                  </svg>
-                </div>
-                <div class="notif-item__content">
-                  <p class="notif-item__title">{{ a.action }}</p>
-                  <span class="notif-item__time">{{ a.time }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Transition>
-      </div>
+        <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
 
       <!-- Notifications -->
       <div class="navbar__icon-btn" @click.stop="toggleNotifications" ref="notifBtn">
@@ -199,26 +172,24 @@
       <span :class="['mn-bar', { 'mn-bar--open-3': sidebarOpen }]"/>
     </button>
 
-    <!-- Greeting + avatar -->
-    <div class="mn-greeting">
-      <div class="mn-avatar">
-        <img
-          src="https://api.dicebear.com/7.x/notionists/svg?seed=Daniel"
-          width="36"
-          height="36"
-          alt="Avatar"
-          class="mn-avatar-img"
-        />
-        <span class="mn-avatar-dot"/>
-      </div>
-      <div class="mn-greeting-text">
-        <span class="mn-greet-line">{{ greeting }},</span>
-        <span class="mn-name">Emperor</span>
-      </div>
-    </div>
+    <!-- Current page title -->
+    <span class="mn-page-title">{{ pageTitle }}</span>
 
     <!-- Right actions -->
     <div class="mn-actions">
+
+      <!-- Theme toggle -->
+      <button class="mn-icon-btn" @click.stop="toggleTheme" :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'">
+        <svg v-if="theme === 'dark'" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
 
       <!-- Notifications -->
       <button class="mn-icon-btn" @click.stop="toggleNotifications" ref="mobileNotifBtn">
@@ -278,10 +249,12 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { notifications as notifData } from '../../data/mockData.js'
 import { useSidebar } from '../../composables/useSidebar.js'
+import { useTheme } from '../../composables/useTheme.js'
 
 const route  = useRoute()
 const router = useRouter()
-const { sidebarOpen, desktopOpen, toggleSidebar, toggleDesktopSidebar } = useSidebar()
+const { sidebarOpen, desktopOpen, toggleSidebar } = useSidebar()
+const { theme, toggleTheme } = useTheme()
 
 
 /* ── Page meta ── */
@@ -315,17 +288,6 @@ const pages = {
 const currentPage    = computed(() => pages[route.path] ?? { title: 'Globalgle', subtitle: 'Banking Dashboard' })
 const pageTitle      = computed(() => currentPage.value.title)
 
-/* ── Recent activity ── */
-const showActivity = ref(false)
-const activityBtn  = ref(null)
-const recentActivity = ref([
-  { id: 1, action: 'Signed in from Chrome · Windows', time: '2 min ago' },
-  { id: 2, action: 'Updated profile avatar',           time: '1 hr ago' },
-  { id: 3, action: 'Created new banking site',         time: 'Yesterday' },
-  { id: 4, action: 'Changed account password',         time: '2 days ago' },
-])
-const toggleActivity = () => { showActivity.value = !showActivity.value }
-
 /* ── Shared state ── */
 const showNotifications = ref(false)
 const notifBtn          = ref(null)
@@ -339,15 +301,6 @@ const toggleProfileDrop = () => { profileDropOpen.value = !profileDropOpen.value
 function goTo(path) { profileDropOpen.value = false; router.push(path) }
 const unreadCount = computed(() => notifications.value.filter(n => !n.read).length)
 
-/* ── Time-based greeting ── */
-const greeting = computed(() => {
-  const h = new Date().getHours()
-  if (h < 12) return 'Good morning'
-  if (h < 17) return 'Good afternoon'
-  if (h < 21) return 'Good evening'
-  return 'Good night'
-})
-
 /* ── Notifications ── */
 const toggleNotifications = () => { showNotifications.value = !showNotifications.value }
 const markRead  = (id) => { const n = notifications.value.find(n => n.id === id); if (n) n.read = true }
@@ -360,7 +313,6 @@ const handleOutsideClick = (e) => {
   const clickedMobileBtn  = mobileNotifBtn.value?.contains(e.target)
   if (!clickedNotifBtn && !clickedMobileBtn) showNotifications.value = false
   if (!profileChipRef.value?.contains(e.target)) profileDropOpen.value = false
-  if (!activityBtn.value?.contains(e.target)) showActivity.value = false
 }
 onMounted(()       => document.addEventListener('click', handleOutsideClick))
 onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
@@ -379,10 +331,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   align-items: center;
   justify-content: space-between;
   padding: 0 22px;
-  background: linear-gradient(90deg, #080808 0%, #141414 50%, #0e0e0e 100%);
+  background: linear-gradient(90deg, var(--surface-sunken) 0%, var(--surface-raised) 50%, var(--surface-sunken) 100%);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid var(--border-soft);
   z-index: 90;
   gap: 16px;
 }
@@ -390,7 +342,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .navbar__left   { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .navbar__right  { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
 
-.navbar__page-title { font-size: 0.86rem; font-weight: 600; color: rgba(255,255,255,0.85); }
+.navbar__page-title { font-size: 0.86rem; font-weight: 600; color: var(--t1); }
 
 .navbar__icon-btn {
   position: relative; width: 40px; height: 40px;
@@ -398,8 +350,8 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   background: transparent; border: none;
   cursor: pointer; transition: color 0.2s ease; flex-shrink: 0;
 }
-.navbar__icon-btn svg { width: 24px; height: 24px; color: #ffffff; }
-.navbar__icon-btn:hover svg { color: #ffffff; }
+.navbar__icon-btn svg { width: 24px; height: 24px; color: var(--icon-stroke); }
+.navbar__icon-btn:hover svg { color: var(--t1); }
 
 .navbar__badge {
   position: absolute; top: -4px; right: -4px;
@@ -413,36 +365,36 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   position: absolute;
   top: calc(100% + 10px); right: 0;
   min-width: 210px;
-  background: linear-gradient(160deg, #141414 0%, #0a0a0a 100%);
+  background: linear-gradient(160deg, var(--surface-raised) 0%, var(--surface-sunken) 100%);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(255,255,255,0.09);
+  border: 1px solid var(--border);
   border-radius: 16px; padding: 6px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.6); z-index: 200;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.28); z-index: 200;
   transform-origin: top right;
 }
 .npd-header { display: flex; align-items: center; gap: 10px; padding: 10px 10px 8px; }
-.npd-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.15); flex-shrink: 0; }
+.npd-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); flex-shrink: 0; }
 .npd-info { display: flex; flex-direction: column; gap: 2px; }
-.npd-name  { font-size: 0.82rem; font-weight: 800; color: #ffffff; }
-.npd-email { font-size: 0.67rem; color: #ffffff; font-weight: 700; }
-.npd-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 4px 0; }
+.npd-name  { font-size: 0.82rem; font-weight: 800; color: var(--t1); }
+.npd-email { font-size: 0.67rem; color: var(--t1); font-weight: 700; }
+.npd-divider { height: 1px; background: var(--border-soft); margin: 4px 0; }
 .npd-item {
   display: flex; align-items: center; gap: 10px;
   width: 100%; padding: 9px 10px;
   border-radius: 10px; border: none;
-  background: transparent; color: #ffffff;
+  background: transparent; color: var(--t1);
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.8rem; font-weight: 700;
   cursor: pointer; text-align: left;
 }
-.npd-item:hover { color: rgba(255,255,255,0.75); }
+.npd-item:hover { color: var(--t2); }
 .npd-item:focus,
 .npd-item:active { outline: none; }
 .npd-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.npd-icon--green { background: rgba(255,255,255,0.10); color: #ffffff; }
+.npd-icon--green { background: var(--glass-hover); color: var(--t1); }
 .npd-label { flex: 1; }
-.npd-arrow { color: rgba(255,255,255,0.50); flex-shrink: 0; }
+.npd-arrow { color: var(--t3); flex-shrink: 0; }
 
 .profile-chip-drop-enter-active { transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .profile-chip-drop-leave-active { transition: opacity 0.14s ease, transform 0.14s ease; }
@@ -455,10 +407,10 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mobile-nav {
   display: none;
   position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 90;
-  background: linear-gradient(90deg, #080808 0%, #141414 50%, #0e0e0e 100%);
+  background: linear-gradient(90deg, var(--surface-sunken) 0%, var(--surface-raised) 50%, var(--surface-sunken) 100%);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid var(--border-soft);
   align-items: center; justify-content: space-between;
   padding: 0 16px; gap: 12px;
   transition: background 0.35s ease;
@@ -471,7 +423,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   cursor: pointer; flex-shrink: 0; padding: 0;
 }
 .mn-bar {
-  width: 18px; height: 2px; background: rgba(255,255,255,0.90); border-radius: 2px;
+  width: 18px; height: 2px; background: var(--t1); border-radius: 2px;
   transition: all 0.28s ease; transform-origin: center;
 }
 .mn-bar--mid    { width: 13px; align-self: flex-start; margin-left: 11px; }
@@ -479,40 +431,22 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .mn-bar--open-2 { opacity: 0; transform: scaleX(0); }
 .mn-bar--open-3 { transform: rotate(-45deg) translate(5px, -5px); width: 18px; }
 
-.mn-greeting { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
-.mn-avatar {
-  position: relative;
-  width: 36px; height: 36px; min-width: 36px; min-height: 36px;
-  border-radius: 50%; flex-shrink: 0;
-  overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.15);
-  background: #000;
+.mn-page-title {
+  flex: 1; min-width: 0;
+  font-size: 0.92rem; font-weight: 700; color: var(--t1);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.mn-avatar-img {
-  width: 36px; height: 36px;
-  max-width: 36px; max-height: 36px;
-  object-fit: cover; object-position: center top;
-  display: block;
-  filter: grayscale(1) brightness(1.2);
-}
-.mn-avatar-dot {
-  position: absolute; bottom: 1px; right: 1px;
-  width: 8px; height: 8px; background: #fff; border-radius: 50%;
-  border: 2px solid var(--bg);
-}
-.mn-greeting-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-.mn-greet-line { font-size: 0.80rem; color: #ffffff; font-weight: 700; white-space: nowrap; }
-.mn-name { font-size: 1.05rem; font-weight: 800; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.mn-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.mn-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .mn-icon-btn {
   position: relative; width: 38px; height: 38px;
   display: flex; align-items: center; justify-content: center;
-  background: transparent; border: none;
-  border-radius: 10px; cursor: pointer; color: rgba(255,255,255,0.90);
+  background: var(--surface-raised); border: 1px solid var(--border-soft);
+  border-radius: 12px; cursor: pointer; color: var(--icon-stroke);
   transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.14);
 }
-.mn-icon-btn:hover { color: #fff; }
+.mn-icon-btn:hover { color: var(--t1); background: var(--glass-hover); }
 .mn-badge {
   position: absolute; top: -4px; right: -4px;
   min-width: 17px; height: 17px; background: var(--red);
@@ -530,8 +464,8 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .notif-dropdown {
   position: absolute; top: calc(100% + 12px); right: 0;
   width: 340px;
-  background: #000000;
-  border: 1px solid rgba(255,255,255,0.10);
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
   z-index: 200;
@@ -552,11 +486,11 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 .notif-dropdown__title { font-size: 0.88rem; font-weight: 700; color: var(--t1); }
 .notif-count-pill {
   font-size: 0.65rem; font-weight: 700;
-  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.70);
-  border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; padding: 2px 8px;
+  background: var(--glass-hover); color: var(--t2);
+  border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px;
 }
-.notif-dropdown__clear { font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.50); cursor: pointer; transition: color 0.2s; }
-.notif-dropdown__clear:hover { color: rgba(255,255,255,0.90); }
+.notif-dropdown__clear { font-size: 0.72rem; font-weight: 600; color: var(--t3); cursor: pointer; transition: color 0.2s; }
+.notif-dropdown__clear:hover { color: var(--t1); }
 
 .notif-list { max-height: 300px; overflow-y: auto; }
 .notif-list::-webkit-scrollbar { width: 3px; }
@@ -570,24 +504,24 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 }
 .notif-item:last-child  { border-bottom: none; }
 .notif-item:hover       { background: var(--glass-2); }
-.notif-item--unread     { background: rgba(255,255,255,0.03); }
-.notif-item--unread:hover { background: rgba(255,255,255,0.06); }
-.notif-item--success { border-left: 2px solid rgba(255,255,255,0.25); }
-.notif-item--error   { border-left: 2px solid rgba(255,255,255,0.25); }
-.notif-item--warning { border-left: 2px solid rgba(255,255,255,0.25); }
-.notif-item--info    { border-left: 2px solid rgba(255,255,255,0.25); }
+.notif-item--unread     { background: var(--glass); }
+.notif-item--unread:hover { background: var(--glass-hover); }
+.notif-item--success { border-left: 2px solid var(--t3); }
+.notif-item--error   { border-left: 2px solid var(--t3); }
+.notif-item--warning { border-left: 2px solid var(--t3); }
+.notif-item--info    { border-left: 2px solid var(--t3); }
 
 .notif-icon { width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-.ni--success { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
-.ni--error   { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
-.ni--warning { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
-.ni--info    { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); }
+.ni--success { background: var(--glass-hover); color: var(--t2); }
+.ni--error   { background: var(--glass-hover); color: var(--t2); }
+.ni--warning { background: var(--glass-hover); color: var(--t2); }
+.ni--info    { background: var(--glass-hover); color: var(--t2); }
 
 .notif-item__content { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .notif-item__title   { font-size: 0.78rem; font-weight: 700; color: var(--t1); margin: 0; }
 .notif-item__message { font-size: 0.73rem; color: var(--t2); margin: 0; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .notif-item__time    { font-size: 0.67rem; color: var(--t3); margin-top: 2px; }
-.notif-item__dot     { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.40); flex-shrink: 0; margin-top: 6px; }
+.notif-item__dot     { width: 6px; height: 6px; border-radius: 50%; background: var(--t3); flex-shrink: 0; margin-top: 6px; }
 .notif-dismiss {
   width: 20px; height: 20px; border-radius: 50%; border: none; background: transparent;
   color: var(--t3); cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -616,27 +550,6 @@ onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
   .navbar--collapsed { left: 0; }
 }
 
-/* ── Sidebar toggle button in navbar (desktop/tablet only) ── */
-.navbar__sidebar-toggle {
-  display: none;
-}
-
-@media (min-width: 769px) {
-  .navbar__sidebar-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #e2e2e2 0%, #111111 100%);
-    border: none;
-    cursor: pointer;
-    flex-shrink: 0;
-    margin-right: 12px;
-    outline: none;
-  }
-}
 @media (max-width: 768px) {
   .desktop-nav { display: none; }
   .mobile-nav  { display: flex; }

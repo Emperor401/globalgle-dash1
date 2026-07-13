@@ -24,7 +24,7 @@
         <div class="bill-stat__top">
           <span class="bill-stat__label">Current Plan</span>
           <div class="bill-stat-icon bill-stat-icon--green">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
               stroke-width="2" stroke-linecap="round">
               <rect x="2" y="5" width="20" height="14" rx="2"/>
               <line x1="2" y1="10" x2="22" y2="10"/>
@@ -38,7 +38,7 @@
         <div class="bill-stat__top">
           <span class="bill-stat__label">Renews / Expires</span>
           <div class="bill-stat-icon bill-stat-icon--green">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
               stroke-width="2" stroke-linecap="round">
               <rect x="3" y="4" width="18" height="18" rx="2"/>
               <line x1="16" y1="2" x2="16" y2="6"/>
@@ -55,7 +55,7 @@
           <span class="bill-stat__label">Days Remaining</span>
           <div class="bill-stat-icon bill-stat-icon--green">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-              stroke="#f05025"
+              stroke="var(--accent)"
               stroke-width="2" stroke-linecap="round">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
@@ -72,7 +72,7 @@
         <div class="bill-stat__top">
           <span class="bill-stat__label">Auto-Renew</span>
           <div class="bill-stat-icon bill-stat-icon--purple">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
               stroke-width="2" stroke-linecap="round">
               <polyline points="17 1 21 5 17 9"/>
               <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
@@ -150,7 +150,7 @@
         <!-- Features -->
         <ul class="bill-plan-features">
           <li v-for="f in plan.features" :key="f">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
               stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
             {{ f }}
           </li>
@@ -159,7 +159,7 @@
         <!-- Perks & discounts accordion -->
         <div class="bill-perks" @click="perksOpen[plan.id] = !perksOpen[plan.id]">
           <div class="bill-perks__row">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
               stroke-width="2" stroke-linecap="round">
               <rect x="2" y="7" width="20" height="14" rx="2"/>
               <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
@@ -229,7 +229,7 @@
             </div>
             <div v-if="billingHistory.length === 0" class="bill-empty">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
-                stroke="rgba(255,255,255,.12)" stroke-width="1.5" stroke-linecap="round">
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                 <polyline points="14 2 14 8 20 8"/>
               </svg>
@@ -316,7 +316,7 @@
               </div>
               <div class="bill-confirm-row">
                 <span>Amount due</span>
-                <strong style="color:#f05025">₦{{ confirmPlan ? planPrice(confirmPlan).toLocaleString() : '' }}</strong>
+                <strong style="color:var(--accent)">₦{{ confirmPlan ? planPrice(confirmPlan).toLocaleString() : '' }}</strong>
               </div>
               <div class="bill-confirm-row">
                 <span>Billing cycle</span>
@@ -496,19 +496,19 @@ function showToast(type, msg) {
 
 .bill-hist-btn {
   display: flex; align-items: center; gap: 7px; flex-shrink: 0;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 10px 18px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
 }
-.bill-hist-btn:hover { border-color: rgba(240, 80, 37,.35); color: var(--t1); }
+.bill-hist-btn:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.35); color: var(--t1); }
 
 /* ── Stats ── */
 .bill-stats {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
 }
 .bill-stat {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 12px 14px;
   display: flex; flex-direction: column; gap: 6px;
@@ -518,21 +518,21 @@ function showToast(type, msg) {
 }
 .bill-stat__label {
   font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.04em; color: #ffffff;
+  letter-spacing: 0.04em; color: var(--t1);
 }
 .bill-stat-icon {
   width: 32px; height: 32px; border-radius: 9px;
   display: flex; align-items: center; justify-content: center;
 }
-.bill-stat-icon--green  { background: rgba(240, 80, 37,.1);   border: 1px solid rgba(240, 80, 37,.2);   }
+.bill-stat-icon--green  { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);   border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);   }
 .bill-stat-icon--blue   { background: rgba(96,165,250,.1);  border: 1px solid rgba(96,165,250,.2);  }
 .bill-stat-icon--amber  { background: rgba(245,158,11,.1);  border: 1px solid rgba(245,158,11,.2);  }
 .bill-stat-icon--red    { background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.2); }
-.bill-stat-icon--purple { background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2); }
+.bill-stat-icon--purple { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2); }
 
 .bill-stat__val         { font-size: 1.5rem; font-weight: 800; color: var(--t1); line-height: 1; }
 .bill-stat__val--warn   { color: #f87171; }
-.bill-stat__note        { font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 700; }
+.bill-stat__note        { font-size: 0.72rem; color: var(--t2); font-weight: 700; }
 .bill-stat__note--warn  { color: #f59e0b; font-weight: 600; }
 
 /* toggle */
@@ -541,13 +541,13 @@ function showToast(type, msg) {
   background: rgba(255,255,255,.1); border: 1px solid var(--border-soft);
   position: relative; cursor: pointer; transition: all 0.25s;
 }
-.bill-toggle--on { background: rgba(240, 80, 37,.25); border-color: rgba(240, 80, 37,.4); }
+.bill-toggle--on { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.25); border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.4); }
 .bill-toggle-thumb {
   width: 18px; height: 18px; border-radius: 50%;
   background: var(--t3); position: absolute; top: 2px; left: 2px;
   transition: transform 0.25s, background 0.25s;
 }
-.bill-toggle--on .bill-toggle-thumb { transform: translateX(18px); background: #f05025; }
+.bill-toggle--on .bill-toggle-thumb { transform: translateX(18px); background: var(--accent); }
 
 /* ── Switch plan header ── */
 .bill-switch-hdr {
@@ -555,16 +555,16 @@ function showToast(type, msg) {
   justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
 .bill-switch-title { font-size: 1.25rem; font-weight: 800; color: var(--t1); margin: 0 0 6px; letter-spacing: -0.01em; }
-.bill-switch-sub   { font-size: 0.82rem; color: #ffffff; font-weight: 700; margin: 0; line-height: 1.5; max-width: 520px; }
+.bill-switch-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 700; margin: 0; line-height: 1.5; max-width: 520px; }
 
 .bill-redeem-btn {
   display: flex; align-items: center; gap: 7px;
-  background: #000000; border: 1px solid var(--border-soft);
+  background: var(--bg); border: 1px solid var(--border-soft);
   border-radius: 10px; padding: 9px 16px; font-size: 0.8rem;
   font-weight: 600; color: var(--t2); cursor: pointer;
   font-family: inherit; transition: all 0.2s;
 }
-.bill-redeem-btn:hover { border-color: rgba(240, 80, 37,.35); color: var(--t1); }
+.bill-redeem-btn:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.35); color: var(--t1); }
 
 /* ── Plan cards grid ── */
 .bill-plans-grid {
@@ -575,7 +575,7 @@ function showToast(type, msg) {
 }
 
 .bill-plan-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 12px;
@@ -584,14 +584,14 @@ function showToast(type, msg) {
 }
 .bill-plan-card:hover:not(.bill-plan-card--current) {
   transform: translateY(-3px);
-  border-color: rgba(240, 80, 37,.3);
+  border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3);
 }
-.bill-plan-card--current { border-color: rgba(240, 80, 37,.5); background: rgba(240, 80, 37,.04); }
-.bill-plan-card--popular { border-color: rgba(240, 80, 37,.4); background: rgba(240, 80, 37,.04); }
+.bill-plan-card--current { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.5); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.04); }
+.bill-plan-card--popular { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.4); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.04); }
 
 .bill-plan-popular {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: #f05025;
+  background: var(--accent);
   color: #fff; font-size: 0.6rem; font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.09em;
   padding: 3px 12px; border-radius: 999px; white-space: nowrap;
@@ -600,14 +600,14 @@ function showToast(type, msg) {
 .bill-plan-head { display: flex; flex-direction: column; gap: 6px; }
 .bill-plan-name {
   font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.09em; color: #ffffff;
+  letter-spacing: 0.09em; color: var(--t1);
 }
 .bill-plan-price-wrap { display: flex; align-items: baseline; gap: 3px; }
 .bill-plan-price  { font-size: 1.7rem; font-weight: 800; color: var(--t1); line-height: 1; }
-.bill-plan-period { font-size: 0.8rem; color: rgba(255,255,255,0.75); font-weight: 700; }
+.bill-plan-period { font-size: 0.8rem; color: var(--t2); font-weight: 700; }
 .bill-plan-saving {
-  font-size: 0.68rem; font-weight: 700; color: #f05025;
-  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
+  font-size: 0.68rem; font-weight: 700; color: var(--accent);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   border-radius: 6px; padding: 2px 7px; width: fit-content;
 }
 
@@ -617,14 +617,14 @@ function showToast(type, msg) {
 }
 .bill-plan-features li {
   display: flex; align-items: flex-start; gap: 8px;
-  font-size: 0.77rem; color: #ffffff; font-weight: 700; line-height: 1.4;
+  font-size: 0.77rem; color: var(--t1); font-weight: 700; line-height: 1.4;
 }
 
 /* ── Trial badge ── */
 .bill-plan-trial-badge {
   position: absolute; top: -12px; left: 20px;
   display: flex; align-items: center; gap: 5px;
-  background: #f05025; color: #fff;
+  background: var(--accent); color: #fff;
   font-size: 0.62rem; font-weight: 800;
   padding: 3px 11px; border-radius: 999px;
 }
@@ -644,7 +644,7 @@ function showToast(type, msg) {
   color: var(--t3); cursor: pointer; font-family: inherit; transition: all 0.16s;
 }
 .bill-card-cycle-btn--on {
-  background: #f05025; color: #fff;
+  background: var(--accent); color: #fff;
 }
 
 /* ── Perks accordion ── */
@@ -652,15 +652,15 @@ function showToast(type, msg) {
   border: 1px solid var(--border-soft); border-radius: 10px;
   padding: 10px 13px; cursor: pointer; transition: border-color 0.18s;
 }
-.bill-perks:hover { border-color: rgba(240,80,37,.3); }
+.bill-perks:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3); }
 .bill-perks__row {
   display: flex; align-items: center; gap: 7px;
-  font-size: 0.75rem; font-weight: 700; color: #ffffff;
+  font-size: 0.75rem; font-weight: 700; color: var(--t1);
 }
-.bill-perks__count { color: rgba(255,255,255,0.75); font-weight: 700; }
-.bill-perks__caret { margin-left: auto; color: rgba(255,255,255,0.75); transition: transform 0.2s; }
+.bill-perks__count { color: var(--t2); font-weight: 700; }
+.bill-perks__caret { margin-left: auto; color: var(--t2); transition: transform 0.2s; }
 .bill-perks__body {
-  font-size: 0.75rem; color: #ffffff; font-weight: 700; margin: 8px 0 0; line-height: 1.55;
+  font-size: 0.75rem; color: var(--t1); font-weight: 700; margin: 8px 0 0; line-height: 1.55;
 }
 
 /* plan button */
@@ -671,17 +671,17 @@ function showToast(type, msg) {
   display: flex; align-items: center; justify-content: center; gap: 6px;
 }
 .bill-plan-btn--current {
-  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.25); color: #f05025;
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.25); color: var(--accent);
   cursor: default;
 }
 .bill-plan-btn--select {
   background: rgba(255,255,255,.07); border: 1px solid var(--border-soft); color: var(--t2);
 }
-.bill-plan-btn--select:hover { background: rgba(240, 80, 37,.1); border-color: rgba(240, 80, 37,.3); color: #f05025; }
+.bill-plan-btn--select:hover { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3); color: var(--accent); }
 
 /* ── FAQ ── */
 .bill-notes {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 20px; overflow: hidden;
 }
@@ -690,13 +690,13 @@ function showToast(type, msg) {
   cursor: pointer; transition: background 0.15s;
 }
 .bill-note-item:last-child { border-bottom: none; }
-.bill-note-item:hover { background: rgba(255,255,255,.03); }
+.bill-note-item:hover { background: var(--glass); }
 .bill-note-q {
   display: flex; justify-content: space-between; align-items: center;
   font-size: 0.84rem; font-weight: 600; color: var(--t1);
 }
 .bill-note-a {
-  font-size: 0.82rem; color: #ffffff; font-weight: 700; margin: 10px 0 0; line-height: 1.6;
+  font-size: 0.82rem; color: var(--t1); font-weight: 700; margin: 10px 0 0; line-height: 1.6;
 }
 
 /* ── Modals ── */
@@ -727,8 +727,8 @@ function showToast(type, msg) {
   margin-bottom: 22px; padding-bottom: 18px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.bill-modal-title { font-size: 1.1rem; font-weight: 800; color: #ffffff; margin: 0 0 4px; }
-.bill-modal-sub   { font-size: 0.77rem; color: rgba(255,255,255,0.60); font-weight: 600; margin: 0; }
+.bill-modal-title { font-size: 1.1rem; font-weight: 800; color: var(--t1); margin: 0 0 4px; }
+.bill-modal-sub   { font-size: 0.77rem; color: var(--t2); font-weight: 600; margin: 0; }
 .bill-modal-close {
   width: 30px; height: 30px; border-radius: 8px;
   background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
@@ -755,20 +755,20 @@ function showToast(type, msg) {
   width: 34px; height: 34px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.bill-hist-icon--upgrade  { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);   }
+.bill-hist-icon--upgrade  { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);   color: var(--accent);  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);   }
 .bill-hist-icon--renew    { background: rgba(96,165,250,.1);  color: #60a5fa;  border: 1px solid rgba(96,165,250,.2);  }
 .bill-hist-icon--downgrade{ background: rgba(245,158,11,.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,.2);  }
 
 .bill-hist-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.bill-hist-desc { font-size: 0.83rem; font-weight: 700; color: #ffffff; }
-.bill-hist-date { font-size: 0.7rem; color: rgba(255,255,255,0.60); font-weight: 600; }
-.bill-hist-amount { font-size: 0.85rem; font-weight: 800; color: #ffffff; flex-shrink: 0; }
-.bill-hist-amount--free { color: #f05025; }
+.bill-hist-desc { font-size: 0.83rem; font-weight: 700; color: var(--t1); }
+.bill-hist-date { font-size: 0.7rem; color: var(--t2); font-weight: 600; }
+.bill-hist-amount { font-size: 0.85rem; font-weight: 800; color: var(--t1); flex-shrink: 0; }
+.bill-hist-amount--free { color: var(--accent); }
 .bill-hist-status {
   font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
   padding: 2px 8px; border-radius: 999px; flex-shrink: 0;
 }
-.bill-hist-status--completed { background: rgba(240, 80, 37,.1); color: #f05025; border: 1px solid rgba(240, 80, 37,.2); }
+.bill-hist-status--completed { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); color: var(--accent); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2); }
 
 /* redeem */
 .bill-redeem-body { display: flex; flex-direction: column; gap: 14px; }
@@ -779,15 +779,15 @@ function showToast(type, msg) {
   transition: border-color 0.2s; text-transform: uppercase; letter-spacing: 0.05em;
   box-sizing: border-box;
 }
-.bill-redeem-input:focus { border-color: rgba(240, 80, 37,.4); }
+.bill-redeem-input:focus { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.4); }
 .bill-redeem-hint  { font-size: 0.72rem; color: var(--t3); margin: 0; }
 .bill-redeem-apply {
   width: 100%; padding: 13px; border-radius: 12px;
-  background: #f05025; border: none;
+  background: var(--accent); border: none;
   font-size: 0.88rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
-.bill-redeem-apply:hover:not(:disabled) { background: #ff6a3d; }
+.bill-redeem-apply:hover:not(:disabled) { background: var(--accent-hover); }
 .bill-redeem-apply:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* confirm */
@@ -815,11 +815,11 @@ function showToast(type, msg) {
 .bill-confirm-cancel:hover { background: rgba(255,255,255,.1); color: var(--t1); }
 .bill-confirm-ok {
   flex: 1; padding: 12px; border-radius: 11px;
-  background: #f05025; border: none;
+  background: var(--accent); border: none;
   color: #fff; cursor: pointer; font-family: inherit;
   font-size: 0.84rem; font-weight: 800; transition: background 0.2s;
 }
-.bill-confirm-ok:hover { background: #ff6a3d; }
+.bill-confirm-ok:hover { background: var(--accent-hover); }
 
 /* ── Toast ── */
 .toast-up-enter-active, .toast-up-leave-active { transition: all 0.3s ease; }
@@ -830,7 +830,7 @@ function showToast(type, msg) {
   padding: 13px 22px; border-radius: 14px;
   font-size: 0.84rem; font-weight: 600; z-index: 9999;
 }
-.bill-toast--success { background: rgba(240, 80, 37,.18);  border: 1px solid rgba(240, 80, 37,.3);  color: #f05025;  }
+.bill-toast--success { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.18);  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3);  color: var(--accent);  }
 .bill-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
 .bill-toast--info    { background: rgba(96,165,250,.18);  border: 1px solid rgba(96,165,250,.3);  color: #60a5fa; }
 

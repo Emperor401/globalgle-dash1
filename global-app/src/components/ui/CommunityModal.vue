@@ -16,7 +16,7 @@
           <div class="modal-icon-wrap">
             <div class="modal-icon-ring" />
             <div class="modal-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
             </div>
@@ -87,7 +87,7 @@ function join() {
 
 onMounted(() => {
   if (!sessionStorage.getItem('community_modal_seen')) {
-    showTimer = setTimeout(show, 120_000)
+    showTimer = setTimeout(show, 60_000)
   }
 })
 
@@ -110,9 +110,7 @@ onBeforeUnmount(() => {
 /* Card */
 .modal-card {
   position: relative;
-  background: var(--modal-glass);
-  backdrop-filter: blur(24px) saturate(180%);
- 
+  background: var(--bg);
   border: 1px solid var(--modal-border);
   border-radius: 24px;
   padding: 36px 32px 28px;
@@ -131,7 +129,7 @@ onBeforeUnmount(() => {
   position: absolute;
   top: -60px; left: 50%; transform: translateX(-50%);
   width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(240, 80, 37,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.18) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -156,6 +154,7 @@ onBeforeUnmount(() => {
 .modal-icon {
   width: 56px; height: 56px; border-radius: 50%;
   background: var(--accent);
+  color: #fff;
   display: flex; align-items: center; justify-content: center;
   position: relative; z-index: 1;
 }
@@ -168,8 +167,8 @@ onBeforeUnmount(() => {
 
 /* Copy */
 .modal-body { text-align: center; }
-.modal-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0 0 8px; letter-spacing: -0.02em; }
-.modal-sub { font-size: 0.825rem; color: rgba(255,255,255,0.85); font-weight: 600; line-height: 1.55; margin: 0; }
+.modal-title { font-size: 1.15rem; font-weight: 800; color: var(--t1); margin: 0 0 8px; letter-spacing: -0.02em; }
+.modal-sub { font-size: 0.825rem; color: var(--t1); font-weight: 600; line-height: 1.55; margin: 0; }
 
 /* Buttons */
 .modal-actions { display: flex; flex-direction: column; gap: 10px; width: 100%; }
@@ -188,10 +187,10 @@ onBeforeUnmount(() => {
 .btn-later {
   width: 100%; padding: 12px 24px;
   background: var(--glass-2); border: 1px solid var(--border-soft); border-radius: 12px;
-  color: rgba(255,255,255,0.85); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700;
+  color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700;
   cursor: pointer; transition: all 0.2s ease;
 }
-.btn-later:hover { background: var(--glass-hover); color: #fff; border-color: var(--border); }
+.btn-later:hover { background: var(--glass-hover); color: var(--t1); border-color: var(--border); }
 
 /* Countdown timer bar */
 .modal-timer {
@@ -200,7 +199,7 @@ onBeforeUnmount(() => {
 }
 .modal-timer__fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), rgba(240, 80, 37,0.4));
+  background: linear-gradient(90deg, var(--accent), rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.4));
   border-radius: 0 2px 2px 0;
   transition: width 0.1s linear;
 }

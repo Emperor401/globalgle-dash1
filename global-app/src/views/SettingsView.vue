@@ -164,7 +164,7 @@
             </div>
             <Transition name="slide-down">
               <div v-if="twoFA" class="set-2fa-notice">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f05025"
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
                   stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
@@ -345,7 +345,7 @@
               </button>
             </div>
             <p class="set-card-desc" style="margin-top:10px">
-              Earn <strong style="color:#f05025">₦500</strong> for each friend who signs up and activates a paid plan using your code.
+              Earn <strong style="color:var(--accent)">₦500</strong> for each friend who signs up and activates a paid plan using your code.
             </p>
           </div>
 
@@ -356,7 +356,7 @@
             </div>
             <div class="set-empty-state">
               <svg width="38" height="38" viewBox="0 0 24 24" fill="none"
-                stroke="rgba(255,255,255,.08)" stroke-width="1.5" stroke-linecap="round">
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="color: var(--t4);">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                 <circle cx="9" cy="7" r="4"/>
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
@@ -468,7 +468,7 @@ const pwStrength = computed(() => {
   if (/[0-9]/.test(pw))        score++
   if (/[^A-Za-z0-9]/.test(pw)) score++
   const labels = ['', 'Weak', 'Fair', 'Good', 'Strong']
-  const colors = ['', '#f87171', '#f59e0b', '#60a5fa', '#f05025']
+  const colors = ['', '#f87171', '#f59e0b', '#60a5fa', 'var(--accent)']
   return { score, label: labels[score] || '', color: colors[score] || '' }
 })
 
@@ -550,14 +550,14 @@ function copyText(text) {
 }
 .set-tabbar-item:hover { color: var(--t1); }
 .set-tabbar-item--active {
-  background: rgba(255,255,255,.07); color: var(--t1);
+  background: var(--glass-hover); color: var(--t1);
 }
 
 /* ── Avatar ── */
 .set-avatar {
   width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
-  background: rgba(240, 80, 37,.1); border: 2px solid rgba(240, 80, 37,.3);
-  font-size: 1.15rem; font-weight: 800; color: #f05025;
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 2px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3);
+  font-size: 1.15rem; font-weight: 800; color: var(--accent);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
@@ -576,13 +576,13 @@ function copyText(text) {
 
 .set-upload-btn {
   display: flex; align-items: center; gap: 7px; cursor: pointer;
-  background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
+  background: var(--glass-hover); border: 1px solid var(--border-soft);
   border-radius: 9px; padding: 7px 13px; font-size: 0.78rem;
   font-weight: 600; color: var(--t2); transition: all 0.2s;
 }
-.set-upload-btn:hover { border-color: rgba(240, 80, 37,.3); color: #f05025; }
+.set-upload-btn:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3); color: var(--accent); }
 
-.set-field-note { font-size: 0.7rem; color: rgba(255,255,255,0.65); font-weight: 600; }
+.set-field-note { font-size: 0.7rem; color: var(--t2); font-weight: 600; }
 
 .set-card-footer {
   display: flex; padding-top: 14px; margin-top: 2px;
@@ -591,7 +591,7 @@ function copyText(text) {
 
 /* ── Cards ── */
 .set-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 14px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 10px;
@@ -603,7 +603,7 @@ function copyText(text) {
 .set-card-desc  { font-size: 0.77rem; color: var(--t3); margin: 0; line-height: 1.5; }
 .set-count-badge {
   font-size: 0.66rem; font-weight: 700; padding: 3px 9px; border-radius: 999px;
-  background: rgba(240, 80, 37,.1); color: #f05025; border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); color: var(--accent); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
 }
 
 /* ── Security form ── */
@@ -612,12 +612,12 @@ function copyText(text) {
 .set-label     { font-size: 0.73rem; font-weight: 700; color: var(--t2); }
 
 .set-input {
-  width: 100%; background: rgba(255,255,255,.05); border: 1px solid var(--border-soft);
+  width: 100%; background: var(--glass); border: 1px solid var(--border-soft);
   border-radius: 11px; padding: 10px 14px; font-size: 0.87rem;
   color: var(--t1); font-family: inherit; outline: none; box-sizing: border-box;
   transition: border-color 0.2s;
 }
-.set-input:focus { border-color: rgba(240, 80, 37,.4); }
+.set-input:focus { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.4); }
 .set-input--err  { border-color: rgba(248,113,113,.4); }
 .set-input:disabled { opacity: 0.55; cursor: not-allowed; }
 
@@ -636,38 +636,38 @@ function copyText(text) {
 .set-pw-bars { display: flex; gap: 4px; }
 .set-pw-bar {
   width: 34px; height: 4px; border-radius: 2px;
-  background: rgba(255,255,255,.09); transition: background 0.3s;
+  background: var(--glass-hover); transition: background 0.3s;
 }
 .set-pw-label { font-size: 0.7rem; font-weight: 700; }
 
 .set-primary-btn {
   padding: 11px 22px; border-radius: 11px;
-  background: #f05025; border: none;
+  background: var(--accent); border: none;
   font-size: 0.84rem; font-weight: 800; color: #fff;
   cursor: pointer; font-family: inherit; transition: background 0.2s, opacity 0.2s;
 }
-.set-primary-btn:hover:not(:disabled) { background: #cc4118; }
+.set-primary-btn:hover:not(:disabled) { background: var(--accent-press); }
 .set-primary-btn:disabled { opacity: 0.38; cursor: not-allowed; }
 
 /* Toggle */
 .set-toggle {
   width: 42px; height: 24px; border-radius: 12px; flex-shrink: 0;
-  background: rgba(255,255,255,.09); border: 1px solid var(--border-soft);
+  background: var(--glass-hover); border: 1px solid var(--border-soft);
   position: relative; cursor: pointer; transition: all 0.25s;
 }
-.set-toggle--on { background: rgba(240, 80, 37,.22); border-color: rgba(240, 80, 37,.38); }
+.set-toggle--on { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.22); border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.38); }
 .set-toggle-knob {
   width: 18px; height: 18px; border-radius: 50%; background: var(--t3);
   position: absolute; top: 2px; left: 2px; transition: transform 0.25s, background 0.25s;
 }
-.set-toggle--on .set-toggle-knob { transform: translateX(18px); background: #f05025; }
+.set-toggle--on .set-toggle-knob { transform: translateX(18px); background: var(--accent); }
 
 .slide-down-enter-active, .slide-down-leave-active { transition: all 0.22s ease; }
 .slide-down-enter-from, .slide-down-leave-to { opacity: 0; transform: translateY(-6px); }
 
 .set-2fa-notice {
   display: flex; gap: 9px; align-items: flex-start;
-  background: rgba(240, 80, 37,.06); border: 1px solid rgba(240, 80, 37,.18);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.06); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.18);
   border-radius: 10px; padding: 12px 14px;
 }
 .set-2fa-notice p { font-size: 0.77rem; color: var(--t2); margin: 0; line-height: 1.5; }
@@ -677,7 +677,7 @@ function copyText(text) {
 .set-danger-item {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 14px 16px; border-radius: 12px;
-  background: rgba(255,255,255,.02); border: 1px solid rgba(248,113,113,.1);
+  background: var(--glass-2); border: 1px solid rgba(248,113,113,.1);
 }
 .set-danger-name { font-size: 0.83rem; font-weight: 700; color: var(--t1); margin-bottom: 3px; }
 .set-danger-sub  { font-size: 0.72rem; color: var(--t1); font-weight: 600; }
@@ -696,7 +696,7 @@ function copyText(text) {
   display: grid; grid-template-columns: 175px 1fr 110px 125px 85px;
   gap: 12px; padding: 8px 0 10px;
   font-size: 0.61rem; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.09em; color: rgba(255,255,255,0.70);
+  letter-spacing: 0.09em; color: var(--t2);
   border-bottom: 1px solid var(--border-soft);
 }
 .set-login-row {
@@ -705,16 +705,16 @@ function copyText(text) {
   border-bottom: 1px solid var(--border-soft);
 }
 .set-login-row:last-child { border-bottom: none; }
-.set-login-date  { font-size: 0.75rem; color: #ffffff; font-weight: 700; }
-.set-login-device{ font-size: 0.8rem; font-weight: 700; color: #ffffff; display: flex; align-items: center; gap: 6px; }
-.set-login-loc   { font-size: 0.77rem; color: #ffffff; font-weight: 700; }
-.set-login-ip    { font-size: 0.72rem; color: rgba(255,255,255,0.80); font-weight: 700; font-family: monospace; }
+.set-login-date  { font-size: 0.75rem; color: var(--t1); font-weight: 700; }
+.set-login-device{ font-size: 0.8rem; font-weight: 700; color: var(--t1); display: flex; align-items: center; gap: 6px; }
+.set-login-loc   { font-size: 0.77rem; color: var(--t1); font-weight: 700; }
+.set-login-ip    { font-size: 0.72rem; color: var(--t2); font-weight: 700; font-family: monospace; }
 
 .set-status-tag {
   font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
   padding: 3px 9px; border-radius: 999px; width: fit-content;
 }
-.set-status-tag--current { background: rgba(240, 80, 37,.1);   color: #f05025;  border: 1px solid rgba(240, 80, 37,.2);  }
+.set-status-tag--current { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);   color: var(--accent);  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);  }
 .set-status-tag--success { background: rgba(96,165,250,.1);  color: #60a5fa;  border: 1px solid rgba(96,165,250,.2); }
 .set-status-tag--blocked { background: rgba(248,113,113,.1); color: #f87171;  border: 1px solid rgba(248,113,113,.2);}
 
@@ -728,16 +728,16 @@ function copyText(text) {
   border: 2px solid var(--border-soft); display: flex; align-items: center;
   justify-content: center; transition: border-color 0.2s;
 }
-.set-radio--on  { border-color: #f05025; }
-.set-radio-dot  { width: 7px; height: 7px; border-radius: 50%; background: #f05025; }
+.set-radio--on  { border-color: var(--accent); }
+.set-radio-dot  { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 .set-smtp-btns  { display: flex; gap: 10px; }
 .set-ghost-btn {
   display: flex; align-items: center; gap: 7px;
-  background: rgba(255,255,255,.06); border: 1px solid var(--border-soft);
+  background: var(--glass-hover); border: 1px solid var(--border-soft);
   border-radius: 11px; padding: 10px 16px; font-size: 0.83rem;
   font-weight: 600; color: var(--t2); cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
-.set-ghost-btn:hover { border-color: rgba(240, 80, 37,.3); color: #f05025; }
+.set-ghost-btn:hover { border-color: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3); color: var(--accent); }
 .set-smtp-btns .set-primary-btn { flex: 1; }
 
 /* ── Referrals ── */
@@ -745,7 +745,7 @@ function copyText(text) {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .set-ref-stat {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft); border-radius: 16px;
   padding: 17px; display: flex; align-items: center; gap: 14px;
 }
@@ -753,7 +753,7 @@ function copyText(text) {
   width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.set-ref-icon--green { background: rgba(240, 80, 37,.1);   border: 1px solid rgba(240, 80, 37,.2);   color: #f05025;  }
+.set-ref-icon--green { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1);   border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);   color: var(--accent);  }
 .set-ref-icon--blue  { background: rgba(96,165,250,.1);  border: 1px solid rgba(96,165,250,.2);  color: #60a5fa;  }
 .set-ref-icon--amber { background: rgba(245,158,11,.1);  border: 1px solid rgba(245,158,11,.2);  color: #f59e0b;  }
 .set-ref-val { font-size: 1.35rem; font-weight: 800; color: var(--t1); line-height: 1; }
@@ -761,18 +761,18 @@ function copyText(text) {
 
 .set-ref-row {
   display: flex; align-items: center; gap: 12px;
-  background: rgba(255,255,255,.04); border: 1px solid var(--border-soft);
+  background: var(--glass); border: 1px solid var(--border-soft);
   border-radius: 12px; padding: 12px 16px;
 }
-.set-ref-code { flex: 1; font-size: 1.1rem; font-weight: 800; color: #f05025; letter-spacing: 0.05em; font-family: monospace; }
+.set-ref-code { flex: 1; font-size: 1.1rem; font-weight: 800; color: var(--accent); letter-spacing: 0.05em; font-family: monospace; }
 .set-ref-link { flex: 1; font-size: 0.77rem; color: var(--t3); font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .set-copy-btn {
   flex-shrink: 0; display: flex; align-items: center; gap: 6px;
-  background: rgba(240, 80, 37,.1); border: 1px solid rgba(240, 80, 37,.2);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2);
   border-radius: 8px; padding: 7px 13px; font-size: 0.75rem; font-weight: 700;
-  color: #f05025; cursor: pointer; font-family: inherit; transition: background 0.2s;
+  color: var(--accent); cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
-.set-copy-btn:hover { background: rgba(240, 80, 37,.2); }
+.set-copy-btn:hover { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.2); }
 
 .set-empty-state {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -787,7 +787,7 @@ function copyText(text) {
   display: flex; align-items: center; gap: 9px;
   padding: 12px 20px; border-radius: 13px; font-size: 0.83rem; font-weight: 600;
 }
-.set-toast--success { background: rgba(240, 80, 37,.18);   border: 1px solid rgba(240, 80, 37,.3);   color: #f05025;  }
+.set-toast--success { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),.18);   border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),.3);   color: var(--accent);  }
 .set-toast--error   { background: rgba(248,113,113,.18); border: 1px solid rgba(248,113,113,.3); color: #f87171; }
 
 @media (max-width: 1024px) and (min-width: 769px) {

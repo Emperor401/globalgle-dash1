@@ -13,6 +13,14 @@
 
     <!-- Lord Icon -->
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+      (function () {
+        var theme = localStorage.getItem('globalgle_theme') === 'light' ? 'light' : 'dark'
+        document.documentElement.setAttribute('data-theme', theme)
+      })()
+    </script>
   </head>
   <body>
     <div id="bg-layer" aria-hidden="true"></div>

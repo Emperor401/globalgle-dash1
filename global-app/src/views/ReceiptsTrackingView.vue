@@ -5,7 +5,7 @@
     <!-- Page Header -->
     <div class="rt-header">
       <div class="rt-icon-box">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f05025" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
         </svg>
       </div>
@@ -74,7 +74,7 @@
           <div class="subdomain-box">
             <div class="subdomain-head">
               <div class="subdomain-title-row">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f05025" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 <span class="subdomain-name">Use our subdomain</span>
                 <span class="subdomain-free">free</span>
               </div>
@@ -587,12 +587,12 @@ function generate() {
 .rt-header { display: flex; align-items: center; gap: 14px; }
 .rt-icon-box {
   width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
-  background: rgba(240, 80, 37,0.15); border: 1px solid rgba(240, 80, 37,0.3);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.15); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3);
   display: flex; align-items: center; justify-content: center;
 }
 .rt-title { font-size: 1.45rem; font-weight: 800; color: var(--t1); margin: 0; letter-spacing: -0.025em; }
 .rt-sub   { font-size: 0.82rem; color: var(--t1); font-weight: 600; margin: 0; }
-.rt-sub-hl { color: #f05025; font-weight: 500; }
+.rt-sub-hl { color: var(--accent); font-weight: 500; }
 
 /* Layout */
 .rt-layout {
@@ -607,7 +607,7 @@ function generate() {
 
 /* Section card */
 .sec-card {
-  background: #000000;
+  background: var(--bg);
   border: 1px solid var(--border-soft);
   border-radius: 14px;
   padding: 16px 18px;
@@ -616,11 +616,11 @@ function generate() {
   gap: 12px;
 }
 .sec-head { display: flex; align-items: center; gap: 8px; }
-.sec-icon { color: #f05025; flex-shrink: 0; }
-.sec-icon--warn { color: #f05025; }
+.sec-icon { color: var(--accent); flex-shrink: 0; }
+.sec-icon--warn { color: var(--accent); }
 .sec-title { font-size: 0.9rem; font-weight: 700; color: var(--t1); margin: 0; }
 .sec-desc { font-size: 0.78rem; color: var(--t2); line-height: 1.6; margin: 0; }
-.sec-desc .hl { color: #f05025; font-weight: 500; }
+.sec-desc .hl { color: var(--accent); font-weight: 500; }
 
 /* Fields */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -630,28 +630,28 @@ function generate() {
 
 .fi {
   width: 100%; padding: 9px 12px; border-radius: 9px;
-  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1);
+  border: 1px solid var(--border-soft); background: var(--glass-hover); color: var(--t1);
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem;
   transition: border-color 0.18s; box-sizing: border-box;
 }
-.fi:focus { outline: none; border-color: #f05025; }
+.fi:focus { outline: none; border-color: var(--accent); }
 .fi::placeholder { color: var(--t3); }
 
 .fi-area {
   width: 100%; padding: 9px 12px; border-radius: 9px;
-  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1);
+  border: 1px solid var(--border-soft); background: var(--glass-hover); color: var(--t1);
   font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem;
   resize: none; min-height: 80px;
   transition: border-color 0.18s; box-sizing: border-box;
 }
-.fi-area:focus { outline: none; border-color: #f05025; }
+.fi-area:focus { outline: none; border-color: var(--accent); }
 .fi-area::placeholder { color: var(--t3); }
 
 /* Logo upload */
 .logo-row { display: flex; gap: 8px; align-items: stretch; }
 .logo-preview-box {
   width: 60px; height: 60px; border-radius: 10px; flex-shrink: 0;
-  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-soft); background: var(--glass-hover);
   display: flex; align-items: center; justify-content: center; color: var(--t3); overflow: hidden;
 }
 .logo-img { width: 100%; height: 100%; object-fit: contain; }
@@ -660,30 +660,30 @@ function generate() {
   border: 1.5px dashed var(--border); border-radius: 10px; padding: 10px;
   font-size: 0.75rem; color: var(--t2); cursor: pointer; transition: border-color 0.18s;
 }
-.logo-drop:hover { border-color: #f05025; }
-.click-link { background: none; border: none; padding: 0; color: #f05025; font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+.logo-drop:hover { border-color: var(--accent); }
+.click-link { background: none; border: none; padding: 0; color: var(--accent); font-size: 0.75rem; font-weight: 600; cursor: pointer; font-family: inherit; }
 
 /* Subdomain box */
 .subdomain-box {
-  border: 1.5px solid #f05025; border-radius: 12px; padding: 14px 16px;
-  background: rgba(240, 80, 37,0.04); display: flex; flex-direction: column; gap: 10px;
+  border: 1.5px solid var(--accent); border-radius: 12px; padding: 14px 16px;
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.04); display: flex; flex-direction: column; gap: 10px;
 }
 .subdomain-head { display: flex; flex-direction: column; gap: 6px; }
 .subdomain-title-row { display: flex; align-items: center; gap: 8px; }
 .subdomain-name { font-size: 0.85rem; font-weight: 700; color: var(--t1); }
 .subdomain-free {
-  font-size: 0.65rem; font-weight: 700; color: #f05025;
-  background: rgba(240, 80, 37,0.12); border: 1px solid rgba(240, 80, 37,0.25);
+  font-size: 0.65rem; font-weight: 700; color: var(--accent);
+  background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25);
   padding: 2px 8px; border-radius: 999px;
 }
 .subdomain-hint { font-size: 0.75rem; color: var(--t2); margin: 0; }
-.subdomain-hint .hl { color: #f05025; font-weight: 500; }
+.subdomain-hint .hl { color: var(--accent); font-weight: 500; }
 .slug-row { display: flex; gap: 8px; }
 .slug-input  { flex: 1; }
-.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
-.slug-domain:focus { outline: none; border-color: #f05025; }
+.slug-domain { width: 140px; padding: 9px 10px; border-radius: 9px; border: 1px solid var(--border-soft); background: var(--glass-hover); color: var(--t1); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; cursor: pointer; flex-shrink: 0; }
+.slug-domain:focus { outline: none; border-color: var(--accent); }
 .slug-note { font-size: 0.72rem; color: var(--t2); margin: 0; }
-.slug-note .hl { color: #f05025; font-weight: 500; }
+.slug-note .hl { color: var(--accent); font-weight: 500; }
 
 /* Color picker */
 .color-field { display: flex; gap: 8px; align-items: center; }
@@ -702,11 +702,11 @@ function generate() {
 .mode-pills { display: flex; gap: 6px; }
 .mode-pill {
   display: flex; align-items: center; gap: 6px; padding: 7px 16px;
-  border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06);
+  border-radius: 999px; border: 1px solid var(--border-soft); background: var(--glass-hover);
   color: var(--t2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; font-weight: 600;
   cursor: pointer; transition: all 0.18s;
 }
-.mode-pill--active { background: #f05025; border-color: #f05025; color: #fff; }
+.mode-pill--active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 /* Toggle switch */
 .toggle-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
@@ -722,7 +722,7 @@ function generate() {
   border-radius: 50%; background: #fff; top: 3px; left: 3px;
   transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
-.toggle-switch--on { background: #f05025; }
+.toggle-switch--on { background: var(--accent); }
 .toggle-switch--on::after { transform: translateX(20px); }
 
 /* Dynamic list */
@@ -731,18 +731,18 @@ function generate() {
 .dynamic-row { display: flex; gap: 8px; align-items: center; }
 .remove-btn {
   width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px;
-  border: 1px solid var(--border-soft); background: rgba(255,255,255,0.06); color: var(--t3);
+  border: 1px solid var(--border-soft); background: var(--glass-hover); color: var(--t3);
   display: flex; align-items: center; justify-content: center; cursor: pointer;
   transition: background 0.18s, color 0.18s;
 }
 .remove-btn:hover { background: #fee2e2; color: #ef4444; border-color: #fca5a5; }
 .add-btn {
-  font-size: 0.75rem; font-weight: 700; color: #f05025; background: rgba(240, 80, 37,0.1);
-  border: 1px solid rgba(240, 80, 37,0.25); border-radius: 8px; padding: 5px 12px;
+  font-size: 0.75rem; font-weight: 700; color: var(--accent); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1);
+  border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25); border-radius: 8px; padding: 5px 12px;
   cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: background 0.18s;
   white-space: nowrap;
 }
-.add-btn:hover { background: rgba(240, 80, 37,0.18); }
+.add-btn:hover { background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.18); }
 
 /* Form error */
 .form-error {
@@ -775,14 +775,14 @@ function generate() {
 }
 .my-receipts-title { font-size: 0.9rem; font-weight: 700; color: var(--t1); margin: 0; }
 .my-receipts-empty p { font-size: 0.8rem; color: var(--t3); margin: 0; }
-.my-receipts-empty .hl { color: #f05025; }
+.my-receipts-empty .hl { color: var(--accent); }
 .receipts-list { display: flex; flex-direction: column; gap: 8px; }
-.receipt-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-soft); }
+.receipt-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: var(--glass-hover); border: 1px solid var(--border-soft); }
 .receipt-item__dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .receipt-item__info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .receipt-item__name { font-size: 0.82rem; font-weight: 600; color: var(--t1); }
 .receipt-item__meta { font-size: 0.7rem; color: var(--t3); }
-.receipt-item__badge { font-size: 0.65rem; font-weight: 700; color: #f05025; background: rgba(240, 80, 37,0.1); border: 1px solid rgba(240, 80, 37,0.25); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.receipt-item__badge { font-size: 0.65rem; font-weight: 700; color: var(--accent); background: rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1); border: 1px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.25); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
 
 /* â"€â"€ RIGHT: Preview column â"€â"€ */
 .rt-preview-col {
@@ -803,7 +803,7 @@ function generate() {
 }
 .rp-circle {
   width: 72px; height: 72px; border-radius: 50%;
-  border: 2px solid #f05025; display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center;
   overflow: hidden; flex-shrink: 0;
 }
 .rp-circle-img { width: 100%; height: 100%; object-fit: contain; }
@@ -900,7 +900,7 @@ function generate() {
 .success-toast {
   position: fixed; bottom: 28px; right: 28px; z-index: 400;
   display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
-  background: #f05025; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--accent); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem; font-weight: 600; box-shadow: 0 8px 28px rgba(22,163,74,0.45);
 }
 .toast-pop-enter-active { transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
