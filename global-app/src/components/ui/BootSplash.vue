@@ -91,8 +91,12 @@ onMounted(() => {
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--t2);
+  color: #000000;
   animation: boot-name-in 0.6s ease 0.15s both;
+}
+
+:root[data-theme="dark"] .boot-splash__name {
+  color: #ffffff;
 }
 
 .boot-splash__pct {
