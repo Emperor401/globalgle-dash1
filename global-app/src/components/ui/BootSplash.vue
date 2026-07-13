@@ -7,6 +7,7 @@
         <img :src="logoSrc" alt="Globalgle" class="boot-splash__mark" />
       </div>
       <span class="boot-splash__name">Globalgle</span>
+      <span class="boot-splash__pct">{{ pct }}%</span>
     </div>
   </Transition>
 </template>
@@ -23,12 +24,25 @@ const { theme } = useTheme()
 const logoSrc = computed(() => theme.value === 'light' ? lightLogo : darkLogo)
 
 const visible = ref(true)
+const pct = ref(0)
 
 onMounted(() => {
-  setTimeout(() => {
-    visible.value = false
-    finishBooting()
-  }, 3000)
+  const duration = 4200
+  const start = performance.now()
+
+  function tick(now) {
+    const linear = Math.min((now - start) / duration, 1)
+    pct.value = Math.round(linear * 100)
+    if (linear < 1) {
+      requestAnimationFrame(tick)
+    } else {
+      setTimeout(() => {
+        visible.value = false
+        finishBooting()
+      }, 300)
+    }
+  }
+  requestAnimationFrame(tick)
 })
 </script>
 
@@ -79,6 +93,16 @@ onMounted(() => {
   letter-spacing: 0.02em;
   color: var(--t2);
   animation: boot-name-in 0.6s ease 0.15s both;
+}
+
+.boot-splash__pct {
+  margin-top: -8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--t4);
+  letter-spacing: 0.03em;
+  font-variant-numeric: tabular-nums;
+  animation: boot-name-in 0.6s ease 0.25s both;
 }
 
 @keyframes boot-spin {
