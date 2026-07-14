@@ -225,7 +225,7 @@
                 </div>
                 <div class="w-bank-row">
                   <span class="w-bank-lbl">Account Name</span>
-                  <span class="w-bank-val">IFEANYI GLOBALGLE</span>
+                  <span class="w-bank-val">Globalgle</span>
                 </div>
                 <div class="w-bank-row">
                   <span class="w-bank-lbl">Account Number</span>
