@@ -164,6 +164,15 @@ html {
 @media (max-width: 430px) { html { font-size: 13.5px; } }
 @media (max-width: 360px) { html { font-size: 13px; } }
 
+/* ── iOS Safari auto-zoom fix ──
+   iOS zooms the page in on focus when a focused form field renders below
+   16px. Root font-size shrinks on mobile above, which drops input text
+   below that threshold, so pin form fields to 16px on touch viewports
+   regardless of any component-level font-size. */
+@media (max-width: 768px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+
 html, body {
   min-height: 100vh;
   font-family: 'Plus Jakarta Sans', sans-serif;
